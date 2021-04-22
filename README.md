@@ -20,7 +20,7 @@ Sistema de barbeiros delivery
     <img alt="Miguel Neto" src="https://img.shields.io/badge/Miguel Neto-F.S-red">
   </a>
   <a href="https://github.com/anisberto">
-    <img alt="Anisberto Reis" src="https://img.shields.io/badge/Anisberto Reis-F.S-red">
+    <img alt="Anisberto Reis" src="https://img.shields.io/badge/Anisberto Reis-F.S-orange">
   </a>
 </p>
 <br>
