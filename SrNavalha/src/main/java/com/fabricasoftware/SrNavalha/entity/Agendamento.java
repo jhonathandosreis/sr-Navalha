@@ -1,10 +1,11 @@
 package com.fabricasoftware.SrNavalha.entity;
 
+import java.security.Timestamp;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.xml.crypto.Data;
 
 @Entity
 public class Agendamento {
@@ -13,11 +14,33 @@ public class Agendamento {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	private Data data;
-	private String horaio;
+	private Timestamp data;
+	private String horario;
 	private Endereco endereco;
 	private Pessoa pessoa;
 	private ServicosOferecidos servicoOferecido;
+	
+	//Construtores
+	public Agendamento() {
+	}
+
+	public Agendamento(Long id, Timestamp data, String horario, Endereco endereco, Pessoa pessoa ,ServicosOferecidos servicoOferecido ) {
+	this.id = id;
+	this.data = data;
+	this.horario = horario;
+	this.endereco = endereco;
+	this.pessoa = pessoa;
+	this.servicoOferecido= servicoOferecido;
+	}
+
+	public Agendamento(Agendamento agendamento) {
+		this.id = agendamento.getId();
+		this.data = agendamento.getData();
+		this.horario = agendamento.getHoraio();
+		this.endereco = agendamento.getEndereco();
+		this.pessoa = agendamento.getPessoa();
+		this.servicoOferecido= agendamento.getServicoOferecido();
+	}
 	
 	//Getters e Setters
 	public long getId() {
@@ -26,17 +49,17 @@ public class Agendamento {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public Data getData() {
+	public Timestamp getData() {
 		return data;
 	}
-	public void setData(Data data) {
+	public void setData(Timestamp data) {
 		this.data = data;
 	}
 	public String getHoraio() {
-		return horaio;
+		return horario;
 	}
 	public void setHoraio(String horaio) {
-		this.horaio = horaio;
+		this.horario = horaio;
 	}
 	public Endereco getEndereco() {
 		return endereco;

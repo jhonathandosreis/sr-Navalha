@@ -21,6 +21,34 @@ public class Pessoa {
 	private PerfilAcesso perfilAcesso;
 	private Endereco endereco;
 	
+	//Contrutores
+	
+	public Pessoa() {
+	}
+	
+	public Pessoa(long id, String nomeCompleto, String email, String telefone, Timestamp dataCadastro, String cPF,
+			PerfilAcesso perfilAcesso, Endereco endereco) {
+		this.id = id;
+		this.nomeCompleto = nomeCompleto;
+		this.email = email;
+		this.telefone = telefone;
+		this.dataCadastro = dataCadastro;
+		CPF = cPF;
+		this.perfilAcesso = perfilAcesso;
+		this.endereco = endereco;
+	}
+	
+	public Pessoa(Pessoa pessoa) {
+		this.id = pessoa.getId();
+		this.nomeCompleto = pessoa.getNomeCompleto();
+		this.email = pessoa.getEmail();
+		this.telefone = pessoa.getTelefone();
+		this.dataCadastro = pessoa.getDataCadastro();
+		CPF = pessoa.getCPF();
+		this.perfilAcesso = pessoa.getPerfilAcesso();
+		this.endereco = pessoa.getEndereco();
+	}
+	
 	//Getters e Setters
 	public long getId() {
 		return id;

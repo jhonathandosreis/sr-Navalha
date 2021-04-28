@@ -16,6 +16,25 @@ public class PerfilUsuario {
 	private String descricao;
 	private Pessoa pessoa;
 	
+	//Contrutores
+	public PerfilUsuario() {
+	
+	}
+	
+	public PerfilUsuario(long id, String imageUrl, String descricao, Pessoa pessoa) {
+		this.id = id;
+		this.imageUrl = imageUrl;
+		this.descricao = descricao;
+		this.pessoa = pessoa;
+	}
+	
+	public PerfilUsuario(PerfilUsuario perfilUsuario) {
+		this.id = perfilUsuario.getId();
+		this.imageUrl = perfilUsuario.getImageUrl();
+		this.descricao = perfilUsuario.getDescricao();
+		this.pessoa = perfilUsuario.getPessoa();
+	}
+	
 	//Getters e Setters
 	public long getId() {
 		return id;

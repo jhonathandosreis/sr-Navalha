@@ -14,6 +14,23 @@ public class Portifolio {
 	private String certificadoUrl;
 	private PerfilUsuario perfilUsuario;
 	
+	//Construtores
+	public Portifolio() {
+		
+	}
+	
+	public Portifolio(long id, String certificadoUrl, PerfilUsuario perfilUsuario) {
+		this.id = id;
+		this.certificadoUrl = certificadoUrl;
+		this.perfilUsuario = perfilUsuario;
+	}
+	
+	public Portifolio(Portifolio portifolio) {
+		this.id = portifolio.getId();
+		this.certificadoUrl = portifolio.getCertificadoUrl();
+		this.perfilUsuario = portifolio.getPerfilUsuario();
+	}
+	
 	//Getters e Setters
 	public long getId() {
 		return id;

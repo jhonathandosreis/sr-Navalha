@@ -19,6 +19,30 @@ public class Endereco {
 	private String CEP;
 	private Cidade cidade;
 	
+	//Contrutores
+	public Endereco() {
+		
+	}
+	public Endereco(long id, String rua, String numero, String complemento, String bairro, String cEP, Cidade cidade) {
+		this.id = id;
+		this.rua = rua;
+		this.numero = numero;
+		this.complemento = complemento;
+		this.bairro = bairro;
+		this.CEP = cEP;
+		this.cidade = cidade;
+	}
+	
+	public Endereco(Endereco endereco) {
+		this.id = endereco.getId();
+		this.rua = endereco.getRua();
+		this.numero = endereco.getNumero();
+		this.complemento = endereco.getComplemento();
+		this.bairro = endereco.getBairro();
+		this.CEP = endereco.getCEP();
+		this.cidade = endereco.getCidade();
+	}
+	
 	//Getters e Setters
 	public long getId() {
 		return id;

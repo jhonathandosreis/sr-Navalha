@@ -14,6 +14,22 @@ public class PerfilAcesso {
 	private String descricao;
 	private String tipo;
 	
+	//Contrutores
+	public PerfilAcesso() {
+		
+	}
+	public PerfilAcesso(long id, String descricao, String tipo) {
+		this.id = id;
+		this.descricao = descricao;
+		this.tipo = tipo;
+	}
+	
+	public PerfilAcesso(PerfilAcesso perfilAcesso) {
+		this.id = perfilAcesso.getId();
+		this.descricao = perfilAcesso.getDescricao();
+		this.tipo = perfilAcesso.getTipo() ;
+	}
+	
 	//Getters e Setters
 	public long getId() {
 		return id;

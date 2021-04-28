@@ -14,6 +14,20 @@ public class Servico {
 	private long id;
 	private String nome;
 	
+	public Servico() {
+		
+	}
+	
+	public Servico(long id, String nome) {
+		this.id = id;
+		this.nome = nome;
+	}
+	
+	public Servico(Servico servico) {
+		this.id = servico.getId();
+		this.nome = servico.getNome();
+	}
+	
 	//Getters e Setters
 	public long getId() {
 		return id;

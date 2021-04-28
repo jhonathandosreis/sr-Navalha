@@ -15,6 +15,25 @@ public class Usuario {
 	private String senha;
 	private Pessoa pessoa;
 	
+	//Construtores
+	public Usuario() {
+
+	}
+	
+	public Usuario(long id, String login, String senha, Pessoa pessoa) {
+		this.id = id;
+		this.login = login;
+		this.senha = senha;
+		this.pessoa = pessoa;
+	}
+	
+	public Usuario(Usuario usuario) {
+		this.id = usuario.getId();
+		this.login = usuario.getLogin();
+		this.senha = usuario.getSenha();
+		this.pessoa = usuario.getPessoa();
+	}
+	
 	//Getters e Setters
 	public long getId() {
 		return id;

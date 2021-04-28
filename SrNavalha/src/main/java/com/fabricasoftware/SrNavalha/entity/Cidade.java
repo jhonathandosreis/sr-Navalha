@@ -14,10 +14,28 @@ public class Cidade {
 	private String nome;
 	private String uf;
 	
+	//Contrutores
+	public Cidade() {
+	}
+	
+	public Cidade(long id, String nome, String uf) {
+		this.id = id;
+		this.nome = nome;
+		this.uf = uf;
+	}
+	
+	public Cidade(Cidade cidade) {
+		this.id = cidade.getId();
+		this.nome = cidade.getNome();
+		this.uf = cidade.getUf();
+	}
+	
+
 	//Getters e Setters
 	public long getId() {
 		return id;
 	}
+	
 	public void setId(long id) {
 		this.id = id;
 	}

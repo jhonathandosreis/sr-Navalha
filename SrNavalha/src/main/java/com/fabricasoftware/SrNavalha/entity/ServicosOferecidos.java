@@ -16,6 +16,25 @@ public class ServicosOferecidos {
 	private Pessoa pessoa;
 	private Servico servico;
 	
+	//Construtores
+	public ServicosOferecidos() {
+	
+	}
+	
+	public ServicosOferecidos(long id, float valor, Pessoa pessoa, Servico servico) {
+		this.id = id;
+		this.valor = valor;
+		this.pessoa = pessoa;
+		this.servico = servico;
+	}
+	
+	public ServicosOferecidos(ServicosOferecidos servicosOferecidos) {
+		this.id = servicosOferecidos.getId();
+		this.valor = servicosOferecidos.getValor();
+		this.pessoa = servicosOferecidos.getPessoa();
+		this.servico = servicosOferecidos.getServico();
+	}
+	
 	//Getters e Setters
 	public long getId() {
 		return id;
