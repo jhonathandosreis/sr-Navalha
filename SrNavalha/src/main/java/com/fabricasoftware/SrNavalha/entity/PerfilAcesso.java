@@ -14,7 +14,7 @@ public class PerfilAcesso {
 	private String descricao;
 	private String tipo;
 	
-	//Contrutores
+	//Construtores
 	public PerfilAcesso() {
 		
 	}

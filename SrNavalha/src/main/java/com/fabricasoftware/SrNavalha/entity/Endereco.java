@@ -19,7 +19,7 @@ public class Endereco {
 	private String CEP;
 	private Cidade cidade;
 	
-	//Contrutores
+	//Construtores
 	public Endereco() {
 		
 	}

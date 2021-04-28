@@ -16,7 +16,7 @@ public class PerfilUsuario {
 	private String descricao;
 	private Pessoa pessoa;
 	
-	//Contrutores
+	//Construtores
 	public PerfilUsuario() {
 	
 	}

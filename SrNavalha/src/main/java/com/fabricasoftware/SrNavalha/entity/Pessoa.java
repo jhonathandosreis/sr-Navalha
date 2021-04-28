@@ -21,7 +21,7 @@ public class Pessoa {
 	private PerfilAcesso perfilAcesso;
 	private Endereco endereco;
 	
-	//Contrutores
+	//Construtores
 	
 	public Pessoa() {
 	}
