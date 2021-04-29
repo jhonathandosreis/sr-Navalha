@@ -14,7 +14,7 @@ public class ServicosOferecidos {
 	private float valor;
 	@OneToOne
 	private Pessoa pessoa;
-	@ManyToOne
+	
 	private List<Servico> servico = new ArrayList<Servico>();
 
 	//Construtores
