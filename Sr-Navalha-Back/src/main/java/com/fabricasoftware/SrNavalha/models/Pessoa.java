@@ -2,10 +2,7 @@ package com.fabricasoftware.SrNavalha.models;
 
 import java.security.Timestamp;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Pessoa {
@@ -18,7 +15,9 @@ public class Pessoa {
 	private String telefone;
 	private Timestamp dataCadastro;
 	private String CPF;
+	@OneToOne
 	private PerfilAcesso perfilAcesso;
+	@OneToOne
 	private Endereco endereco;
 	
 	//Construtores
@@ -33,7 +32,7 @@ public class Pessoa {
 		this.email = email;
 		this.telefone = telefone;
 		this.dataCadastro = dataCadastro;
-		CPF = cPF;
+		this.CPF = cPF;
 		this.perfilAcesso = perfilAcesso;
 		this.endereco = endereco;
 	}
@@ -44,7 +43,7 @@ public class Pessoa {
 		this.email = pessoa.getEmail();
 		this.telefone = pessoa.getTelefone();
 		this.dataCadastro = pessoa.getDataCadastro();
-		CPF = pessoa.getCPF();
+		this.CPF = pessoa.getCPF();
 		this.perfilAcesso = pessoa.getPerfilAcesso();
 		this.endereco = pessoa.getEndereco();
 	}

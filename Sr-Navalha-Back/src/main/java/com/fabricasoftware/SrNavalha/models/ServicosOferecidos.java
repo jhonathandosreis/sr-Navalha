@@ -1,9 +1,8 @@
 package com.fabricasoftware.SrNavalha.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class ServicosOferecidos {
@@ -13,15 +12,17 @@ public class ServicosOferecidos {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private float valor;
+	@OneToOne
 	private Pessoa pessoa;
-	private Servico servico;
-	
+	@ManyToOne
+	private List<Servico> servico = new ArrayList<Servico>();
+
 	//Construtores
 	public ServicosOferecidos() {
 	
 	}
 	
-	public ServicosOferecidos(long id, float valor, Pessoa pessoa, Servico servico) {
+	public ServicosOferecidos(long id, float valor, Pessoa pessoa, List<Servico> servico) {
 		this.id = id;
 		this.valor = valor;
 		this.pessoa = pessoa;
@@ -54,12 +55,12 @@ public class ServicosOferecidos {
 	public void setPessoa(Pessoa pessoa) {
 		this.pessoa = pessoa;
 	}
-	public Servico getServico() {
+
+	public List<Servico> getServico() {
 		return servico;
 	}
-	public void setServico(Servico servico) {
+
+	public void setServico(List<Servico> servico) {
 		this.servico = servico;
 	}
-	
-	
 }
