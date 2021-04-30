@@ -17,11 +17,10 @@ public class Pessoa {
 	private String CPF;
 	@OneToOne
 	private PerfilAcesso perfilAcesso;
-	@OneToOne
+	@ManyToOne
 	private Endereco endereco;
 	
 	//Construtores
-	
 	public Pessoa() {
 	}
 	

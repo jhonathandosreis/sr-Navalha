@@ -1,5 +1,7 @@
 package com.fabricasoftware.SrNavalha.models;
 
+import com.sun.istack.NotNull;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,7 +13,9 @@ public class Servico {
 	//Atributos
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@NotNull
 	private long id;
+	@NotNull
 	private String nome;
 	
 	//Construtores

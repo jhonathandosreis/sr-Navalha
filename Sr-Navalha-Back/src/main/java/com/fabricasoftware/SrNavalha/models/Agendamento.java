@@ -2,10 +2,7 @@ package com.fabricasoftware.SrNavalha.models;
 
 import java.security.Timestamp;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Agendamento {
@@ -19,8 +16,11 @@ public class Agendamento {
 	private long id;
 	private Timestamp data;
 	private String horario;
+	@ManyToOne
 	private Endereco endereco;
+	@ManyToOne
 	private Pessoa pessoa;
+	@ManyToOne
 	private ServicosOferecidos servicoOferecido;
 	
 	/*

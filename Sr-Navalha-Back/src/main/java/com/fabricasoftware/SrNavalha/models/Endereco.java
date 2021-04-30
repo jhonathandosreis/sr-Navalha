@@ -1,9 +1,6 @@
 package com.fabricasoftware.SrNavalha.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Endereco {
@@ -17,6 +14,7 @@ public class Endereco {
 	private String complemento;
 	private String bairro;
 	private String CEP;
+	@OneToOne
 	private Cidade cidade;
 	
 	//Construtores

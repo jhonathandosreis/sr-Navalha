@@ -1,17 +1,21 @@
 package com.fabricasoftware.SrNavalha.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.sun.istack.NotNull;
+
+import javax.persistence.*;
 
 @Entity
 public class Portifolio {
+
 	//Atributos
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@NotNull
 	private long id;
+	@NotNull
 	private String certificadoUrl;
+	@OneToOne
+	@NotNull
 	private PerfilUsuario perfilUsuario;
 	
 	//Construtores

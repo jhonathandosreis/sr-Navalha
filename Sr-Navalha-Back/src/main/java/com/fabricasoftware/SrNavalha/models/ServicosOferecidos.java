@@ -1,5 +1,7 @@
 package com.fabricasoftware.SrNavalha.models;
 
+import com.sun.istack.NotNull;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,12 +12,16 @@ public class ServicosOferecidos {
 	//Atributos
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@NotNull
 	private long id;
+	@NotNull
 	private float valor;
 	@OneToOne
+	@NotNull
 	private Pessoa pessoa;
-	
-	private List<Servico> servico = new ArrayList<Servico>();
+	@OneToMany(mappedBy = "servico", cascade = CascadeType.ALL)
+	@NotNull
+	private List<Servico> servico;
 
 	//Construtores
 	public ServicosOferecidos() {
@@ -55,11 +61,9 @@ public class ServicosOferecidos {
 	public void setPessoa(Pessoa pessoa) {
 		this.pessoa = pessoa;
 	}
-
 	public List<Servico> getServico() {
 		return servico;
 	}
-
 	public void setServico(List<Servico> servico) {
 		this.servico = servico;
 	}

@@ -1,9 +1,6 @@
 package com.fabricasoftware.SrNavalha.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class PerfilUsuario {
@@ -14,6 +11,7 @@ public class PerfilUsuario {
 	private long id;
 	private String imageUrl;
 	private String descricao;
+	@OneToOne
 	private Pessoa pessoa;
 	
 	//Construtores

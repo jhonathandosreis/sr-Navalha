@@ -1,16 +1,23 @@
 package com.fabricasoftware.SrNavalha.models;
 
+import com.sun.istack.NotNull;
+
 import javax.persistence.*;
 
 @Entity
 public class Usuario {
+	
 	//Atributos
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@NotNull
 	private long id;
+	@NotNull
 	private String login;
+	@NotNull
 	private String senha;
 	@ManyToOne
+	@NotNull
 	private Pessoa pessoa;
 	
 	//Construtores
