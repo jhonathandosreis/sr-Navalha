@@ -16,7 +16,7 @@ import { HeaderComponent } from './view/header/header.component';
     RecuperarSenhaComponent,
     HomeComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
