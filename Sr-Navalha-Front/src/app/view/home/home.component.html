@@ -1,30 +1,156 @@
 <ads-header></ads-header>
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+<div id="carouselExampleIndicators" style="width: 100% !important;" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+            aria-label="Slide 3"></button>
+    </div>
     <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="https://images.sympla.com.br/5ae1c1b321cbb.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-item active" data-bs-interval="3000">
+            <img src="https://i.pinimg.com/originals/d5/0a/1b/d50a1bdb945b7d212a69f10878870e5a.jpg"
+                class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item" data-bs-interval="3000">
+            <img src="https://i.pinimg.com/originals/d5/0a/1b/d50a1bdb945b7d212a69f10878870e5a.jpg"
+                class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item" data-bs-interval="3000">
+            <img src="https://i.pinimg.com/originals/d5/0a/1b/d50a1bdb945b7d212a69f10878870e5a.jpg"
+                class="d-block w-100" alt="...">
         </div>
     </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
 </div>
-<div class="card text-white bg-primary">
-    <img class="card-img-top" src="holder.js/100px180/" alt="">
-    <div class="card-body">
-        <h4 class="card-title">Title</h4>
-        <p class="card-text">Text</p>
+
+<!-- Card de anuincios -->
+<section class="caracteristicas text-center" id="caracteristicas" style="background-color: rgb(241, 240, 240);">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-md-offset-2">
+                <h2 class="section-title" style="text-align: center; padding-top: 5%;">CARACTERÍSTICAS DO SISTEMA</h2>
+                <p>Um sistema completo para gerenciamento de Barbearias! Com ele você mantém a vida financeira da sua
+                    empresa saudável e aproxima seus clientes do seu estabelecimento.</p>
+            </div>
+        </div>
+        <div class="sing-up-form">
+            <a class="btn btn-default btn-lg sem-detalhes-cliente com-detalhes-marketing-barbearia" href="#"
+                style="display: none" onclick="openContato()">EXPERIMENTE 30 DIAS GRÁTIS</a>
+        </div>
+        <div class="row sem-detalhes-cliente" style="margin-top: 5px">
+            <div class="col-sm-4">
+                <div class="thumbnail">
+                    <div class="icon">
+                        <img src="assets/img/agenda.png" alt="Agenda" title="Agenda">
+                    </div>
+                    <div class="caption">
+                        <h3>Agenda</h3>
+                        <p>Aumente a produtividade de seu estabelecimento com a agenda da Barbearia Ágil. Seus clientes
+                            realizam o agendamento on-line, utilizando o aplicativo, integrando-se automaticamente com
+                            as comandas. Com ela você mantém o histórico de serviços de seus clientes e profissionais,
+                            permitindo que você melhore o atendimento ao mesmo tempo que se aproxima de seus clientes.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="thumbnail">
+                    <div class="icon">
+                        <img src="assets/img/comandas.png" alt="Comandas" title="Comandas">
+                    </div>
+                    <div class="caption">
+                        <h3>Comandas</h3>
+                        <p>Nunca foi tão fácil abrir uma comanda. Com apenas um click você abre a comanda com os
+                            serviços solicitados pelo cliente. A partir da comanda você controla o fluxo de atendimento
+                            podendo até registrar a venda de produtos oferecidos pelo seu estabelecimento.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="thumbnail">
+                    <div class="icon">
+                        <img src="assets/img/financeiro.png" alt="Financeiro" title="Financeiro">
+                    </div>
+                    <div class="caption">
+                        <h3>Financeiro</h3>
+                        <p>Acompanhe o crescimento do seu estabelecimento e melhore a tomada de decisões. Controle suas
+                            comandas, movimentação de caixa, entradas e saídas de estoque e comissões dos profissionais
+                            de forma simples e ágil.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row sem-detalhes-cliente">
+            <div class="col-sm-4">
+                <div class="thumbnail">
+                    <div class="icon">
+                        <img src="assets/img/produtos.png" alt="Produtos" title="Produtos">
+                    </div>
+                    <div class="caption">
+                        <h3>Produtos</h3>
+                        <p>Você sabe quais produtos possuem maior consumo e quais serviços fazem uso deles? Melhore sua
+                            gestão interna com o controle de produtos e estoque da Barbearia Ágil.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="thumbnail">
+                    <div class="icon">
+                        <img src="assets/img/estoque.png" alt="Estoque" title="Estoque">
+                    </div>
+                    <div class="caption">
+                        <h3>Estoque</h3>
+                        <p>Controlar o estoque é uma peça chave de seu negócio. Seu lucro pode estar desaparecendo se
+                            você não controlar a movimentação de seus produtos. Deixe que o Barbearia Ágil organize o
+                            estoque e apresente onde os produtos são consumidos.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="thumbnail">
+                    <div class="icon">
+                        <img src="assets/img/atendimento.png" alt="Atendimento" title="Atendimento">
+                    </div>
+                    <div class="caption">
+                        <h3>Atendimento</h3>
+                        <p>Sabe aquela promoção que você gostaria de fazer? Os clientes normalmente não querem receber
+                            ligações mas estão constantemente conectados em redes sociais. Crie campanhas de marketing e
+                            divulgue com o Barbearia Ágil. Você será encontrado mais facilmente e poderá prospectar
+                            novos clientes! Vamos lá, divulgue suas promoções.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
-<div class="card text-white bg-primary">
-    <img class="card-img-top" src="holder.js/100px180/" alt="">
-    <div class="card-body">
-        <h4 class="card-title">Title</h4>
-        <p class="card-text">Text</p>
+</section>
+
+<section class="planos text-center sem-detalhes-cliente" id="planos">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-md-offset-2">
+                <h2 class="section-title">PLANOS</h2>
+                <p>Apresente seu estabelecimento para o mundo! Faça um investimento que vai aproximar você de seus
+                    clientes e aumentar os lucros do seu estabelecimento. Entre em contato que faremos uma proposta para
+                    você.</p>
+            </div>
+        </div>
+        <div class="sing-up-form">
+            <a class="btn btn-info btn-lg sem-detalhes-cliente sem-detalhes-marketing-barbearia"
+                href="#">EXPERIMENTE 30 DIAS GRÁTIS</a>
+            <a class="btn btn-info btn-lg sem-detalhes-marketing-barbearia" href="#">CONTATO</a>
+
+        </div>
     </div>
-</div>
-<div class="card text-white bg-primary">
-    <img class="card-img-top" src="holder.js/100px180/" alt="">
-    <div class="card-body">
-        <h4 class="card-title">Title</h4>
-        <p class="card-text">Text</p>
-    </div>
-</div>
+</section>
 <ads-footer></ads-footer>
