@@ -1,53 +1,68 @@
 body {
-    height: 100%;
+    font-family: 'Quicksand', sans-serif;
+    background: url(https://d3verit7xckkza.cloudfront.net/imgsystem/b-bg-inicial3.jpg) no-repeat center center fixed;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding: 11rem;
 }
 
-body {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    background-color: hsl(210, 11%, 15%);
+.login {
+    margin: 50px auto;
+    width: 300px
 }
 
-.form-signin,
-img {
-    align-items: center !important;
+.login-screen {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px
 }
 
-.form-signin {
-    width: 100%;
-    height: 53.55rem;
-    max-width: 330px;
-    padding-top: 2%;
-    margin: auto;
+.app-title {
+    text-align: center;
+    color: #777
 }
 
-.form-signin .checkbox {
-    font-weight: 400;
+.login-form {
+    text-align: center
 }
 
-.form-signin .form-floating:focus-within {
-    z-index: 2;
+.control-group {
+    margin-bottom: 10px
 }
 
-.form-signin input[type="email"] {
-    margin-bottom: -1px;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
+.login-field {
+    text-align: center;
+    background-color: #ecf0f1;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 200;
+    padding: 10px 0;
+    width: 250px;
+    transition: border .5s
 }
 
-.form-signin input[type="password"] {
-    margin-bottom: 10px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
+.btn {
+    border: 2px solid transparent;
+    background: #00233d;
+    color: #fff;
+    font-size: 16px;
+    line-height: 25px;
+    padding: 10px 0;
+    text-decoration: none;
+    text-shadow: none;
+    text-transform: uppercase;
+    border-radius: 3px;
+    box-shadow: none;
+    transition: .25s;
+    display: block;
+    width: 250px;
+    margin: 0 auto
 }
 
-#imagem {
-    padding-left: 20% !important;
-}
-
-#loginText {
-    color: white !important;
+.logo {
+    margin-bottom: 4px
 }

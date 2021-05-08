@@ -1,24 +1,28 @@
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <main class="form-signin">
-                    <form>
-                        <img id="imagem" class="mb-4" src="../../../assets/img/SR.Navalha logo escrita.png" width="80%" height="30%" alt="logo">
-                        <h1 id="loginText" class="h3 mb-3 fw-normal">Recuperar Senha</h1>
-                        <div class="form-floating">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="miguel@srnavalha.com">
-                            <label for="floatingInput">E-mail</label>
-                        </div>
-                        <div class="col-12" style="padding-top: 3% !important;">
-                            <button type="button" routerLink="/login" class="w-100 btn btn-lg btn-primary">Voltar</button>
-                        </div>
-                        <div class="col-12" style="padding-top: 3% !important;">
-                            <button type="button" class="w-100 btn btn-lg btn-warning">Recuperar Senha</button>
-                        </div>
-                    </form>
-                </main>
+    <div class="login">
+        <div class="login-screen">
+            <div class="app-title">
+                <img class="logo" src='../../../assets/img/SR.Navalha logo escrita.png' />
             </div>
+            <form id="frmLogin">
+                <div class="login-form">
+                    <div class="control-group">
+                        <input type="text" class="login-field" placeholder="E-mail" name="userid" id="login-name">
+                        <label class="login-field-icon fui-user" for="login-name"></label>
+                    </div>
+                    <button class="btn btn-large btn-block" type="submit">ENVIAR</button>
+                    <div class="control-group">
+                        <div class="col-12" style="padding-top: 1% !important;">
+
+                        </div>
+                        <label class="login-field-icon fui-lock" for="login-pass"></label>
+                        <p class="help-block capslock"></p>
+                    </div>
+                    <hr class="hr-divider">
+                    <a class="login-link" data-toggle="modal" data-target="#esqueceu-senha-modal" href="login">Voltar</a>
+
+                </div>
+            </form>
         </div>
     </div>
 </body>
