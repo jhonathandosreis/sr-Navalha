@@ -1,6 +1,21 @@
 body {
     font-family: 'Quicksand', sans-serif;
-    background: url(https://d3verit7xckkza.cloudfront.net/imgsystem/b-bg-inicial3.jpg) no-repeat center center fixed;
+    background-image: url(https://d3verit7xckkza.cloudfront.net/imgsystem/b-bg-inicial3.jpg);
+
+    /* Ajuste de imagem no corpo do HTML */
+    background-repeat: no-repeat;
+    background-size:100%;
+    bottom: 0;
+    color: black;
+    left: 0;
+    overflow: auto;
+    padding: 3em;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+
+
     background-repeat: no-repeat;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -8,7 +23,9 @@ body {
     background-size: cover;
     padding: 11rem;
 }
-
+a{
+    text-decoration: none;
+}
 .login {
     margin: 50px auto;
     width: 300px

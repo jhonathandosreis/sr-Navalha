@@ -12,4 +12,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  recuperarEmail(){
+    alert("Sua senha de acesso foi enviada com sucesso!")
+  }
 }

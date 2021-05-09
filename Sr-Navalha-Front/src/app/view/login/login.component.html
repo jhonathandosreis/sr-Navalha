@@ -7,10 +7,10 @@
             <form id="frmLogin">
                 <div class="login-form">
                     <div class="control-group">
-                        <input type="text" class="login-field" placeholder="Usuário ou E-mail" name="userid" id="login-name">
+                        <input type="text" class="login-field" placeholder="Usuário ou E-mail" name="userid"
+                            id="login-name">
                         <label class="login-field-icon fui-user" for="login-name"></label>
                     </div>
-
                     <div class="control-group">
                         <input type="password" class="login-field" placeholder="Senha" name="password" id="login-pass">
                         <label class="login-field-icon fui-lock" for="login-pass"></label>
@@ -18,10 +18,32 @@
                     </div>
                     <button class="btn btn-large btn-block" type="submit">Acessar</button>
                     <hr class="hr-divider">
-                    <a class="login-link" data-toggle="modal" data-target="#esqueceu-senha-modal" href="recuperarSenha">Esqueceu a
-                        Senha?</a>
+                    <a class="login-link" href="" style="color: #00233d;" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">
+                        <strong>Esqueceu a Senha?</strong>
+                    </a><br>
+                    <a class="login-link" data-toggle="modal" data-target="#esqueceu-senha-modal" href="#">Voltar</a>
                 </div>
             </form>
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel"><strong>Esqueceu a Senha</strong></h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="mb-3">
+                                    <input placeholder="E-mail" type="email" class="form-control" id="recipient-name">
+                                </div>
+                                <button type="submit" (click)="recuperarEmail()" class="btn btn-primary">Enviar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>
