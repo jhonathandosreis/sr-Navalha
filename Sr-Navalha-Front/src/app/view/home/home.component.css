@@ -1,50 +1,66 @@
 /* Inicio carrousel */
 
 .carousel {
-  margin-bottom: 4rem;
+    margin-bottom: 4rem;
 }
 
 .carousel-caption {
-  bottom: 3rem;
-  z-index: 10;
+    bottom: 3rem;
+    z-index: 10;
 }
 
 .carousel-item {
-  height: 32rem;
-}
-.carousel-item > img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-  height: 32rem;
+    height: 32rem;
 }
 
+.carousel-item>img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    height: 32rem;
+}
+
+
 /* Fim Carrousel */
+
 
 /* Inicio css cards */
 
 body {
-  background: rgb(27, 27, 27);
+    background: rgb(27, 27, 27);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    bottom: 0;
+    color: black;
+    left: 0;
+    overflow: auto;
+    padding: 0em;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
 }
 
 .social-link {
-  width: 30px;
-  height: 30px;
-  border: 1px solid #ddd;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #666;
-  border-radius: 50%;
-  transition: all 0.3s;
-  font-size: 0.9rem;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    border-radius: 50%;
+    transition: all 0.3s;
+    font-size: 0.9rem;
 }
 
-.social-link:hover, .social-link:focus {
-  background: #ddd;
-  text-decoration: none;
-  color: #555;
+.social-link:hover,
+.social-link:focus {
+    background: #ddd;
+    text-decoration: none;
+    color: #555;
 }
 
- /* Fim cards */
+
+/* Fim cards */
