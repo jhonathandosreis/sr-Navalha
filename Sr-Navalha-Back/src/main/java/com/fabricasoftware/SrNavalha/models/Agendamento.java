@@ -5,6 +5,7 @@ import java.security.Timestamp;
 import javax.persistence.*;
 
 @Entity
+@Table(name="agendamento")
 public class Agendamento {
 
 	@Id
@@ -18,25 +19,22 @@ public class Agendamento {
 	private String horario;
 	@ManyToOne
 	private Endereco endereco;
-	@ManyToOne
-	private Pessoa pessoa;
-	@ManyToOne
-	private ServicosOferecidos servicoOferecido;
-	
+	@OneToOne
+	private Servico servico;
+
 	/*
-	* Sobre carga de construtores
+	* Sobrecarga de construtores
 	 */
 	public Agendamento() {
 
 	}
 
-	public Agendamento(Long id, Timestamp data, String horario, Endereco endereco, Pessoa pessoa ,ServicosOferecidos servicoOferecido ) {
+	public Agendamento(Long id, Timestamp data, String horario, Endereco endereco, Servico servico ) {
 	this.id = id;
 	this.data = data;
 	this.horario = horario;
 	this.endereco = endereco;
-	this.pessoa = pessoa;
-	this.servicoOferecido= servicoOferecido;
+	this.servico = servico;
 	}
 
 	public Agendamento(Agendamento agendamento) {
@@ -44,8 +42,7 @@ public class Agendamento {
 		this.data = agendamento.getData();
 		this.horario = agendamento.getHoraio();
 		this.endereco = agendamento.getEndereco();
-		this.pessoa = agendamento.getPessoa();
-		this.servicoOferecido= agendamento.getServicoOferecido();
+		this.servico = agendamento.getServico();
 	}
 	
 	/*
@@ -75,16 +72,20 @@ public class Agendamento {
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
-	public Pessoa getPessoa() {
-		return pessoa;
+
+	public String getHorario() {
+		return horario;
 	}
-	public void setPessoa(Pessoa pessoa) {
-		this.pessoa = pessoa;
+
+	public void setHorario(String horario) {
+		this.horario = horario;
 	}
-	public ServicosOferecidos getServicoOferecido() {
-		return servicoOferecido;
+
+	public Servico getServico() {
+		return servico;
 	}
-	public void setServicoOferecido(ServicosOferecidos servicoOferecido) {
-		this.servicoOferecido = servicoOferecido;
+
+	public void setServico(Servico servico) {
+		this.servico = servico;
 	}
 }

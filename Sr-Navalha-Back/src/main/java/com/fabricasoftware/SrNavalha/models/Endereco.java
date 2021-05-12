@@ -3,9 +3,12 @@ package com.fabricasoftware.SrNavalha.models;
 import javax.persistence.*;
 
 @Entity
+@Table(name="endereco")
 public class Endereco {
 	
-	//Atributos
+	/*
+	* Atributos
+	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;

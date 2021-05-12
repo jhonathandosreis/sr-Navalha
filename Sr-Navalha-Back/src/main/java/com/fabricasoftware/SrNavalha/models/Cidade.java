@@ -1,20 +1,25 @@
 package com.fabricasoftware.SrNavalha.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name="cidade")
 public class Cidade {
-	//Atributos
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+
+	/***
+	 * Atributos
+	 */
 	private long id;
 	private String nome;
 	private String uf;
-	
-	//Construtores
+
+
+	/*
+	* Sobrecarga de construtores
+	 */
 	public Cidade() {
 	}
 	
@@ -31,7 +36,9 @@ public class Cidade {
 	}
 	
 
-	//Getters e Setters
+	/*
+	* Getters and Setters
+	 */
 	public long getId() {
 		return id;
 	}
