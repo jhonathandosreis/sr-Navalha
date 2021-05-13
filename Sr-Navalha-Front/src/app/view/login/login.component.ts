@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'ads-login',
@@ -6,8 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  usuario: { nome: any, senha: any, tipo: any } = { nome: '', senha: '', tipo: 'barbeiro' }
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -18,6 +20,15 @@ export class LoginComponent implements OnInit {
       alert("Informe um e-mail de recuperação")
     } else {
       alert("Sua senha de acesso foi enviada com sucesso!")
+    }
+  }
+  logar() {
+    if (this.usuario.senha == "123" && this.usuario.tipo == "barbeiro") {
+      localStorage.setItem("admin-logado", this.usuario.nome)
+      this.router.navigate(['/admin'])
+    } else {
+      alert("Você não pdoe acessar esta pagina!")
+      location.reload()
     }
   }
 }

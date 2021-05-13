@@ -7,6 +7,8 @@ import { RecuperarSenhaComponent } from './view/recuperar-senha/recuperar-senha.
 import { HomeComponent } from './view/home/home.component';
 import { FooterComponent } from './view/footer/footer.component';
 import { HeaderComponent } from './view/header/header.component';
+import { AdminComponent } from './view/admin/admin.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,10 +18,12 @@ import { HeaderComponent } from './view/header/header.component';
     HomeComponent,
     FooterComponent,
     HeaderComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
