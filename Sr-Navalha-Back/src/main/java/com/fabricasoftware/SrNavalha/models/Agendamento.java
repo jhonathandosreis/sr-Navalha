@@ -1,51 +1,34 @@
 package com.fabricasoftware.SrNavalha.models;
 
-import java.security.Timestamp;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.util.Date;
 
 import javax.persistence.*;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-@Table(name="agendamento")
+@Table(name = "agendamento")
 public class Agendamento {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+    /*
+     * Atributos
+     */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @EqualsAndHashCode.Include
+    private long id;
+    private Date data;
+    private String horario;
+    @ManyToOne
+    private Endereco endereco;
+    @OneToOne
+    private Servico servico;
 
-	/*
-	* Atributos
-	 */
-	private long id;
-	private Date data;
-	private String horario;
-	@ManyToOne
-	private Endereco endereco;
-	@OneToOne
-	private Servico servico;
-
-	/*
-	* Sobrecarga de construtores
-	 */
-	public Agendamento() {
-
-	}
-
-	public Agendamento(Long id, Date data, String horario, Endereco endereco, Servico servico ) {
-	this.id = id;
-	this.data = data;
-	this.horario = horario;
-	this.endereco = endereco;
-	this.servico = servico;
-	}
-
-	public Agendamento(Agendamento agendamento) {
-		this.id = agendamento.getId();
-		this.data = agendamento.getData();
-		this.horario = agendamento.getHoraio();
-		this.endereco = agendamento.getEndereco();
-		this.servico = agendamento.getServico();
-	}
-	
-	/*
-	* Getters and Setters
-	 */
+}

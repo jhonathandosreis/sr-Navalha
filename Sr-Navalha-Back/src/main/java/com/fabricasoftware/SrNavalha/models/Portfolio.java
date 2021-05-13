@@ -1,36 +1,26 @@
 package com.fabricasoftware.SrNavalha.models;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-@Table(name="portfolio")
+@Table(name = "portfolio")
 public class Portfolio {
 
-	/*
-	* Atributos
-	 */
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
-	private String descricao;
-	
-	/*
-	* Sobrecarga de construtores
-	 */
-	public Portfolio() {
-		
-	}
-	
-	public Portfolio(long id, String descricao) {
-		this.id = id;
-		this.descricao = descricao;
-	}
-	
-	public Portfolio(Portfolio portfolio) {
-		this.id = portfolio.getId();
-		this.descricao = portfolio.getDescricao();
-	}
-	
-	/*
-	* Getters and Setters
-	 */
+    /*
+     * Atributos
+     */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @EqualsAndHashCode.Include
+    private long id;
+    private String descricao;
+}

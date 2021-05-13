@@ -1,35 +1,27 @@
 package com.fabricasoftware.SrNavalha.models;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-@Table(name="perfil")
+@Table(name = "perfil")
 public class Perfil {
 
-	/*
-	* Atributos
-	 */
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
-	private String descricao;
-	
-	/*
-	* Sobrecarga de construtores
-	 */
-	public Perfil() {
-		
-	}
-	public Perfil(long id, String descricao) {
-		this.id = id;
-		this.descricao = descricao;
-	}
-	
-	public Perfil(Perfil perfil) {
-		this.id = perfil.getId();
-		this.descricao = perfil.getDescricao();
-	}
-	
-	/*
-	* Getters and Setters
-	 */
+    /*
+     * Atributos
+     */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @EqualsAndHashCode.Include
+    private long id;
+    private String descricao;
+
+}

@@ -1,40 +1,28 @@
 package com.fabricasoftware.SrNavalha.models;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-@Table(name="credencial")
+@Table(name = "credencial")
 public class Credencial {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     /*
-    * Atributos
+     * Atributos
      */
+    @EqualsAndHashCode.Include
     private Long id;
     private String login;
     private String senha;
-
-    /*
-    * Sobrecarga de construtores
-     */
-    public Credencial() {
-
-    }
-
-    public Credencial(Long id, String Login, String senha) {
-        this.id = id;
-        this.login = login;
-        this.senha = senha;
-    }
-
-    public Credencial(Credencial credencial) {
-        this.id = credencial.getId();
-        this.login = credencial.getLogin();
-        this.senha = credencial.getSenha();
-    }
-
-    /*
-    * Getters and Setters
-     */
+}
