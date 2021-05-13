@@ -1,6 +1,7 @@
 package com.fabricasoftware.SrNavalha.models;
 
 import java.security.Timestamp;
+import java.util.Date;
 
 import javax.persistence.*;
 
@@ -15,7 +16,7 @@ public class Agendamento {
 	* Atributos
 	 */
 	private long id;
-	private Timestamp data;
+	private Date data;
 	private String horario;
 	@ManyToOne
 	private Endereco endereco;
@@ -29,7 +30,7 @@ public class Agendamento {
 
 	}
 
-	public Agendamento(Long id, Timestamp data, String horario, Endereco endereco, Servico servico ) {
+	public Agendamento(Long id, Date data, String horario, Endereco endereco, Servico servico ) {
 	this.id = id;
 	this.data = data;
 	this.horario = horario;
@@ -48,44 +49,3 @@ public class Agendamento {
 	/*
 	* Getters and Setters
 	 */
-	public long getId() {
-		return id;
-	}
-	public void setId(long id) {
-		this.id = id;
-	}
-	public Timestamp getData() {
-		return data;
-	}
-	public void setData(Timestamp data) {
-		this.data = data;
-	}
-	public String getHoraio() {
-		return horario;
-	}
-	public void setHoraio(String horaio) {
-		this.horario = horaio;
-	}
-	public Endereco getEndereco() {
-		return endereco;
-	}
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
-	}
-
-	public String getHorario() {
-		return horario;
-	}
-
-	public void setHorario(String horario) {
-		this.horario = horario;
-	}
-
-	public Servico getServico() {
-		return servico;
-	}
-
-	public void setServico(Servico servico) {
-		this.servico = servico;
-	}
-}
