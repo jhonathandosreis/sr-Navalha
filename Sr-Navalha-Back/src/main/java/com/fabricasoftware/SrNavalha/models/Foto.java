@@ -43,35 +43,3 @@ public class Foto {
     /*
     * Getters and Setters
      */
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
-    }
-
-    public Portfolio getPortfolio() {
-        return portfolio;
-    }
-
-    public void setPortfolio(Portfolio portfolio) {
-        this.portfolio = portfolio;
-    }
-
-    public Perfil getPerfil() {
-        return perfil;
-    }
-
-    public void setPerfil(Perfil perfil) {
-        this.perfil = perfil;
-    }
-}
