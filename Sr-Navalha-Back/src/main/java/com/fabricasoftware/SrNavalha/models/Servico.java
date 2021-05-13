@@ -1,31 +1,35 @@
 package com.fabricasoftware.SrNavalha.models;
 
-import com.sun.istack.NotNull;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name="servico")
 public class Servico {
 	
-	//Atributos
+	/*
+	* Atributos
+	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@NotNull
 	private long id;
-	@NotNull
 	private String nome;
+	private String descricao;
+	private Double valor;
+	@ManyToOne
+	private UsuarioBarbeiro usuarioBarbeiro;
 	
-	//Construtores
+	/*
+	* Sobrecarga de construtores
+	 */
 	public Servico() {
 		
 	}
 	
-	public Servico(long id, String nome) {
+	public Servico(long id, String nome, String descricao, Double valor) {
 		this.id = id;
 		this.nome = nome;
+		this.descricao = descricao;
+		this.valor = valor;
 	}
 	
 	public Servico(Servico servico) {
@@ -33,21 +37,46 @@ public class Servico {
 		this.nome = servico.getNome();
 	}
 	
-	//Getters e Setters
+	/*
+	* Getters and Setters
+	 */
 	public long getId() {
 		return id;
 	}
+
 	public void setId(long id) {
 		this.id = id;
 	}
+
 	public String getNome() {
 		return nome;
 	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
-	
-	
 
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public Double getValor() {
+		return valor;
+	}
+
+	public void setValor(Double valor) {
+		this.valor = valor;
+	}
+
+	public UsuarioBarbeiro getUsuarioBarbeiro() {
+		return usuarioBarbeiro;
+	}
+
+	public void setUsuarioBarbeiro(UsuarioBarbeiro usuarioBarbeiro) {
+		this.usuarioBarbeiro = usuarioBarbeiro;
+	}
 }
