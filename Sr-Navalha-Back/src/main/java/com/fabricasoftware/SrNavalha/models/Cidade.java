@@ -15,10 +15,6 @@ import javax.persistence.*;
 @Table(name="cidade")
 public class Cidade {
 
-
-	/***
-	 * Atributos
-	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@EqualsAndHashCode.Include

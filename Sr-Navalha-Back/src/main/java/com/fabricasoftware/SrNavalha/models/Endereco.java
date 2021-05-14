@@ -15,9 +15,6 @@ import javax.persistence.*;
 @Table(name = "endereco")
 public class Endereco {
 
-    /*
-     * Atributos
-     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
@@ -29,6 +26,5 @@ public class Endereco {
     private String CEP;
     @OneToOne
     private Cidade cidade;
-
 
 }

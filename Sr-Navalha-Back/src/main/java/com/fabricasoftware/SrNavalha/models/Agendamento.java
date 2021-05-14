@@ -17,9 +17,6 @@ import javax.persistence.*;
 @Table(name = "agendamento")
 public class Agendamento {
 
-    /*
-     * Atributos
-     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include

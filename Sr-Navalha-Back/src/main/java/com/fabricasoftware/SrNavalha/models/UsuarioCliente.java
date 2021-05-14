@@ -19,10 +19,6 @@ public class UsuarioCliente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-    /*
-     * Atributos
-     */
     @EqualsAndHashCode.Include
     private Long id;
     private String nome;
