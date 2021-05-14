@@ -7,5 +7,4 @@ import com.fabricasoftware.SrNavalha.models.Endereco;
 
 @Repository
 public interface EnderecoRepository extends JpaRepository<Endereco, Long> {
-
 }

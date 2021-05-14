@@ -1,11 +1,9 @@
 package com.fabricasoftware.SrNavalha.repositories;
 
+import com.fabricasoftware.SrNavalha.models.UsuarioCliente;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.fabricasoftware.SrNavalha.models.Portifolio;
-
 @Repository
-public interface PortifolioRepository extends JpaRepository<Portifolio, Long> {
-
+public interface UsuarioClienteRepository extends JpaRepository<UsuarioCliente, Long> {
 }

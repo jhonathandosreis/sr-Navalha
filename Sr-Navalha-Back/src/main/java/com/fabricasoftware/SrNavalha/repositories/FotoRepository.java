@@ -1,11 +1,9 @@
 package com.fabricasoftware.SrNavalha.repositories;
 
+import com.fabricasoftware.SrNavalha.models.Foto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.fabricasoftware.SrNavalha.models.Pessoa;
-
 @Repository
-public interface PessoaRepository extends JpaRepository<Pessoa, Long> {
-
+public interface FotoRepository extends JpaRepository<Foto, Long> {
 }

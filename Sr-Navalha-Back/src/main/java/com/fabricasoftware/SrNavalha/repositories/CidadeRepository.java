@@ -7,5 +7,4 @@ import com.fabricasoftware.SrNavalha.models.Cidade;
 
 @Repository
 public interface CidadeRepository extends JpaRepository<Cidade, Long> {
-
 }
