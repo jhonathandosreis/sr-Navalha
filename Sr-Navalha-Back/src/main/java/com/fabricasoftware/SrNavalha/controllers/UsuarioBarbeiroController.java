@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,38 +26,37 @@ import com.fabricasoftware.SrNavalha.services.UsuarioBarberioService;
 public class UsuarioBarbeiroController {
 	
 	@Autowired
-	private UsuarioBarberioService usuarioService;
+	private UsuarioBarberioService usuarioBarbeiroService;
 	
-	
-	@GetMapping("/{id}")
-	public ResponseEntity<UsuarioBarbeiro> findById(@PathVariable Long id ){
-		UsuarioBarbeiro obj = usuarioService.findById(id);
-		return ResponseEntity.ok().body(obj);
-	}
 	
 	@GetMapping
-	public ResponseEntity<List<UsuarioBarbeiro>> listAll(){
-		List<UsuarioBarbeiro>  list = usuarioService.findAll();
-		return ResponseEntity.ok().body(list);
-	}
-	
-	@PostMapping
-	public ResponseEntity<UsuarioBarbeiro> create(@RequestBody UsuarioBarbeiro obj){
-		obj = usuarioService.create(obj);
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
-		return ResponseEntity.created(uri).body(obj);
-		
-	}	
-	
-	@DeleteMapping("/{id}")
-	public ResponseEntity<Void> delete(@PathVariable Long id){
-		usuarioService.delete(id);
-		return ResponseEntity.noContent().build();
-	}
+    public ResponseEntity<List<UsuarioBarbeiro>> findAll() {
+        List<UsuarioBarbeiro> list = usuarioBarbeiroService.findAll();
+        return ResponseEntity.ok().body(list);
+    }
+
+    @PostMapping
+    public ResponseEntity<UsuarioBarbeiro> create(@RequestBody UsuarioBarbeiro usuarioBarbeiro) {
+        usuarioBarbeiro = usuarioBarbeiroService.create(usuarioBarbeiro);
+        return ResponseEntity.ok().body(usuarioBarbeiro);
+    }
+
+    @PutMapping
+    public ResponseEntity<UsuarioBarbeiro> update(@RequestBody UsuarioBarbeiro usuarioBarbeiro) {
+        usuarioBarbeiro = usuarioBarbeiroService.create(usuarioBarbeiro);
+        return ResponseEntity.ok().body(usuarioBarbeiro);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        usuarioBarbeiroService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+}
 	
 	
 	
 	
 	
 
-}
+

@@ -17,28 +17,23 @@ public class UsuarioBarberioService {
 	@Autowired
 	private UsuarioBarbeiroRepository usuarioBarbeiroRepository;
 	
-	public UsuarioBarbeiro findById(Long id) {
-		Optional<UsuarioBarbeiro>  obj = usuarioBarbeiroRepository.findById(id);
-		return obj.orElseThrow(() -> new UsuarioBarbeiroException(" Usuário Barbeiro não encontrado! ID: " + id + " Nome: " + UsuarioBarbeiro.class.getName()));
+	 public List<UsuarioBarbeiro> findAll() {
+	        return usuarioBarbeiroRepository.findAll();
+	    }
+
+	    public UsuarioBarbeiro create(UsuarioBarbeiro usuarioBarbeiro) {
+	        usuarioBarbeiro = usuarioBarbeiroRepository.save(usuarioBarbeiro);
+	        return usuarioBarbeiro;
+	    }
+
+	    public UsuarioBarbeiro update(UsuarioBarbeiro usuarioBarbeiro) {
+	        usuarioBarbeiro = usuarioBarbeiroRepository.save(usuarioBarbeiro);
+	        return usuarioBarbeiro;
+	    }
+
+	    public void delete(Long id) {
+	        usuarioBarbeiroRepository.deleteById(id);
+	    }
 	}
 
 
-	public List<UsuarioBarbeiro> findAll() {
-		List<UsuarioBarbeiro> list = usuarioBarbeiroRepository.findAll();
-		return list;
-	}
-
-
-	public UsuarioBarbeiro create(UsuarioBarbeiro obj) {
-		obj.setId(null);
-		return usuarioBarbeiroRepository.save(obj);
-	}
-
-
-	public void delete(Long id) {
-	usuarioBarbeiroRepository.deleteById(id);
-
-		
-	}
-
-}
