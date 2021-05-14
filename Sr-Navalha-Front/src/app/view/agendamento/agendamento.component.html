@@ -1,20 +1,85 @@
-<ads-header></ads-header>
-<div class="container">
-    <div class="row">
-        <div class="col-12 col-md-12">
-            <div class="card">
-                <div class="card-header">This is my header</div>
-                <div class="card-block special-card">This is my block</div>
-                <div class="card-footer">This is my footer</div>
+<html lang="pt-BR">
+
+<body>
+    <ads-header></ads-header>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-12">
+                <div class="card" w-75>
+                    <div class="card-header">
+                        Agendamento
+                    </div>
+                    <div class="card-body">
+                        <div class="col-6 col-md-6">
+                            <form class="was-validated">
+                                <div class="mb-3">
+                                    <select class="form-select" required aria-label="select example">
+                                        <option value="">Open this select menu</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
+                                    <div class="invalid-feedback">Example invalid select feedback</div>
+                                </div>
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input" id="validationFormCheck2"
+                                        name="radio-stacked" required>
+                                    <label class="form-check-label" for="validationFormCheck2">Toggle this radio</label>
+                                </div>
+                                <div class="form-check mb-3">
+                                    <input type="radio" class="form-check-input" id="validationFormCheck3"
+                                        name="radio-stacked" required>
+                                    <label class="form-check-label" for="validationFormCheck3">Or toggle this other
+                                        radio</label>
+                                    <div class="invalid-feedback">More example invalid feedback text</div>
+                                </div>
+                                <div class="mb-3">
+                                    <select class="form-select" required aria-label="select example">
+                                        <option value="">Open this select menu</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
+                                    <div class="invalid-feedback">Example invalid select feedback</div>
+                                </div>
+                                <div class="col-12 col-md-12" style="padding-top: 3%;">
+                                    <button type="button"
+                                        style="border-radius: 20px !important; border-color: white; color: black;"
+                                        class="btn btn-primary btn-lg">AGENDAR</button>
+                                </div>
+                            </form>
+                            <br>
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="../../../assets/img/th.jpeg" class="d-block w-100" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="../../../assets/img/secund.jpeg" class="d-block w-100" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="../../../assets/img/firt.jpeg" class="d-block w-100" alt="...">
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button"
+                                    data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button"
+                                    data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<footer class="footer-agendamento">
-    <div class="bg-dark text-secondary px-4 py-5 text-center" id="idContatos">
-        <div class="copyright">
-            © 2021 Sr Navalha. Todos os direitos reservados
-            <a href="#" target="_blank" title="Sr Navalha"></a>
-        </div>
-    </div>
-</footer>
+</body>
+
+</html>

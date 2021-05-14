@@ -1,20 +1,19 @@
-.special-card {
-  /* create a custom class so you 
-       do not run into specificity issues 
-       against bootstraps styles
-       which tends to work better than using !important 
-       (future you will thank you later)*/
 
-  background-color: rgba(245, 245, 245, 1);
-  opacity: 0.4;
-}
 .container {
   padding-top: 5rem;
-  padding-bottom: 5rem;
+padding-bottom: 5%;
 }
 
-footer {
-    position:absolute;
-    bottom:0;
-    width:100%;
+
+
+body {
+  background-image: url(../../../assets/img/fundoBarbearia.png);
+  font-family: "Quicksand", sans-serif;
+  background-size: 100%;
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
