@@ -1,5 +1,6 @@
 <h1 align="center">
-    < 📜 > <br>
+    < ![SR Navalha logo escrita](https://user-images.githubusercontent.com/46682639/118359989-1a6e7f80-b55c-11eb-91bb-64039b65ea8e.png)
+ > <br>
 FABRICA DE SOFTWARE
 </h1>
     <h2 align="center">
@@ -26,4 +27,4 @@ Sistema de barbeiros delivery
 <br>
 
 ## 📚 Contexto do Problema
-![SR Navalha logo escrita](https://user-images.githubusercontent.com/46682639/118359989-1a6e7f80-b55c-11eb-91bb-64039b65ea8e.png)
+
