@@ -26,4 +26,4 @@ Sistema de barbeiros delivery
 <br>
 
 ## 📚 Contexto do Problema
-Ha definir
+![SR Navalha logo escrita](https://user-images.githubusercontent.com/46682639/118359989-1a6e7f80-b55c-11eb-91bb-64039b65ea8e.png)
