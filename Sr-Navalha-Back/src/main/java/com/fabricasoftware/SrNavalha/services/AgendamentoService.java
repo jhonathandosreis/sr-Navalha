@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AgendamentoService {
@@ -19,7 +20,11 @@ public class AgendamentoService {
 
     public Agendamento create(Agendamento agendamento) {
         agendamento = agendamentoRepository.save(agendamento);
-        return  agendamento;
+        return agendamento;
+    }
+
+    public Optional<Agendamento> getById(Long id) {
+        return agendamentoRepository.findById(id);
     }
 
     public Agendamento update(Agendamento agendamento) {

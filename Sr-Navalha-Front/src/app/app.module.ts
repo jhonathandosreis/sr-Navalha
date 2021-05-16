@@ -1,3 +1,4 @@
+import { MatIconModule } from '@angular/material/icon';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -7,8 +8,14 @@ import { HomeComponent } from './view/home/home.component';
 import { FooterComponent } from './view/footer/footer.component';
 import { HeaderComponent } from './view/header/header.component';
 import { AdminComponent } from './view/admin/admin.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AgendamentoComponent } from './view/agendamento/agendamento.component';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCardModule } from '@angular/material/card'
+
 
 @NgModule({
   declarations: [
@@ -24,6 +31,13 @@ import { AgendamentoComponent } from './view/agendamento/agendamento.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    MatStepperModule,
+    MatSliderModule,
+    MatButtonModule,
+    MatCardModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
