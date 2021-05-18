@@ -11,7 +11,7 @@ import com.fabricasoftware.SrNavalha.repositories.ServicoRepository;
 @Service
 public class ServicoService {
 
-	 @Autowired
+	    @Autowired
 	    private ServicoRepository ServicoRepository;
 
 	    public List<Servico> findAll() {
