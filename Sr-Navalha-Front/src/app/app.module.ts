@@ -25,7 +25,7 @@ import { MatCardModule } from '@angular/material/card'
     FooterComponent,
     HeaderComponent,
     AdminComponent,
-    AgendamentoComponent,
+    AgendamentoComponent
   ],
   imports: [
     BrowserModule,

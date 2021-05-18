@@ -1,57 +1,32 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
     <div class="col-12">
-      <ng-container [ngSwitch]="stepperOrientation | async">
-        <div *ngSwitchCase="'horizontal'">Make your screen smaller to see a vertical stepper</div>
-        <div *ngSwitchCase="'vertical'">Make your screen larger to see a horizontal stepper</div>
-      </ng-container>
-      
-
-        <mat-step [stepControl]="firstFormGroup" label="Fill out your name">
-          <form [formGroup]="firstFormGroup">
-            <mat-form-field>
-              <mat-label>Name</mat-label>
-              <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
-            </mat-form-field>
-            <div>
-              <button mat-button matStepperNext>Next</button>
+      <header class="p-3 bg-secondary text-white">
+        <div class="nav-menu fixed-top is-scrolling">
+          <div class="d-flex  align-items-center justify-content-lg-end">
+            <img href="#" src="../../../assets/img/SR.Navalha logo escrita.png" width="8%" width="4%" height="2%"
+              alt="">
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+              <li><a href="#" class="nav-link px-2 text-secondary">HOME</a></li>
+              <li><a href="#idSobre" class="nav-link px-2 text-white">SOBRE</a></li>
+              <li><a href="#idContatos" class="nav-link px-2 text-white">CONTATOS</a></li>
+            </ul>
+            <div class="text-end">
+              <a type="button" routerLink="/" class="btn bi bi-box-arrow-left btn-danger"> Sair</a>
+              <label for="" style="padding-left: 20px;">{{userLogado}}</label>
             </div>
-          </form>
-        </mat-step>
-        <mat-step [stepControl]="secondFormGroup" label="Fill out your address">
-          <form [formGroup]="secondFormGroup">
-            <mat-form-field>
-              <mat-label>Address</mat-label>
-              <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
-                     required>
-            </mat-form-field>
-            <div>
-              <button mat-button matStepperPrevious>Back</button>
-              <button mat-button matStepperNext>Next</button>
-            </div>
-          </form>
-        </mat-step>
-        <mat-step [stepControl]="thirdFormGroup" label="Fill out your phone number">
-          <form [formGroup]="thirdFormGroup">
-            <mat-form-field>
-              <mat-label>Phone number</mat-label>
-              <input matInput formControlName="thirdCtrl" placeholder="Ex. 12345678" required>
-            </mat-form-field>
-            <div>
-              <button mat-button matStepperPrevious>Back</button>
-              <button mat-button matStepperNext>Next</button>
-            </div>
-          </form>
-        </mat-step>
-        <mat-step>
-          <ng-template matStepLabel>Done</ng-template>
-          <p>You are now done.</p>
-          <div>
-            <button mat-button matStepperPrevious>Back</button>
           </div>
-        </mat-step>
-      
-
+        </div>
+      </header>
+    </div>
+  </div>
+</div>
+<div class="conteiner" style="padding-top: 15%; padding-left: 45%">
+  <div class="row">
+    <div class="col-12">
+      <div class="spinner-border" style="width: 10rem; height: 10rem;" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
     </div>
   </div>
 </div>
