@@ -2,11 +2,17 @@ package com.fabricasoftware.SrNavalha.controllers;
 
 import com.fabricasoftware.SrNavalha.models.Agendamento;
 import com.fabricasoftware.SrNavalha.services.AgendamentoService;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.core.JsonFactoryBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/agendamentos")
@@ -17,25 +23,56 @@ public class AgendamentoController {
 
     @GetMapping
     public ResponseEntity<List<Agendamento>> findAll() {
-        List<Agendamento> list = agendamentoService.finAll();
-        return ResponseEntity.ok().body(list);
+        List<Agendamento> agendamentoSearch = agendamentoService.finAll();
+        if (agendamentoSearch.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } else {
+            return new ResponseEntity<List<Agendamento>>(agendamentoSearch, HttpStatus.OK);
+        }
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getById(@PathVariable Long id) {
+        Optional<Agendamento> agendamentoId = agendamentoService.getById(id);
+        Map<String, String> error = new HashMap<>();
+        error.put("Error","Item não encontrado");
+        error.put("Code","404");
+        if (agendamentoId.isPresent()) {
+            return new ResponseEntity<Agendamento>(agendamentoId.get(), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(error,HttpStatus.NOT_FOUND);
+        }
     }
 
     @PostMapping
     public ResponseEntity<Agendamento> create(@RequestBody Agendamento agendamento) {
-        agendamento = agendamentoService.create(agendamento);
-        return  ResponseEntity.ok().body(agendamento);
+        return new ResponseEntity<Agendamento>(agendamentoService.create(agendamento), HttpStatus.OK);
     }
 
     @PutMapping
-    public ResponseEntity<Agendamento> update(@RequestBody Agendamento agendamento) {
-        agendamento = agendamentoService.update(agendamento);
-        return ResponseEntity.ok().body(agendamento);
+    public ResponseEntity<?> update(@RequestBody Agendamento agendamento) {
+        Optional<Agendamento> updateAgendamento = agendamentoService.getById(agendamento.getId());
+        Map<String, String> error = new HashMap<>();
+        error.put("Error","Item não encontrado");
+        error.put("Code","404");
+        if (updateAgendamento.isPresent()) {
+            return new ResponseEntity<Agendamento>(agendamentoService.update(updateAgendamento.get()), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(error,HttpStatus.NOT_FOUND);
+        }
     }
 
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id) {
-        agendamentoService.delete(id);
-        return ResponseEntity.noContent().build();
+    public ResponseEntity<?> delete(@PathVariable Long id) {
+        Optional<Agendamento> delById = agendamentoService.getById(id);
+        Map<String, String> error = new HashMap<>();
+        error.put("Error","Item não encontrado");
+        error.put("Code","404");
+        if (!delById.isPresent()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } else {
+            agendamentoService.delete(delById.get().getId());
+            return new ResponseEntity<>(error,HttpStatus.OK);
+        }
     }
 }
