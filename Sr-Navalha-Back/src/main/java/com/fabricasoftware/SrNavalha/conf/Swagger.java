@@ -49,7 +49,5 @@ public class Swagger {
                 .licenseUrl("http//localhost:8080")
                 .version("2.0")
                 .build();
-
-        //funcionando
     }
 }
