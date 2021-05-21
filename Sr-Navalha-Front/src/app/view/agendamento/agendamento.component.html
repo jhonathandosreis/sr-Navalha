@@ -1,85 +1,83 @@
-<html lang="pt-BR">
-
-<body>
-    <ads-header></ads-header>
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-md-12">
-                <div class="card" w-75>
-                    <div class="card-header">
-                        Agendamento
+<ads-header></ads-header>
+<div class="container">
+    <div class="ordem-compra">
+        <form [formGroup]="formulario" novalidate>
+            <h4>Serviço Selecionado</h4>
+            <hr />
+            <div class="form-row" style="background: #FAFAFA; padding: 1%; border-bottom: solid 1px #F0F0F0">
+                <div class="row">
+                    <div class="form-group col-sm-1">
+                        <img src="../../../assets/img/login.jpeg" class="img-fluid">
                     </div>
-                    <div class="card-body">
-                        <div class="col-6 col-md-6">
-                            <form class="was-validated">
-                                <div class="mb-3">
-                                    <select class="form-select" required aria-label="select example">
-                                        <option value="">Open this select menu</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                    </select>
-                                    <div class="invalid-feedback">Example invalid select feedback</div>
-                                </div>
-                                <div class="form-check">
-                                    <input type="radio" class="form-check-input" id="validationFormCheck2"
-                                        name="radio-stacked" required>
-                                    <label class="form-check-label" for="validationFormCheck2">Toggle this radio</label>
-                                </div>
-                                <div class="form-check mb-3">
-                                    <input type="radio" class="form-check-input" id="validationFormCheck3"
-                                        name="radio-stacked" required>
-                                    <label class="form-check-label" for="validationFormCheck3">Or toggle this other
-                                        radio</label>
-                                    <div class="invalid-feedback">More example invalid feedback text</div>
-                                </div>
-                                <div class="mb-3">
-                                    <select class="form-select" required aria-label="select example">
-                                        <option value="">Open this select menu</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                    </select>
-                                    <div class="invalid-feedback">Example invalid select feedback</div>
-                                </div>
-                                <div class="col-12 col-md-12" style="padding-top: 3%;">
-                                    <button type="button"
-                                        style="border-radius: 20px !important; border-color: white; color: black;"
-                                        class="btn btn-primary btn-lg">AGENDAR</button>
-                                </div>
-                            </form>
-                            <br>
-                        </div>
-                        <div class="col-6 col-md-4">
-                            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img src="../../../assets/img/th.jpeg" class="d-block w-100" alt="...">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="../../../assets/img/secund.jpeg" class="d-block w-100" alt="...">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="../../../assets/img/firt.jpeg" class="d-block w-100" alt="...">
-                                    </div>
-                                </div>
-                                <button class="carousel-control-prev" type="button"
-                                    data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button"
-                                    data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
-                            </div>
+                    <div class="form-group col-sm-6">
+                        <small><strong>Barbeiro: </strong>Sr Navalha</small>
+                        <br />
+                        <small><strong>Descrição: </strong>Serviço completo com hidratação. (corte de cabelo e
+                            barba)</small>
+                    </div>
+                    <!--div class="form-group d-flex justify-content-end">
+                        R$ 61.80
+                    </div -->
+                </div>
+            </div>
+            <br />
+            <h5>Dados para a Prestação do Serviço</h5>
+            <hr />
+            <div class="form-row">
+                <div class="row" >
+                    <div class="form-group col-md-5 col-5">
+                        <input type="text" class="form-control" placeholder="Endereço" autocomplete="off"
+                            formControlName="endereco">
+                    </div>
+                    <div class="form-group col-md-2 col-2">
+                        <input type="text" maxlength="8" class="form-control" placeholder="CEP" autocomplete="off"
+                            formControlName="cep">
+                    </div>
+                    <br>
+                    <div class="form-group col-md-2 col-2">
+                        <input type="number" class="form-control" placeholder="Número" autocomplete="off"
+                            formControlName="numero">
+                    </div>
+                    <br>
+                    <div class="form-group col-md-3 col-3">
+                        <input type="text" class="form-control" placeholder="Complemento" autocomplete="off"
+                            formControlName="complemento">
+                    </div>
+                </div><br>
+                <div class="form-row">
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="novoEndereco" name="nEndereco" value="novoEndereco">
+                                <label class="form-check-label" for="novoEndereco">Definir novo endereço</label>
+                              </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+            <br />
+            <h5>Dados de pagamento</h5>
+            <hr />
+            <div class="form-row">
+                <div class="row">
+                    <div class="form-group col-md-3">
+                        <small><label>
+                                <h6>Forma de Pagamento</h6>
+                            </label></small>
+                        <select class="form-control" formControlName="formaPagamento">
+                            <option selected value="dinheiro">Dinheiro</option>
+                            <option value="cartao">Cartão</option>
+                        </select>
+                    </div>
+                    <div class="form-group col d-flex justify-content-end">
+                        <h6>Valor Total: R$ 61.80</h6>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <button type="submit" id="agendar" class="btn btn-primary btn-lg">Cofirmar Agendamento</button>
+        </form>
     </div>
-</body>
-
-</html>
+    <div class="ordem-compra">
+    </div>
+</div>
