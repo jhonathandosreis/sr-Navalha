@@ -1,0 +1,28 @@
+.section-title {
+  font-family: 'Quicksand', sans-serif;
+  text-align: center;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 2.5;
+  color: #000000;
+  text-align: left;
+  padding-top: 10vh;
+  background-image: url(../../../assets/img/fundoBarbearia.png);
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-size: cover;
+}
+
+.container {
+  background-color: rgba(255, 255, 255, 0.836);
+  border-radius: 15px;
+  padding: 10px;
+}

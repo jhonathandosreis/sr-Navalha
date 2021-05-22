@@ -9,6 +9,7 @@ import { HeaderComponent } from './view/header/header.component';
 import { AdminComponent } from './view/admin/admin.component';
 import { FormsModule } from '@angular/forms';
 import { AgendamentoComponent } from './view/agendamento/agendamento.component';
+import { CadastroComponent } from './view/cadastro/cadastro.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { AgendamentoComponent } from './view/agendamento/agendamento.component';
     HeaderComponent,
     AdminComponent,
     AgendamentoComponent,
+    CadastroComponent,
   ],
   imports: [
     BrowserModule,
