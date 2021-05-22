@@ -9,8 +9,12 @@ import { HeaderComponent } from './view/header/header.component';
 import { AdminComponent } from './view/admin/admin.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AgendamentoComponent } from './view/agendamento/agendamento.component';
+<<<<<<< HEAD
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './http.interceptor';
+=======
+import { CadastroComponent } from './view/cadastro/cadastro.component';
+>>>>>>> 8f70d0166c87f34782f205e12c2e035254ee823e
 
 @NgModule({
   declarations: [
@@ -21,6 +25,7 @@ import { AuthInterceptor } from './http.interceptor';
     HeaderComponent,
     AdminComponent,
     AgendamentoComponent,
+    CadastroComponent,
   ],
   imports: [
     BrowserModule,
