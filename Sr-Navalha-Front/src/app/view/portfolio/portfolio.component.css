@@ -1,0 +1,37 @@
+body {
+    font-family: sans-serif;
+}
+
+.nav-menu {
+    transition: all 0.3s ease;
+    background: -moz-linear-gradient(135deg, rgb(3, 24, 41) 0%, rgb(0, 0, 0) 100%);
+    background: -webkit-linear-gradient(135deg, rgb(3, 26, 44) 0%, rgb(0, 0, 0) 100%);
+    background: linear-gradient(135deg, rgb(2, 34, 58) 0%, rgb(0, 0, 0) 100%);
+    -webkit-box-shadow: 0px 5px 23px 0px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0px 5px 23px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 5px 23px 0px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    padding: 10px 8%;
+}
+
+.ordem-compra {
+    margin-top: 50px;
+    margin-bottom: 150px;
+}
+
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+
+select.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+
+input.ng-valid.ng-touched {
+    border: 1px solid green;
+}
+
+select.ng-valid.ng-touched {
+    border: 1px solid green;
+}
