@@ -1,3 +1,4 @@
+
 import { AgendamentoComponent } from './view/agendamento/agendamento.component';
 import { AdminComponent } from './view/admin/admin.component';
 import { NgModule } from '@angular/core';
@@ -8,6 +9,7 @@ import { CadastroComponent } from './view/cadastro/cadastro.component';
 import { TelaBarbeiroComponent } from './view/tela-barbeiro/tela-barbeiro.component';
 import { TelaClienteComponent } from './view/tela-cliente/tela-cliente.component';
 
+
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
@@ -16,7 +18,8 @@ const routes: Routes = [
   { path: 'cadastro', component: CadastroComponent },
   { path: 'telaBarbeiro', component: TelaBarbeiroComponent },
   { path: 'telaCliente', component: TelaClienteComponent }
-
+  
+  
 ];
 
 @NgModule({
