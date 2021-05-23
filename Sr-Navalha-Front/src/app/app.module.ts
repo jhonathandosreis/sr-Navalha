@@ -12,6 +12,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AgendamentoComponent } from './view/agendamento/agendamento.component';
 import { AuthInterceptor } from './http.interceptor';
 import { CadastroComponent } from './view/cadastro/cadastro.component';
+import { TelaClienteComponent } from './view/tela-cliente/tela-cliente.component';
+import { TelaBarbeiroComponent } from './view/tela-barbeiro/tela-barbeiro.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { CadastroComponent } from './view/cadastro/cadastro.component';
     AdminComponent,
     AgendamentoComponent,
     CadastroComponent,
+    TelaClienteComponent,
+    TelaBarbeiroComponent,
   ],
   imports: [
     BrowserModule,
