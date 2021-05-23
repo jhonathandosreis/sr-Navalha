@@ -15,7 +15,8 @@ import { CadastroComponent } from './view/cadastro/cadastro.component';
 import { TelaClienteComponent } from './view/tela-cliente/tela-cliente.component';
 import { TelaBarbeiroComponent } from './view/tela-barbeiro/tela-barbeiro.component';
 import { ServicoComponent } from './view/servico/servico.component';
-import { PortfolioComponent } from './portfolio/portfolio.component';
+import { PortfolioComponent } from './view/portfolio/portfolio.component';
+
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
     TelaBarbeiroComponent,
     ServicoComponent,
     PortfolioComponent,
+  
   ],
   imports: [
     BrowserModule,

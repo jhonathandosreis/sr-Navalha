@@ -1,4 +1,4 @@
-
+import { PortfolioComponent } from './view/portfolio/portfolio.component';
 import { AgendamentoComponent } from './view/agendamento/agendamento.component';
 import { AdminComponent } from './view/admin/admin.component';
 import { NgModule } from '@angular/core';
@@ -17,7 +17,8 @@ const routes: Routes = [
   { path: 'admin', component: AdminComponent },
   { path: 'cadastro', component: CadastroComponent },
   { path: 'telaBarbeiro', component: TelaBarbeiroComponent },
-  { path: 'telaCliente', component: TelaClienteComponent }
+  { path: 'telaCliente', component: TelaClienteComponent },
+  { path: 'portfolio', component: PortfolioComponent}
   
   
 ];
