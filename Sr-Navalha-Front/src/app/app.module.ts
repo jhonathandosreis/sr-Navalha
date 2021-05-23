@@ -14,6 +14,7 @@ import { AuthInterceptor } from './http.interceptor';
 import { CadastroComponent } from './view/cadastro/cadastro.component';
 import { TelaClienteComponent } from './view/tela-cliente/tela-cliente.component';
 import { TelaBarbeiroComponent } from './view/tela-barbeiro/tela-barbeiro.component';
+import { ServicoComponent } from './view/servico/servico.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { TelaBarbeiroComponent } from './view/tela-barbeiro/tela-barbeiro.compon
     CadastroComponent,
     TelaClienteComponent,
     TelaBarbeiroComponent,
+    ServicoComponent,
   ],
   imports: [
     BrowserModule,

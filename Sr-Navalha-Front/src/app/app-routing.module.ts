@@ -16,6 +16,7 @@ const routes: Routes = [
   { path: 'cadastro', component: CadastroComponent },
   { path: 'telaBarbeiro', component: TelaBarbeiroComponent },
   { path: 'telaCliente', component: TelaClienteComponent }
+
 ];
 
 @NgModule({
