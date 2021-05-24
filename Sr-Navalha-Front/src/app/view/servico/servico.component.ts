@@ -1,5 +1,6 @@
 import { ServicoService } from '../../controllers/servico.service';
 import { Component, OnInit } from '@angular/core';
+import { Servico } from 'src/app/models/servico';
 
 @Component({
   selector: 'ads-servico',
@@ -8,17 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServicoComponent implements OnInit {
 
-  servico: { id: any; nome: any; descricao: any; valor: any; usuarioBarbeiroID: any } = {id: null,nome: "", descricao: "" ,valor: "", usuarioBarbeiroID: 1};
+
+  servico: Servico = {id: 0, nome: "", descricao:"", valor:0, usuarioBarbeiro:null};
   constructor(public serviceServico: ServicoService) { }
 
   ngOnInit(): void {
   }
 
-  createservico(){
-    console.log(this.servico); 
-    this.serviceServico.saveServicos(this.servico).subscribe (resposta => {
-    this.servico = {id: null, nome: "", descricao: "" ,valor: "", usuarioBarbeiroID: 1};
+  createservico() {
+    console.log(this.servico);
+    this.serviceServico.saveServicos(this.servico).subscribe(resposta => {
+      this.servico = resposta;
+      console.log(this.servico)
     });
- }
+  }
+
+  createservico2(){
+    alert(this.servico)
+  }
 
 }

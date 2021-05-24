@@ -4,6 +4,7 @@
 }
 
 body {
+    background-image: url(../../../assets/img/fundoBarbearia.png);
     font-family: 'Quicksand', sans-serif;
     font-size: 1rem;
     font-weight: 400;
@@ -11,7 +12,7 @@ body {
     color: #000000;
     text-align: left;
     padding-top: 10vh;
-    background-image: url(../../../assets/img/fundoBarbearia.png);
+    
     bottom: 0;
     left: 0;
     overflow: auto;
