@@ -3,23 +3,104 @@
 ## Schema do banco de dados
 
 Este script cria as tabelas no banco de dados. Note que a tabela **user_auth**
-Os scripts de criação das tabelas foram **injetados** na aplicação por meio do **flyway**.
-``` Você precisara ajustar as configurações do seu bando e tambem incluir o drive de conexão do banco especifico de seu uso. ```
-Caso utilize um banco de dados que não seja o PostgreSQL sera necessario adaptar os scripts de criação de tabelas e de alteração.
 
-#### Criação dos usuários locais.
-``` Os ditos usuários locais são para uso em sua aplicação! Ou seja, sua aplicação irá utilizar estas credenciais para conversar com o servidor de autenticação. ```
-##### Atenção! Inicialmente já é criado um usuario e uma senha padrão ao inicializar a aplicação.
+```sql
+CREATE TABLE public.oauth_access_token (
+	token_id varchar(256) NULL,
+	token bytea NULL,
+	authentication_id varchar(256) NOT NULL,
+	user_name varchar(256) NULL,
+	client_id varchar(256) NULL,
+	authentication bytea NULL,
+	refresh_token varchar(256) NULL,
+	CONSTRAINT oauth_access_token_pk PRIMARY KEY (authentication_id)
+);
 
-**Usuário**   | **Senha**
---------- | ------
-teste | 123456
+-- Drop table
+
+-- DROP TABLE public.oauth_approvals
+
+CREATE TABLE public.oauth_approvals (
+	userid varchar(256) NULL,
+	clientid varchar(256) NULL,
+	"scope" varchar(256) NULL,
+	status varchar(10) NULL,
+	expiresat timestamp NULL,
+	lastmodifiedat timestamp NULL
+);
+
+-- Drop table
+
+-- DROP TABLE public.oauth_client_details
+
+CREATE TABLE public.oauth_client_details (
+	client_id varchar(256) NOT NULL,
+	resource_ids varchar(256) NULL,
+	client_secret varchar(256) NULL,
+	"scope" varchar(256) NULL,
+	authorized_grant_types varchar(256) NULL,
+	web_server_redirect_uri varchar(256) NULL,
+	authorities varchar(256) NULL,
+	access_token_validity int4 NULL,
+	refresh_token_validity int4 NULL,
+	additional_information varchar(4096) NULL,
+	autoapprove varchar(256) NULL,
+	CONSTRAINT oauth_client_details_pkey PRIMARY KEY (client_id)
+);
+
+-- Drop table
+
+-- DROP TABLE public.oauth_client_token
+
+CREATE TABLE public.oauth_client_token (
+	token_id varchar(256) NULL,
+	token bytea NULL,
+	authentication_id varchar(256) NULL,
+	user_name varchar(256) NULL,
+	client_id varchar(256) NULL
+);
+
+-- Drop table
+
+-- DROP TABLE public.oauth_code
+
+CREATE TABLE public.oauth_code (
+	code varchar(256) NULL,
+	authentication bytea NULL
+);
+
+-- Drop table
+
+-- DROP TABLE public.oauth_refresh_token
+
+CREATE TABLE public.oauth_refresh_token (
+	token_id varchar(256) NULL,
+	token bytea NULL,
+	authentication bytea NULL
+);
+
+alter table oauth_access_token owner to auth;
+alter table oauth_approvals owner to auth;
+alter table oauth_client_details owner to auth;
+alter table oauth_client_token owner to auth;
+alter table oauth_code owner to auth;
+alter table oauth_refresh_token owner to auth;
+```
+
+Modificação em massa do owner das tabelas:
+
+```bash
+for tbl in `psql -qAt -c "select tablename from pg_tables where schemaname = 'public';" auth` ; do  psql -c "alter table \"$tbl\" owner to auth" auth ; done
+```
+
+## Criação dos usuários locais
 
 ```bash
 insert into oauth_client_details (client_id, client_secret, "scope", authorized_grant_types, access_token_validity, refresh_token_validity) values ('teste', 'ba3253876aed6bc22d4a6ff53d8406c6ad864195ed144ab5c87621b6c233b548baeae6956df346ec8c17f5ea10f35ee3cbc514797ed7ddd3145464e2a0bab413', 'read,write', 'password,authorization_code,refresh_token', 15552000, 15552000);
 
 ou
 
+CREATE EXTENSION pgcrypto; -- como superuser
 insert into user_auth (login, "password", roles, tenant, active) values ('teste', (SELECT ENCODE(DIGEST('123456','sha512'),'hex')), 'admin', 'teste', true);
 
 

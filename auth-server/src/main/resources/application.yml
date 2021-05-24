@@ -5,29 +5,18 @@ server:
 
 spring:
   datasource:
-<<<<<<< HEAD
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://3.19.77.48:5432/auth
     username: postgres
     password: 12345
-
-=======
-    # driver-class-name: org.postgresql.Driver com.mysql.cj.jdbc.Driver
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/auth?createDatabaseIfNotExist=true&serverTimeZone=UTC
-    username: root
-    password: 
-    
->>>>>>> 2db83359f588cb56d8de332f9ce368c8549f09a5
   jpa:
     hibernate:
       ddl-auto: update
       show-sql: true
-      # dialect: org.hibernate.dialect.PostgreSQL94Dialect
-    # properties:
-      # hibernate:
-        # temp.use_jdbc_metadata_defaults: false  
-
+      #dialect: org.hibernate.dialect.PostgreSQL94Dialect
+    #properties:
+     # hibernate:
+        #temp.use_jdbc_metadata_defaults: false
 logging:
   level:
     org.springframework.security.oauth2.provider.token.store: ERROR

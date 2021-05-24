@@ -17,12 +17,7 @@ import javax.persistence.TemporalType;
 import org.hibernate.annotations.Type;
 import org.springframework.security.core.token.Sha512DigestUtils;
 
-import lombok.Getter;
-import lombok.Setter;
-
 @Entity
-@Getter
-@Setter
 public class UserAuth extends BaseEntity{
 	
 	@Id
@@ -70,5 +65,74 @@ public class UserAuth extends BaseEntity{
 		}
 		return result;
 	}
+	
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getRoles() {
+		return roles;
+	}
+
+	public void setRoles(String roles) {
+		this.roles = roles;
+	}
+
+	public String getTenant() {
+		return tenant;
+	}
+
+	public void setTenant(String tenant) {
+		this.tenant = tenant;
+	}
+
+	public Map<String, Object> getExtra() {
+		return extra;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public EnumStatus getStatus() {
+		return status;
+	}
+
+	public void setStatus(EnumStatus status) {
+		this.status = status;
+	}
+
+	public Date getPassDate() {
+		return passDate;
+	}
+
+	public void setPassDate(Date passDate) {
+		this.passDate = passDate;
+	}
+
+	public Boolean getActive() {
+		return active;
+	}
+
+	public void setActive(Boolean active) {
+		this.active = active;
+	}
+	
 	
 }
