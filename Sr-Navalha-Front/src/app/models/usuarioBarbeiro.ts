@@ -1,5 +1,5 @@
 
-export class UsuariBarbeiro {
+export class UsuarioBarbeiro {
 
     id: number = 0; 
     nome: string = "";

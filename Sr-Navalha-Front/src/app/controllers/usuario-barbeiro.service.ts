@@ -1,26 +1,35 @@
-import { UsuariBarbeiro } from './../models/usuarioBarbeiro';
+import { UsuarioBarbeiro } from './../models/usuarioBarbeiro';
 
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioBarbeiroService {
 
+  baseUrl = environment.baseUrl;
+
   constructor(private http: HttpClient) { }
 
-  public getUsuarioBarbeiro(): Observable<any> {
-    return this.http.get(`http://localhost:8080/servicos`);
+ 
+  findAll(): Observable<UsuarioBarbeiro[]> {
+    return this.http.get<UsuarioBarbeiro[]>(`${this.baseUrl}/usuarioBarbeiro`);
   }
 
-  public deleteUsuarioBarbeiro(id: any): Observable<any> {
-    return this.http.delete(`http://localhost:8080/servicos/${id}`);
+  create(usuarioBarbeiro: UsuarioBarbeiro): Observable<UsuarioBarbeiro> {
+    return this.http.post<UsuarioBarbeiro>(`${this.baseUrl}/usuarioBarbeiro`, usuarioBarbeiro);
   }
 
-  public saveUsuariobarbeiro(usuarioBarbeiro:UsuariBarbeiro): Observable<any> {
-    return this.http.post(`http://localhost:8080/servicos`, usuarioBarbeiro);
+  update(usuarioBarbeiro: UsuarioBarbeiro): Observable<UsuarioBarbeiro> {
+    return this.http.post<UsuarioBarbeiro>(`${this.baseUrl}/usuarioBarbeiro`, usuarioBarbeiro);
+  }
+
+  delete(id: any): Observable<void> {
+    const url = `${this.baseUrl}/usuarioBarbeiro${id}`
+    return this.http.delete<void>(url);
   }
 
 }
