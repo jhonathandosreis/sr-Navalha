@@ -11,7 +11,7 @@ export class TelaBarbeiroComponent implements OnInit {
 
   AdminNome: any;
 
-  usuarioBarbeiro: UsuarioBarbeiro = {id:0, nome: "" , telefone: "" ,email:  "" , dataNascimento: 0,
+  usuarioBarbeiro: UsuarioBarbeiro = {id:0, nome: "" , telefone: "" ,email:  "" , dataNascimento: new Date,
   cpf:  "", tipo: "", endereco: null, credencial: null,  perfil: null }
 
   constructor(public usuarioBarbeiroService: UsuarioBarbeiroService) { }
