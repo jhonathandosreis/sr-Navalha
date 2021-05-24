@@ -1,13 +1,13 @@
 
 export class UsuarioBarbeiro {
 
-    id: number = 0; 
-    nome: string = "";
-    telefone: string = "";
-    email: string = "";
-    dataNascimento: number = 0;
-    cpf: string = "";
-    tipo: string = "";
+    id: any; 
+    nome: any;
+    telefone: any;
+    email: any;
+    dataNascimento: Date = new Date();
+    cpf: any;
+    tipo: any;
     endereco: any;
     credencial: any;
     perfil: any;
