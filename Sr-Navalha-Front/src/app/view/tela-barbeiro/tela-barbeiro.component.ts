@@ -1,3 +1,5 @@
+import { UsuariBarbeiro } from './../../models/usuarioBarbeiro';
+import { UsuarioBarbeiroService } from './../../controllers/usuario-barbeiro.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 export class TelaBarbeiroComponent implements OnInit {
 
   AdminNome: any;
-  constructor() { }
+
+  usuarioBarbeiro: UsuariBarbeiro = {id:0, nome: "" , telefone: "" ,email:  "" , dataNascimento: 0,
+  cpf:  "", tipo: "", endereco: null, credencial: null,  perfil: null }
+
+  constructor(public UsuarioBarbeiroService: UsuarioBarbeiroService) { }
 
   ngOnInit(): void {
     this.AdminNome = localStorage.getItem("admin-logado")
   }
+
+  createContact(){
+    console.log(this.usuarioBarbeiro); 
+    this.UsuarioBarbeiroService.saveUsuariobarbeiro(this.usuarioBarbeiro).subscribe (resposta => {
+    this.usuarioBarbeiro = resposta;
+    });
+ }
+
+
 }
