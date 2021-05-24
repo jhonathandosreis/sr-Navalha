@@ -13,4 +13,5 @@ export class TelaClienteComponent implements OnInit {
   ngOnInit(): void {
     this.AdminNome = localStorage.getItem("admin-logado")
   }
+
 }

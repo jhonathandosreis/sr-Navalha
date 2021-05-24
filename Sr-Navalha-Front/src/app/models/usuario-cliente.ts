@@ -3,11 +3,7 @@ export class UsuarioCliente {
     nome: any;
     telefone: any;
     email: any;
-    dataNascimento: any;
+    dataNascimento: Date = new Date();
     cpf: any;
     tipo: any;
-    agendamento: any;
-    endreco: any;
-    credencial: any;
-    perfil: any;
 }

@@ -26,5 +26,4 @@ public class Endereco {
     private String CEP;
     @OneToOne
     private Cidade cidade;
-
 }

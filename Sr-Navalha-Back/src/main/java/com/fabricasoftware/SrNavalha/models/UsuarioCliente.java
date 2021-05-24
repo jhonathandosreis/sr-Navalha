@@ -34,7 +34,4 @@ public class UsuarioCliente {
     private Endereco endereco;
     @OneToOne
     private Credencial credencial;
-    @ManyToOne
-    private Perfil perfil;
-
 }
