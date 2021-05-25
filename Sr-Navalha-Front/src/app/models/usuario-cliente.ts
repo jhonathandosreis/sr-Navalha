@@ -1,3 +1,7 @@
+import { Cidade } from "./cidade";
+import { Credencial } from "./credencial";
+import { Endereco } from "./endereco";
+
 export class UsuarioCliente {
     id: any;
     nome: any;
@@ -6,4 +10,7 @@ export class UsuarioCliente {
     dataNascimento: Date = new Date();
     cpf: any;
     tipo: any;
+    endereco: Endereco = new Endereco;
+    credencial: Credencial = new Credencial;
+    cidade: Cidade = new Cidade;
 }

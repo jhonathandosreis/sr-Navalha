@@ -30,8 +30,8 @@ public class UsuarioCliente {
     private String tipo;
     @ManyToOne
     private Agendamento agendamento;
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.PERSIST)
     private Endereco endereco;
-    @OneToOne
+    @OneToOne(cascade=CascadeType.PERSIST)
     private Credencial credencial;
 }
