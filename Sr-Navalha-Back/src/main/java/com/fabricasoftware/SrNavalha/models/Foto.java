@@ -22,6 +22,5 @@ public class Foto {
     private String imageUrl;
     @ManyToOne
     private Portfolio portfolio;
-    @OneToOne
-    private Perfil perfil;
+
 }

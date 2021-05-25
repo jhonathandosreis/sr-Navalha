@@ -17,18 +17,12 @@ export class AuthInterceptor implements HttpInterceptor {
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         let token = '08e8c6f2-60f3-4c76-b5e4-fb0739d737d1';
-        if (token != null) {
-            request = request.clone({
-                setHeaders: {
-                    'Content-Type': 'application/json',
-                    Authorization: `bearer ${token}`
-                }
-            });
-        }else{
-            this.router.navigate(['/'])
-        }
-
-
+        request = request.clone({
+            setHeaders: {
+                'Content-Type': 'application/json',
+                Authorization: `bearer ${token}`
+            }
+        });
         return next.handle(request).pipe(tap(() => { },
             (err: any) => {
                 if (err instanceof HttpErrorResponse) {

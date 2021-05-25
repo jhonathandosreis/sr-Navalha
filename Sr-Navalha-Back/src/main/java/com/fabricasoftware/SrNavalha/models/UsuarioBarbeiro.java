@@ -34,8 +34,7 @@ public class UsuarioBarbeiro {
     private Portfolio portfolio;
     @OneToOne
     private Credencial credencial;
-    @ManyToOne
-    private Perfil perfil;
+
 
 }
 
