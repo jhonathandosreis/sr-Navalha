@@ -17,25 +17,20 @@ import java.util.Date;
 @Table(name = "usuario_barbeiro")
 public class UsuarioBarbeiro {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @EqualsAndHashCode.Include
-    private Long id;
-    private String nome;
-    private String telefone;
-    private String email;
-    @CreationTimestamp
-    private Date dataNascimento;
-    private String cpf;
-    private String tipo;
-    @ManyToOne
-    private Endereco endereco;
-    @ManyToOne
-    private Portfolio portfolio;
-    @OneToOne
-    private Credencial credencial;
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@EqualsAndHashCode.Include
+	private Long id;
+	private String nome;
+	private String telefone;
+	private String email;
+	@CreationTimestamp
+	private Date dataNascimento;
+	private String cpf;
+	private String tipo;
+	@ManyToOne
+	private Endereco endereco;
+	@OneToOne
+	private Credencial credencial;
 
 }
-
-
