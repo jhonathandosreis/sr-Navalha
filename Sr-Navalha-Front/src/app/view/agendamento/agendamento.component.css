@@ -1,20 +1,61 @@
-.container {
-  padding-top: 3rem;
-  padding-bottom: 5%;
+.section-title {
+  font-family: 'Quicksand', sans-serif;
+  text-align: center;
 }
 
 body {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 2.5;
+  color: #000000;
+  text-align: left;
   background-image: url(../../../assets/img/fundoBarbearia.png);
-  font-family: "Quicksand", sans-serif;
-  background-size: 100%;
   bottom: 0;
   left: 0;
   overflow: auto;
   position: absolute;
   right: 0;
   top: 0;
-} 
+  background-size: cover;
+}
 
+:root {
+  --blue: #007bff;
+  --indigo: #6610f2;
+  --purple: #6f42c1;
+  --pink: #e83e8c;
+  --red: #dc3545;
+  --orange: #fd7e14;
+  --yellow: #ffc107;
+  --green: #28a745;
+  --teal: #20c997;
+  --cyan: #17a2b8;
+  --white: #fff;
+  --gray: #868e96;
+  --gray-dark: #343a40;
+  --primary: #007bff;
+  --secondary: #868e96;
+  --success: #28a745;
+  --info: #17a2b8;
+  --warning: #ffc107;
+  --danger: #dc3545;
+  --light: #f8f9fa;
+  --dark: #343a40;
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-family-monospace: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.container {
+  background-color: rgba(255, 255, 255, 0.836);
+  border-radius: 15px;
+  padding: 10px;
+}
 input.ng-invalid.ng-touched {
   border: 1px solid red;
 }
@@ -29,12 +70,6 @@ input.ng-valid.ng-touched {
 select.ng-valid.ng-touched {
   border: 1px solid green;
 }
-h5 {
-  color:#999
-}
-h6 {
-  color:rgb(116, 116, 116)
-}
 
 h4 {
   color:#555
@@ -48,18 +83,10 @@ h3 {
   height: 200px;
 }
 
-.secao {
-  margin-top: 30px;
-  margin-bottom: 30px
-}
+
 #agendar{
-  background-color: #999 !important;
-  color: black;
+  background-color: rgb(46, 6, 226);
+  color: rgb(248, 248, 250);
   border-radius: 20px;
-  border-color: #999;
-}
-.preco {
-  color: #f60;
-  font-weight: bold;
-  font-size: 20px
+  border-color: rgb(30, 12, 112);
 }
