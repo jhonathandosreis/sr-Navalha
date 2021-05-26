@@ -32,7 +32,8 @@ export class CadastroComponent implements OnInit {
     rua: '',
     numero: '',
     bairro: '',
-    cep: ''
+    cep: '',
+    cidade: this.cidade,
   }
 
   novoCliente: UsuarioCliente = {
@@ -45,7 +46,7 @@ export class CadastroComponent implements OnInit {
     tipo: '',
     endereco: this.endereco,
     credencial: this.credencial,
-    cidade: this.cidade
+  
   }
 
   novoBarbeiro: UsuarioBarbeiro = {
@@ -58,27 +59,66 @@ export class CadastroComponent implements OnInit {
     tipo: '',
     endereco: this.endereco,
     credencial: this.credencial,
-    cidade: this.cidade
+   
   }
 
-  constructor(private usuarioBarbeiroService: UsuarioBarbeiroService, consultarCep: ConsultaCepService) { }
+  constructor(private usuarioBarbeiroService: UsuarioBarbeiroService, private usuarioClienteService: UsuarioClienteService, consultarCep: ConsultaCepService) { }
 
   ngOnInit(): void {
   }
  
-   
+  create(): void {
+    this.usuarioClienteService.create(this.novoCliente).subscribe((resposta) => {
+      location.reload;
+    });
+  }
+
+  update(): void {
+    this.usuarioClienteService.update(this.novoCliente).subscribe((resposta) => {
+      location.reload;
+    });
+  }
+
+  delete(usuarioCliente: UsuarioCliente) {
+    this.usuarioClienteService.delete(usuarioCliente.id).subscribe((resposta) => {
+      location.reload;
+    })
+  }
 
     createBarbeiro(): void {
       this.usuarioBarbeiroService.createBarbeiro(this.novoBarbeiro).subscribe((resposta) => {
         location.reload;
       });
     }
+    updateBarbeiro(): void {
+      this.usuarioBarbeiroService.updateBarbeiro(this.novoBarbeiro).subscribe((resposta) => {
+        location.reload;
+      });
+    }
+  
+    deleteBarbeiro(usuarioBarbeiro: UsuarioBarbeiro) {
+      this.usuarioBarbeiroService.deleteBarbeiro(usuarioBarbeiro.id).subscribe((resposta) => {
+        location.reload;
+      })
+    }
   
     getTipo(tip: any){
-      
+      this.novoCliente.tipo= tip.value 
       this.novoBarbeiro.tipo= tip.value
     }
   
+  
+
+    public createCheck(){
+
+      if( document.getElementById('check_cliente') == this.novoCliente.tipo){
+        return this.create();
+      }else{
+        this.createBarbeiro();
+      }
+      
+
+    } 
   
     
   

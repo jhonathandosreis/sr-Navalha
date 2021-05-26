@@ -12,5 +12,4 @@ export class UsuarioCliente {
     tipo: any;
     endereco: Endereco = new Endereco;
     credencial: Credencial = new Credencial;
-    cidade: Cidade = new Cidade;
 }

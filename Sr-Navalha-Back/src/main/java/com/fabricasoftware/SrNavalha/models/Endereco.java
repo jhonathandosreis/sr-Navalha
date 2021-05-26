@@ -23,6 +23,6 @@ public class Endereco {
     private String numero;
     private String bairro;
     private String CEP;
-    @OneToOne
+    @OneToOne(cascade=CascadeType.PERSIST)
     private Cidade cidade;
 }

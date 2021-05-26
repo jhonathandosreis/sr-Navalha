@@ -3,7 +3,7 @@ import { UsuarioBarbeiro } from './../../models/usuarioBarbeiro';
 import { UsuarioBarbeiroService } from './../../controllers/usuario-barbeiro.service';
 import { Component, OnInit } from '@angular/core';
 import { Credencial } from 'src/app/models/credencial';
-import { Cidade } from 'src/app/models/cidade';
+
 
 @Component({
   selector: 'ads-tela-barbeiro',
@@ -15,7 +15,7 @@ export class TelaBarbeiroComponent implements OnInit {
   AdminNome: any;
 
   usuarioBarbeiro: UsuarioBarbeiro = {id:0, nome: "" , telefone: "" ,email:  "" , dataNascimento: new Date,
-  cpf:  "", tipo: "", endereco: new Endereco, credencial: new Credencial,  cidade: new Cidade }
+  cpf:  "", tipo: "", endereco: new Endereco, credencial: new Credencial}
 
   constructor(public usuarioBarbeiroService: UsuarioBarbeiroService) { }
 
