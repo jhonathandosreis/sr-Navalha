@@ -103,24 +103,25 @@ export class CadastroComponent implements OnInit {
     }
   
     getTipo(tip: any){
-      this.novoCliente.tipo= tip.value 
+      this.novoCliente.tipo= tip.value
       this.novoBarbeiro.tipo= tip.value
     }
   
-  
+  /*
 
     public createCheck(){
 
-      if( document.getElementById('check_cliente') == this.novoCliente.tipo){
-        return this.create();
-      }else{
-        this.createBarbeiro();
+      var radioCadastro = document.getElementById('cadastro')?.nodeValue;
+      var radio_value;
+      if( radioCadastro == 'cliente'){
+        radio_value = document.getElementById('check_cliente')?.nodeValue;
+      }else(radioCadastro == 'barbeiro');{
+        radio_value = document.getElementById('check_barbeiro')?.nodeValue;
       }
-      
-
+      return this.create
     } 
   
-    
+    */
   
 
 
