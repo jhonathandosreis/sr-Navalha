@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CadastroClienteService } from 'src/app/controllers/cadastro-cliente.service';
+import { ConsultaCepService } from 'src/app/controllers/consulta-cep.service';
 import { UsuarioCliente } from 'src/app/models/usuario-cliente';
 
 @Component({
@@ -19,7 +20,7 @@ export class CadastroComponent implements OnInit {
     tipo: 'CLIENTE'
   }
 
-  constructor(private cadastroClienteService: CadastroClienteService) { }
+  constructor(private cadastroClienteService: CadastroClienteService, consultarCep: ConsultaCepService) { }
 
   ngOnInit(): void {
   }
@@ -40,6 +41,10 @@ export class CadastroComponent implements OnInit {
     this.cadastroClienteService.delete(usuarioCliente.id).subscribe((resposta) => {
       location.reload;
     })
+  }
+
+  getTipo(tip: any){
+    this.novoCliente.tipo= tip.value
   }
 
 }

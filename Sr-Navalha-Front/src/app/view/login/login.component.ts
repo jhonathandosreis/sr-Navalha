@@ -23,11 +23,17 @@ export class LoginComponent implements OnInit {
     }
   }
   logar() {
-    if (this.usuario.senha == "123" && this.usuario.tipo == "barbeiro") {
+    if (this.usuario.senha == "1234") {
+      localStorage.setItem("admin-logado", this.usuario.nome)
+      this.router.navigate(['/telaBarbeiro'])
+    } else if (this.usuario.senha == "12345" ) {
+      localStorage.setItem("admin-logado", this.usuario.nome)
+      this.router.navigate(['/telaCliente'])
+    }else if (this.usuario.senha == "123456" ){
       localStorage.setItem("admin-logado", this.usuario.nome)
       this.router.navigate(['/admin'])
-    } else {
-      alert("Você não pdoe acessar esta pagina!")
+    }else{
+      alert("Você não pode acessar esta pagina! Para acessar Barbeiro use 1234 || Cliente 12345 e para admin 123456")
       location.reload()
     }
   }

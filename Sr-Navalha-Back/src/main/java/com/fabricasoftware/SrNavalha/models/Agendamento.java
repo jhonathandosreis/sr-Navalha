@@ -23,9 +23,12 @@ public class Agendamento {
     private long id;
     private Date data;
     private String horario;
+    private String status;
     @ManyToOne
     private Endereco endereco;
     @OneToOne
     private Servico servico;
+    @OneToOne
+    private UsuarioCliente cliente;
 
 }
