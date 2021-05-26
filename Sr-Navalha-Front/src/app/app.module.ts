@@ -17,7 +17,6 @@ import { TelaBarbeiroComponent } from './view/tela-barbeiro/tela-barbeiro.compon
 import { ServicoComponent } from './view/servico/servico.component';
 import { PortfolioComponent } from './view/portfolio/portfolio.component';
 import { AgendamentosComponent } from './view/agendamento/agendamentos/agendamentos.component';
-import {MatFormFieldModule} from '@angular/material/form-field';
 
 
 @NgModule({
