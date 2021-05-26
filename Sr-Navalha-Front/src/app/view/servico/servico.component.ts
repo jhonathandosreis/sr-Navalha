@@ -1,3 +1,4 @@
+import { UsuarioBarbeiroService } from './../../controllers/usuario-barbeiro.service';
 import { ServicoService } from '../../controllers/servico.service';
 import { Component, OnInit } from '@angular/core';
 import { Servico } from 'src/app/models/servico';
@@ -11,17 +12,27 @@ export class ServicoComponent implements OnInit {
 
   url=""
   servico: Servico = { id: 0, nome: "", descricao: "", valor: 0, imageUrl:"", usuarioBarbeiro: null, };
-  constructor(public serviceServico: ServicoService) { }
+  constructor(public serviceServico: ServicoService, private usuarioBarbeiro: UsuarioBarbeiroService) { }
 
   ngOnInit(): void {
   }
+
+  
 
   createservico() {
     console.log(this.servico);
     this.serviceServico.saveServicos(this.servico).subscribe(resposta => {
       this.servico = resposta;
+      this.setBarbeiro()
       console.log(this.servico)
+      confirm("Serviço cadastrado com sucesso!")
     });
+  }
+
+  setBarbeiro(){
+    this.usuarioBarbeiro.findBarbeiroByEmail(localStorage.getItem("admin-logado")).subscribe(result =>{
+      this.servico.usuarioBarbeiro = result
+    })
   }
 
   onselectFile(e: any){
@@ -30,9 +41,11 @@ export class ServicoComponent implements OnInit {
       reader.readAsDataURL(e.target.files[0]);
       reader.onload = (event:any)=>{
         this.url=event.target.result;
+        this.servico.imageUrl = event.target.result
         console.log(this.url)
       }
     }
   }
+
 
 }
