@@ -61,37 +61,12 @@ export class CadastroComponent implements OnInit {
     cidade: this.cidade
   }
 
-  constructor(private usuarioClienteService: UsuarioClienteService, private usuarioBarbeiroService: UsuarioBarbeiroService, consultarCep: ConsultaCepService) { }
+  constructor(private usuarioBarbeiroService: UsuarioBarbeiroService, consultarCep: ConsultaCepService) { }
 
   ngOnInit(): void {
   }
  
-    create(): void {
-      this.usuarioClienteService.create(this.novoCliente).subscribe((resposta) => {
-        location.reload;
-      });
-    }
-  
-    update(): void {
-      this.usuarioClienteService.update(this.novoCliente).subscribe((resposta) => {
-        location.reload;
-      });
-    }
-  
-    delete(usuarioCliente: UsuarioCliente) {
-      this.usuarioClienteService.delete(usuarioCliente.id).subscribe((resposta) => {
-        location.reload;
-      })
-    }
-
-
-  
-    getTipo(tip: any){
-      this.novoCliente.tipo= tip.value
-      this.novoBarbeiro.tipo= tip.value
-    }
-
-
+   
 
     createBarbeiro(): void {
       this.usuarioBarbeiroService.createBarbeiro(this.novoBarbeiro).subscribe((resposta) => {
@@ -99,17 +74,11 @@ export class CadastroComponent implements OnInit {
       });
     }
   
-    updateBarbeiro(): void {
-      this.usuarioBarbeiroService.updateBarbeiro(this.novoBarbeiro).subscribe((resposta) => {
-        location.reload;
-      });
+    getTipo(tip: any){
+      
+      this.novoBarbeiro.tipo= tip.value
     }
   
-    deleteBarbeiro(usuarioBarbeiro: UsuarioBarbeiro) {
-      this.usuarioBarbeiroService.deleteBarbeiro(usuarioBarbeiro.id).subscribe((resposta) => {
-        location.reload;
-      })
-    }
   
     
   
