@@ -12,7 +12,8 @@
                             <div class="col-lg-12 col-md-12">
                                 <div class="form-group">
                                     <label for="basic-url">Nome do Serviço*</label>
-                                    <input [(ngModel)] = "servico.nome" type="text" name="nome" class="form-control form-control-sm" id="nome"
+                                    <input [(ngModel)]="servico.nome" type="text" name="nome"
+                                        class="form-control form-control-sm" id="nome"
                                         placeholder="Nome do Serviço (Ex: Barba)*">
                                 </div>
                             </div>
@@ -27,15 +28,22 @@
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
                                     <label>Valor do Serviço*</label>
-                                    <input type="date" name="valor" class="form-control form-control-sm" id="valor"
+                                    <input type="number" name="valor" class="form-control form-control-sm" id="valor"
                                         placeholder="Ex: 25.00">
                                 </div>
                             </div>
                         </div>
-                       
-                        <div style ="padding: 1% 0px 1% 0px;" class="text-center">
-                            <button class="btn btn-primary" type="button" (click) = "createservico()" >CADASTRAR</button>
-                           
+                        <div>
+                            <label>Foto do Serviço</label>
+                            <br>
+                            <input type="file" id="selecionarfoto" (change)="upload()" accept="image/png, image/jpeg">
+                            <img id="img" style="width: 500px">
+                        </div>
+                        
+                        
+
+                        <div style="padding: 1% 0px 1% 0px;" class="text-center">
+                            <button class="btn btn-primary" type="button" (click)="createservico()">CADASTRAR</button>
                         </div>
                     </form>
                 </div>

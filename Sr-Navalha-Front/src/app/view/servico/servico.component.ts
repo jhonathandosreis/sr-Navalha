@@ -10,7 +10,7 @@ import { Servico } from 'src/app/models/servico';
 export class ServicoComponent implements OnInit {
 
 
-  servico: Servico = {id: 0, nome: "", descricao:"", valor:0, usuarioBarbeiro:null};
+  servico: Servico = { id: 0, nome: "", descricao: "", valor: 0, usuarioBarbeiro: null };
   constructor(public serviceServico: ServicoService) { }
 
   ngOnInit(): void {
@@ -24,8 +24,10 @@ export class ServicoComponent implements OnInit {
     });
   }
 
-  createservico2(){
-    alert(this.servico)
+  upload(urlImage: any) {
+    file: File = urlImage.files[0]
+    lerImagem: new FileReader()  
+    
   }
 
 }
