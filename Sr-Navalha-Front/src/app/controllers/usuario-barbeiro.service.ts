@@ -16,19 +16,19 @@ export class UsuarioBarbeiroService {
 
  
   findAllBarbeiro(): Observable<UsuarioBarbeiro[]> {
-    return this.http.get<UsuarioBarbeiro[]>(`${this.baseUrl}/usuarioBarbeiro`);
+    return this.http.get<UsuarioBarbeiro[]>(`${this.baseUrl}/usuarios_barbeiros`);
   }
 
   createBarbeiro(usuarioBarbeiro: UsuarioBarbeiro): Observable<UsuarioBarbeiro> {
-    return this.http.post<UsuarioBarbeiro>(`${this.baseUrl}/usuarioBarbeiro`, usuarioBarbeiro);
+    return this.http.post<UsuarioBarbeiro>(`${this.baseUrl}/usuarios_barbeiros`, usuarioBarbeiro);
   }
 
   updateBarbeiro(usuarioBarbeiro: UsuarioBarbeiro): Observable<UsuarioBarbeiro> {
-    return this.http.post<UsuarioBarbeiro>(`${this.baseUrl}/usuarioBarbeiro`, usuarioBarbeiro);
+    return this.http.post<UsuarioBarbeiro>(`${this.baseUrl}/usuarios_barbeiros`, usuarioBarbeiro);
   }
 
   deleteBarbeiro(id: any): Observable<void> {
-    const url = `${this.baseUrl}/usuarioBarbeiro${id}`
+    const url = `${this.baseUrl}/usuarios_barbeiros${id}`
     return this.http.delete<void>(url);
   }
 

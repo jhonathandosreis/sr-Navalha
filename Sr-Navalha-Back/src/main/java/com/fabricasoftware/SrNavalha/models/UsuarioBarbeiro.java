@@ -28,9 +28,8 @@ public class UsuarioBarbeiro {
 	private Date dataNascimento;
 	private String cpf;
 	private String tipo;
-	@ManyToOne
-	private Endereco endereco;
-	@OneToOne
+	@ManyToOne(cascade=CascadeType.PERSIST)
+    private Endereco endereco;
+    @OneToOne(cascade=CascadeType.PERSIST)
 	private Credencial credencial;
-
 }
