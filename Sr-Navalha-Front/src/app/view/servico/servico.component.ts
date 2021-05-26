@@ -9,8 +9,8 @@ import { Servico } from 'src/app/models/servico';
 })
 export class ServicoComponent implements OnInit {
 
-
-  servico: Servico = { id: 0, nome: "", descricao: "", valor: 0, usuarioBarbeiro: null };
+  url=""
+  servico: Servico = { id: 0, nome: "", descricao: "", valor: 0, imageUrl:"", usuarioBarbeiro: null, };
   constructor(public serviceServico: ServicoService) { }
 
   ngOnInit(): void {
@@ -24,6 +24,15 @@ export class ServicoComponent implements OnInit {
     });
   }
 
-
+  onselectFile(e: any){
+    if(e.target.files){
+      var reader = new FileReader();
+      reader.readAsDataURL(e.target.files[0]);
+      reader.onload = (event:any)=>{
+        this.url=event.target.result;
+        console.log(this.url)
+      }
+    }
+  }
 
 }
