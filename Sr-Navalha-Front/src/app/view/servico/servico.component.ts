@@ -24,10 +24,6 @@ export class ServicoComponent implements OnInit {
     });
   }
 
-  upload(urlImage: any) {
-    file: File = urlImage.files[0]
-    lerImagem: new FileReader()  
-    
-  }
+
 
 }
