@@ -23,9 +23,9 @@ export class TelaBarbeiroComponent implements OnInit {
     this.AdminNome = localStorage.getItem("admin-logado")
   }
 
-  createContact(){
+  createBarbeiro(){
     console.log(this.usuarioBarbeiro); 
-    this.usuarioBarbeiroService.create(this.usuarioBarbeiro).subscribe (resposta => {
+    this.usuarioBarbeiroService.createBarbeiro(this.usuarioBarbeiro).subscribe (resposta => {
     this.usuarioBarbeiro = resposta;
     });
  }

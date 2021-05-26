@@ -28,37 +28,34 @@
                             <div class="col-lg-12 col-md-12">
                                 <div class="form-group">
                                     <label for="basic-url">Nome Completo*</label>
-                                    <input [(ngModel)]="novoCliente.nome" type="text" name="nome" class="form-control form-control-sm" id="nome" placeholder="Nome Completo (Ex: José das Coves)*">
+                                    <input [(ngModel)]="novoCliente.nome" [(ngModel)]="novoBarbeiro.nome" type="text" name="nome" class="form-control form-control-sm" id="nome" placeholder="Nome Completo (Ex: José das Coves)*">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
                                     <label>CPF*</label>
-                                    <input [(ngModel)]="novoCliente.cpf" type="text" class="form-control form-control-sm" name="cpf" id="cpf" placeholder="Ex: (888.888.888.88)*">
+                                    <input [(ngModel)]="novoCliente.cpf" [(ngModel)]="novoBarbeiro.cpf" type="text" class="form-control form-control-sm" name="cpf" id="cpf" placeholder="Ex: (888.888.888.88)*">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
                                     <label>Data de Nascimento*</label>
-                                    <input [(ngModel)]="novoCliente.dataNascimento" type="date" name="dt_nasc" class="form-control form-control-sm" id="dta_nasc" placeholder="Ex: 11/11/1111*">
+                                    <input [(ngModel)]="novoCliente.dataNascimento" [(ngModel)]="novoBarbeiro.dataNascimento" type="date" name="dt_nasc" class="form-control form-control-sm" id="dta_nasc" placeholder="Ex: 11/11/1111*">
                                 </div>
                             </div>
-
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
                                     <label>E-mail Para Acesso*</label>
-                                    <input [(ngModel)]="novoCliente.email" [(ngModel)]="credencial.email" type="email" class="form-control form-control-sm" name="email" id="email" placeholder="E-mail Para Acesso*">
+                                    <input [(ngModel)]="novoCliente.email" [(ngModel)]="novoBarbeiro.email" [(ngModel)]="credencial.email" type="email" class="form-control form-control-sm" name="email" id="email" placeholder="E-mail Para Acesso*">
                                     <small class="text-info" style="display:none;" id="suggest-email"></small>
                                 </div>
                             </div>
-
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
                                     <label>Telefone do Contato*</label>
-                                    <input [(ngModel)]=" novoCliente.telefone " type="tel" name="telefone" class="form-control form-control-sm" id="telefone" placeholder="Ex: (88) 88888-8888*">
+                                    <input [(ngModel)]=" novoCliente.telefone " [(ngModel)]=" novoBarbeiro.telefone " type="tel" name="telefone" class="form-control form-control-sm" id="telefone" placeholder="Ex: (88) 88888-8888*">
                                 </div>
                             </div>
-
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
                                     <label>CEP*</label>

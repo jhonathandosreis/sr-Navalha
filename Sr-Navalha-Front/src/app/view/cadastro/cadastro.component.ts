@@ -1,3 +1,5 @@
+import { UsuarioBarbeiroService } from './../../controllers/usuario-barbeiro.service';
+import { UsuarioBarbeiro } from './../../models/usuarioBarbeiro';
 import { Component, OnInit } from '@angular/core';
 import { ConsultaCepService } from 'src/app/controllers/consulta-cep.service';
 import { UsuarioClienteService } from 'src/app/controllers/usuario-cliente.service';
@@ -46,30 +48,71 @@ export class CadastroComponent implements OnInit {
     cidade: this.cidade
   }
 
-  constructor(private usuarioClienteService: UsuarioClienteService, consultarCep: ConsultaCepService) { }
+  novoBarbeiro: UsuarioBarbeiro = {
+    id: '',
+    nome: '',
+    telefone: '',
+    email: '',
+    dataNascimento: new Date(),
+    cpf: '',
+    tipo: '',
+    endereco: this.endereco,
+    credencial: this.credencial,
+    cidade: this.cidade
+  }
+
+  constructor(private usuarioClienteService: UsuarioClienteService, private usuarioBarbeiroService: UsuarioBarbeiroService, consultarCep: ConsultaCepService) { }
 
   ngOnInit(): void {
   }
+ 
+    create(): void {
+      this.usuarioClienteService.create(this.novoCliente).subscribe((resposta) => {
+        location.reload;
+      });
+    }
+  
+    update(): void {
+      this.usuarioClienteService.update(this.novoCliente).subscribe((resposta) => {
+        location.reload;
+      });
+    }
+  
+    delete(usuarioCliente: UsuarioCliente) {
+      this.usuarioClienteService.delete(usuarioCliente.id).subscribe((resposta) => {
+        location.reload;
+      })
+    }
 
-  create(): void {
-    this.usuarioClienteService.create(this.novoCliente).subscribe((resposta) => {
-      location.reload;
-    });
-  }
 
-  update(): void {
-    this.usuarioClienteService.create(this.novoCliente).subscribe((resposta) => {
-      location.reload;
-    });
-  }
+  
+    getTipo(tip: any){
+      this.novoCliente.tipo= tip.value
+      this.novoBarbeiro.tipo= tip.value
+    }
 
-  delete(usuarioCliente: UsuarioCliente) {
-    this.usuarioClienteService.delete(usuarioCliente.id).subscribe((resposta) => {
-      location.reload;
-    })
-  }
 
-  getTipo(tip: any){
-    this.novoCliente.tipo= tip.value
-  }
+
+    createBarbeiro(): void {
+      this.usuarioBarbeiroService.createBarbeiro(this.novoBarbeiro).subscribe((resposta) => {
+        location.reload;
+      });
+    }
+  
+    updateBarbeiro(): void {
+      this.usuarioBarbeiroService.updateBarbeiro(this.novoBarbeiro).subscribe((resposta) => {
+        location.reload;
+      });
+    }
+  
+    deleteBarbeiro(usuarioBarbeiro: UsuarioBarbeiro) {
+      this.usuarioBarbeiroService.deleteBarbeiro(usuarioBarbeiro.id).subscribe((resposta) => {
+        location.reload;
+      })
+    }
+  
+    
+  
+
+
 }

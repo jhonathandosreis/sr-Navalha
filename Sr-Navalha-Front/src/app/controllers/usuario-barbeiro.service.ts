@@ -15,19 +15,19 @@ export class UsuarioBarbeiroService {
   constructor(private http: HttpClient) { }
 
  
-  findAll(): Observable<UsuarioBarbeiro[]> {
+  findAllBarbeiro(): Observable<UsuarioBarbeiro[]> {
     return this.http.get<UsuarioBarbeiro[]>(`${this.baseUrl}/usuarioBarbeiro`);
   }
 
-  create(usuarioBarbeiro: UsuarioBarbeiro): Observable<UsuarioBarbeiro> {
+  createBarbeiro(usuarioBarbeiro: UsuarioBarbeiro): Observable<UsuarioBarbeiro> {
     return this.http.post<UsuarioBarbeiro>(`${this.baseUrl}/usuarioBarbeiro`, usuarioBarbeiro);
   }
 
-  update(usuarioBarbeiro: UsuarioBarbeiro): Observable<UsuarioBarbeiro> {
+  updateBarbeiro(usuarioBarbeiro: UsuarioBarbeiro): Observable<UsuarioBarbeiro> {
     return this.http.post<UsuarioBarbeiro>(`${this.baseUrl}/usuarioBarbeiro`, usuarioBarbeiro);
   }
 
-  delete(id: any): Observable<void> {
+  deleteBarbeiro(id: any): Observable<void> {
     const url = `${this.baseUrl}/usuarioBarbeiro${id}`
     return this.http.delete<void>(url);
   }
