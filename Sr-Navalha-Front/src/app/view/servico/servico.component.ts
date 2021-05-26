@@ -9,7 +9,7 @@ import { Servico } from 'src/app/models/servico';
 })
 export class ServicoComponent implements OnInit {
 
-
+  imagem: any
   servico: Servico = { id: 0, nome: "", descricao: "", valor: 0, usuarioBarbeiro: null };
   constructor(public serviceServico: ServicoService) { }
 
@@ -24,10 +24,13 @@ export class ServicoComponent implements OnInit {
     });
   }
 
-  upload(urlImage: any) {
-    file: File = urlImage.files[0]
-    lerImagem: new FileReader()  
-    
-  }
+  /*upload(urlImage: any) {
+    let file: File = urlImage.files[0]
+    let lerImagem = new FileReader();  
+    lerImagem.addEventListener('load', (evento: any)=>{
+      this.imagem = new ImageSnippet(event.target.result, file);
+    });
+  
+  }*/
 
 }
