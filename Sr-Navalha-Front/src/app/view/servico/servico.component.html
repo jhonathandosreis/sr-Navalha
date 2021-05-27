@@ -33,14 +33,16 @@
                                 </div>
                             </div>
                         </div>
-                        <div>
-                            <label>Foto do Serviço</label>
+                        <div id="divfoto">
+                            <p>Foto do Serviço</p>
+                            
+                            <label class="input-group-text" id="uploadfoto" for="inputGroupFile01">Upload</label>
                             <br>
-                            <input type="file" id="selecionarfoto" accept="image/png, image/jpeg">
-                            <img [src]="url" style="width: 500px">
+                            <input  type="file" (change)="onselectFile($event)" class="form-control"
+                                id="inputGroupFile01" accept="image/png, image/jpeg">
+                            <img [src]="url" height="200"><br>
+
                         </div>
-                        
-                        
 
                         <div style="padding: 1% 0px 1% 0px;" class="text-center">
                             <button class="btn btn-primary" type="button" (click)="createservico()">CADASTRAR</button>

@@ -58,3 +58,27 @@ body {
     border-radius: 15px;
     padding: 10px;
 }
+
+input[type="file"]{
+    display: none;
+}
+
+label[id="uploadfoto"]{
+    padding: 20px 10px;
+    width: 200px;
+    background: #343a40;
+    color: #f8f9fa;
+    text-transform: uppercase;
+    display: block;
+    margin-top: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    cursor: pointer;
+    transition: .5s;
+    border: 1px solid #868e96;
+}
+
+label:hover{
+ color: #343a40;
+ background: #f8f9fa;
+}
