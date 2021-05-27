@@ -5,8 +5,9 @@
             <table class="table table-striped table-hover">
                 <thead class="table-dark">
                     <tr>
+                        <th>Id</th>
+                        <th>Nome Cliente</th>
                         <th>Nome Barbeiro</th>
-                        <th>Id Agendamento</th>
                         <th>Data</th>
                         <th>hora</th>
                         <th>CPF</th>
@@ -20,14 +21,15 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let agendamento of agendamentos">
-                        <td>{{agendamento.servico.usuarioBarbeiro.nome}}</td>
                         <td>{{agendamento.id}}</td>
+                        <td>{{agendamento.cliente.nome}}</td>
+                        <td>{{agendamento.servico.usuarioBarbeiro.nome}}</td>
                         <td>{{agendamento.data}}</td>
                         <td>{{agendamento.horario}}</td>
-                        <td>{{agendamento.status}}</td>
+                        <td>{{agendamento.cliente.cpf}}</td>
                         <td>R$ {{agendamento.servico.valor}}</td>
                         <td>{{agendamento.servico.descricao}}</td>
-                        <td><span class="badge bg-primary">Finalizado</span></td>
+                        <td><span class="badge bg-primary">{{agendamento.status}}</span></td>
                         <td class="text-center"><button class="btn btn-info btn-sm"><span
                                     class="glyphicon glyphicon-remove"></span>
                                 Alterar</button></td>

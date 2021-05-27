@@ -4,6 +4,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -28,8 +29,6 @@ public class UsuarioCliente {
     private Date dataNascimento;
     private String cpf;
     private String tipo;
-    @ManyToOne
-    private Agendamento agendamento;
     @ManyToOne
     private Endereco endereco;
     @OneToOne

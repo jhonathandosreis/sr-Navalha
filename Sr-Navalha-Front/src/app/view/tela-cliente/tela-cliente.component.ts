@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tela-cliente.component.css']
 })
 export class TelaClienteComponent implements OnInit {
-
+  dev: string = 'CEO - Developer';
   AdminNome: any;
   constructor() { }
 
