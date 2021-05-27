@@ -12,14 +12,15 @@
                             <div class="col-lg-12 col-md-12">
                                 <div class="form-group">
                                     <label for="basic-url">Nome do Serviço*</label>
-                                    <input [(ngModel)] = "servico.nome" type="text" name="nome" class="form-control form-control-sm" id="nome"
+                                    <input [(ngModel)]="servico.nome" type="text" name="nome"
+                                        class="form-control form-control-sm" id="nome"
                                         placeholder="Nome do Serviço (Ex: Barba)*">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
                                     <label>Descrição do Serviço*</label>
-                                    <input type="text" class="form-control form-control-sm" name="descricao"
+                                    <input [(ngModel)]="servico.descricao" type="text" class="form-control form-control-sm" name="descricao"
                                         id="descricao"
                                         placeholder="Ex: (Abrange somente o corte e modelagem da barba)*">
                                 </div>
@@ -27,15 +28,24 @@
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
                                     <label>Valor do Serviço*</label>
-                                    <input type="date" name="valor" class="form-control form-control-sm" id="valor"
+                                    <input [(ngModel)]="servico.valor" type="number" name="valor" class="form-control form-control-sm" id="valor"
                                         placeholder="Ex: 25.00">
                                 </div>
                             </div>
                         </div>
-                       
-                        <div style ="padding: 1% 0px 1% 0px;" class="text-center">
-                            <button class="btn btn-primary" type="button" (click) = "createservico()" >CADASTRAR</button>
-                           
+                        <div id="divfoto">
+                            <p>Foto do Serviço</p>
+                            
+                            <label class="input-group-text" id="uploadfoto" for="inputGroupFile01">Upload</label>
+                            <br>
+                            <input  type="file" (change)="onselectFile($event)" class="form-control"
+                                id="inputGroupFile01" accept="image/png, image/jpeg">
+                            <img [src]="url" height="200"><br>
+
+                        </div>
+
+                        <div style="padding: 1% 0px 1% 0px;" class="text-center">
+                            <button class="btn btn-primary" type="button" (click)="createservico()">CADASTRAR</button>
                         </div>
                     </form>
                 </div>

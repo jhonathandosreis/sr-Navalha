@@ -7,17 +7,15 @@
             <div class="section-title">
                 <h3>CADASTRE-SE JÁ</h3>
 
-                <small>Experimente todas as funcionalidades grátis por 30 dias, sem compromisso.</small>
-
                 <div class="container2  justify-content-center">
                     <div class="btn-group" data-toggle="buttons">
                         <label class="btn btn-price active">
-                            <input type="radio" name="price-plan" (blur)="getTipo($event.target)" value="barbeiro">
+                            <input type="radio" name="price-plan" (blur)="getTipo($event.target)" id="check_barbeiro" value="barbeiro">
                             BARBEIRO <p class="text-white"></p>
                         </label>
                         <label class="btn btn-price" id="Cliente">
                             <input value="cliente" (blur)="getTipo($event.target)"
-                                id="cliente" type="radio" name="price-plan" checked>
+                            id="check_cliente" type="radio" name="price-plan" checked>
                             CLIENTE <p class="text-white"></p>
                         </label>
                     </div>
@@ -30,105 +28,102 @@
                             <div class="col-lg-12 col-md-12">
                                 <div class="form-group">
                                     <label for="basic-url">Nome Completo*</label>
-                                    <input [(ngModel)]="novoCliente.nome" type="text" name="nome"
-                                        class="form-control form-control-sm" id="nome"
-                                        placeholder="Nome Completo (Ex: José das Coves)*">
+                                    <input [(ngModel)]="novoCliente.nome" [(ngModel)]="novoBarbeiro.nome" type="text" name="nome" class="form-control form-control-sm" id="nome" placeholder="Nome Completo (Ex: José das Coves)*">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
                                     <label>CPF*</label>
-                                    <input [(ngModel)]="novoCliente.cpf" type="text"
-                                        class="form-control form-control-sm" name="cpf" id="cpf"
-                                        placeholder="Ex: (888.888.888.88)*">
+                                    <input [(ngModel)]="novoCliente.cpf" [(ngModel)]="novoBarbeiro.cpf" type="text" class="form-control form-control-sm" name="cpf" id="cpf" placeholder="Ex: (888.888.888.88)*">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
                                     <label>Data de Nascimento*</label>
-                                    <input [(ngModel)]="novoCliente.dataNascimento" type="date" name="dt_nasc"
-                                        class="form-control form-control-sm" id="dta_nasc"
-                                        placeholder="Ex: 11/11/1111*">
+                                    <input [(ngModel)]="novoCliente.dataNascimento" [(ngModel)]="novoBarbeiro.dataNascimento" type="date" name="dt_nasc" class="form-control form-control-sm" id="dta_nasc" placeholder="Ex: 11/11/1111*">
                                 </div>
                             </div>
-
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
                                     <label>E-mail Para Acesso*</label>
-                                    <input [(ngModel)]="novoCliente.email" type="email"
-                                        class="form-control form-control-sm" name="email" id="email"
-                                        placeholder="E-mail Para Acesso*">
+                                    <input [(ngModel)]="novoCliente.email" [(ngModel)]="novoBarbeiro.email" [(ngModel)]="credencial.email" type="email" class="form-control form-control-sm" name="email" id="email" placeholder="E-mail Para Acesso*">
                                     <small class="text-info" style="display:none;" id="suggest-email"></small>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                    <label>Telefone do Contato*</label>
+                                    <input [(ngModel)]=" novoCliente.telefone " [(ngModel)]=" novoBarbeiro.telefone " type="tel" name="telefone" class="form-control form-control-sm" id="telefone" placeholder="Ex: (88) 88888-8888*">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                    <label>CEP*</label>
+                                    <input [(ngModel)]="endereco.cep" type="text" class="form-control form-control-sm" name="cep" id="cep" placeholder="Ex: 11.111-111*" data-rule="email">
                                 </div>
                             </div>
 
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
-                                    <label>Telefone do Contato*</label>
-                                    <input [(ngModel)]="novoCliente.telefone" type="tel" name="telefone"
-                                        class="form-control form-control-sm" id="telefone"
-                                        placeholder="Ex: (88) 88888-8888*">
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-12">
-                                <div class="form-group">
                                     <label>Endereço*</label>
-                                    <input type="text" class="form-control form-control-sm" name="nomecontato"
-                                        id="nomecontato" placeholder="Ex: Rua p1, n16 , St Oeste*" data-rule="email">
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-12">
-                                <div class="form-group">
-                                    <label>Cidade*</label>
-                                    <input type="text" name="telefone" class="form-control form-control-sm"
-                                        id="telefone" placeholder="Ex: São-Paulo*">
+                                    <input [(ngModel)]="endereco.rua" type="text" class="form-control form-control-sm" name="endereco" id="endereco" placeholder="Ex: Rua p1, n16 , St Oeste*" data-rule="email">
                                 </div>
                             </div>
 
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
                                     <label>Estado*</label>
-                                    <input type="text" class="form-control form-control-sm" name="nomecontato"
-                                        id="nomecontato" placeholder="Ex: SP*" data-rule="email">
+                                    <input [(ngModel)]="cidade.uf" type="text" class="form-control form-control-sm" name="estado" id="estado" placeholder="Ex: SP*" data-rule="estado">
                                 </div>
                             </div>
 
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
-                                    <label>CEP*</label>
-                                    <input type="text" class="form-control form-control-sm" name="nomecontato"
-                                        id="nomecontato" placeholder="Ex: 11.111-111*" data-rule="email">
+                                    <label>Cidade*</label>
+                                    <input [(ngModel)]="cidade.nome" type="text" name="cidade" class="form-control form-control-sm" id="telefone" placeholder="Ex: São-Paulo*">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                    <label>Bairro*</label>
+                                    <input [(ngModel)]="endereco.bairro" type="text" name="bairro" class="form-control form-control-sm" id="bairro" placeholder="Ex: Setor Leste Vila Nova*">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                    <label>Número do Endereço*</label>
+                                    <input [(ngModel)]="endereco.numero" type="text" name="cidade" class="form-control form-control-sm" id="telefone" placeholder="Ex: 1443*">
                                 </div>
                             </div>
 
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
                                     <label>Senha <small>(Mínimo de 6 e máximo de 15 caracteres)*</small></label>
-                                    <input type="password" class="form-control form-control-sm" name="senha" id="senha"
-                                        placeholder="Senha*">
+                                    <input [(ngModel)]="credencial.senha" type="password" class="form-control form-control-sm" name="senha" id="senha" placeholder="Senha*">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
                                     <label>Confirme a Senha <small>(Mínimo de 6 e máximo de 15 caracteres
                                             )*</small></label>
-                                    <input type="password" class="form-control form-control-sm" name="confirmaSenha"
-                                        id="confirmaSenha" placeholder="Confirma a Senha*">
+                                    <input [(ngModel)]="credencial.senha" type="password" class="form-control form-control-sm" name="confirmaSenha" id="confirmaSenha" placeholder="Confirma a Senha*">
 
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group form-control-sm">
                                     <p>
-                                        <input type="checkbox" id="conduso" name="conduso"> Li e aceito o <a
-                                            href="https://drive.google.com/file/d/1nsTZgJaXVQUVnlqi8-nVwbzhrzyfuIg_/view?usp=sharing"
-                                            target="_blank" class="text-barber2">Termo de Condição de Uso.</a>
+                                        <input type="checkbox" id="conduso" name="conduso"> Li e aceito o <a href="https://drive.google.com/file/d/1nsTZgJaXVQUVnlqi8-nVwbzhrzyfuIg_/view?usp=sharing" target="_blank" class="text-barber2">Termo de Condição de Uso.</a>
                                     </p>
                                 </div>
                             </div>
                         </div>
+
                         <div class="text-center">
-                            <button (click)="create()" class="btn btn-primary" type="submit">CADASTRAR</button>
+                            <button (click)="createCheck()" class="btn btn-primary" type="submit">CADASTRAR</button>
+
                         </div>
                     </form>
                 </div>

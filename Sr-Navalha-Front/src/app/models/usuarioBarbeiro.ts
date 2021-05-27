@@ -1,3 +1,6 @@
+import { Cidade } from "./cidade";
+import { Credencial } from "./credencial";
+import { Endereco } from "./endereco";
 
 export class UsuarioBarbeiro {
 
@@ -8,11 +11,12 @@ export class UsuarioBarbeiro {
     dataNascimento: Date = new Date();
     cpf: any;
     tipo: any;
-    endereco: any;
-    credencial: any;
-    perfil: any;
-
-
+    endereco: Endereco = new Endereco;
+    credencial: Credencial = new Credencial;
+  
 }
+  
+
+
 
 

@@ -3,10 +3,12 @@ package com.fabricasoftware.SrNavalha.controllers;
 import com.fabricasoftware.SrNavalha.models.UsuarioBarbeiro;
 import com.fabricasoftware.SrNavalha.services.UsuarioBarbeiroService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping(value = "/usuarios_barbeiros")
@@ -20,6 +22,13 @@ public class UsuarioBarbeiroController {
         List<UsuarioBarbeiro> list = usuarioBarbeiroService.findAll();
         return ResponseEntity.ok().body(list);
     }
+    
+    @GetMapping("/{email}")
+    public ResponseEntity<UsuarioBarbeiro> findBarbeiroByEmail( @PathVariable String email) {
+        UsuarioBarbeiro barbeiroRetorno = usuarioBarbeiroService.findBarbeiroByEmail(email);
+        return ResponseEntity.ok().body(barbeiroRetorno);
+    }
+    
 
     @PostMapping
     public ResponseEntity<UsuarioBarbeiro> create(@RequestBody UsuarioBarbeiro usuarioBarbeiro) {

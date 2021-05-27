@@ -1,6 +1,12 @@
+import { Router } from '@angular/router';
+import { UsuarioBarbeiroService } from './../../controllers/usuario-barbeiro.service';
+import { UsuarioBarbeiro } from './../../models/usuarioBarbeiro';
 import { Component, OnInit } from '@angular/core';
-import { CadastroClienteService } from 'src/app/controllers/cadastro-cliente.service';
 import { ConsultaCepService } from 'src/app/controllers/consulta-cep.service';
+import { UsuarioClienteService } from 'src/app/controllers/usuario-cliente.service';
+import { Cidade } from 'src/app/models/cidade';
+import { Credencial } from 'src/app/models/credencial';
+import { Endereco } from 'src/app/models/endereco';
 import { UsuarioCliente } from 'src/app/models/usuario-cliente';
 
 @Component({
@@ -10,41 +16,114 @@ import { UsuarioCliente } from 'src/app/models/usuario-cliente';
 })
 export class CadastroComponent implements OnInit {
 
-  novoCliente: UsuarioCliente = {
+  credencial: Credencial = {
     id: '',
-    nome: 'juka nachoss',
-    telefone: '69-9900928828',
-    email: 'juka@live.com.bre',
-    dataNascimento: new Date(),
-    cpf: '234.982.987-092',
-    tipo: 'CLIENTE'
+    email: '',
+    senha: ''
   }
 
-  constructor(private cadastroClienteService: CadastroClienteService, consultarCep: ConsultaCepService) { }
+  cidade: Cidade = {
+    id: '',
+    nome: '',
+    uf: '',
+  }
+
+  endereco: Endereco = {
+    id: '',
+    rua: '',
+    numero: '',
+    bairro: '',
+    cep: '',
+    cidade: this.cidade,
+  }
+
+  novoCliente: UsuarioCliente = {
+    id: '',
+    nome: '',
+    telefone: '',
+    email: '',
+    dataNascimento: new Date(),
+    cpf: '',
+    tipo: '',
+    endereco: this.endereco,
+    credencial: this.credencial,
+  
+  }
+
+  novoBarbeiro: UsuarioBarbeiro = {
+    id: '',
+    nome: '',
+    telefone: '',
+    email: '',
+    dataNascimento: new Date(),
+    cpf: '',
+    tipo: '',
+    endereco: this.endereco,
+    credencial: this.credencial,
+   
+  }
+
+  constructor(private usuarioBarbeiroService: UsuarioBarbeiroService, private usuarioClienteService: UsuarioClienteService, consultarCep: ConsultaCepService, private router :Router) { }
 
   ngOnInit(): void {
   }
-
+ 
   create(): void {
-    this.cadastroClienteService.create(this.novoCliente).subscribe((resposta) => {
+    this.usuarioClienteService.create(this.novoCliente).subscribe((resposta) => {
       location.reload;
     });
   }
 
   update(): void {
-    this.cadastroClienteService.create(this.novoCliente).subscribe((resposta) => {
+    this.usuarioClienteService.update(this.novoCliente).subscribe((resposta) => {
       location.reload;
     });
   }
 
   delete(usuarioCliente: UsuarioCliente) {
-    this.cadastroClienteService.delete(usuarioCliente.id).subscribe((resposta) => {
+    this.usuarioClienteService.delete(usuarioCliente.id).subscribe((resposta) => {
       location.reload;
     })
   }
 
-  getTipo(tip: any){
-    this.novoCliente.tipo= tip.value
-  }
+    createBarbeiro(): void {
+      this.usuarioBarbeiroService.createBarbeiro(this.novoBarbeiro).subscribe((resposta) => {
+        location.reload;
+      });
+    }
+    updateBarbeiro(): void {
+      this.usuarioBarbeiroService.updateBarbeiro(this.novoBarbeiro).subscribe((resposta) => {
+        location.reload;
+      });
+    }
+  
+    deleteBarbeiro(usuarioBarbeiro: UsuarioBarbeiro) {
+      this.usuarioBarbeiroService.deleteBarbeiro(usuarioBarbeiro.id).subscribe((resposta) => {
+        location.reload;
+      })
+    }
+  
+    getTipo(tip: any){
+      this.novoCliente.tipo= tip.value
+      this.novoBarbeiro.tipo= tip.value
+    }
+  
+  
+
+    public createCheck(){
+
+      if( this.novoCliente.tipo == 'cliente'){
+       this.create();
+    this.router.navigate(["/login"])
+      }else{
+       this.createBarbeiro();
+       this.router.navigate(["/login"])
+      }
+      
+    } 
+  
+    
+  
+
 
 }

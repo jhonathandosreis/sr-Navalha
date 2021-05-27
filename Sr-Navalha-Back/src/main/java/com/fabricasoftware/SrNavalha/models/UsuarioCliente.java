@@ -1,10 +1,10 @@
 package com.fabricasoftware.SrNavalha.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.codehaus.jackson.annotate.JsonIgnore;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -30,7 +30,10 @@ public class UsuarioCliente {
     private String cpf;
     private String tipo;
     @ManyToOne
+    @JsonIgnore
+    private Agendamento agendamento;
+    @ManyToOne(cascade=CascadeType.PERSIST)
     private Endereco endereco;
-    @OneToOne
+    @OneToOne(cascade=CascadeType.PERSIST)
     private Credencial credencial;
 }

@@ -1,6 +1,9 @@
+import { Endereco } from './../../models/endereco';
 import { UsuarioBarbeiro } from './../../models/usuarioBarbeiro';
 import { UsuarioBarbeiroService } from './../../controllers/usuario-barbeiro.service';
 import { Component, OnInit } from '@angular/core';
+import { Credencial } from 'src/app/models/credencial';
+
 
 @Component({
   selector: 'ads-tela-barbeiro',
@@ -12,7 +15,7 @@ export class TelaBarbeiroComponent implements OnInit {
   AdminNome: any;
 
   usuarioBarbeiro: UsuarioBarbeiro = {id:0, nome: "" , telefone: "" ,email:  "" , dataNascimento: new Date,
-  cpf:  "", tipo: "", endereco: null, credencial: null,  perfil: null }
+  cpf:  "", tipo: "", endereco: new Endereco, credencial: new Credencial}
 
   constructor(public usuarioBarbeiroService: UsuarioBarbeiroService) { }
 
@@ -20,9 +23,9 @@ export class TelaBarbeiroComponent implements OnInit {
     this.AdminNome = localStorage.getItem("admin-logado")
   }
 
-  createContact(){
+  createBarbeiro(){
     console.log(this.usuarioBarbeiro); 
-    this.usuarioBarbeiroService.create(this.usuarioBarbeiro).subscribe (resposta => {
+    this.usuarioBarbeiroService.createBarbeiro(this.usuarioBarbeiro).subscribe (resposta => {
     this.usuarioBarbeiro = resposta;
     });
  }

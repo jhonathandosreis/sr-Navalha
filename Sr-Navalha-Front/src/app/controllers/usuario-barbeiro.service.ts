@@ -15,20 +15,24 @@ export class UsuarioBarbeiroService {
   constructor(private http: HttpClient) { }
 
  
-  findAll(): Observable<UsuarioBarbeiro[]> {
-    return this.http.get<UsuarioBarbeiro[]>(`${this.baseUrl}/usuarioBarbeiro`);
+  findAllBarbeiro(): Observable<UsuarioBarbeiro[]> {
+    return this.http.get<UsuarioBarbeiro[]>(`${this.baseUrl}/usuarios_barbeiros`);
   }
 
-  create(usuarioBarbeiro: UsuarioBarbeiro): Observable<UsuarioBarbeiro> {
-    return this.http.post<UsuarioBarbeiro>(`${this.baseUrl}/usuarioBarbeiro`, usuarioBarbeiro);
+  findBarbeiroByEmail( email : any): Observable<UsuarioBarbeiro> {
+    return this.http.get<UsuarioBarbeiro>(`${this.baseUrl}/usuarios_barbeiros/${email}`);
   }
 
-  update(usuarioBarbeiro: UsuarioBarbeiro): Observable<UsuarioBarbeiro> {
-    return this.http.post<UsuarioBarbeiro>(`${this.baseUrl}/usuarioBarbeiro`, usuarioBarbeiro);
+  createBarbeiro(usuarioBarbeiro: UsuarioBarbeiro): Observable<UsuarioBarbeiro> {
+    return this.http.post<UsuarioBarbeiro>(`${this.baseUrl}/usuarios_barbeiros`, usuarioBarbeiro);
   }
 
-  delete(id: any): Observable<void> {
-    const url = `${this.baseUrl}/usuarioBarbeiro${id}`
+  updateBarbeiro(usuarioBarbeiro: UsuarioBarbeiro): Observable<UsuarioBarbeiro> {
+    return this.http.post<UsuarioBarbeiro>(`${this.baseUrl}/usuarios_barbeiros`, usuarioBarbeiro);
+  }
+
+  deleteBarbeiro(id: any): Observable<void> {
+    const url = `${this.baseUrl}/usuarios_barbeiros${id}`
     return this.http.delete<void>(url);
   }
 
