@@ -19,8 +19,8 @@ export class UsuarioBarbeiroService {
     return this.http.get<UsuarioBarbeiro[]>(`${this.baseUrl}/usuarios_barbeiros`);
   }
 
-  findBarbeiroByEmail( email : any): Observable<UsuarioBarbeiro[]> {
-    return this.http.get<UsuarioBarbeiro[]>(`${this.baseUrl}/${email}`);
+  findBarbeiroByEmail( email : any): Observable<UsuarioBarbeiro> {
+    return this.http.get<UsuarioBarbeiro>(`${this.baseUrl}/usuarios_barbeiros/${email}`);
   }
 
   createBarbeiro(usuarioBarbeiro: UsuarioBarbeiro): Observable<UsuarioBarbeiro> {

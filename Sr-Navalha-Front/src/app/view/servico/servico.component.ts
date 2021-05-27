@@ -15,6 +15,7 @@ export class ServicoComponent implements OnInit {
   constructor(public serviceServico: ServicoService, private usuarioBarbeiro: UsuarioBarbeiroService) { }
 
   ngOnInit(): void {
+    this.setBarbeiro()
   }
 
   
@@ -26,9 +27,9 @@ export class ServicoComponent implements OnInit {
       this.setBarbeiro()
       console.log(this.servico)
       confirm("Serviço cadastrado com sucesso!")
+      location.reload()
     });
   }
-
 
   setBarbeiro(){
     this.usuarioBarbeiro.findBarbeiroByEmail(localStorage.getItem("admin-logado")).subscribe(result =>{

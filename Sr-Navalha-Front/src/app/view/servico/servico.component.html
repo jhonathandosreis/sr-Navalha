@@ -20,7 +20,7 @@
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
                                     <label>Descrição do Serviço*</label>
-                                    <input type="text" class="form-control form-control-sm" name="descricao"
+                                    <input [(ngModel)]="servico.descricao" type="text" class="form-control form-control-sm" name="descricao"
                                         id="descricao"
                                         placeholder="Ex: (Abrange somente o corte e modelagem da barba)*">
                                 </div>
@@ -28,7 +28,7 @@
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
                                     <label>Valor do Serviço*</label>
-                                    <input type="number" name="valor" class="form-control form-control-sm" id="valor"
+                                    <input [(ngModel)]="servico.valor" type="number" name="valor" class="form-control form-control-sm" id="valor"
                                         placeholder="Ex: 25.00">
                                 </div>
                             </div>
