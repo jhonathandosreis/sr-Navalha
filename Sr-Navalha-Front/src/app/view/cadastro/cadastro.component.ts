@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { UsuarioBarbeiroService } from './../../controllers/usuario-barbeiro.service';
 import { UsuarioBarbeiro } from './../../models/usuarioBarbeiro';
 import { Component, OnInit } from '@angular/core';
@@ -62,7 +63,7 @@ export class CadastroComponent implements OnInit {
    
   }
 
-  constructor(private usuarioBarbeiroService: UsuarioBarbeiroService, private usuarioClienteService: UsuarioClienteService, consultarCep: ConsultaCepService) { }
+  constructor(private usuarioBarbeiroService: UsuarioBarbeiroService, private usuarioClienteService: UsuarioClienteService, consultarCep: ConsultaCepService, private router :Router) { }
 
   ngOnInit(): void {
   }
@@ -103,7 +104,7 @@ export class CadastroComponent implements OnInit {
     }
   
     getTipo(tip: any){
-      this.novoCliente.tipo= tip.value 
+      this.novoCliente.tipo= tip.value
       this.novoBarbeiro.tipo= tip.value
     }
   
@@ -111,13 +112,14 @@ export class CadastroComponent implements OnInit {
 
     public createCheck(){
 
-      if( document.getElementById('check_cliente') == this.novoCliente.tipo){
-        return this.create();
+      if( this.novoCliente.tipo == 'cliente'){
+       this.create();
+    this.router.navigate(["/login"])
       }else{
-        this.createBarbeiro();
+       this.createBarbeiro();
+       this.router.navigate(["/login"])
       }
       
-
     } 
   
     
