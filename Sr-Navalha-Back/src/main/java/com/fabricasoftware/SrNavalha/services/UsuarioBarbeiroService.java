@@ -16,6 +16,10 @@ public class UsuarioBarbeiroService {
     public List<UsuarioBarbeiro> findAll() {
         return usuarioBarbeiroRepository.findAll();
     }
+    
+    public UsuarioBarbeiro findBarbeiroByEmail(String email) {
+        return usuarioBarbeiroRepository.findBarbeiroByEmail(email);
+    }
 
     public UsuarioBarbeiro create(UsuarioBarbeiro usuarioBarbeiro) {
         usuarioBarbeiro = usuarioBarbeiroRepository.save(usuarioBarbeiro);
