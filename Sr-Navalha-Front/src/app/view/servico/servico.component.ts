@@ -20,9 +20,9 @@ export class ServicoComponent implements OnInit {
   
 
   createservico() {
-    console.log(this.servico);
+    console.log(this.servico)
     this.serviceServico.saveServicos(this.servico).subscribe(resposta => {
-      this.servico = resposta;
+      this.servico = resposta
       this.setBarbeiro()
       console.log(this.servico)
       confirm("Serviço cadastrado com sucesso!")
@@ -41,7 +41,7 @@ export class ServicoComponent implements OnInit {
       var reader = new FileReader();
       reader.readAsDataURL(e.target.files[0]);
       reader.onload = (event:any)=>{
-        this.url=event.target.result;
+        this.url=event.target.result
         this.servico.imageUrl = event.target.result
         console.log(this.url)
       }
