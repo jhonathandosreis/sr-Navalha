@@ -18,18 +18,18 @@
             <div class="sidebar-heading">
                 Gestão
             </div>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap"
+             <li class="nav-item" id="itemAgendamento" name="itemAgendamento">
+                <a class="nav-link collapsed" routerLink="agend" data-toggle="collapse" data-target="#collapseBootstrap"
                     aria-expanded="true" aria-controls="collapseBootstrap">
                     <i class="far fa-fw fa-window-maximize"></i>
                     <span>Agendamentos</span>
                 </a>
 
             </li>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForm"
-                    aria-expanded="true" aria-controls="collapseForm">
-                    <i class="fab fa-fw fa-wpforms"></i>
+            <li class="nav-item" id="itemServico" name="itemServico">
+                <a class="nav-link collapsed" routerLink="serv" data-toggle="collapse" data-target="#collapseBootstrap"
+                    aria-expanded="true" aria-controls="collapseBootstrap">
+                    <i class="far fa-fw fa-window-maximize"></i>
                     <span>Serviços</span>
                 </a>
 
@@ -217,8 +217,9 @@
                             </div>
                         </div>
                     </div>
-                    <ads-agendamentos></ads-agendamentos>
-                    <!-- agendamento aquiiii -->
+                
+                    <router-outlet></router-outlet>
+
                     <!-- Modal Logout -->
                     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
                         aria-labelledby="exampleModalLabelLogout" aria-hidden="true">

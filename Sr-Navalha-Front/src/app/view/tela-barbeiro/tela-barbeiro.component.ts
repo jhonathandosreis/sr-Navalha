@@ -29,6 +29,5 @@ export class TelaBarbeiroComponent implements OnInit {
     this.usuarioBarbeiro = resposta;
     });
  }
-
-
+ 
 }
