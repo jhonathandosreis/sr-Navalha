@@ -1,3 +1,4 @@
+import { LoginService } from './../../controllers/login.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   usuario: { nome: any, senha: any, tipo: any } = { nome: '', senha: '', tipo: 'barbeiro' }
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private loginService: LoginService, private route: Router) { }
 
   ngOnInit(): void {
   }
@@ -26,15 +27,22 @@ export class LoginComponent implements OnInit {
     if (this.usuario.senha == "1234") {
       localStorage.setItem("admin-logado", this.usuario.nome)
       this.router.navigate(['/telaBarbeiro'])
-    } else if (this.usuario.senha == "12345" ) {
+    } else if (this.usuario.senha == "12345") {
       localStorage.setItem("admin-logado", this.usuario.nome)
       this.router.navigate(['/telaCliente'])
-    }else if (this.usuario.senha == "123456" ){
+    } else if (this.usuario.senha == "123456") {
       localStorage.setItem("admin-logado", this.usuario.nome)
       this.router.navigate(['/admin'])
-    }else{
+    } else {
       alert("Você não pode acessar esta pagina! Para acessar Barbeiro use 1234 || Cliente 12345 e para admin 123456")
       location.reload()
     }
+  }
+  login() {
+    this.loginService.post(this.usuario.nome, this.usuario.senha).subscribe(result => {
+      localStorage.setItem('access_token_ads04', result.access_token);
+      localStorage.setItem('login', result.login);
+      this.route.navigate(['/login'])
+    })
   }
 }
