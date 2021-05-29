@@ -1,8 +1,10 @@
 import { Endereco } from './../../models/endereco';
 import { UsuarioBarbeiro } from './../../models/usuarioBarbeiro';
 import { UsuarioBarbeiroService } from './../../controllers/usuario-barbeiro.service';
+import { ConsultaCepService } from 'src/app/controllers/consulta-cep.service';
 import { Component, OnInit } from '@angular/core';
 import { Credencial } from 'src/app/models/credencial';
+import { Cidade } from 'src/app/models/cidade';
 
 
 @Component({
@@ -14,20 +16,61 @@ export class TelaBarbeiroComponent implements OnInit {
 
   AdminNome: any;
 
-  usuarioBarbeiro: UsuarioBarbeiro = {id:0, nome: "" , telefone: "" ,email:  "" , dataNascimento: new Date,
-  cpf:  "", tipo: "", endereco: new Endereco, credencial: new Credencial}
+  credencial: Credencial = {
+    id: '',
+    email: '',
+    senha: ''
+  }
 
-  constructor(public usuarioBarbeiroService: UsuarioBarbeiroService) { }
+  cidade: Cidade = {
+    id: '',
+    nome: '',
+    uf: '',
+  }
+
+  endereco: Endereco = {
+    id: '',
+    rua: '',
+    numero: '',
+    bairro: '',
+    cep: '',
+    cidade: this.cidade,
+  }
+
+
+  novoBarbeiro: UsuarioBarbeiro = {
+    id: '',
+    nome: '',
+    telefone: '',
+    email: '',
+    dataNascimento: new Date(),
+    cpf: '',
+    tipo: '',
+    endereco: this.endereco,
+    credencial: this.credencial,
+   
+  }
+  constructor(public usuarioBarbeiroService: UsuarioBarbeiroService, consultarCep: ConsultaCepService ) { }
 
   ngOnInit(): void {
     this.AdminNome = localStorage.getItem("admin-logado")
   }
 
-  createBarbeiro(){
-    console.log(this.usuarioBarbeiro); 
-    this.usuarioBarbeiroService.createBarbeiro(this.usuarioBarbeiro).subscribe (resposta => {
-    this.usuarioBarbeiro = resposta;
+  createBarbeiro(): void {
+    this.usuarioBarbeiroService.createBarbeiro(this.novoBarbeiro).subscribe((resposta) => {
+      location.reload;
     });
- }
+  }
+  updateBarbeiro(): void {
+    this.usuarioBarbeiroService.updateBarbeiro(this.novoBarbeiro).subscribe((resposta) => {
+      location.reload;
+    });
+  }
+
+  deleteBarbeiro(usuarioBarbeiro: UsuarioBarbeiro) {
+    this.usuarioBarbeiroService.deleteBarbeiro(usuarioBarbeiro.id).subscribe((resposta) => {
+      location.reload;
+    })
+  }
  
 }
