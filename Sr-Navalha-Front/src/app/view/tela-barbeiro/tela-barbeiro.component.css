@@ -1801,3 +1801,13 @@ body.sidebar-toggled footer.sticky-footer {
     background-color: #3f51b5;
     border-color: #3f51b5
 }
+
+.modal-header {
+    border-bottom-color: #f4f4f4;
+}
+
+.modal-header {
+    min-height: 16.428571429px;
+    padding: 15px;
+    border-bottom: 1px solid #e5e5e5;
+}
