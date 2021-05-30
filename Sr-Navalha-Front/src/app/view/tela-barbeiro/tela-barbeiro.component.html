@@ -49,14 +49,14 @@
 
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
 
-                                <a class="dropdown-item" href="javascript:void(0);" data-toggle="modal" data-target="#PerfilModal">
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#PerfilModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-200"></i>Perfil
                                 </a>
 
 
                                 <div class="dropdown-divider"></div>
 
-                                <a class="dropdown-item" href="javascript:void(0);" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="javascript:void(0);" data-toggle="modal" data-target="#PerfilModalSair">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Sair
                                 </a>
 
@@ -87,41 +87,111 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                    <h4 class="modal-title"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+
+                                    <h3 class="modal-title"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
                                         <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z"/>
-                                      </svg> Editar Perfil </h4>
+                                      </svg> Editar Perfil
+                                    </h3>
+
                                 </div>
                                 <form id="formEditarPerfil" enctype="multipart/form-data" class="ng-pristine ng-valid">
                                     <div class="modal-body">
                                         <div class="box-body">
-
-                                            <!-- ID da Tabela -->
-                                            <input type="hidden" name="idUsuario" id="idUsuario" class="form-control">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label>Nome*</label>
-                                                        <input type="text" name="perNome" id="perNome" class="form-control" placeholder="Nome">
-                                                    </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="basic-url">Nome Completo*</label>
+                                                    <input type=" text " name="nome " class="form-control form-control-sm " id="nome " placeholder="Nome Completo (Ex: José das Coves)* ">
                                                 </div>
+                                            </div>
+                                            <div class="col-md-6 ">
+                                                <div class="form-group ">
+                                                    <label>CPF*</label>
+                                                    <input type="text " class="form-control form-control-sm " name="cpf " id="cpf " placeholder="Ex: (888.888.888.88)* ">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group ">
+                                                    <label>Data de Nascimento*</label>
+                                                    <input type="date " name="dt_nasc " class="form-control form-control-sm " id="dta_nasc " placeholder="Ex: 11/11/1111* ">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 ">
+                                                <div class="form-group ">
+                                                    <label>E-mail Para Acesso*</label>
+                                                    <input type="email " class="form-control form-control-sm " name="email " id="email " placeholder="E-mail Para Acesso* ">
+                                                    <small class="text-info " style="display:none; " id="suggest-email "></small>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group ">
+                                                    <label>Telefone do Contato*</label>
+                                                    <input type="tel " name="telefone " class="form-control form-control-sm " id="telefone " placeholder="Ex: (88) 88888-8888* ">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group ">
+                                                    <label>CEP*</label>
+                                                    <input type="text " class="form-control form-control-sm " name="cep " id="cep " placeholder="Ex: 11.111-111* " data-rule="email ">
+                                                </div>
+                                            </div>
 
+                                            <div class="col-md-6">
+                                                <div class="form-group ">
+                                                    <label>Endereço*</label>
+                                                    <input type="text " class="form-control form-control-sm " name="endereco " id="endereco " placeholder="Ex: Rua p1, n16 , St Oeste* " data-rule="email ">
+                                                </div>
+                                            </div>
 
+                                            <div class="col-md-6">
+                                                <div class="form-group ">
+                                                    <label>Estado*</label>
+                                                    <input type="text " class="form-control form-control-sm " name="estado " id="estado " placeholder="Ex: SP* " data-rule="estado ">
+                                                </div>
+                                            </div>
 
+                                            <div class="col-md-6">
+                                                <div class="form-group ">
+                                                    <label>Cidade*</label>
+                                                    <input type="text " name="cidade " class="form-control form-control-sm " id="telefone " placeholder="Ex: São-Paulo* ">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-group ">
+                                                    <label>Bairro*</label>
+                                                    <input type="text " name="bairro " class="form-control form-control-sm " id="bairro " placeholder="Ex: Setor Leste Vila Nova* ">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-group ">
+                                                    <label>Número do Endereço*</label>
+                                                    <input type="text " name="cidade " class="form-control form-control-sm " id="telefone " placeholder="Ex: 1443* ">
+                                                </div>
                                             </div>
 
 
-                                            <div class="form-group">
-                                                <label>(*) Campos Obrigatórios.</label>
+
+
+
+                                            <div class="text-center ">
+                                                <button type="button " class="btn btn-outline-primary " data-dismiss="modal " onClick="history.go(0) ">Voltar</button>
+
+
+                                                <button style="margin: 2%;" class="btn btn-primary " type="submit ">ATUALIZAR</button>
+
                                             </div>
 
-                                            <!-- Botões -->
-                                            <div class="box-footer">
-                                                <button type="submit" class="btn btn-primary">Salvar</button>
-                                            </div>
 
                                         </div>
+
                                     </div>
+
+
+
+
+
+
                                 </form>
                             </div>
                             <!-- /.modal-content -->
@@ -131,22 +201,21 @@
 
 
 
+                    <div class="modal fade " id="PerfilModalSair" tabindex="-1 " role="dialog " aria-labelledby="exampleModalLabelLogout " aria-hidden="true">
+                        <div class="modal-dialog " role="document ">
+                            <div class="modal-content ">
+                                <div class="modal-header ">
+                                    <h5 class="modal-title " id="exampleModalLabelLogout ">Ahh Não!</h5>
 
-                    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelLogout" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabelLogout">Ahh Não!</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
+
+
                                 </div>
-                                <div class="modal-body">
+                                <div class="modal-body ">
                                     <p>Tem certeza que deseja sair?</p>
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Voltar</button>
-                                    <a href="/" class="btn btn-primary">Sair</a>
+                                <div class="modal-footer ">
+                                    <button type="button " class="btn btn-outline-primary " data-dismiss="modal " onClick="history.go(0) ">Voltar</button>
+                                    <a href="/" class="btn btn-primary ">Sair</a>
                                 </div>
                             </div>
                         </div>
@@ -192,9 +261,9 @@
 
 
 
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
+            <footer class="sticky-footer bg-white ">
+                <div class="container my-auto ">
+                    <div class="copyright text-center my-auto ">
                         <span>&copy; Sr Navalha - 2021
                         </span>
                     </div>
@@ -203,6 +272,6 @@
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js " integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo " crossorigin="anonymous "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js " integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1 " crossorigin="anonymous "></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js " integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM " crossorigin="anonymous "></script>
