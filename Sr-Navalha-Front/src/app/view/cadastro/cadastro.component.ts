@@ -114,10 +114,10 @@ export class CadastroComponent implements OnInit {
 
       if( this.novoCliente.tipo == 'cliente'){
        this.create();
-    this.router.navigate(["/login"])
+  //  this.router.navigate(["/login"])
       }else{
        this.createBarbeiro();
-       this.router.navigate(["/login"])
+      // this.router.navigate(["/login"])
       }
       
     } 

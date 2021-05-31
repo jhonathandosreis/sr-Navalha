@@ -83,3 +83,4 @@ public class ServerConfiguration  extends ResourceServerConfigurerAdapter {
     }
 
 }
+
