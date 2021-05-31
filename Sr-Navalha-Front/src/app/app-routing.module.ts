@@ -10,6 +10,7 @@ import { LoginComponent } from './view/login/login.component';
 import { CadastroComponent } from './view/cadastro/cadastro.component';
 import { TelaBarbeiroComponent } from './view/tela-barbeiro/tela-barbeiro.component';
 import { TelaClienteComponent } from './view/tela-cliente/tela-cliente.component';
+import { ServicoListComponent } from './view/servico/servico-list/servico-list.component';
 
 
 const routes: Routes = [
@@ -24,7 +25,8 @@ const routes: Routes = [
    {path:'agend', component:AgendamentosComponent}]},
   { path: 'telaCliente', component: TelaClienteComponent },
   { path: 'portfolio', component: PortfolioComponent},
-  { path: 'servico', component: ServicoComponent}
+  { path: 'servico', component: ServicoComponent},
+  { path: 'servicoList', component: ServicoListComponent}
 ];
 
 @NgModule({

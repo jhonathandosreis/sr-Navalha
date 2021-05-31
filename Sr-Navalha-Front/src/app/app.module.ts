@@ -17,7 +17,7 @@ import { TelaBarbeiroComponent } from './view/tela-barbeiro/tela-barbeiro.compon
 import { ServicoComponent } from './view/servico/servico.component';
 import { PortfolioComponent } from './view/portfolio/portfolio.component';
 import { AgendamentosComponent } from './view/agendamento/agendamentos/agendamentos.component';
-
+import { ServicoListComponent } from './view/servico/servico-list/servico-list.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +34,7 @@ import { AgendamentosComponent } from './view/agendamento/agendamentos/agendamen
     ServicoComponent,
     PortfolioComponent,
     AgendamentosComponent,
-  
+    ServicoListComponent
   ],
   imports: [
     BrowserModule,
