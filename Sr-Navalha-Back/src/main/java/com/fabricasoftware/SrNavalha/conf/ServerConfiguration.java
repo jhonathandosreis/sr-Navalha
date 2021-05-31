@@ -8,9 +8,19 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
+import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
+import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
+import org.springframework.security.oauth2.provider.OAuth2Authentication;
+import org.springframework.security.oauth2.provider.token.AccessTokenConverter;
+import org.springframework.security.oauth2.provider.token.DefaultAccessTokenConverter;
+import org.springframework.security.oauth2.provider.token.RemoteTokenServices;
 
-public class ServerConfiguration  {
-/*
+@Configuration
+@EnableResourceServer
+public class ServerConfiguration  extends ResourceServerConfigurerAdapter {
+
     @Value("${ads04.auth.accessCheckTokenUri}")
     private String accessTokenUri;
 
@@ -72,5 +82,4 @@ public class ServerConfiguration  {
         };
     }
 
- */
 }
