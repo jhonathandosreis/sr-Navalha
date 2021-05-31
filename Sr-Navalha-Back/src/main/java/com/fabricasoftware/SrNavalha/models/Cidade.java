@@ -22,4 +22,13 @@ public class Cidade {
 	private String nome;
 	private String uf;
 
+	public Cidade(Cidade cidade) {
+		this.nome = cidade.getNome();
+		this.uf = cidade.getUf();
+	}
+
+	public Cidade(String nome, String uf) {
+		this.nome = nome;
+		this.uf = uf;
+	}
 }

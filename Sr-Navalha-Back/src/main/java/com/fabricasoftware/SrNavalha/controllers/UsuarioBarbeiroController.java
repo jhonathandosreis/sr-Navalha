@@ -12,6 +12,7 @@ import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping(value = "/usuarios_barbeiros")
+@CrossOrigin("*")
 public class UsuarioBarbeiroController {
 
     @Autowired

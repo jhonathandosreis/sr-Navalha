@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "ads04.api.cep.url",
+      "type": "java.lang.String",
+      "description": "Description for ads04.api.cep.url."
+  }
+] }

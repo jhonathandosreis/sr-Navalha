@@ -34,13 +34,10 @@ public class AgendamentoController {
     @GetMapping("/{id}")
     public ResponseEntity<?> getById(@PathVariable Long id) {
         Optional<Agendamento> agendamentoId = agendamentoService.getById(id);
-        Map<String, String> error = new HashMap<>();
-        error.put("Error","Item não encontrado");
-        error.put("Code","404");
         if (agendamentoId.isPresent()) {
             return new ResponseEntity<Agendamento>(agendamentoId.get(), HttpStatus.OK);
         } else {
-            return new ResponseEntity<>(error,HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 

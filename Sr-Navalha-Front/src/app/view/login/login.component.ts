@@ -24,25 +24,13 @@ export class LoginComponent implements OnInit {
     }
   }
   logar() {
-    if (this.usuario.senha == "1234") {
-      localStorage.setItem("admin-logado", this.usuario.nome)
-      this.router.navigate(['/telaBarbeiro'])
-    } else if (this.usuario.senha == "12345") {
-      localStorage.setItem("admin-logado", this.usuario.nome)
-      this.router.navigate(['/telaCliente'])
-    } else if (this.usuario.senha == "123456") {
-      localStorage.setItem("admin-logado", this.usuario.nome)
-      this.router.navigate(['/admin'])
-    } else {
-      alert("Você não pode acessar esta pagina! Para acessar Barbeiro use 1234 || Cliente 12345 e para admin 123456")
-      location.reload()
-    }
+    this.login()
   }
   login() {
     this.loginService.post(this.usuario.nome, this.usuario.senha).subscribe(result => {
       localStorage.setItem('access_token_ads04', result.access_token);
       localStorage.setItem('login', result.login);
-      this.route.navigate(['/login'])
+      this.route.navigate(['/admin'])
     })
   }
 }
