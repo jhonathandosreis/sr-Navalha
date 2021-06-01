@@ -15,17 +15,51 @@ import { Router } from '@angular/router';
 })
 export class TelaBarbeiroComponent implements OnInit {
 
+
+  credencial: Credencial = {
+    id: '',
+    email: '',
+    senha: ''
+  }
+
+  cidade: Cidade = {
+    id: '',
+    nome: '',
+    uf: '',
+  }
+
+  endereco: Endereco = {
+    id: '',
+    rua: '',
+    numero: '',
+    bairro: '',
+    cep: '',
+    cidade: this.cidade,
+  }
+
+
+  novoBarbeiro: UsuarioBarbeiro = {
+    id: '',
+    nome: '',
+    telefone: '',
+    email: '',
+    dataNascimento: new Date(),
+    cpf: '',
+    tipo: '',
+    endereco: this.endereco,
+    credencial: this.credencial,
+   
+  }
+
   AdminNome: any;
-  novoBarbeiro:{ id: any; nome: any; telefone: any; email: any; dataNascimento: any; cpf: any; tipo: any; endereco: any; credencial: any;}[] = []
   selectedBarbeiro: any
 
-  
 
   constructor(public usuarioBarbeiroService: UsuarioBarbeiroService, consultarCep: ConsultaCepService, private router: Router ) { }
 
   ngOnInit(): void {
     this.AdminNome = localStorage.getItem("admin-logado");
-    this.getAllBarbeiro();
+  
 
   }
 
@@ -36,10 +70,7 @@ export class TelaBarbeiroComponent implements OnInit {
     });
   }
 
-  selectBarbeiro(novoBarbeiro: any) {
-    this.selectedBarbeiro = novoBarbeiro;
-    localStorage.setItem('armazenadoLocal', this.selectedBarbeiro.nome);
-  }
+ 
 
   sair(){
   localStorage.removeItem('access_token_ads04');
@@ -47,9 +78,7 @@ export class TelaBarbeiroComponent implements OnInit {
  }
 
 
-  getAllBarbeiro() {
-  this.usuarioBarbeiroService.findAllBarbeiro().subscribe(result => this.novoBarbeiro = result);
-}
+
 
 
 
