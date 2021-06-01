@@ -16,67 +16,42 @@ import { Router } from '@angular/router';
 export class TelaBarbeiroComponent implements OnInit {
 
   AdminNome: any;
+  novoBarbeiro:{ id: any; nome: any; telefone: any; email: any; dataNascimento: any; cpf: any; tipo: any; endereco: any; credencial: any;}[] = []
+  selectedBarbeiro: any
 
-  credencial: Credencial = {
-    id: '',
-    email: '',
-    senha: ''
-  }
+  
 
-  cidade: Cidade = {
-    id: '',
-    nome: '',
-    uf: '',
-  }
-
-  endereco: Endereco = {
-    id: '',
-    rua: '',
-    numero: '',
-    bairro: '',
-    cep: '',
-    cidade: this.cidade,
-  }
-
-
-  novoBarbeiro: UsuarioBarbeiro = {
-    id: '',
-    nome: '',
-    telefone: '',
-    email: '',
-    dataNascimento: new Date(),
-    cpf: '',
-    tipo: '',
-    endereco: this.endereco,
-    credencial: this.credencial,
-   
-  }
   constructor(public usuarioBarbeiroService: UsuarioBarbeiroService, consultarCep: ConsultaCepService, private router: Router ) { }
 
   ngOnInit(): void {
-    this.AdminNome = localStorage.getItem("admin-logado")
+    this.AdminNome = localStorage.getItem("admin-logado");
+    this.getAllBarbeiro();
+
   }
 
-  createBarbeiro(): void {
-    this.usuarioBarbeiroService.createBarbeiro(this.novoBarbeiro).subscribe((resposta) => {
-      location.reload;
+  updateBarbeiro(){
+    this.usuarioBarbeiroService.updateBarbeiro(this.selectedBarbeiro).subscribe((resposta) => {
+     confirm("Perfil atualizado com sucesso!")
+     location.reload()
     });
   }
-  updateBarbeiro(): void {
-    this.usuarioBarbeiroService.updateBarbeiro(this.novoBarbeiro).subscribe((resposta) => {
-      location.reload;
-    });
+
+  selectBarbeiro(novoBarbeiro: any) {
+    this.selectedBarbeiro = novoBarbeiro;
+    localStorage.setItem('armazenadoLocal', this.selectedBarbeiro.nome);
   }
 
-  deleteBarbeiro(usuarioBarbeiro: UsuarioBarbeiro) {
-    this.usuarioBarbeiroService.deleteBarbeiro(usuarioBarbeiro.id).subscribe((resposta) => {
-      location.reload;
-    })
-  }
-
- sair(){
+  sair(){
   localStorage.removeItem('access_token_ads04');
   this.router.navigate(["/"]);
  }
+
+
+  getAllBarbeiro() {
+  this.usuarioBarbeiroService.findAllBarbeiro().subscribe(result => this.novoBarbeiro = result);
+}
+
+
+
  
 }
