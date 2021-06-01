@@ -74,7 +74,7 @@
             <artifactId>http-utils</artifactId>
             <version>1.0.5</version>
         </dependency>
->>>>>>> 1de1adb99a8671e753be663ae15dcf2ff02fff2a
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
