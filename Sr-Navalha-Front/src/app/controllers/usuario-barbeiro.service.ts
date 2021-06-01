@@ -28,7 +28,7 @@ export class UsuarioBarbeiroService {
   }
 
   updateBarbeiro(usuarioBarbeiro: UsuarioBarbeiro): Observable<UsuarioBarbeiro> {
-    return this.http.post<UsuarioBarbeiro>(`${this.baseUrl}/usuarios_barbeiros`, usuarioBarbeiro);
+    return this.http.put<UsuarioBarbeiro>(`${this.baseUrl}/usuarios_barbeiros`, usuarioBarbeiro);
   }
 
   deleteBarbeiro(id: any): Observable<void> {

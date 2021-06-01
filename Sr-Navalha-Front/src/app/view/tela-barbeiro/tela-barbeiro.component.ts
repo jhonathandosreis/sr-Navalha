@@ -5,6 +5,7 @@ import { ConsultaCepService } from 'src/app/controllers/consulta-cep.service';
 import { Component, OnInit } from '@angular/core';
 import { Credencial } from 'src/app/models/credencial';
 import { Cidade } from 'src/app/models/cidade';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -50,7 +51,7 @@ export class TelaBarbeiroComponent implements OnInit {
     credencial: this.credencial,
    
   }
-  constructor(public usuarioBarbeiroService: UsuarioBarbeiroService, consultarCep: ConsultaCepService ) { }
+  constructor(public usuarioBarbeiroService: UsuarioBarbeiroService, consultarCep: ConsultaCepService, private router: Router ) { }
 
   ngOnInit(): void {
     this.AdminNome = localStorage.getItem("admin-logado")
@@ -72,5 +73,10 @@ export class TelaBarbeiroComponent implements OnInit {
       location.reload;
     })
   }
+
+ sair(){
+  localStorage.removeItem('access_token_ads04');
+  this.router.navigate(["/"]);
+ }
  
 }
