@@ -18,6 +18,7 @@ import { ServicoComponent } from './view/servico/servico.component';
 import { PortfolioComponent } from './view/portfolio/portfolio.component';
 import { AgendamentosComponent } from './view/agendamento/agendamentos/agendamentos.component';
 import { ServicoListComponent } from './view/servico/servico-list/servico-list.component';
+import { PerfilClienteComponent } from './view/perfil-cliente/perfil-cliente.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ServicoListComponent } from './view/servico/servico-list/servico-list.c
     ServicoComponent,
     PortfolioComponent,
     AgendamentosComponent,
-    ServicoListComponent
+    ServicoListComponent,
+    PerfilClienteComponent
   ],
   imports: [
     BrowserModule,

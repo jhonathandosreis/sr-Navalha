@@ -14,8 +14,6 @@ export class TelaClienteComponent implements OnInit {
   ngOnInit(): void {
     this.AdminNome = localStorage.getItem("admin-logado")
   }
-
-
   sair(){
     localStorage.removeItem('access_token_ads04');
     this.router.navigate(["/"]);
