@@ -9,7 +9,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   usuario: { nome: any, senha: any, tipo: any } = { nome: '', senha: '', tipo: 'barbeiro' }
-
+  loading: boolean = false
+  onLoading: boolean = true
   constructor(private router: Router, private loginService: LoginService, private route: Router) { }
 
   ngOnInit(): void {
@@ -25,12 +26,16 @@ export class LoginComponent implements OnInit {
   }
   logar() {
     this.login()
+    this.onLoading = false
   }
   login() {
     this.loginService.post(this.usuario.nome, this.usuario.senha).subscribe(result => {
       localStorage.setItem('access_token_ads04', result.access_token);
       localStorage.setItem('login', result.login);
-      this.route.navigate(['/admin'])
+      setTimeout(() => {
+        this.route.navigate(['/admin'])
+      }, 3000);
+      this.loading = true;
     })
   }
 }

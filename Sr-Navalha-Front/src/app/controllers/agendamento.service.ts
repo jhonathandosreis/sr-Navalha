@@ -19,8 +19,8 @@ export class AgendamentoService {
     return this.httpCliente.get<Agendamento>(`${environment.baseUrl}/agendamentos/${id}`);
   }
 
-  createAgendamento(agendamento: Agendamento): Observable<Agendamento> {
-    return this.httpCliente.post<Agendamento>(`${environment.baseUrl}/agendamentos`, agendamento);
+  createAgendamento(agendamento: any): Observable<any> {
+    return this.httpCliente.post<any>(`${environment.baseUrl}/agendamentos`, agendamento);
   }
 
   updateAgendamento(agendamento: Agendamento): Observable<Agendamento> {

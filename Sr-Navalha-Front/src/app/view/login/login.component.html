@@ -7,22 +7,32 @@
             <form id="frmLogin">
                 <div class="login-form">
                     <div class="control-group">
-                        <input type="text" class="login-field"  placeholder="Usuário ou E-mail" [(ngModel)]="usuario.nome" name="userid"
-                            id="login-name">
+                        <input type="text" class="login-field" placeholder="Usuário ou E-mail"
+                            [(ngModel)]="usuario.nome" name="userid" id="login-name">
                         <label class="login-field-icon fui-user" for="login-name"></label>
                     </div>
                     <div class="control-group">
-                        <input type="password" class="login-field"  placeholder="Senha" [(ngModel)]="usuario.senha" name="password" id="login-pass">
+                        <input type="password" class="login-field" placeholder="Senha" [(ngModel)]="usuario.senha"
+                            name="password" id="login-pass">
                         <label class="login-field-icon fui-lock" for="login-pass"></label>
                         <p class="help-block capslock"></p>
                     </div>
-                    <button class="btn btn-large btn-block" (click)="logar()" type="submit">Acessar</button>
+
+                    <div class="loading" *ngIf="loading">
+                        <button class="btn btn-large btn-block" type="button" disabled>
+                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                            <span class="visually-hidden">carregando...</span>
+                        </button>
+                    </div>
+                    <div class="loading" *ngIf="onLoading">
+                    <button class="btn btn-large btn-block" (click)="logar()" type="submit">Acessar</button></div>
                     <hr class="hr-divider">
                     <a class="login-link" href="" style="color: #00233d;" data-bs-toggle="modal"
                         data-bs-target="#exampleModal">
                         <strong>Esqueceu a Senha?</strong>
                     </a><br>
-                    <a class="login-link" data-toggle="modal" style="color: #00233d;" data-target="#esqueceu-senha-modal" routerLink="/"><strong>Voltar</strong></a>
+                    <a class="login-link" data-toggle="modal" style="color: #00233d;"
+                        data-target="#esqueceu-senha-modal" routerLink="/"><strong>Voltar</strong></a>
                 </div>
             </form>
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"

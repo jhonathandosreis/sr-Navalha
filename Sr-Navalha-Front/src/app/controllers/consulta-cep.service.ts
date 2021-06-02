@@ -22,7 +22,7 @@ export class ConsultaCepService {
     if (cep !== '') {
       const validacep = /^[0-9]{8}$/;
       if (validacep.test(cep)) {
-        return this.httpCliente.get<any>(`//viacep.com.br/ws/${cep}/json`);
+        return this.httpCliente.get<any>(`${environment.baseUrlCEP}/${cep}`);
       }
     }
     return of({})

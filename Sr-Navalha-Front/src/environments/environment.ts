@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   baseUrl: 'http://localhost:8080',
-  baseUrlCEP: 'https://viacep.com.br/ws',
+  baseUrlCEP: 'http://localhost:8080/cep',
   urlLogin: 'http://localhost:8080',
 };
 

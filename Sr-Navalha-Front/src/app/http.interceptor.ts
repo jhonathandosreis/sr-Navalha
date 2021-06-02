@@ -25,8 +25,6 @@ export class AuthInterceptor implements HttpInterceptor {
                     Authorization: `bearer ${token}`
                 }
             });
-        } else {
-            this.router.navigate(['/'])
         }
         return next.handle(request).pipe(tap(() => { },
             (err: any) => {
