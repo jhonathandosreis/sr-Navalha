@@ -1,3 +1,4 @@
+import { UsuarioCliente } from './usuario-cliente';
 import { Servico } from "./servico";
 
 class Agendamento {
@@ -6,6 +7,7 @@ class Agendamento {
     horario: any;
     endereco: any;
     servico!: Servico;
+    cliente!: UsuarioCliente
 }
 
 export { Agendamento };
