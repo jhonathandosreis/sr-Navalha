@@ -7,5 +7,4 @@ export class Endereco {
     bairro: any;
     cep: any;
     cidade: Cidade = new Cidade;
-
 }

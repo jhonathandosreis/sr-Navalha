@@ -29,13 +29,19 @@ export class LoginComponent implements OnInit {
     this.onLoading = false
   }
   login() {
+    if(this.usuario.nome == ''){
+      alert("Informe um usuario")
+    }
+    if(this.usuario.senha == ''){
+      alert("informe sua senha!")
+    }
     this.loginService.post(this.usuario.nome, this.usuario.senha).subscribe(result => {
       localStorage.setItem('access_token_ads04', result.access_token);
       localStorage.setItem('login', result.login);
+      this.route.navigate(['/carregando'])
       setTimeout(() => {
         this.route.navigate(['/admin'])
-      }, 3000);
-      this.loading = true;
+      }, 2000);
     })
   }
 }

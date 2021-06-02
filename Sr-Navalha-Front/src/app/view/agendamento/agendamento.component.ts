@@ -1,3 +1,5 @@
+import { Cidade } from 'src/app/models/cidade';
+import { Endereco } from 'src/app/models/endereco';
 import { UsuarioCliente } from './../../models/usuario-cliente';
 import { UsuarioClienteService } from 'src/app/controllers/usuario-cliente.service';
 import { AgendamentoService } from './../../controllers/agendamento.service';
@@ -32,7 +34,8 @@ export class AgendamentoComponent implements OnInit {
 
   public novoEndereco: boolean = false;
   endereco!: BuscaCEP
-  agendamentoNew!: any
+
+  agendamentoNew!: Agendamento
   formaPagamento: any
   agendamentoRetornado: any
 
@@ -54,17 +57,32 @@ export class AgendamentoComponent implements OnInit {
   buscarEndereco(cepInput: any) {
     this.consulta.consultaCEP(cepInput.value).subscribe((retorno) => {
       this.endereco = retorno
-      this.agendamentoNew.endereco = this.endereco;
-      this.agendamentoNew.cliente = this.usuarioClienteAgenda
-      this.agendamentoNew.servico = this.servicoAgenda
     })
   }
 
+  cidade: Cidade={
+    id:1,
+    nome: 'goiania',
+    uf:'go'
+  }
+
+  enderecoAgendado: Endereco ={
+    id: 0,
+    bairro: 'this.endereco.bairro',
+    cep: 'this.endereco.cep',
+    cidade: this.cidade,
+    numero: '12',
+    rua: 'this.endereco.logradouro'
+  }
+
   salvarAgendamento() {
-    console.log(this.agendamentoNew)
-    this.agendamentoService.createAgendamento(this.agendamentoNew).subscribe((result)=>{
-      this.agendamentoRetornado = result
-    })
+    this.agendamentoNew.endereco = this.enderecoAgendado;
+    this.agendamentoNew.cliente = this.usuarioClienteAgenda
+    this.agendamentoNew.servico = this.servicoAgenda
+    alert(this.agendamentoNew)
+    //this.agendamentoService.createAgendamento(this.agendamentoNew).subscribe((result)=>{
+    // this.agendamentoRetornado = result
+    //})
   }
 
 

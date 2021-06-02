@@ -18,13 +18,7 @@
                         <p class="help-block capslock"></p>
                     </div>
 
-                    <div class="loading" *ngIf="loading">
-                        <button class="btn btn-large btn-block" type="button" disabled>
-                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                            <span class="visually-hidden">carregando...</span>
-                        </button>
-                    </div>
-                    <div class="loading" *ngIf="onLoading">
+                    <div class="loading" >
                     <button class="btn btn-large btn-block" (click)="logar()" type="submit">Acessar</button></div>
                     <hr class="hr-divider">
                     <a class="login-link" href="" style="color: #00233d;" data-bs-toggle="modal"

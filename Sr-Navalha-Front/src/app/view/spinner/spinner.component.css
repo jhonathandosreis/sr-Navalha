@@ -1,0 +1,87 @@
+body{
+    background-color: rgb(116, 116, 111) !important;
+}
+body {
+    font-family: 'Quicksand', sans-serif;
+    background: url(https://d3verit7xckkza.cloudfront.net/imgsystem/b-bg-inicial3.jpg);
+
+     /* Ajuste de imagem no corpo do HTML */
+     background-repeat: no-repeat;
+     background-size:100%;
+     bottom: 0;
+     color: black;
+     left: 0;
+     overflow: auto;
+     padding: 3em;
+     position: absolute;
+     right: 0;
+     text-align: center;
+     top: 0;
+
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding: 1rem;
+}
+
+.login {
+    margin: 50px auto;
+    width: 300px
+}
+a{
+    text-decoration: none;
+}
+.login-screen {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px
+}
+
+.app-title {
+    text-align: center;
+    color: #777
+}
+
+.login-form {
+    text-align: center
+}
+
+.control-group {
+    margin-bottom: 10px
+}
+
+.login-field {
+    text-align: center;
+    background-color: #ecf0f1;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 200;
+    padding: 10px 0;
+    width: 250px;
+    transition: border .5s
+}
+
+.btn {
+    border: 2px solid transparent;
+    background: #00233d;
+    color: #fff;
+    font-size: 16px;
+    line-height: 25px;
+    padding: 10px 0;
+    text-decoration: none;
+    text-shadow: none;
+    text-transform: uppercase;
+    border-radius: 3px;
+    box-shadow: none;
+    transition: .25s;
+    display: block;
+    width: 250px;
+    margin: 0 auto
+}
+
+.logo {
+    margin-bottom: 4px
+}

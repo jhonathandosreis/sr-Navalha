@@ -1,3 +1,4 @@
+import { SpinnerComponent } from './view/spinner/spinner.component';
 import { AgendamentosComponent } from './view/agendamento/agendamentos/agendamentos.component';
 import { ServicoComponent } from './view/servico/servico.component';
 import { PortfolioComponent } from './view/portfolio/portfolio.component';
@@ -19,14 +20,17 @@ const routes: Routes = [
   { path: 'agendamento', component: AgendamentoComponent },
   { path: 'agendamentos', component: AgendamentosComponent },
   { path: 'admin', component: AdminComponent },
+  { path: 'carregando', component: SpinnerComponent },
   { path: 'cadastro', component: CadastroComponent },
-  { path: 'telaBarbeiro', component: TelaBarbeiroComponent,
-   children:[{path:'serv', component:ServicoComponent},
-   {path:'agend', component:AgendamentosComponent}]},
+  {
+    path: 'telaBarbeiro', component: TelaBarbeiroComponent,
+    children: [{ path: 'serv', component: ServicoComponent },
+    { path: 'agend', component: AgendamentosComponent }]
+  },
   { path: 'telaCliente', component: TelaClienteComponent },
-  { path: 'portfolio', component: PortfolioComponent},
-  { path: 'servico', component: ServicoComponent},
-  { path: 'servicoList', component: ServicoListComponent}
+  { path: 'portfolio', component: PortfolioComponent },
+  { path: 'servico', component: ServicoComponent },
+  { path: 'servicoList', component: ServicoListComponent }
 ];
 
 @NgModule({
