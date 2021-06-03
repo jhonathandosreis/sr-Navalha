@@ -1,4 +1,5 @@
-import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
+import { PerfilClienteComponent } from './view/perfil-cliente/perfil-cliente.component';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -18,12 +19,8 @@ import { ServicoComponent } from './view/servico/servico.component';
 import { PortfolioComponent } from './view/portfolio/portfolio.component';
 import { AgendamentosComponent } from './view/agendamento/agendamentos/agendamentos.component';
 import { ServicoListComponent } from './view/servico/servico-list/servico-list.component';
-<<<<<<< HEAD
 import { SpinnerComponent } from './view/spinner/spinner.component';
 import { UpdateAgendamentoComponent } from './view/agendamento/update-agendamento/update-agendamento.component';
-=======
-import { PerfilClienteComponent } from './view/perfil-cliente/perfil-cliente.component';
->>>>>>> e0041a5bfef715d4ec10be98e38c97cf7563b2c3
 
 @NgModule({
   declarations: [
@@ -41,12 +38,9 @@ import { PerfilClienteComponent } from './view/perfil-cliente/perfil-cliente.com
     PortfolioComponent,
     AgendamentosComponent,
     ServicoListComponent,
-<<<<<<< HEAD
     SpinnerComponent,
-    UpdateAgendamentoComponent
-=======
+    UpdateAgendamentoComponent,
     PerfilClienteComponent
->>>>>>> e0041a5bfef715d4ec10be98e38c97cf7563b2c3
   ],
   imports: [
     BrowserModule,

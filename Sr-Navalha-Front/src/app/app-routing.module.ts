@@ -30,11 +30,15 @@ const routes: Routes = [
     children: [{ path: 'serv', component: ServicoComponent },
     { path: 'agend', component: AgendamentosComponent }]
   },
-  { path: 'telaCliente', component: TelaClienteComponent },
-  { path: 'portfolio', component: PortfolioComponent},
-  { path: 'servico', component: ServicoComponent},
-  { path: 'servicoList', component: ServicoListComponent},
-  { path: 'perfilCliente', component: PerfilClienteComponent}
+  {
+    path: 'telaCliente', component: TelaClienteComponent,
+    children: [{ path: 'serv', component: ServicoComponent },
+    { path: 'agend', component: AgendamentosComponent }]
+  },
+  { path: 'portfolio', component: PortfolioComponent },
+  { path: 'servico', component: ServicoComponent },
+  { path: 'servicoList', component: ServicoListComponent },
+  { path: 'perfilCliente', component: PerfilClienteComponent }
 ];
 
 @NgModule({

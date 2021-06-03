@@ -2,3 +2,4 @@
 body{
     background-color: #212529;
 }
+@import '~bootstrap/dist/css/bootstrap.min.css';

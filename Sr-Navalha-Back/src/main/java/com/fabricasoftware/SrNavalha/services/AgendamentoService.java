@@ -18,6 +18,16 @@ public class AgendamentoService {
         return agendamentoRepository.findAll();
     }
 
+    public List<Agendamento> filterByEmailBarbeiro(String email){
+        List<Agendamento> agendamentosFiltrados = agendamentoRepository.findAll();
+        return agendamentosFiltrados;
+    }
+
+    public List<Agendamento> filterByEmailCliente(String email){
+        List<Agendamento> agendamentosFiltrados = agendamentoRepository.findAll();
+        return agendamentosFiltrados;
+    }
+
     public Agendamento create(Agendamento agendamento) {
         agendamento = agendamentoRepository.save(agendamento);
         return agendamento;
