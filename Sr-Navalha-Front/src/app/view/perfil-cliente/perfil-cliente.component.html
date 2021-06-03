@@ -1,0 +1,127 @@
+<body>
+    <br>
+    <div class="section" id="cadastro">
+        <div class="container">
+            <div class="section-title">
+                <h3>MEU PERFIL</h3>
+
+                <div class="container2  justify-content-center">
+                    <div class="btn-group" data-toggle="buttons">
+                        <label class="btn btn-price" id="Cliente">
+                            <input value="cliente" 
+                            id="check_cliente" type="radio" name="price-plan" checked>
+                            CLIENTE <p class="text-white"></p>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-9 col-md-12">
+                    <form id="formCadastro" class="contactForm">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12">
+                                <div class="form-group">
+                                    <label for="basic-url">Nome Completo*</label>
+                                    <input [(ngModel)]="novoCliente.nome" type="text" name="nome" class="form-control form-control-sm" id="nome" placeholder="Nome Completo (Ex: José das Coves)*">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                    <label>CPF*</label>
+                                    <input [(ngModel)]="novoCliente.cpf" type="text" class="form-control form-control-sm" name="cpf" id="cpf" placeholder="Ex: (888.888.888.88)*">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                    <label>Data de Nascimento*</label>
+                                    <input [(ngModel)]="novoCliente.dataNascimento" type="date" name="dt_nasc" class="form-control form-control-sm" id="dta_nasc" placeholder="Ex: 11/11/1111*">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                    <label>E-mail Para Acesso*</label>
+                                    <input [(ngModel)]="novoCliente.email" [(ngModel)]="credencial.email" type="email" class="form-control form-control-sm" name="email" id="email" placeholder="E-mail Para Acesso*">
+                                    <small class="text-info" style="display:none;" id="suggest-email"></small>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                    <label>Telefone do Contato*</label>
+                                    <input [(ngModel)]=" novoCliente.telefone " type="tel" name="telefone" class="form-control form-control-sm" id="telefone" placeholder="Ex: (88) 88888-8888*">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                    <label>CEP*</label>
+                                    <input [(ngModel)]="endereco.cep" type="text" class="form-control form-control-sm" name="cep" id="cep" placeholder="Ex: 11.111-111*" data-rule="email">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                    <label>Endereço*</label>
+                                    <input [(ngModel)]="endereco.rua" type="text" class="form-control form-control-sm" name="endereco" id="endereco" placeholder="Ex: Rua p1, n16 , St Oeste*" data-rule="email">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                    <label>Estado*</label>
+                                    <input [(ngModel)]="cidade.uf" type="text" class="form-control form-control-sm" name="estado" id="estado" placeholder="Ex: SP*" data-rule="estado">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                    <label>Cidade*</label>
+                                    <input [(ngModel)]="cidade.nome" type="text" name="cidade" class="form-control form-control-sm" id="telefone" placeholder="Ex: São-Paulo*">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                    <label>Bairro*</label>
+                                    <input [(ngModel)]="endereco.bairro" type="text" name="bairro" class="form-control form-control-sm" id="bairro" placeholder="Ex: Setor Leste Vila Nova*">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                    <label>Número do Endereço*</label>
+                                    <input [(ngModel)]="endereco.numero" type="text" name="cidade" class="form-control form-control-sm" id="telefone" placeholder="Ex: 1443*">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                    <label>Senha <small>(Mínimo de 6 e máximo de 15 caracteres)*</small></label>
+                                    <input [(ngModel)]="credencial.senha" type="password" class="form-control form-control-sm" name="senha" id="senha" placeholder="Senha*">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                    <label>Confirme a Senha <small>(Mínimo de 6 e máximo de 15 caracteres
+                                            )*</small></label>
+                                    <input [(ngModel)]="credencial.senha" type="password" class="form-control form-control-sm" name="confirmaSenha" id="confirmaSenha" placeholder="Confirma a Senha*">
+
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-12">
+                                <div class="form-group form-control-sm">
+                                    <p>
+                                        <input type="checkbox" id="conduso" name="conduso"> Li e aceito o <a href="https://drive.google.com/file/d/1nsTZgJaXVQUVnlqi8-nVwbzhrzyfuIg_/view?usp=sharing" target="_blank" class="text-barber2">Termo de Condição de Uso.</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center">
+                            <button style="margin: 1rem;" (click)="update()" class="btn btn-primary" type="submit">ATUALIZAR</button>
+                            <button routerLink="/telaCliente" class="btn btn-primary" type="submit">VOLTAR</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

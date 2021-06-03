@@ -18,8 +18,12 @@ import { ServicoComponent } from './view/servico/servico.component';
 import { PortfolioComponent } from './view/portfolio/portfolio.component';
 import { AgendamentosComponent } from './view/agendamento/agendamentos/agendamentos.component';
 import { ServicoListComponent } from './view/servico/servico-list/servico-list.component';
+<<<<<<< HEAD
 import { SpinnerComponent } from './view/spinner/spinner.component';
 import { UpdateAgendamentoComponent } from './view/agendamento/update-agendamento/update-agendamento.component';
+=======
+import { PerfilClienteComponent } from './view/perfil-cliente/perfil-cliente.component';
+>>>>>>> e0041a5bfef715d4ec10be98e38c97cf7563b2c3
 
 @NgModule({
   declarations: [
@@ -37,8 +41,12 @@ import { UpdateAgendamentoComponent } from './view/agendamento/update-agendament
     PortfolioComponent,
     AgendamentosComponent,
     ServicoListComponent,
+<<<<<<< HEAD
     SpinnerComponent,
     UpdateAgendamentoComponent
+=======
+    PerfilClienteComponent
+>>>>>>> e0041a5bfef715d4ec10be98e38c97cf7563b2c3
   ],
   imports: [
     BrowserModule,
