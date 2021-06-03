@@ -19,6 +19,7 @@ import { PortfolioComponent } from './view/portfolio/portfolio.component';
 import { AgendamentosComponent } from './view/agendamento/agendamentos/agendamentos.component';
 import { ServicoListComponent } from './view/servico/servico-list/servico-list.component';
 import { SpinnerComponent } from './view/spinner/spinner.component';
+import { UpdateAgendamentoComponent } from './view/agendamento/update-agendamento/update-agendamento.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { SpinnerComponent } from './view/spinner/spinner.component';
     PortfolioComponent,
     AgendamentosComponent,
     ServicoListComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    UpdateAgendamentoComponent
   ],
   imports: [
     BrowserModule,

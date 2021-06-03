@@ -1,3 +1,4 @@
+import { UpdateAgendamentoComponent } from './view/agendamento/update-agendamento/update-agendamento.component';
 import { SpinnerComponent } from './view/spinner/spinner.component';
 import { AgendamentosComponent } from './view/agendamento/agendamentos/agendamentos.component';
 import { ServicoComponent } from './view/servico/servico.component';
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'agendamento', component: AgendamentoComponent },
   { path: 'agendamentos', component: AgendamentosComponent },
   { path: 'admin', component: AdminComponent },
+  { path: "agendamento/:id", component: UpdateAgendamentoComponent },
   { path: 'carregando', component: SpinnerComponent },
   { path: 'cadastro', component: CadastroComponent },
   {

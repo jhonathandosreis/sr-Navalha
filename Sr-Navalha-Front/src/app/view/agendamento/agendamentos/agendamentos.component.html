@@ -30,7 +30,7 @@
                         <td>R$ {{agendamento.servico.valor}}</td>
                         <td>{{agendamento.servico.descricao}}</td>
                         <td><span class="badge bg-primary">{{agendamento.status}}</span></td>
-                        <td class="text-center"><button class="btn btn-info btn-sm"><span
+                        <td class="text-center"><button class="btn btn-info btn-sm" routerLink="/agendamento/{{ agendamento.id }}"><span
                                     class="glyphicon glyphicon-remove"></span>
                                 Alterar</button></td>
                         <td class="text-center"><button class="btn btn-success btn-sm"><span
