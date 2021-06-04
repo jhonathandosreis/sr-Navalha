@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router, private loginService: LoginService, private route: Router) { }
 
   ngOnInit(): void {
+    localStorage.removeItem('access_token_ads04');
   }
 
   recuperarEmail() {

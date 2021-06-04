@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { UsuarioCliente } from '../models/usuario-cliente';
+import { usuarioCredencial } from '../models/UsuarioCredencial';
 
 @Injectable({
   providedIn: 'root'
@@ -28,5 +29,8 @@ export class UsuarioClienteService {
   delete(id: any): Observable<void> {
     const url = `${this.baseUrl}/usuarios_clientes${id}`
     return this.http.delete<void>(url);
+  }
+  createUserToken(usuarioCredencial: usuarioCredencial): Observable<usuarioCredencial> {
+    return this.http.post<usuarioCredencial>(`${environment.urlUserCreateToken}`, usuarioCredencial);
   }
 }
