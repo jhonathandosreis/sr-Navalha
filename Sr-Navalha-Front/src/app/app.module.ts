@@ -22,6 +22,7 @@ import { ServicoListComponent } from './view/servico/servico-list/servico-list.c
 import { SpinnerComponent } from './view/spinner/spinner.component';
 import { UpdateAgendamentoComponent } from './view/agendamento/update-agendamento/update-agendamento.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +41,8 @@ import { UpdateAgendamentoComponent } from './view/agendamento/update-agendament
     ServicoListComponent,
     SpinnerComponent,
     UpdateAgendamentoComponent,
-    PerfilClienteComponent
+    PerfilClienteComponent,
+  
   ],
   imports: [
     BrowserModule,
