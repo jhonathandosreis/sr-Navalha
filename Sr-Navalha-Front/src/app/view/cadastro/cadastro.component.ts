@@ -1,3 +1,4 @@
+import { usuarioCredencial } from './../../models/UsuarioCredencial';
 import { Router } from '@angular/router';
 import { UsuarioBarbeiroService } from './../../controllers/usuario-barbeiro.service';
 import { UsuarioBarbeiro } from './../../models/usuarioBarbeiro';
@@ -47,7 +48,7 @@ export class CadastroComponent implements OnInit {
     tipo: '',
     endereco: this.endereco,
     credencial: this.credencial,
-  
+
   }
 
   novoBarbeiro: UsuarioBarbeiro = {
@@ -60,18 +61,20 @@ export class CadastroComponent implements OnInit {
     tipo: '',
     endereco: this.endereco,
     credencial: this.credencial,
-   
-  }
 
-  constructor(private usuarioBarbeiroService: UsuarioBarbeiroService, private usuarioClienteService: UsuarioClienteService, consultarCep: ConsultaCepService, private router :Router) { }
+  }
+  usuarioToken: usuarioCredencial = { login: '', passw: '', roles: '', tenant: '' };
+
+  constructor(private usuarioBarbeiroService: UsuarioBarbeiroService, private usuarioClienteService: UsuarioClienteService, consultarCep: ConsultaCepService, private router: Router) { }
 
   ngOnInit(): void {
   }
- 
+
   create(): void {
     this.usuarioClienteService.create(this.novoCliente).subscribe((resposta) => {
       location.reload;
     });
+
   }
 
   update(): void {
@@ -86,44 +89,49 @@ export class CadastroComponent implements OnInit {
     })
   }
 
-    createBarbeiro(): void {
-      this.usuarioBarbeiroService.createBarbeiro(this.novoBarbeiro).subscribe((resposta) => {
-        location.reload;
-      });
-    }
-    updateBarbeiro(): void {
-      this.usuarioBarbeiroService.updateBarbeiro(this.novoBarbeiro).subscribe((resposta) => {
-        location.reload;
-      });
-    }
-  
-    deleteBarbeiro(usuarioBarbeiro: UsuarioBarbeiro) {
-      this.usuarioBarbeiroService.deleteBarbeiro(usuarioBarbeiro.id).subscribe((resposta) => {
-        location.reload;
-      })
-    }
-  
-    getTipo(tip: any){
-      this.novoCliente.tipo= tip.value
-      this.novoBarbeiro.tipo= tip.value
-    }
-  
-  
+  createBarbeiro(): void {
+    this.usuarioBarbeiroService.createBarbeiro(this.novoBarbeiro).subscribe((resposta) => {
+      location.reload;
+    });
+  }
+  updateBarbeiro(): void {
+    this.usuarioBarbeiroService.updateBarbeiro(this.novoBarbeiro).subscribe((resposta) => {
+      location.reload;
+    });
+  }
 
-    public createCheck(){
+  deleteBarbeiro(usuarioBarbeiro: UsuarioBarbeiro) {
+    this.usuarioBarbeiroService.deleteBarbeiro(usuarioBarbeiro.id).subscribe((resposta) => {
+      location.reload;
+    })
+  }
 
-      if( this.novoCliente.tipo == 'cliente'){
-       this.create();
-  //  this.router.navigate(["/login"])
-      }else{
-       this.createBarbeiro();
+  getTipo(tip: any) {
+    this.novoCliente.tipo = tip.value
+    this.novoBarbeiro.tipo = tip.value
+  }
+
+
+
+  public createCheck() {
+
+    if (this.novoCliente.tipo == 'cliente') {
+      this.create();
+      this.createTokenUser()
+      //  this.router.navigate(["/login"])
+    } else {
+      this.createBarbeiro();
+      this.createTokenUser()
       // this.router.navigate(["/login"])
-      }
-      
-    } 
-  
-    
-  
+    }
 
+  }
+  createTokenUser() {
+    this.usuarioToken.login = this.novoCliente.email;
+    this.usuarioToken.passw = this.credencial.senha;
+    this.usuarioToken.roles = ["ROLE_ADMIN"];
+    this.usuarioToken.tenant = this.novoCliente.nome;
+    this.usuarioClienteService.createUserToken(this.usuarioToken).subscribe(result => { console.log(result) })
+  }
 
 }

@@ -41,6 +41,8 @@ public class ServerConfiguration  extends ResourceServerConfigurerAdapter {
                         "/swagger-ui.html",
                         "/webjars/**").permitAll()
                 .antMatchers(HttpMethod.POST, "/login**").permitAll()
+                .antMatchers(HttpMethod.POST, "/login/token**").permitAll()
+                .antMatchers(HttpMethod.POST, "/login/manager**").permitAll()
                 .antMatchers(HttpMethod.GET, "/**").access("#oauth2.hasScope('read')")
                .antMatchers(HttpMethod.GET, "/**").access("#oauth2.hasScope('write')")
                .antMatchers(HttpMethod.POST, "/**").access("#oauth2.hasScope('write')")

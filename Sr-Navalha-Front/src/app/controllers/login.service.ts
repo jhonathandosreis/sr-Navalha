@@ -12,7 +12,7 @@ export class LoginService implements Resolve<any> {
   constructor(private http: HttpClient) { }
 
   post(user: any, password: any): Observable<any> {
-    return this.http.post(`${environment.urlLogin}/login`, { 'user': user, 'password': password });
+    return this.http.post(`${environment.urlLogin}/token`, { 'user': user, 'password': password });
   }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot):

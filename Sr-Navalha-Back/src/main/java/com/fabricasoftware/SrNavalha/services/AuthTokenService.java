@@ -37,4 +37,23 @@ public class AuthTokenService {
 		return null;
 	}
 
+	public Token getUser(String email, String password) {
+		String url = env.getProperty("ads04.manager.url");
+		String clientId = env.getProperty("ads04.auth.clientId");
+		String clientSecret = env.getProperty("ads04.auth.clientSecret");
+
+		Map<String, String> headers = new HashMap();
+		headers.put("Authorization", UtilHttp.getAuthHeaderBase64(clientId, clientSecret));
+
+		Map<String, String> parameters = new HashMap();
+		parameters.put("grant_type", "password");
+
+		try {
+			return new Token(url, email, password, headers, parameters);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 }

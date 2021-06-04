@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Agendamento } from '../models/Agendamento';
 import { environment } from 'src/environments/environment';
@@ -20,7 +20,9 @@ export class AgendamentoService {
   }
 
   createAgendamento(agendamento: any): Observable<any> {
-    return this.httpCliente.post<any>(`${environment.baseUrl}/agendamentos`, agendamento);
+    return this.httpCliente.post<any>(`${environment.baseUrl}/agendamentos`,
+      JSON.stringify(agendamento),
+      { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) })
   }
 
   updateAgendamento(agendamento: Agendamento): Observable<Agendamento> {
