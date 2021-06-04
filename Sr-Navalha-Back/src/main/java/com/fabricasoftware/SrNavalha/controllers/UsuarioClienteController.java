@@ -1,5 +1,6 @@
 package com.fabricasoftware.SrNavalha.controllers;
 
+import com.fabricasoftware.SrNavalha.models.UsuarioBarbeiro;
 import com.fabricasoftware.SrNavalha.models.UsuarioCliente;
 import com.fabricasoftware.SrNavalha.services.UsuarioClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,12 @@ public class UsuarioClienteController {
     public ResponseEntity<List<UsuarioCliente>> findAll() {
         List<UsuarioCliente> list = usuarioClienteService.findAll();
         return ResponseEntity.ok().body(list);
+    }
+
+    @GetMapping("/{email}")
+    public ResponseEntity<UsuarioCliente> findClienteByEmail(@PathVariable String email) {
+        UsuarioCliente ClienteRetorno = usuarioClienteService.findClienteByEmail(email);
+        return ResponseEntity.ok().body(ClienteRetorno);
     }
 
     @PostMapping

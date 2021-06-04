@@ -14,7 +14,6 @@ export class UsuarioBarbeiroService {
 
   constructor(private http: HttpClient) { }
 
- 
   findAllBarbeiro(): Observable<UsuarioBarbeiro[]> {
     return this.http.get<UsuarioBarbeiro[]>(`${this.baseUrl}/usuarios_barbeiros`);
   }

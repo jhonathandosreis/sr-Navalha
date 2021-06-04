@@ -38,7 +38,7 @@ const routes: Routes = [
   { path: 'portfolio', component: PortfolioComponent },
   { path: 'servico', component: ServicoComponent },
   { path: 'servicoList', component: ServicoListComponent },
-  { path: 'perfilCliente', component: PerfilClienteComponent }
+  { path: 'perfilCliente/:email', component: PerfilClienteComponent }
 ];
 
 @NgModule({

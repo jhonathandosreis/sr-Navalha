@@ -9,9 +9,14 @@ import { Router } from '@angular/router';
 export class TelaClienteComponent implements OnInit {
   dev: string = 'CEO - Developer';
   AdminNome: any;
+
+  emailUpdate: any;
+
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    this.emailUpdate = "jhonathandosreis@hotmail.com"
+    //this.emailUpdate = localStorage.getItem("login")
     this.AdminNome = localStorage.getItem("admin-logado")
   }
   

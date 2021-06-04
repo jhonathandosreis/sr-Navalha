@@ -1,47 +1,49 @@
-<header class="p-3 mb-3 border-bottom" style="background-color: black !important; height: 120px;">
-  <div class="container">
-    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-      <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
-        <svg class="bi me-2" width="40" height="2" role="img" aria-label="Bootstrap">
+<header class="p-3 mb-3 border-bottom" style="background-color: black !important; height: 100px;">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
+                <svg class="bi me-2" width="40" height="2" role="img" aria-label="Bootstrap">
           <use xlink:href="#bootstrap"></use>
         </svg>
-      </a>
-      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="#" class="nav-link px-2 link-secondary">
-            <img src="../../../assets/img/SR.Navalha logo escrita.png" alt="mdo" width="42" height="42"
-              class="rounded-circle">
-          </a></li>
-        <li>
-         <a href="/"  style="text-decoration:none"> <div class="sidebar-brand-text mx-3" style="padding-top: 14%; color: white;"><b>Sr Navalha</b></div></a>
-        </li>
-      </ul>
-      <nav class="navbar ">
-        <ul>
-          <li class="nav-item dropdown no-arrow" style="list-style-type: none;">
-            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              <span class="ml-2 d-none d-lg-inline text-white small"> {{
+            </a>
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li>
+                    <a href="#" class="nav-link px-2 link-secondary">
+                        <img src="../../../assets/img/SR.Navalha logo escrita.png" alt="mdo" width="42" height="42" class="rounded-circle">
+                    </a>
+                </li>
+                <li>
+                    <a href="/" style="text-decoration:none">
+                        <div class="sidebar-brand-text mx-3" style="padding-top: 14%; color: white;"><b>Sr Navalha</b></div>
+                    </a>
+                </li>
+            </ul>
+            <nav class="navbar ">
+                <ul>
+                    <li class="nav-item dropdown no-arrow" style="list-style-type: none;">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="ml-2 d-none d-lg-inline text-white small"> {{
                 AdminNome
                 }}</span>
-              <img class="img-profile rounded-circle" src="../../../assets/img/man.png" style="max-width: 60px">
-            </a>
-            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-              <a class="dropdown-item" routerLink="/perfilCliente" data-toggle="modal" data-target="#PerfilModal">
-                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-200"></i>Perfil
-              </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" routerLink="agend" data-toggle="modal" data-target="#PerfilAgendamentos">
-                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400" ></i> Agendamentos
-              </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="javascript:void(0);" data-toggle="modal" data-target="#PerfilModalSair">
-                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Sair
-              </a>
-            </div>
-          </li>
-        </ul>
-      </nav>
+                            <img class="img-profile rounded-circle" src="../../../assets/img/man.png" style="max-width: 60px">
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                            <a class="dropdown-item" routerLink="/perfilCliente/jhonathandosreis@hotmail.com" data-toggle="modal" data-target="#PerfilModal">
+                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-200"></i>Perfil
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" routerLink="agend" data-toggle="modal" data-target="#PerfilAgendamentos">
+                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Agendamentos
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="javascript:void(0);" data-toggle="modal" data-target="#PerfilModalSair">
+                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Sair
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </div>
-  </div>
-  <router-outlet></router-outlet>
+    <router-outlet></router-outlet>
 </header>

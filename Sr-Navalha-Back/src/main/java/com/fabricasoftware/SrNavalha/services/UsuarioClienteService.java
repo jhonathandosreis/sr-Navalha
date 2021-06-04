@@ -1,5 +1,6 @@
 package com.fabricasoftware.SrNavalha.services;
 
+import com.fabricasoftware.SrNavalha.models.UsuarioBarbeiro;
 import com.fabricasoftware.SrNavalha.models.UsuarioCliente;
 import com.fabricasoftware.SrNavalha.repositories.UsuarioClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,10 @@ public class UsuarioClienteService {
 
     public List<UsuarioCliente> findAll() {
         return usuarioClienteRepository.findAll();
+    }
+
+    public UsuarioCliente findClienteByEmail(String email) {
+        return usuarioClienteRepository.findClienteByEmail(email);
     }
 
     public UsuarioCliente create(UsuarioCliente usuarioCliente) {

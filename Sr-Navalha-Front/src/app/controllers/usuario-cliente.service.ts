@@ -14,6 +14,10 @@ export class UsuarioClienteService {
 
   constructor(private http: HttpClient) { }
 
+  findClienteByEmail(email: any): Observable<UsuarioCliente> {
+    return this.http.get<UsuarioCliente>(`${this.baseUrl}/usuarios_clientes/${email}`);
+  }
+
   findAll(): Observable<UsuarioCliente[]> {
     return this.http.get<UsuarioCliente[]>(`${this.baseUrl}/usuarios_clientes`);
   }
