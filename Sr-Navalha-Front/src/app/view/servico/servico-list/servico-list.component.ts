@@ -1,3 +1,4 @@
+import { ServicoService } from './../../../controllers/servico.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServicoListComponent implements OnInit {
    
-  servicos: any[] = ["teste1", "teste2", "teste3" , "teste1", "teste2", "teste3"];
-  constructor() { }
+  servicos: any[] = [];
+  constructor(private servicoservice: ServicoService ) { }
 
   ngOnInit(): void {
+    this.getAllServicos()
+  }
+
+  getAllServicos() {
+    this.servicoservice.findAllServicos().subscribe(result => this.servicos = result);
   }
 
 }
