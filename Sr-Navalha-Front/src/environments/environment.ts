@@ -7,6 +7,7 @@ export const environment = {
   baseUrl: 'http://localhost:8080',
   baseUrlCEP: 'http://localhost:8080/cep',
   urlLogin: 'http://localhost:8080',
+  urlUserCreateToken: 'http://teste:123456@localhost:8082/auth-server/manager'
 };
 
 /*
