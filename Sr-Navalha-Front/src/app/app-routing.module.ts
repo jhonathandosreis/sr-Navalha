@@ -28,7 +28,8 @@ const routes: Routes = [
   {
     path: 'telaBarbeiro', component: TelaBarbeiroComponent,
     children: [{ path: 'serv', component: ServicoComponent },
-    { path: 'agend', component: AgendamentosComponent }]
+    { path: 'agend', component: AgendamentosComponent },
+    { path: 'servlist', component: ServicoListComponent }]
   },
   {
     path: 'telaCliente', component: TelaClienteComponent,
