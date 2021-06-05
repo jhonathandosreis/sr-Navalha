@@ -10,9 +10,9 @@ import java.util.List;
 @Repository
 public interface AgendamentoRepository extends JpaRepository<Agendamento, Long> {
 
-    //@Query("SELECT * FROM agendamento where 'anisberto' = ?1")
-    //List<Agendamento> filterByEmailBarbeiro(String email);
+    //@Query("select '*' from 'agendamento' age where age.cliente_id = :id")
+    List<Agendamento> filterByEmailBarbeiro(Long id);
 
     //@Query("select age from 'agendamento' age join usuario_cliente uc on age.cliente_id = uc.id")
-    //List<Agendamento> filterByEmailCliente(String email);
+    List<Agendamento> filterByEmailCliente(String email);
 }

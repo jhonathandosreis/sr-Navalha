@@ -11,11 +11,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AgendamentosComponent implements OnInit {
   agendamentos: any[] = []
-  constructor(private agendamentoService: AgendamentoService, private router: Router,private route: ActivatedRoute) { }
+  constructor(private agendamentoService: AgendamentoService, 
+    private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.getAllAgendamentos()
-    const id = this.route.snapshot.paramMap.get("id");
+
   }
 
   getAllAgendamentos() {

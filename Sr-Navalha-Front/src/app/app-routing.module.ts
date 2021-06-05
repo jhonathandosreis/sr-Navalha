@@ -1,3 +1,4 @@
+import { AuthGuard } from './auth.guard';
 import { UpdateAgendamentoComponent } from './view/agendamento/update-agendamento/update-agendamento.component';
 import { SpinnerComponent } from './view/spinner/spinner.component';
 import { AgendamentosComponent } from './view/agendamento/agendamentos/agendamentos.component';
@@ -21,7 +22,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'agendamento', component: AgendamentoComponent },
   { path: 'agendamentos', component: AgendamentosComponent },
-  { path: 'admin', component: AdminComponent },
+  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
   { path: "agendamento/:id", component: UpdateAgendamentoComponent },
   { path: 'carregando', component: SpinnerComponent },
   { path: 'cadastro', component: CadastroComponent },
@@ -34,14 +35,14 @@ const routes: Routes = [
   {
     path: 'telaCliente', component: TelaClienteComponent,
     children: [{ path: 'serv', component: ServicoComponent },
-    { path: 'agend', component: AgendamentosComponent }]
+    { path: 'agend', component: AgendamentosComponent }], canActivate: [AuthGuard]
   },
   { path: 'portfolio', component: PortfolioComponent },
   { path: 'servico', component: ServicoComponent },
   { path: 'servicoList', component: ServicoListComponent },
   { path: 'perfilCliente/:email', component: PerfilClienteComponent },
-  { path: 'telaBarbeiro/:email', component: TelaBarbeiroComponent}
-  
+  { path: 'telaBarbeiro/:email', component: TelaBarbeiroComponent }
+
 ];
 
 @NgModule({

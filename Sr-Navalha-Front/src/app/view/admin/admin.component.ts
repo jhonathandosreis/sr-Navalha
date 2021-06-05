@@ -10,7 +10,7 @@ export class AdminComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.AdminNome =localStorage.getItem("admin-logado")
+    this.AdminNome =localStorage.getItem("login")
   }
 
 }

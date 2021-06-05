@@ -38,7 +38,8 @@ export class LoginComponent implements OnInit {
     }
     this.loginService.post(this.usuario.nome, this.usuario.senha).subscribe(result => {
       localStorage.setItem('access_token_ads04', result.access_token);
-      localStorage.setItem('login', result.login);
+      localStorage.setItem('login', result.tenant);
+      localStorage.setItem('loginEmail', result.login);
       this.route.navigate(['/carregando'])
       setTimeout(() => {
         this.route.navigate(['/admin'])

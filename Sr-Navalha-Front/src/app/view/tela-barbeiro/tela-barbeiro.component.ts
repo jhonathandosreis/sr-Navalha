@@ -65,7 +65,7 @@ export class TelaBarbeiroComponent implements OnInit {
 
     this.emailUpdate = "miguelneto.artes@gmail.com";
     //this.emailUpdate = localStorage.getItem("login")
-    this.AdminNome = localStorage.getItem("admin-logado");
+    this.AdminNome = localStorage.getItem("login");
   
   
     
