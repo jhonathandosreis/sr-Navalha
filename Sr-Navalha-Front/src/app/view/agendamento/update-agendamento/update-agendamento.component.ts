@@ -34,7 +34,8 @@ export class UpdateAgendamentoComponent implements OnInit {
 
   public novoEndereco: boolean = false;
   endereco!: BuscaCEP
-  agendamentoNew!: Agendamento
+  agendamentoNew!: any
+  valor: any
   formaPagamento: any
   agendamentoRetornado: any
 
@@ -48,8 +49,11 @@ export class UpdateAgendamentoComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    const id:any = this.route.snapshot.paramMap.get("id");
-    this.agendamentoService.findAllAgendamentosById(Number.parseInt(id)).subscribe((result)=>{this.agendamentoNew=result})
+    const id: any = this.route.snapshot.paramMap.get("id");
+    this.agendamentoService.findAllAgendamentosById(Number.parseInt(id)).subscribe((result: Agendamento) => {
+      this.agendamentoNew = result
+      this.valor = this.agendamentoNew.servico.valor
+    })
     this.AdminNome = localStorage.getItem("login")
     if (document.querySelector('input [value = "checked"]')) {
       this.novoEndereco = true
@@ -63,13 +67,13 @@ export class UpdateAgendamentoComponent implements OnInit {
     })
   }
 
-  cidade: Cidade={
-    id:1,
+  cidade: Cidade = {
+    id: 1,
     nome: 'goiania',
-    uf:'go'
+    uf: 'go'
   }
 
-  enderecoAgendado: Endereco ={
+  enderecoAgendado: Endereco = {
     id: 0,
     bairro: 'this.endereco.bairro',
     cep: 'this.endereco.cep',
@@ -83,9 +87,9 @@ export class UpdateAgendamentoComponent implements OnInit {
     this.agendamentoNew.cliente = this.usuarioClienteAgenda
     this.agendamentoNew.servico = this.servicoAgenda
     alert(this.agendamentoNew)
-    //this.agendamentoService.createAgendamento(this.agendamentoNew).subscribe((result)=>{
-    // this.agendamentoRetornado = result
-    //})
+    this.agendamentoService.updateAgendamento(this.agendamentoNew).subscribe((result) => {
+      this.agendamentoRetornado = result
+    })
   }
 
 }

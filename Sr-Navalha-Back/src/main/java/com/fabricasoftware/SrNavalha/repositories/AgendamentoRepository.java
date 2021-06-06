@@ -11,8 +11,8 @@ import java.util.List;
 public interface AgendamentoRepository extends JpaRepository<Agendamento, Long> {
 
     //@Query("select '*' from 'agendamento' age where age.cliente_id = :id")
-    List<Agendamento> filterByEmailBarbeiro(Long id);
+    //List<Agendamento> filterByEmailBarbeiro(Long id);
 
     //@Query("select age from 'agendamento' age join usuario_cliente uc on age.cliente_id = uc.id")
-    List<Agendamento> filterByEmailCliente(String email);
+    //List<Agendamento> filterByEmailCliente(String email);
 }

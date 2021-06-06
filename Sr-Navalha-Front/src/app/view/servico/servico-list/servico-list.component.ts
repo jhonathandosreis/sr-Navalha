@@ -5,11 +5,13 @@ import { Component, OnInit } from '@angular/core';
   selector: 'ads-servico-list',
   templateUrl: './servico-list.component.html',
   styleUrls: ['./servico-list.component.css']
+
 })
 export class ServicoListComponent implements OnInit {
-   
+
   servicos: any[] = [];
-  constructor(private servicoservice: ServicoService ) { }
+  constructor(
+    private servicoservice: ServicoService) { }
 
   ngOnInit(): void {
     this.getAllServicos()
@@ -18,5 +20,4 @@ export class ServicoListComponent implements OnInit {
   getAllServicos() {
     this.servicoservice.findAllServicos().subscribe(result => this.servicos = result);
   }
-
 }
