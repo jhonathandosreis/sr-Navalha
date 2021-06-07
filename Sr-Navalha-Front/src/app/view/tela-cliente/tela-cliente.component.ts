@@ -17,7 +17,7 @@ export class TelaClienteComponent implements OnInit {
   ngOnInit(): void {
     this.emailUpdate = "jhonathandosreis@hotmail.com"
     //this.emailUpdate = localStorage.getItem("login")
-    this.AdminNome = localStorage.getItem("admin-logado")
+    this.AdminNome = localStorage.getItem("login")
   }
   
   sair(){

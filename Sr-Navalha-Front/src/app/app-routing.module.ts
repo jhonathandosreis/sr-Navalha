@@ -1,3 +1,4 @@
+import { AuthGuard } from './auth.guard';
 import { UpdateAgendamentoComponent } from './view/agendamento/update-agendamento/update-agendamento.component';
 import { SpinnerComponent } from './view/spinner/spinner.component';
 import { AgendamentosComponent } from './view/agendamento/agendamentos/agendamentos.component';
@@ -19,29 +20,29 @@ import { PerfilClienteComponent } from './view/perfil-cliente/perfil-cliente.com
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'agendamento', component: AgendamentoComponent },
-  { path: 'agendamentos', component: AgendamentosComponent },
-  { path: 'admin', component: AdminComponent },
-  { path: "agendamento/:id", component: UpdateAgendamentoComponent },
+  { path: 'agendamento/novo/:id', component: AgendamentoComponent, canActivate: [AuthGuard] },
+  { path: 'agendamentos', component: AgendamentosComponent, canActivate: [AuthGuard] },
+  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
+  { path: "agendamento/:id", component: UpdateAgendamentoComponent, canActivate: [AuthGuard] },
   { path: 'carregando', component: SpinnerComponent },
   { path: 'cadastro', component: CadastroComponent },
   {
-    path: 'telaBarbeiro', component: TelaBarbeiroComponent,
+    path: 'telaBarbeiro', component: TelaBarbeiroComponent, canActivate: [AuthGuard],
     children: [{ path: 'serv', component: ServicoComponent },
-    { path: 'agend', component: AgendamentosComponent },
-    { path: 'servlist', component: ServicoListComponent }]
+    { path: 'agend', component: AgendamentosComponent, canActivate: [AuthGuard] },
+    { path: 'servlist', component: ServicoListComponent, canActivate: [AuthGuard] }]
   },
   {
     path: 'telaCliente', component: TelaClienteComponent,
-    children: [{ path: 'serv', component: ServicoComponent },
-    { path: 'agend', component: AgendamentosComponent }]
+    children: [{ path: 'serv', component: ServicoComponent, canActivate: [AuthGuard] },
+    { path: 'agend', component: AgendamentosComponent, canActivate: [AuthGuard] }], canActivate: [AuthGuard]
   },
-  { path: 'portfolio', component: PortfolioComponent },
-  { path: 'servico', component: ServicoComponent },
-  { path: 'servicoList', component: ServicoListComponent },
-  { path: 'perfilCliente/:email', component: PerfilClienteComponent },
-  { path: 'telaBarbeiro/:email', component: TelaBarbeiroComponent}
-  
+  { path: 'portfolio', component: PortfolioComponent, canActivate: [AuthGuard] },
+  { path: 'servico', component: ServicoComponent, canActivate: [AuthGuard] },
+  { path: 'servicoList', component: ServicoListComponent, canActivate: [AuthGuard] },
+  { path: 'perfilCliente/:email', component: PerfilClienteComponent, canActivate: [AuthGuard] },
+  { path: 'telaBarbeiro/:email', component: TelaBarbeiroComponent, canActivate: [AuthGuard] }
+
 ];
 
 @NgModule({

@@ -1,3 +1,4 @@
+import { AuthGuard } from './auth.guard';
 import { PerfilClienteComponent } from './view/perfil-cliente/perfil-cliente.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { LOCALE_ID, NgModule } from '@angular/core';
@@ -55,7 +56,7 @@ import { UpdateAgendamentoComponent } from './view/agendamento/update-agendament
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true
-  }, { provide: LOCALE_ID, useValue: 'pt-Br' }],
+  }, { provide: LOCALE_ID, useValue: 'pt-Br' }, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

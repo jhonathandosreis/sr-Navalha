@@ -30,8 +30,15 @@ export class AuthInterceptor implements HttpInterceptor {
             (err: any) => {
                 if (err instanceof HttpErrorResponse) {
                     if (err.status === 401) {
+                        alert('Erro na autenticação! Forneça usuario e senha validos!')
                         localStorage.removeItem('access_token_ads04');
                         this.router.navigate(['/login']);
+                    }
+                    if(err.status === 0 ){
+                        alert('O servidor backend esta fora do Ar!')
+                    }
+                    if(err.status === 500 ){
+                        alert('O servidor de Autenticação esta fora do Ar!')
                     }
                 }
             }));

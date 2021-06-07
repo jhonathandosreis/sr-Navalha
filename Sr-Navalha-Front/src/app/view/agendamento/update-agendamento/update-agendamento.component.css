@@ -1,0 +1,141 @@
+.section-title {
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+  }
+  
+  body {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 2.5;
+    color: #000000;
+    text-align: left;
+    background-image: url(../../../../assets/img/fundoBarbearia.png);
+    bottom: 0;
+    left: 0;
+    overflow: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-size: cover;
+  }
+  
+  :root {
+    --blue: #007bff;
+    --indigo: #6610f2;
+    --purple: #6f42c1;
+    --pink: #e83e8c;
+    --red: #dc3545;
+    --orange: #fd7e14;
+    --yellow: #ffc107;
+    --green: #28a745;
+    --teal: #20c997;
+    --cyan: #17a2b8;
+    --white: #fff;
+    --gray: #868e96;
+    --gray-dark: #343a40;
+    --primary: #007bff;
+    --secondary: #868e96;
+    --success: #28a745;
+    --info: #17a2b8;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --light: #f8f9fa;
+    --dark: #343a40;
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --font-family-monospace: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+  
+  .container {
+    background-color: rgba(255, 255, 255, 0.836);
+    border-radius: 15px;
+    padding: 10px;
+  }
+  input.ng-invalid.ng-touched {
+    border: 1px solid red;
+  }
+  
+  select.ng-invalid.ng-touched {
+    border: 1px solid red;
+  }
+  input.ng-valid.ng-touched {
+    border: 1px solid green;
+  }
+  
+  select.ng-valid.ng-touched {
+    border: 1px solid green;
+  }
+  
+  h4 {
+    color:#555
+  }
+  
+  h3 {
+    color: #555
+  }
+  
+  .card img {
+    height: 200px;
+  }
+  
+  
+  #agendar{
+    background-color: rgb(46, 6, 226);
+    color: rgb(248, 248, 250);
+    border-radius: 20px;
+    border-color: rgb(30, 12, 112);
+  }
+
+  #contBar {
+    background-repeat: no-repeat;
+    background-size: 100%;
+    bottom: 0;
+    color: black;
+    left: 0;
+    overflow: auto;
+    padding: 3em;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding: 1rem;
+}
+
+.nav-menu {
+    transition: all 0.3s ease;
+    background: -moz-linear-gradient(135deg, rgb(3, 24, 41) 0%, rgb(0, 0, 0) 100%);
+    background: -webkit-linear-gradient(135deg, rgb(3, 26, 44) 0%, rgb(0, 0, 0) 100%);
+    background: linear-gradient(135deg, rgb(2, 34, 58) 0%, rgb(0, 0, 0) 100%);
+    -webkit-box-shadow: 0px 5px 23px 0px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0px 5px 23px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 5px 23px 0px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    padding: 10px 8%;
+}
+
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+
+select.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+
+input.ng-valid.ng-touched {
+    border: 1px solid green;
+}
+
+select.ng-valid.ng-touched {
+    border: 1px solid green;
+}

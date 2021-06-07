@@ -9,13 +9,13 @@
                 <div class="form-row" style=" padding: 1%; border-bottom: solid 1px #F0F0F0">
                     <div class="row">
                         <div class="form-group col-sm-1">
-                            <img src="../../../assets/img/login.jpeg" class="img-fluid">
+                            <img [src]="servicoNew.imageUrl" class="img-fluid">
                         </div>
                         <div class="form-group col-sm-6">
-                            <small><strong>Barbeiro: </strong>Sr Navalha</small>
+                            <small><strong>Barbeiro: </strong>{{servicoNew.usuarioBarbeiro.nome}}</small>
                             <br />
-                            <small><strong>Descrição: </strong>Serviço completo com hidratação. (corte de cabelo e
-                                barba)</small>
+                            <small><strong>Descrição: </strong>{{servicoNew.descricao}}</small><br>
+                            <small><strong>Valor: </strong>R$ {{servicoNew.valor}}</small>
                         </div>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
                         <div class="form-group col-md-2 col-12">
                             <label>CEP</label>
                             <input type="text" maxlength="8" class="form-control" placeholder="CEP" id="cep"
-                                formControlName="cep" name="cep" ngModel required
+                                formControlName="cep" name="cep" [(ngModel)]="endereco.cep" required
                                 (blur)="buscarEndereco($event.target)">
                         </div>
                         <br>
@@ -77,7 +77,7 @@
                             </select>
                         </div>
                         <div class="form-group col d-flex justify-content-end" style="padding-top: 2%;">
-                            <h6><b>Valor Total:</b> R$ 61.80</h6>
+                            <h6><b>Valor Total:</b> R$ {{servicoNew.valor}}</h6>
                         </div>
                     </div>
                 </div>
