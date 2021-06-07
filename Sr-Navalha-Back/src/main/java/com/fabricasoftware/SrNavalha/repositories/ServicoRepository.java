@@ -7,4 +7,5 @@ import com.fabricasoftware.SrNavalha.models.Servico;
 
 @Repository
 public interface ServicoRepository extends JpaRepository<Servico, Long> {
+	Servico getServicoByBarbeiro(Long idBarbeiro);
 }
