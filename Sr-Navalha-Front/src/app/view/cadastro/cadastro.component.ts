@@ -129,7 +129,7 @@ export class CadastroComponent implements OnInit {
   createTokenUser() {
     this.usuarioToken.login = this.novoCliente.email;
     this.usuarioToken.passw = this.credencial.senha;
-    this.usuarioToken.roles = ["ROLE_ADMIN"];
+    this.usuarioToken.roles = ["admin"];
     this.usuarioToken.tenant = this.novoCliente.nome;
     this.usuarioClienteService.createUserToken(this.usuarioToken).subscribe(result => { console.log(result) })
   }
