@@ -18,7 +18,7 @@ import { PerfilClienteComponent } from './view/perfil-cliente/perfil-cliente.com
 
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
+  { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'agendamento/novo/:id', component: AgendamentoComponent, canActivate: [AuthGuard] },
   { path: 'agendamentos', component: AgendamentosComponent, canActivate: [AuthGuard] },
