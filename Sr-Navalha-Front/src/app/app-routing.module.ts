@@ -17,7 +17,7 @@ import { PerfilClienteComponent } from './view/perfil-cliente/perfil-cliente.com
 
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'agendamento', component: AgendamentoComponent },
   { path: 'agendamentos', component: AgendamentosComponent },
