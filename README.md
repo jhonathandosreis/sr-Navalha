@@ -26,4 +26,13 @@ Sistema de barbeiros delivery
 <br>
 
 ## 📚 Contexto do Problema
-Ha definir
+Nosso proposito é fornecer aos trabalhadores autonomos e tambem aos nossos cliente um ambiente onde ambos possam iteragir e consumir serviços
+sem burogracia ou dificuldades.
+Solução web com atenção voltada aos clientes.
+
+    
+<p align="center">
+    <a href="">
+        <img alt="Jhonathan dos reis" src="https://user-images.githubusercontent.com/46682639/121048240-039eff80-c78d-11eb-856d-10908114a099.png">
+    </a>
+</p>
