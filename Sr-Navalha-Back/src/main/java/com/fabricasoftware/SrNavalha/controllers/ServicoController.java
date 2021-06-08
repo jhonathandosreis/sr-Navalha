@@ -33,7 +33,7 @@ public class ServicoController {
         }
     }
 
-    @GetMapping("/{idBarbeiro}")
+    @GetMapping("/barbeiro/{idBarbeiro}")
     public List<Servico> getServicoByBarbeiro(@PathVariable Long idBarbeiro) {
       List<Servico> servico = servicoService.getServicoByBarbeiro(idBarbeiro);
         return servico;
