@@ -32,19 +32,12 @@ public class ServicoController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-    /**
+
     @GetMapping("/{idBarbeiro}")
-<<<<<<< HEAD
-    public List<Servico> getServicoByBarbeiro( @PathVariable Long idBarbeiro) {
-      List <Servico> servico = servicoService.getServicoByBarbeiro(idBarbeiro);
+    public List<Servico> getServicoByBarbeiro(@PathVariable Long idBarbeiro) {
+      List<Servico> servico = servicoService.getServicoByBarbeiro(idBarbeiro);
         return servico;
     }
-=======
-    public ResponseEntity<Servico> getServicoByBarbeiro( @PathVariable Long idBarbeiro) {
-       Servico servico = servicoService.getServicoByBarbeiro(idBarbeiro);
-        return ResponseEntity.ok().body(servico);
-    }**/
-
 
     @PostMapping
     public ResponseEntity<Servico> create(@RequestBody Servico servico) {
