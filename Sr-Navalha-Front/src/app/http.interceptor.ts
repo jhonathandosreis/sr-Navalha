@@ -13,12 +13,16 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
+
+    private naoAutenticar = ["http://teste:123456@localhost:8082/auth-server/tokens"];
+
     constructor(private router: Router) { }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
        
         let token = localStorage.getItem('access_token_ads04');
-        if (token != null) {
+        
+        if (!this.naoAutenticar.includes(request.url) && token != null) {
             request = request.clone({
                 setHeaders: {
                     'Content-Type': 'application/json',

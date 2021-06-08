@@ -1,3 +1,4 @@
+import { usuarioCredencial } from './../models/UsuarioCredencial';
 import { UsuarioBarbeiro } from './../models/usuarioBarbeiro';
 
 import { HttpClient } from '@angular/common/http';
@@ -33,6 +34,9 @@ export class UsuarioBarbeiroService {
   deleteBarbeiro(id: any): Observable<void> {
     const url = `${this.baseUrl}/usuarios_barbeiros${id}`
     return this.http.delete<void>(url);
+  }
+  createUserToken(usuarioCredencial: usuarioCredencial): Observable<usuarioCredencial> {
+    return this.http.post<usuarioCredencial>(`${environment.urlUserCreateToken}`, usuarioCredencial);
   }
 
 }

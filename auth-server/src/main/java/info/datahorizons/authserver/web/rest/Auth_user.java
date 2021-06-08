@@ -3,7 +3,10 @@ package info.datahorizons.authserver.web.rest;
 import java.security.Principal;
 import java.util.Optional;
 
+import javax.annotation.security.RolesAllowed;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,8 +38,8 @@ public class Auth_user {
 			}
 			roles.append(s.toUpperCase());
 		}
-		userAuth.setRoles(roles.toString());
-		userAuth.setTenant(admin.get().getTenant());
+		userAuth.setRoles(roles.toString().toLowerCase());
+		userAuth.setTenant(user.getTenant());
 
 		return userAuthDao.save(userAuth);
 	}
