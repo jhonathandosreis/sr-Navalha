@@ -63,7 +63,8 @@ export class CadastroComponent implements OnInit {
     credencial: this.credencial,
 
   }
-  usuarioToken: usuarioCredencial = { login: '', passw: '', roles: '', tenant: '' };
+
+  usuarioToken: usuarioCredencial = { login: '', password: '', roles: ['admin'], tenant: '' };
 
   constructor(private usuarioBarbeiroService: UsuarioBarbeiroService, private usuarioClienteService: UsuarioClienteService, consultarCep: ConsultaCepService, private router: Router) { }
 
@@ -117,21 +118,23 @@ export class CadastroComponent implements OnInit {
 
     if (this.novoCliente.tipo == 'cliente') {
       this.create();
-      //this.createTokenUser()
+      this.createTokenUser()
       //  this.router.navigate(["/login"])
     } else {
       this.createBarbeiro();
-      //this.createTokenUser()
+      this.createTokenUser()
       // this.router.navigate(["/login"])
     }
 
   }
   createTokenUser() {
     this.usuarioToken.login = this.novoCliente.email;
-    this.usuarioToken.passw = this.credencial.senha;
+    this.usuarioToken.password = this.credencial.senha;
     this.usuarioToken.roles = ["admin"];
     this.usuarioToken.tenant = this.novoCliente.nome;
-    this.usuarioClienteService.createUserToken(this.usuarioToken).subscribe(result => { console.log(result) })
+    this.usuarioClienteService.createUserToken(this.usuarioToken).subscribe((result: any) => {
+      console.log(result)
+    })
   }
 
 }

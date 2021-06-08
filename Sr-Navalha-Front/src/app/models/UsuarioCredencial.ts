@@ -1,6 +1,6 @@
 export class usuarioCredencial {
     login: any;
-    passw: any;
-    roles: any;
+    password: any;
+    roles: any[] = [];
     tenant: any
 }
