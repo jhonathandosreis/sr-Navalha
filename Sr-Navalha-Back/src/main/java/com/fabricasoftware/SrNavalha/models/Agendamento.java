@@ -1,14 +1,12 @@
 package com.fabricasoftware.SrNavalha.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
-
 import javax.persistence.*;
+import java.util.Date;
 
 @Getter
 @Setter

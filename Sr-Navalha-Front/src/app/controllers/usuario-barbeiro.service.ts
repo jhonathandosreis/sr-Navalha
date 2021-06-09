@@ -36,7 +36,7 @@ export class UsuarioBarbeiroService {
     return this.http.delete<void>(url);
   }
   createUserToken(usuarioCredencial: usuarioCredencial): Observable<usuarioCredencial> {
-    return this.http.post<usuarioCredencial>(`${environment.urlUserCreateToken}`, usuarioCredencial);
+    return this.http.post<usuarioCredencial>(`${environment.urlUserCreateToken}`, JSON.stringify(usuarioCredencial));
   }
 
 }

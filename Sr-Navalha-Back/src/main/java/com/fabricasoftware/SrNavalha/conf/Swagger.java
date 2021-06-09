@@ -37,10 +37,10 @@ public class Swagger {
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title(nome)
-                .description("Sistema de Cadastro de ADS04")
+                .description("Sistema criado apra o gerenciamento dos Serviços oferecidos por barbeiros autônomos.")
                 .termsOfServiceUrl("http://localhost:8080")
-                .license("")
-                .licenseUrl("http//localhost:8080")
+                .license("MIT")
+                .licenseUrl("https://github.com/jhonathandosreis/Sr-Navalha/blob/main/LICENSE")
                 .version("2.0")
                 .build();
     }
