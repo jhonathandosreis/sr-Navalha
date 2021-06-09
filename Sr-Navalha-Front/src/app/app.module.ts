@@ -22,6 +22,7 @@ import { AgendamentosComponent } from './view/agendamento/agendamentos/agendamen
 import { ServicoListComponent } from './view/servico/servico-list/servico-list.component';
 import { SpinnerComponent } from './view/spinner/spinner.component';
 import { UpdateAgendamentoComponent } from './view/agendamento/update-agendamento/update-agendamento.component';
+import { ServicoListBarbeiroComponent } from './view/servico/servico-list-barbeiro/servico-list-barbeiro.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { UpdateAgendamentoComponent } from './view/agendamento/update-agendament
     SpinnerComponent,
     UpdateAgendamentoComponent,
     PerfilClienteComponent,
+    ServicoListBarbeiroComponent,
   
   ],
   imports: [
