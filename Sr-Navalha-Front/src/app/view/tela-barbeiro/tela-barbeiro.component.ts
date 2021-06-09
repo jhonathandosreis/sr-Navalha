@@ -58,15 +58,16 @@ export class TelaBarbeiroComponent implements OnInit {
 
   ngOnInit(): void {
 
+    // this.emailUpdate = "miguelneto.artes@gmail.com";
+    this.emailUpdate = localStorage.getItem("loginEmail")
+    this.AdminNome = localStorage.getItem("login");
+  
     const email = this.activateRouter.snapshot.paramMap.get('email')
     this.usuarioBarbeiroService.findBarbeiroByEmail(email).subscribe((resposta) => {
     this.novoBarbeiro = resposta;
     console.log(this.novoBarbeiro)
 
-    this.emailUpdate = "miguelneto.artes@gmail.com";
-    //this.emailUpdate = localStorage.getItem("login")
-    this.AdminNome = localStorage.getItem("login");
-  
+   
   
     
     });
@@ -75,10 +76,9 @@ export class TelaBarbeiroComponent implements OnInit {
 
 
   updateBarbeiro(): void {
-    this.usuarioBarbeiroService.updateBarbeiro(this.novoBarbeiro).subscribe((resposta) => {
-      confirm("Perfil atualizado com sucesso!")
-      
+    this.usuarioBarbeiroService.updateBarbeiro(this.novoBarbeiro).subscribe((resposta) => {  
     });
+    confirm("Perfil atualizado com sucesso!")
     location.reload()
   }
 
