@@ -22,7 +22,7 @@ export class PerfilClienteComponent implements OnInit {
   cidade: Cidade = {
     id: '',
     nome: '',
-    uf: '',
+    uf: ''
   }
 
   endereco: Endereco = {
@@ -31,7 +31,7 @@ export class PerfilClienteComponent implements OnInit {
     numero: '',
     bairro: '',
     cep: '',
-    cidade: this.cidade,
+    cidade: this.cidade
   }
 
   novoCliente: UsuarioCliente = {
@@ -43,7 +43,7 @@ export class PerfilClienteComponent implements OnInit {
     cpf: '',
     tipo: '',
     endereco: this.endereco,
-    credencial: this.credencial,
+    credencial: this.credencial
   
   }
 
@@ -53,14 +53,11 @@ export class PerfilClienteComponent implements OnInit {
     const email = this.activateRouter.snapshot.paramMap.get('email')
     this.usuarioClienteService.findClienteByEmail(email).subscribe((resposta) => {
       this.novoCliente = resposta;
-      console.log(this.novoCliente)
     });
   }
 
   update(): void {
     this.usuarioClienteService.update(this.novoCliente).subscribe((resposta) => {
     });
-    location.reload;
   }
-
 }
