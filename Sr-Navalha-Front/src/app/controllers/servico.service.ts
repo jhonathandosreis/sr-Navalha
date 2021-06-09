@@ -19,6 +19,10 @@ export class ServicoService {
     return this.httpCliente.get<Servico>(`${environment.baseUrl}/servicos/${id}`);
   }
 
+  findServicosByBarbeiro(id: number): Observable<Servico[]> {
+    return this.httpCliente.get<Servico[]>(`${environment.baseUrl}/servicos/barbeiro/${id}`)
+  }
+
   createServico(servico: any): Observable<any> {
     return this.httpCliente.post<any>(`${environment.baseUrl}/servicos`, servico);
   }
