@@ -15,6 +15,7 @@ import { TelaBarbeiroComponent } from './view/tela-barbeiro/tela-barbeiro.compon
 import { TelaClienteComponent } from './view/tela-cliente/tela-cliente.component';
 import { ServicoListComponent } from './view/servico/servico-list/servico-list.component';
 import { PerfilClienteComponent } from './view/perfil-cliente/perfil-cliente.component';
+import { ServicoListBarbeiroComponent } from './view/servico/servico-list-barbeiro/servico-list-barbeiro.component';
 
 
 const routes: Routes = [
@@ -30,7 +31,7 @@ const routes: Routes = [
     path: 'telaBarbeiro', component: TelaBarbeiroComponent, canActivate: [AuthGuard],
     children: [{ path: 'serv', component: ServicoComponent },
     { path: 'agend', component: AgendamentosComponent, canActivate: [AuthGuard] },
-    { path: 'servlist', component: ServicoListComponent, canActivate: [AuthGuard] }]
+    { path: 'servlist', component: ServicoListBarbeiroComponent, canActivate: [AuthGuard] }]
   },
   {
     path: 'telaCliente', component: TelaClienteComponent,
