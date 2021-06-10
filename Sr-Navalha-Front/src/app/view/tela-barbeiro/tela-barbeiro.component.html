@@ -53,7 +53,7 @@
                                 <img class="img-profile rounded-circle" src="../../../assets/img/man.png" style="max-width: 60px">
                             </a>
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                <a class="dropdown-item" data-toggle="modal" routerLink="/telaBarbeiro/{{emailUpdate}}" data-target="#PerfilModal">
+                                <a class="dropdown-item" data-toggle="modal" data-target="#PerfilModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-200"></i >Perfil
                                 </a>
                              <div class="dropdown-divider"></div>
@@ -189,10 +189,11 @@
                                                 </div>
                                             </div>
 
-                                            <div class="text-center ">
+                                            <div class="text-center" *ngIf="novoBarbeiro.nome !== '' ">
                                                 <button type="button " class="btn btn-outline-primary " data-dismiss="modal " onClick="history.go(0) ">Voltar</button>
                                                 <button (click)="updateBarbeiro()" style="margin: 2%;" class="btn btn-primary " type="submit ">ATUALIZAR</button>
                                             </div>
+                                            <button (click)="updatePerfilBarbeiro()" style="margin: 2%;" class="btn btn-primary " type="submit ">BUSCAR DADOS</button>
                                         </div>
                                     </div>
                                 </form>

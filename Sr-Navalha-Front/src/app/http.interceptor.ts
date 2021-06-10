@@ -38,12 +38,6 @@ export class AuthInterceptor implements HttpInterceptor {
                         localStorage.removeItem('access_token_ads04');
                         this.router.navigate(['/login']);
                     }
-                    if(err.status === 0 ){
-                        alert('O servidor backend esta fora do Ar!')
-                    }
-                    if(err.status === 500 ){
-                        alert('O servidor de Autenticação esta fora do Ar!')
-                    }
                 }
             }));
     }
