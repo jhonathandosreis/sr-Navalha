@@ -13,6 +13,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/servicos")
+@CrossOrigin
 public class ServicoController {
 
     @Autowired

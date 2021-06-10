@@ -16,6 +16,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/agendamentos")
+@CrossOrigin
 public class AgendamentoController {
 
     @Autowired

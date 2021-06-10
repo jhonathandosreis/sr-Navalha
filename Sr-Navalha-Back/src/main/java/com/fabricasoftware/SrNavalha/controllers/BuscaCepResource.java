@@ -13,6 +13,7 @@ import org.springframework.web.client.RestTemplate;
 
 @RestController
 @RequestMapping("/cep")
+@CrossOrigin
 public class BuscaCepResource {
 
     private final RestTemplate restTemplate = new RestTemplate();

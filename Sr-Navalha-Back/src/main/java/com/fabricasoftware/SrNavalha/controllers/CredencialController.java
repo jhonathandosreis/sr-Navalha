@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/credenciais")
+@CrossOrigin
 public class CredencialController {
 
     @Autowired

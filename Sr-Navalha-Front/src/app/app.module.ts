@@ -22,7 +22,7 @@ import { AgendamentosComponent } from './view/agendamento/agendamentos/agendamen
 import { ServicoListComponent } from './view/servico/servico-list/servico-list.component';
 import { SpinnerComponent } from './view/spinner/spinner.component';
 import { UpdateAgendamentoComponent } from './view/agendamento/update-agendamento/update-agendamento.component';
-
+import { OAuthModule } from 'angular-oauth2-oidc';
 
 @NgModule({
   declarations: [
@@ -43,14 +43,20 @@ import { UpdateAgendamentoComponent } from './view/agendamento/update-agendament
     SpinnerComponent,
     UpdateAgendamentoComponent,
     PerfilClienteComponent,
-  
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    OAuthModule.forRoot({
+      resourceServer: {
+        allowedUrls: ['http://localhost:8080/foo'],
+        sendAccessToken: true
+      }
+    })
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
