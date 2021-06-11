@@ -23,5 +23,4 @@ export class TelaClienteComponent implements OnInit {
     localStorage.removeItem('access_token_ads04');
     this.router.navigate(["/"]);
    }
-
 }

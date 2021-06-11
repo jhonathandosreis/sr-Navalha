@@ -31,9 +31,10 @@ export class UsuarioClienteService {
   }
 
   delete(id: any): Observable<void> {
-    const url = `${this.baseUrl}/usuarios_clientes${id}`
+    const url = `${this.baseUrl}/usuarios_clientes/${id}`
     return this.http.delete<void>(url);
   }
+  
   createUserToken(usuarioCredencial: usuarioCredencial): Observable<usuarioCredencial> {
     return this.http.post<usuarioCredencial>(`${environment.urlUserCreateToken}`, JSON.stringify(usuarioCredencial));
   }

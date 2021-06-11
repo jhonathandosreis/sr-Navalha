@@ -23,6 +23,7 @@ import { ServicoListComponent } from './view/servico/servico-list/servico-list.c
 import { SpinnerComponent } from './view/spinner/spinner.component';
 import { UpdateAgendamentoComponent } from './view/agendamento/update-agendamento/update-agendamento.component';
 import { ServicoListBarbeiroComponent } from './view/servico/servico-list-barbeiro/servico-list-barbeiro.component';
+import { TelaClienteAdminComponent } from './view/tela-cliente/tela-cliente-admin/tela-cliente-admin.component';
 
 
 @NgModule({
@@ -44,8 +45,8 @@ import { ServicoListBarbeiroComponent } from './view/servico/servico-list-barbei
     SpinnerComponent,
     UpdateAgendamentoComponent,
     PerfilClienteComponent,
-    ServicoListBarbeiroComponent,
-  
+    ServicoListBarbeiroComponent, 
+    TelaClienteAdminComponent 
   ],
   imports: [
     BrowserModule,
