@@ -20,7 +20,7 @@ import org.springframework.security.oauth2.provider.token.RemoteTokenServices;
 @Configuration
 @EnableResourceServer
 public class ServerConfiguration  extends ResourceServerConfigurerAdapter {
-
+/**
     @Value("${ads04.auth.accessCheckTokenUri}")
     private String accessTokenUri;
 
@@ -83,6 +83,6 @@ public class ServerConfiguration  extends ResourceServerConfigurerAdapter {
             }
         };
     }
-
+*/
 }
 

@@ -23,7 +23,11 @@ export class LoginKeycloakService {
   }
 
   public getUsername(): any {
-    return this.oauthService.getIdentityClaims();
+    const token = this.oauthService.getAccessToken();
+    const payload = token.split('.')[1];
+    const payloadDecodedJson = atob(payload);
+    const payloadDecoded = JSON.parse(payloadDecodedJson);
+    return payloadDecoded.preferred_username;
   }
 
   public getIsAdmin(): boolean {

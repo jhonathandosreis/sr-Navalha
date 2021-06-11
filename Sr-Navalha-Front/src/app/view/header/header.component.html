@@ -12,11 +12,11 @@
                             <li><a href="#idSobre" class="nav-link px-2 text-white">SOBRE</a></li>
                             <li><a href="#idContatos" class="nav-link px-2 text-white">CONTATOS</a></li>
                         </ul>
-                        <div class="text-end" *ngIf="token == null">
+                        <div class="text-end" *ngIf="!estaLogado()">
                             <button type="button" (click)="login()" class="btn btn-outline-light me-2"><i class="bi bi-box-arrow-right"></i> LOGIN</button>
                             <button type="button" routerLink="/cadastro" class="btn btn-warning"><i class="bi bi-person-plus"></i> CADASTRAR</button>
                         </div>
-                        <div class="text-end" *ngIf="token !== null">
+                        <div class="text-end" *ngIf="estaLogado()">
                             <button disabled type="menu" class="btn btn-outline-light me-2"><i class="bi bi-person"></i> teste</button>
                             <button type="button" (click)="sair()" class="btn btn-warning"><i class="bi bi-box-arrow-left"></i> SAIR</button>
                         </div>
