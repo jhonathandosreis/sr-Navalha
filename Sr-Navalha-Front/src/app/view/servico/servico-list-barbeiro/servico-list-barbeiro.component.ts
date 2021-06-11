@@ -16,12 +16,12 @@ export class ServicoListBarbeiroComponent implements OnInit {
 
   ngOnInit(): void {
     this.setBarbeiro()
-    this.getServicoBarbeiro(this.usuarioBarbeiro.id);
   }
 
   setBarbeiro() {
     this.usuarioBarbeiroService.findBarbeiroByEmail(localStorage.getItem("loginEmail")).subscribe(result => {
     this.usuarioBarbeiro = result
+    this.getServicoBarbeiro(this.usuarioBarbeiro.id);
     })
   }
 
