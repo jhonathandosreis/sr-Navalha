@@ -66,7 +66,7 @@ export class CadastroComponent implements OnInit {
 
   usuarioToken: usuarioCredencial = { login: '', password: '', roles: ['admin'], tenant: '' };
 
-  constructor(private usuarioBarbeiroService: UsuarioBarbeiroService, private usuarioClienteService: UsuarioClienteService, consultarCep: ConsultaCepService, private router: Router) { }
+  constructor(private consulta: ConsultaCepService, private usuarioBarbeiroService: UsuarioBarbeiroService, private usuarioClienteService: UsuarioClienteService, consultarCep: ConsultaCepService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -107,23 +107,23 @@ export class CadastroComponent implements OnInit {
     })
   }
 
+  buscarEndereco(cepInput: any) {
+    this.consulta.consultaCEP(cepInput.value).subscribe((retorno) => {
+      this.endereco = retorno
+    })
+  }
+
   getTipo(tip: any) {
     this.novoCliente.tipo = tip.value
     this.novoBarbeiro.tipo = tip.value
   }
 
-
-
   public createCheck() {
 
     if (this.novoCliente.tipo == 'cliente') {
       this.create();
-     // this.createTokenUser()
-      //  this.router.navigate(["/login"])
     } else {
       this.createBarbeiro();
-      //this.createTokenUser()
-      // this.router.navigate(["/login"])
     }
 
   }
@@ -136,5 +136,4 @@ export class CadastroComponent implements OnInit {
       console.log(result)
     })
   }
-
 }

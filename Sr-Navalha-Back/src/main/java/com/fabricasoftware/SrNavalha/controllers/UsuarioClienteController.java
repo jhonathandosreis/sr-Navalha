@@ -40,7 +40,7 @@ public class UsuarioClienteController {
         return ResponseEntity.ok().body(usuarioCliente);
     }
 
-    @DeleteMapping
+    @DeleteMapping(value = "/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         usuarioClienteService.delete(id);
         return ResponseEntity.noContent().build();

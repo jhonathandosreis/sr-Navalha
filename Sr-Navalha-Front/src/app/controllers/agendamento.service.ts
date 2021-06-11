@@ -2,6 +2,7 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { Agendamento } from '../models/Agendamento';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,10 @@ export class AgendamentoService {
 
   findAllAgendamentosById(id: number): Observable<any> {
     return this.httpCliente.get<any>(`${environment.baseUrl}/agendamentos/${id}`);
+  }
+
+  filterByEmailCliente(emailCliente: any): Observable<any[]> {
+    return this.httpCliente.get<any[]>(`${environment.baseUrl}/agendamentos/cliente/${emailCliente}`);
   }
 
   createAgendamento(agendamento: any): Observable<any> {
