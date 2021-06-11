@@ -25,13 +25,13 @@ export class CadastroComponent implements OnInit {
 
   cidade: Cidade = {
     id: '',
-    nome: '',
+    localidade: '',
     uf: '',
   }
 
   endereco: Endereco = {
     id: '',
-    rua: '',
+    logradouro: '',
     numero: '',
     bairro: '',
     cep: '',
@@ -71,6 +71,12 @@ export class CadastroComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  buscarEndereco(cepInput: any) {
+    this.consulta.consultaCEP(cepInput.value).subscribe((retorno) => {
+      this.endereco = retorno
+    })
+  }
+
   create(): void {
     this.usuarioClienteService.create(this.novoCliente).subscribe((resposta) => {
       location.reload;
@@ -104,12 +110,6 @@ export class CadastroComponent implements OnInit {
   deleteBarbeiro(usuarioBarbeiro: UsuarioBarbeiro) {
     this.usuarioBarbeiroService.deleteBarbeiro(usuarioBarbeiro.id).subscribe((resposta) => {
       location.reload;
-    })
-  }
-
-  buscarEndereco(cepInput: any) {
-    this.consulta.consultaCEP(cepInput.value).subscribe((retorno) => {
-      this.endereco = retorno
     })
   }
 

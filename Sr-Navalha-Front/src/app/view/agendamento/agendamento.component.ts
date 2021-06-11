@@ -72,7 +72,7 @@ export class AgendamentoComponent implements OnInit {
 
   cidade: Cidade = {
     id: 1,
-    nome: 'goiania',
+    localidade: 'goiania',
     uf: 'go'
   }
 
@@ -82,7 +82,7 @@ export class AgendamentoComponent implements OnInit {
     cep: 'this.endereco.cep',
     cidade: this.cidade,
     numero: '12',
-    rua: 'this.endereco.logradouro'
+    logradouro: 'this.endereco.logradouro'
   }
 
   salvarAgendamento() {

@@ -25,13 +25,13 @@ export class TelaBarbeiroComponent implements OnInit {
 
   cidade: Cidade = {
     id: '',
-    nome: '',
+    localidade: '',
     uf: '',
   }
 
   endereco: Endereco = {
     id: '',
-    rua: '',
+    logradouro: '',
     numero: '',
     bairro: '',
     cep: '',
