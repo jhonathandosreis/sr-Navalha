@@ -26,7 +26,6 @@ public class UsuarioBarbeiro {
 	private String nome;
 	private String telefone;
 	private String email;
-	@CreationTimestamp
 	private Date dataNascimento;
 	private String cpf;
 	private String tipo;

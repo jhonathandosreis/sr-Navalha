@@ -25,13 +25,13 @@ export class CadastroComponent implements OnInit {
 
   cidade: Cidade = {
     id: '',
-    nome: '',
+    localidade: '',
     uf: '',
   }
 
   endereco: Endereco = {
     id: '',
-    rua: '',
+    logradouro: '',
     numero: '',
     bairro: '',
     cep: '',
@@ -66,9 +66,15 @@ export class CadastroComponent implements OnInit {
 
   usuarioToken: usuarioCredencial = { login: '', password: '', roles: ['admin'], tenant: '' };
 
-  constructor(private usuarioBarbeiroService: UsuarioBarbeiroService, private usuarioClienteService: UsuarioClienteService, consultarCep: ConsultaCepService, private router: Router) { }
+  constructor(private consulta: ConsultaCepService, private usuarioBarbeiroService: UsuarioBarbeiroService, private usuarioClienteService: UsuarioClienteService, consultarCep: ConsultaCepService, private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  buscarEndereco(cepInput: any) {
+    this.consulta.consultaCEP(cepInput.value).subscribe((retorno) => {
+      this.endereco = retorno
+    })
   }
 
   create(): void {
@@ -112,18 +118,12 @@ export class CadastroComponent implements OnInit {
     this.novoBarbeiro.tipo = tip.value
   }
 
-
-
   public createCheck() {
 
     if (this.novoCliente.tipo == 'cliente') {
       this.create();
-     // this.createTokenUser()
-      //  this.router.navigate(["/login"])
     } else {
       this.createBarbeiro();
-      //this.createTokenUser()
-      // this.router.navigate(["/login"])
     }
 
   }
@@ -136,5 +136,4 @@ export class CadastroComponent implements OnInit {
       console.log(result)
     })
   }
-
 }

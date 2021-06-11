@@ -23,8 +23,8 @@ public class AgendamentoService {
         return agendamentosFiltrados;
     }
 
-    public List<Agendamento> filterByEmailCliente(String email){
-        List<Agendamento> agendamentosFiltrados = agendamentoRepository.findAll();
+    public List<Agendamento> filterByEmailCliente(String emailCliente){
+        List<Agendamento> agendamentosFiltrados = agendamentoRepository.filterByEmailCliente(emailCliente);
         return agendamentosFiltrados;
     }
 

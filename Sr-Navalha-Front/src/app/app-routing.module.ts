@@ -15,7 +15,11 @@ import { TelaBarbeiroComponent } from './view/tela-barbeiro/tela-barbeiro.compon
 import { TelaClienteComponent } from './view/tela-cliente/tela-cliente.component';
 import { ServicoListComponent } from './view/servico/servico-list/servico-list.component';
 import { PerfilClienteComponent } from './view/perfil-cliente/perfil-cliente.component';
+
 import { ServicoListBarbeiroComponent } from './view/servico/servico-list-barbeiro/servico-list-barbeiro.component';
+
+import { TelaClienteAdminComponent } from './view/tela-cliente/tela-cliente-admin/tela-cliente-admin.component';
+
 
 
 const routes: Routes = [
@@ -42,7 +46,8 @@ const routes: Routes = [
   { path: 'servico', component: ServicoComponent, canActivate: [AuthGuard] },
   { path: 'servicoList', component: ServicoListComponent},
   { path: 'perfilCliente/:email', component: PerfilClienteComponent, canActivate: [AuthGuard] },
-  { path: 'telaBarbeiro/:email', component: TelaBarbeiroComponent, canActivate: [AuthGuard] }
+  { path: 'telaBarbeiro/:email', component: TelaBarbeiroComponent, canActivate: [AuthGuard] },
+  { path: 'telaClienteAdmin', component: TelaClienteAdminComponent }
 
 ];
 

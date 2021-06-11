@@ -25,13 +25,13 @@ export class TelaBarbeiroComponent implements OnInit {
 
   cidade: Cidade = {
     id: '',
-    nome: '',
+    localidade: '',
     uf: '',
   }
 
   endereco: Endereco = {
     id: '',
-    rua: '',
+    logradouro: '',
     numero: '',
     bairro: '',
     cep: '',
@@ -58,13 +58,14 @@ export class TelaBarbeiroComponent implements OnInit {
   constructor(public usuarioBarbeiroService: UsuarioBarbeiroService, consultarCep: ConsultaCepService, private router: Router, private activateRouter: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.emailUpdate = localStorage.getItem("loginEmail")
+
+    
     this.AdminNome = localStorage.getItem("login");
 
   }
 
   updatePerfilBarbeiro(): void {
-    const email = this.activateRouter.snapshot.paramMap.get('email')
+    const email = localStorage.getItem("loginEmail")
     this.usuarioBarbeiroService.findBarbeiroByEmail(email).subscribe((resposta) => {
       this.novoBarbeiro = resposta;
     });
@@ -79,7 +80,7 @@ export class TelaBarbeiroComponent implements OnInit {
   }
 
   sair() {
-    localStorage.removeItem('access_token_ads04');
+    localStorage.removeItem('accesstokenads04');
     this.router.navigate(["/"]);
   }
 }
