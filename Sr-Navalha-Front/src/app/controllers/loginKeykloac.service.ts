@@ -31,7 +31,16 @@ export class LoginKeycloakService {
     const payload = token.split('.')[1];
     const payloadDecodedJson = atob(payload);
     const payloadDecoded = JSON.parse(payloadDecodedJson);
-    // console.log(payloadDecoded.realm_access.roles);
+    localStorage.setItem("tipo", (payloadDecoded.realm_access.roles[0]));
+    localStorage.setItem("loginEmail", (payloadDecoded.email));
+    localStorage.setItem("preferred_username", (payloadDecoded.preferred_username));
+    localStorage.setItem("name", (payloadDecoded.name));
     return payloadDecoded.realm_access.roles.indexOf('realm-admin') !== -1;
+  }
+
+  public getToken(): any {
+    const token = this.oauthService.getAccessToken();
+    const payload = token.split('.')[1];
+    return payload;
   }
 }

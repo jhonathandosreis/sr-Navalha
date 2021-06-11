@@ -13,12 +13,19 @@ export class HeaderComponent implements OnInit {
   nome: any = '';
 
   ngOnInit(): void {
-
+    this.loginService.getIsAdmin()
+    this.getToken()
+    localStorage.setItem("access_token_ads04", this.token + "");
   }
 
   login() {
     this.loginService.login();
   }
+
+  getToken() {
+    this.loginService.getToken();
+  }
+
   sair() {
     this.loginService.logout()
     setTimeout(() => {
