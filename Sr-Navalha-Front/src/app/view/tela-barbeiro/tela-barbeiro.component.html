@@ -143,17 +143,17 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Data de Nascimento*</label>
-                                                <input [(ngModel)]="novoBarbeiro.dataNascimento" type="date "
+                                                <input [(ngModel)]="novoBarbeiro.dataNascimento" type="date"
                                                     name="dtnasc " class="form-control form-control-sm" id="dtanasc "
-                                                    placeholder="Ex: 11/11/1111* " />
+                                                    placeholder="Ex: 11/11/1111* "     />
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>E-mail Para Acesso*</label>
+                                                <label>E-mail de Acesso</label>
                                                 <input [(ngModel)]="novoBarbeiro.email" [(ngModel)]="credencial.email"
                                                     type="email " class="form-control form-control-sm" name="email "
-                                                    id="email " placeholder="E-mail Para Acesso* " />
+                                                    id="email " placeholder="E-mail Para Acesso*"       style="color: rgba(255, 99, 71, 0.884);"  readonly/>
                                                 <small class="text-info" style="display: none"
                                                     id="suggest-email "></small>
                                             </div>
@@ -178,9 +178,9 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Endereço*</label>
-                                                <input [(ngModel)]="novoBarbeiro.endereco.logradouro" type="text "
-                                                    class="form-control form-control-sm" name="endereco " id="endereco "
-                                                    placeholder="Ex: Rua p1, n16 , St Oeste* " data-rule="email " />
+                                                <input [(ngModel)]="novoBarbeiro.endereco.logradouro" type="text " name="endereco "
+                                                    class="form-control form-control-sm" id="endereco"
+                                                    placeholder="Ex: Rua p1, St Oeste*  " data-rule="endereco "/>
                                             </div>
                                         </div>
 
@@ -197,7 +197,7 @@
                                             <div class="form-group">
                                                 <label>Cidade*</label>
                                                 <input [(ngModel)]="novoBarbeiro.endereco.cidade.localidade" type="text"
-                                                    name="cidade " class="form-control form-control-sm" id="telefone "
+                                                    name="cidade " class="form-control form-control-sm" id="cidade"
                                                     placeholder="Ex: São-Paulo* " />
                                             </div>
                                         </div>
@@ -215,7 +215,7 @@
                                             <div class="form-group">
                                                 <label>Número do Endereço*</label>
                                                 <input [(ngModel)]="novoBarbeiro.endereco.numero" type="text "
-                                                    name="cidade " class="form-control form-control-sm" id="telefone "
+                                                    name="numeroEndereco" class="form-control form-control-sm" id="numeroEndereco"
                                                     placeholder="Ex: 1443* " />
                                             </div>
                                         </div>
