@@ -60,6 +60,12 @@ public class AgendamentoController {
         }
     }
 
+    @GetMapping("/cliente/{emailCliente}")
+    public List<Agendamento> filterByEmailCliente(@PathVariable String emailCliente) {
+        List<Agendamento> agendamento = agendamentoService.filterByEmailCliente(emailCliente);
+        return agendamento;
+    }
+
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id) {
         Optional<Agendamento> delById = agendamentoService.getById(id);

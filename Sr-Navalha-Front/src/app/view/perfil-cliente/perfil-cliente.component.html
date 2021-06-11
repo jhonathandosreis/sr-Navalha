@@ -40,7 +40,7 @@
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
                                     <label>E-mail Para Acesso*</label>
-                                    <input [(ngModel)]="novoCliente.email" [(ngModel)]="credencial.email" type="email" class="form-control form-control-sm" name="email" id="email" placeholder="E-mail Para Acesso*">
+                                    <input [(ngModel)]="novoCliente.email" type="email" class="form-control form-control-sm" name="email" id="email" placeholder="E-mail Para Acesso*">
                                     <small class="text-info" style="display:none;" id="suggest-email"></small>
                                 </div>
                             </div>
@@ -60,7 +60,7 @@
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
                                     <label>Endereço*</label>
-                                    <input [(ngModel)]="novoCliente.endereco.rua" type="text" class="form-control form-control-sm" name="endereco" id="endereco" placeholder="Ex: Rua p1, n16 , St Oeste*" data-rule="email">
+                                    <input [(ngModel)]="novoCliente.endereco.logradouro" type="text" class="form-control form-control-sm" name="endereco" id="endereco" placeholder="Ex: Rua p1, n16 , St Oeste*" data-rule="email">
                                 </div>
                             </div>
 
@@ -74,7 +74,7 @@
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
                                     <label>Cidade*</label>
-                                    <input [(ngModel)]="novoCliente.endereco.cidade.nome" type="text" name="cidade" class="form-control form-control-sm" id="telefone" placeholder="Ex: São-Paulo*">
+                                    <input [(ngModel)]="novoCliente.endereco.cidade.localidade" type="text" name="cidade" class="form-control form-control-sm" id="telefone" placeholder="Ex: São-Paulo*">
                                 </div>
                             </div>
 

@@ -15,14 +15,12 @@ export class TelaClienteComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    this.emailUpdate = "jhonathandosreis@hotmail.com"
-    //this.emailUpdate = localStorage.getItem("login")
-    this.AdminNome = localStorage.getItem("login")
+    this.emailUpdate = localStorage.getItem("loginEmail")
+    this.AdminNome = localStorage.getItem("login");
   }
   
   sair(){
     localStorage.removeItem('access_token_ads04');
     this.router.navigate(["/"]);
    }
-
 }

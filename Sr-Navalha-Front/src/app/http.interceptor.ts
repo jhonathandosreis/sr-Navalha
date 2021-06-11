@@ -1,3 +1,4 @@
+import { LoginKeycloakService } from './controllers/loginKeykloac.service';
 import {
     HttpRequest,
     HttpHandler,
@@ -13,12 +14,16 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
-    constructor(private router: Router) { }
+
+    private naoAutenticar = ["http://teste:123456@localhost:8082/auth-server/tokens"];
+
+    constructor(private router: Router, private loginService: LoginKeycloakService) { }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
        
         let token = localStorage.getItem('access_token_ads04');
-        if (token != null) {
+        
+        if (!this.naoAutenticar.includes(request.url) && token != null) {
             request = request.clone({
                 setHeaders: {
                     'Content-Type': 'application/json',
@@ -32,7 +37,10 @@ export class AuthInterceptor implements HttpInterceptor {
                     if (err.status === 401) {
                         alert('Erro na autenticação! Forneça usuario e senha validos!')
                         localStorage.removeItem('access_token_ads04');
-                        this.router.navigate(['/login']);
+                        this.router.navigate(['/']);
+                    }
+                    if(!this.loginService.getIsLogged()){
+                        this.router.navigate(['/']);
                     }
                 }
             }));

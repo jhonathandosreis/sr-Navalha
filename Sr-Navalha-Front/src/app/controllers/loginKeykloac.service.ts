@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { OAuthService } from 'angular-oauth2-oidc';
 import { Injectable } from '@angular/core';
@@ -7,7 +8,7 @@ import { Injectable } from '@angular/core';
 })
 export class LoginKeycloakService {
 
-  constructor(private oauthService: OAuthService) { }
+  constructor(private oauthService: OAuthService, private route: Router) { }
 
   public login(): Observable<any> {
     this.oauthService.initImplicitFlowInternal();
@@ -46,5 +47,30 @@ export class LoginKeycloakService {
     const token = this.oauthService.getAccessToken();
     const payload = token.split('.')[1];
     return payload;
+  }
+
+  clearLocalStorage() {
+    localStorage.removeItem("preferred_username")
+    localStorage.removeItem("loginEmail")
+    localStorage.removeItem("access_token_ads04")
+    localStorage.removeItem("name")
+    localStorage.removeItem("tipo")
+    localStorage.clear()
+  }
+
+  redirect(tipo: any) {
+    if(tipo !== ''){
+      if (this.getIsLogged()) {
+        if (tipo == "cliente") {
+          this.route.navigate(["/telaCliente"])
+        } else if (tipo == "barbeiro") {
+          this.route.navigate(["/telaBarbeiro"])
+        } else {
+          this.route.navigate(["/admin"])
+        }
+      }
+    }else{
+      this.clearLocalStorage()
+    }
   }
 }

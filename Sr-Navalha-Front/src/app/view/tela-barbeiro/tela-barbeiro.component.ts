@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
 import { Credencial } from 'src/app/models/credencial';
 import { Cidade } from 'src/app/models/cidade';
 import { ActivatedRoute, Router } from '@angular/router';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 
 @Component({
@@ -24,13 +25,13 @@ export class TelaBarbeiroComponent implements OnInit {
 
   cidade: Cidade = {
     id: '',
-    nome: '',
+    localidade: '',
     uf: '',
   }
 
   endereco: Endereco = {
     id: '',
-    rua: '',
+    logradouro: '',
     numero: '',
     bairro: '',
     cep: '',
@@ -58,39 +59,28 @@ export class TelaBarbeiroComponent implements OnInit {
 
   ngOnInit(): void {
 
-    const email = this.activateRouter.snapshot.paramMap.get('email')
-    this.usuarioBarbeiroService.findBarbeiroByEmail(email).subscribe((resposta) => {
-    this.novoBarbeiro = resposta;
-    console.log(this.novoBarbeiro)
-
-    this.emailUpdate = "miguelneto.artes@gmail.com";
-    //this.emailUpdate = localStorage.getItem("login")
-    this.AdminNome = localStorage.getItem("login");
-  
-  
     
-    });
+    this.AdminNome = localStorage.getItem("login");
 
+  }
+
+  updatePerfilBarbeiro(): void {
+    const email = localStorage.getItem("loginEmail")
+    this.usuarioBarbeiroService.findBarbeiroByEmail(email).subscribe((resposta) => {
+      this.novoBarbeiro = resposta;
+    });
   }
 
 
   updateBarbeiro(): void {
     this.usuarioBarbeiroService.updateBarbeiro(this.novoBarbeiro).subscribe((resposta) => {
-      confirm("Perfil atualizado com sucesso!")
-      
     });
+    confirm("Perfil atualizado com sucesso!")
     location.reload()
   }
 
   sair() {
-    localStorage.removeItem('access_token_ads04');
+    localStorage.removeItem('accesstokenads04');
     this.router.navigate(["/"]);
   }
-
-
-
-
-
-
-
 }

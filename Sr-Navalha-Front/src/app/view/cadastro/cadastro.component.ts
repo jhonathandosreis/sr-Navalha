@@ -25,13 +25,13 @@ export class CadastroComponent implements OnInit {
 
   cidade: Cidade = {
     id: '',
-    nome: '',
+    localidade: '',
     uf: '',
   }
 
   endereco: Endereco = {
     id: '',
-    rua: '',
+    logradouro: '',
     numero: '',
     bairro: '',
     cep: '',
@@ -63,11 +63,18 @@ export class CadastroComponent implements OnInit {
     credencial: this.credencial,
 
   }
-  usuarioToken: usuarioCredencial = { login: '', passw: '', roles: '', tenant: '' };
 
-  constructor(private usuarioBarbeiroService: UsuarioBarbeiroService, private usuarioClienteService: UsuarioClienteService, consultarCep: ConsultaCepService, private router: Router) { }
+  usuarioToken: usuarioCredencial = { login: '', password: '', roles: ['admin'], tenant: '' };
+
+  constructor(private consulta: ConsultaCepService, private usuarioBarbeiroService: UsuarioBarbeiroService, private usuarioClienteService: UsuarioClienteService, consultarCep: ConsultaCepService, private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  buscarEndereco(cepInput: any) {
+    this.consulta.consultaCEP(cepInput.value).subscribe((retorno) => {
+      this.endereco = retorno
+    })
   }
 
   create(): void {
@@ -111,27 +118,22 @@ export class CadastroComponent implements OnInit {
     this.novoBarbeiro.tipo = tip.value
   }
 
-
-
   public createCheck() {
 
     if (this.novoCliente.tipo == 'cliente') {
       this.create();
-      this.createTokenUser()
-      //  this.router.navigate(["/login"])
     } else {
       this.createBarbeiro();
-      this.createTokenUser()
-      // this.router.navigate(["/login"])
     }
 
   }
   createTokenUser() {
     this.usuarioToken.login = this.novoCliente.email;
-    this.usuarioToken.passw = this.credencial.senha;
+    this.usuarioToken.password = this.credencial.senha;
     this.usuarioToken.roles = ["admin"];
     this.usuarioToken.tenant = this.novoCliente.nome;
-    this.usuarioClienteService.createUserToken(this.usuarioToken).subscribe(result => { console.log(result) })
+    this.usuarioClienteService.createUserToken(this.usuarioToken).subscribe((result: any) => {
+      console.log(result)
+    })
   }
-
 }

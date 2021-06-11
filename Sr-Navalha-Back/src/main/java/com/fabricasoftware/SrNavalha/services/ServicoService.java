@@ -32,6 +32,10 @@ public class ServicoService {
     public Optional<Servico> getServicoById(Long id) {
         return ServicoRepository.findById(id);
     }
+    
+    public List<Servico> getServicoByBarbeiro(Long idBarbeiro){
+      return ServicoRepository.getServicoByBarbeiro(idBarbeiro);
+    }
 
     public void delete(Long id) {
         ServicoRepository.deleteById(id);

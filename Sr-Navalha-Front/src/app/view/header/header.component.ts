@@ -19,14 +19,8 @@ export class HeaderComponent implements OnInit {
     this.loginService.getIsAdmin()
     this.getToken()
     localStorage.setItem("access_token_ads04", this.token + "");
-    if(this.estaLogado()){
-      if(this.tipo =="cliente"){
-        this.route.navigate(["/telaCliente"])
-      }else if(this.tipo == "barbeiro"){
-        this.route.navigate(["/telaBarbeiro"])
-      }else{
-        this.route.navigate(["/admin"])
-      }
+    if(this.loginService.getIsLogged()){
+      this.route.navigate(['/carregando'])
     }
   }
 

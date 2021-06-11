@@ -1,7 +1,9 @@
 package com.fabricasoftware.SrNavalha.repositories;
 
+import com.fabricasoftware.SrNavalha.models.Servico;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import com.fabricasoftware.SrNavalha.models.Agendamento;
 
@@ -10,9 +12,10 @@ import java.util.List;
 @Repository
 public interface AgendamentoRepository extends JpaRepository<Agendamento, Long> {
 
-    //@Query("select '*' from 'agendamento' age where age.cliente_id = :id")
-    //List<Agendamento> filterByEmailBarbeiro(Long id);
+    @Query("select a from Agendamento a left join fetch a.servico s left  join fetch s.usuarioBarbeiro " +
+            "u where u.email = :email")
+    List<Agendamento> filterByEmailBarbeiro(@Param("email") String email);
 
-    //@Query("select age from 'agendamento' age join usuario_cliente uc on age.cliente_id = uc.id")
-    //List<Agendamento> filterByEmailCliente(String email);
+    @Query("select a from Agendamento a left join fetch a.cliente s where s.email = :email")
+    List<Agendamento> filterByEmailCliente(String email);
 }

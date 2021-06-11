@@ -1,6 +1,5 @@
 package com.fabricasoftware.SrNavalha.controllers;
 
-import com.fabricasoftware.SrNavalha.models.UsuarioBarbeiro;
 import com.fabricasoftware.SrNavalha.models.UsuarioCliente;
 import com.fabricasoftware.SrNavalha.services.UsuarioClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,8 +24,8 @@ public class UsuarioClienteController {
 
     @GetMapping("/{email}")
     public ResponseEntity<UsuarioCliente> findClienteByEmail(@PathVariable String email) {
-        UsuarioCliente ClienteRetorno = usuarioClienteService.findClienteByEmail(email);
-        return ResponseEntity.ok().body(ClienteRetorno);
+        UsuarioCliente clienteRetorno = usuarioClienteService.findClienteByEmail(email);
+        return ResponseEntity.ok().body(clienteRetorno);
     }
 
     @PostMapping
@@ -41,7 +40,7 @@ public class UsuarioClienteController {
         return ResponseEntity.ok().body(usuarioCliente);
     }
 
-    @DeleteMapping
+    @DeleteMapping(value = "/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         usuarioClienteService.delete(id);
         return ResponseEntity.noContent().build();

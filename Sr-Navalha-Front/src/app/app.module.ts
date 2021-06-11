@@ -23,6 +23,9 @@ import { ServicoListComponent } from './view/servico/servico-list/servico-list.c
 import { SpinnerComponent } from './view/spinner/spinner.component';
 import { UpdateAgendamentoComponent } from './view/agendamento/update-agendamento/update-agendamento.component';
 import { OAuthModule } from 'angular-oauth2-oidc';
+import { ServicoListBarbeiroComponent } from './view/servico/servico-list-barbeiro/servico-list-barbeiro.component';
+import { TelaClienteAdminComponent } from './view/tela-cliente/tela-cliente-admin/tela-cliente-admin.component';
+
 
 @NgModule({
   declarations: [
@@ -43,6 +46,8 @@ import { OAuthModule } from 'angular-oauth2-oidc';
     SpinnerComponent,
     UpdateAgendamentoComponent,
     PerfilClienteComponent,
+    ServicoListBarbeiroComponent, 
+    TelaClienteAdminComponent 
 
   ],
   imports: [

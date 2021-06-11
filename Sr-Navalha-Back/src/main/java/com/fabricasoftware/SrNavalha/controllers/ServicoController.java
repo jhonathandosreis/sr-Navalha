@@ -1,6 +1,5 @@
 package com.fabricasoftware.SrNavalha.controllers;
 
-import com.fabricasoftware.SrNavalha.models.Agendamento;
 import com.fabricasoftware.SrNavalha.models.Servico;
 import com.fabricasoftware.SrNavalha.services.ServicoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +32,12 @@ public class ServicoController {
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+    }
+
+    @GetMapping("/barbeiro/{idBarbeiro}")
+    public List<Servico> getServicoByBarbeiro(@PathVariable Long idBarbeiro) {
+      List<Servico> servico = servicoService.getServicoByBarbeiro(idBarbeiro);
+        return servico;
     }
 
     @PostMapping

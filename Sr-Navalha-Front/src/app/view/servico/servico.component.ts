@@ -30,7 +30,7 @@ export class ServicoComponent implements OnInit {
   }
 
   setBarbeiro() {
-    this.usuarioBarbeiro.findBarbeiroByEmail(localStorage.getItem("admin-logado")).subscribe(result => {
+    this.usuarioBarbeiro.findBarbeiroByEmail(localStorage.getItem("loginEmail")).subscribe(result => {
     this.servico.usuarioBarbeiro = result
     })
   }

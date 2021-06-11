@@ -1,38 +1,39 @@
-    <div class="container" id="contBar">
-        <div class="row">
-            <div class="col-12">
-                <header class="p-3 bg-secondary text-white">
-                    <div class="nav-menu fixed-top is-scrolling">
-                        <div class="d-flex  align-items-center justify-content-lg-end">
-                            <a href="/" style="text-decoration: none; color: white;"><img  src="../../../assets/img/SR.Navalha logo escrita.png" width="50%" height="30%" alt="logo"></a>
-                            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                                <div class="sidebar-brand-text mx-3" style="padding-top: 0%; color: white; "><a href="/" style="text-decoration: none; color: white"><b>Sr Navalha</b></a></div>
-                            </ul>
-                            <div class="text-end">
-                                <a class="nav-link dropdown-menu-right" role="button" data-toggle="dropdown">
-                                    <span class="ml-2 d-none d-lg-inline text-white small"> {{AdminNome}}</span>
-                                    <img class="img-profile rounded-circle" src="../../../assets/img/man.png" style="max-width: 50px">
+<div class="container" id="contBar">
+    <div class="row">
+        <div class="col-12">
+            <header class="p-3 bg-secondary text-white">
+                <div class="nav-menu fixed-top is-scrolling">
+                    <div class="d-flex  align-items-center justify-content-lg-end">
+                        <a href="/" style="text-decoration: none; color: white;"><img src="../../../assets/img/SR.Navalha logo escrita.png" width="50%" height="30%" alt="logo"></a>
+                        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                            <div class="sidebar-brand-text mx-3" style="padding-top: 0%; color: white; "><a href="/" style="text-decoration: none; color: white"><b>Sr Navalha</b></a></div>
+                        </ul>
+                        <div class="text-end">
+                            <a class="nav-link dropdown-menu-right" role="button" data-toggle="dropdown">
+                                <span class="ml-2 d-none d-lg-inline text-white small"> {{AdminNome}}</span>
+                                <img class="img-profile rounded-circle" src="../../../assets/img/man.png" style="max-width: 50px">
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                <a class="dropdown-item" routerLink="/perfilCliente/jhonathandosreis@hotmail.com" data-toggle="modal" data-target="#PerfilModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-200"></i>Perfil
                                 </a>
-                                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                    <a class="dropdown-item" routerLink="/perfilCliente/jhonathandosreis@hotmail.com" data-toggle="modal" data-target="#PerfilModal">
-                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-200"></i>Perfil
-                                    </a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" routerLink="/telaCliente/agend" data-toggle="modal" data-target="#PerfilAgendamentos">
-                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Agendamentos
-                                    </a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" routerLink="/login" data-toggle="modal" data-target="#PerfilModalSair">
-                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Sair
-                                    </a>
-                                </div>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" routerLink="/telaCliente/agend" data-toggle="modal" data-target="#PerfilAgendamentos">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Agendamentos
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" routerLink="/login" data-toggle="modal" data-target="#PerfilModalSair">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Sair
+                                </a>
                             </div>
                         </div>
                     </div>
-                </header>
-            </div>
+                </div>
+            </header>
         </div>
     </div>
+</div>
+
 <body style="padding-top: 7%;">
     <div class="container" style="padding: 2%;">
         <div class="ordem-compra">
@@ -59,47 +60,38 @@
                     <div class="row">
                         <div class="form-group col-md-4 col-12">
                             <label>Endereço </label>
-                            <input type="text" class="form-control" placeholder="Logradouro" autocomplete="off"
-                                formControlName="logradouro" [(ngModel)]="agendamentoNew.endereco.rua" >
+                            <input type="text" class="form-control" placeholder="Logradouro" autocomplete="off" formControlName="logradouro" [(ngModel)]="agendamentoNew.endereco.rua">
                         </div>
                         <div class="form-group col-md-2 col-12">
                             <label>CEP</label>
-                            <input type="text" maxlength="8" class="form-control" placeholder="CEP" id="cep"
-                                formControlName="cep" name="cep" ngModel required
-                                [(ngModel)]="agendamentoNew.endereco.cep">
+                            <input type="text" maxlength="8" class="form-control" placeholder="CEP" id="cep" formControlName="cep" name="cep" ngModel required [(ngModel)]="agendamentoNew.endereco.cep">
                         </div>
                         <br>
                         <div class="form-group col-md-2 col-12">
                             <label>Numero</label>
-                            <input type="number" class="form-control" placeholder="Número" autocomplete="off"
-                                formControlName="numero" [(ngModel)]="agendamentoNew.endereco.numero">
+                            <input type="number" class="form-control" placeholder="Número" autocomplete="off" formControlName="numero" [(ngModel)]="agendamentoNew.endereco.numero">
                         </div>
                         <br>
                         <div class="form-group col-md-4 col-12" style="padding-bottom: 1%;">
                             <label>Cidade</label>
-                            <input type="text" class="form-control" placeholder="Cidade" autocomplete="off"
-                                formControlName="cidade"  [(ngModel)]="agendamentoNew.endereco.cidade.nome">
+                            <input type="text" class="form-control" placeholder="Cidade" autocomplete="off" formControlName="cidade" [(ngModel)]="agendamentoNew.endereco.cidade.nome">
                         </div>
                         <div class="form-group col-md-4 col-12" style="padding-top: 1%; padding-bottom: 1%;">
                             <label>Bairro</label>
-                            <input type="text" class="form-control" placeholder="Bairro" autocomplete="off"
-                                formControlName="bairro" [(ngModel)]="agendamentoNew.endereco.bairro" >
+                            <input type="text" class="form-control" placeholder="Bairro" autocomplete="off" formControlName="bairro" [(ngModel)]="agendamentoNew.endereco.bairro">
                         </div>
-                       
+
                         <div class="form-group col-md-4 col-12" style="padding-top: 1%; padding-bottom: 1%;">
                             <label for="estado">Estado</label>
-                            <input type="text" class="form-control" placeholder="Estado" autocomplete="off"
-                                formControlName="estado" readonly [(ngModel)]="agendamentoNew.endereco.cidade.uf">
+                            <input type="text" class="form-control" placeholder="Estado" autocomplete="off" formControlName="estado" readonly [(ngModel)]="agendamentoNew.endereco.cidade.uf">
                         </div>
                         <div class="form-group col-md-4 col-12" style="padding-top: 1%; padding-bottom: 1%;">
                             <label for="horario">Horario</label>
-                            <input type="time" class="form-control" placeholder="Horario" autocomplete="off"
-                                formControlName="horario" [(ngModel)]="agendamentoNew.horario">
+                            <input type="time" class="form-control" placeholder="Horario" autocomplete="off" formControlName="horario" [(ngModel)]="agendamentoNew.horario">
                         </div>
                         <div class="form-group col-md-4 col-12" style="padding-top: 1%; padding-bottom: 1%;">
                             <label for="data">Data</label>
-                            <input type="date" class="form-control" placeholder="Data" autocomplete="off"
-                                formControlName="data" [(ngModel)]="agendamentoNew.data">
+                            <input type="date" class="form-control" placeholder="Data" autocomplete="off" formControlName="data" [(ngModel)]="agendamentoNew.data">
                         </div>
                     </div>
                 </div>

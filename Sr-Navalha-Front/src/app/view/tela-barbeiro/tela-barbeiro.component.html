@@ -1,3 +1,4 @@
+
 <body id="page-top" style="background-color: black;">
     <div id="wrapper">
         <!-- Sidebar -->
@@ -32,8 +33,6 @@
                 <div class="collapse" id="collapseBootstrap">
                     <div class="card card-body">
                         <li><a class="dropdown-item" routerLink="serv">Cadastrar Serviço</a></li>
-                        <li><a class="dropdown-item" routerLink="serv">Alterar Serviço</a></li>
-                        <li><a class="dropdown-item" routerLink="serv">Deletar Serviço</a></li>
                         <li><a class="dropdown-item" routerLink="servlist">Listar Serviço</a></li>
                     </div>
                 </div>
@@ -52,15 +51,15 @@
                                     }}</span>
                                 <img class="img-profile rounded-circle" src="../../../assets/img/man.png" style="max-width: 60px">
                             </a>
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                <a class="dropdown-item" data-toggle="modal" routerLink="/telaBarbeiro/miguelneto.artes@gmail.com" data-target="#PerfilModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-200"></i >Perfil
-                                </a>
-                             <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="javascript:void(0);" data-toggle="modal" data-target="#PerfilModalSair">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Sair
-                                </a>
-                            </div>
+
+                           
+                                <div class="dropdown-menu dropdown-menu-rightshadow animated--grow-in" aria-labelledby="userDropdown" >
+                                  <button (click)="updatePerfilBarbeiro()" class="dropdown-item" data-toggle="modal" data-target="#PerfilModal" type="button">Perfil</button>
+                                  <div class="dropdown-divider"></div>
+                                  <button class="dropdown-item" href="javascript:void(0);" data-toggle="modal" data-target="#PerfilModalSair" type="button">Sair</button>
+                                </div>
+                              
+
                         </li>
                     </ul>
                 </nav>
@@ -116,7 +115,7 @@
                                             <div class="col-md-6">
                                                 <div class="form-group ">
                                                     <label>Data de Nascimento*</label>
-                                                    <input [(ngModel)]="novoBarbeiro.dataNascimento" type="date " name="dt_nasc " class="form-control form-control-sm " id="dta_nasc " placeholder="Ex: 11/11/1111* ">
+                                                    <input [(ngModel)]="novoBarbeiro.dataNascimento" type="date " name="dtnasc " class="form-control form-control-sm " id="dtanasc " placeholder="Ex: 11/11/1111* ">
                                                 </div>
                                             </div>
                                             <div class="col-md-6 ">
@@ -142,7 +141,7 @@
                                             <div class="col-md-6">
                                                 <div class="form-group ">
                                                     <label>Endereço*</label>
-                                                    <input [(ngModel)]="novoBarbeiro.endereco.rua" type="text " class="form-control form-control-sm " name="endereco " id="endereco " placeholder="Ex: Rua p1, n16 , St Oeste* " data-rule="email ">
+                                                    <input [(ngModel)]="novoBarbeiro.endereco.logradouro" type="text " class="form-control form-control-sm " name="endereco " id="endereco " placeholder="Ex: Rua p1, n16 , St Oeste* " data-rule="email ">
                                                 </div>
                                             </div>
 
@@ -156,7 +155,7 @@
                                             <div class="col-md-6">
                                                 <div class="form-group ">
                                                     <label>Cidade*</label>
-                                                    <input [(ngModel)]="novoBarbeiro.endereco.cidade.nome" type="text " name="cidade " class="form-control form-control-sm " id="telefone " placeholder="Ex: São-Paulo* ">
+                                                    <input [(ngModel)]="novoBarbeiro.endereco.cidade.localidade" type="text " name="cidade " class="form-control form-control-sm " id="telefone " placeholder="Ex: São-Paulo* ">
                                                 </div>
                                             </div>
 
@@ -189,10 +188,10 @@
                                                 </div>
                                             </div>
 
-                                            <div class="text-center ">
+                                            <div class="text-center">
                                                 <button type="button " class="btn btn-outline-primary " data-dismiss="modal " onClick="history.go(0) ">Voltar</button>
-                                                <button click="updateBarbeiro()" style="margin: 2%;" class="btn btn-primary " type="submit ">ATUALIZAR</button>
-                                            </div>
+                                                <button (click)="updateBarbeiro()" style="margin: 2%;" class="btn btn-primary " type="submit ">ATUALIZAR</button>
+                                            </div>                                      
                                         </div>
                                     </div>
                                 </form>
@@ -201,6 +200,14 @@
                         </div>
                         <!-- /.modal-dialog -->
                     </div>
+
+
+
+                   
+
+
+
+
 
 
 
