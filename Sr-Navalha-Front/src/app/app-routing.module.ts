@@ -15,11 +15,11 @@ import { TelaBarbeiroComponent } from './view/tela-barbeiro/tela-barbeiro.compon
 import { TelaClienteComponent } from './view/tela-cliente/tela-cliente.component';
 import { ServicoListComponent } from './view/servico/servico-list/servico-list.component';
 import { PerfilClienteComponent } from './view/perfil-cliente/perfil-cliente.component';
-<<<<<<< HEAD
+
 import { ServicoListBarbeiroComponent } from './view/servico/servico-list-barbeiro/servico-list-barbeiro.component';
-=======
+
 import { TelaClienteAdminComponent } from './view/tela-cliente/tela-cliente-admin/tela-cliente-admin.component';
->>>>>>> 3f14ea81317e0c37856a13eab9c5001f3c1e3584
+
 
 
 const routes: Routes = [
