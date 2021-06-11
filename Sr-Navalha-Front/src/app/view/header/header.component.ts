@@ -12,7 +12,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(private loginService: LoginKeycloakService, private message: MessageService, private route: Router) { }
   token: any = sessionStorage.getItem("access_token")
-  nome: any = '';
+  nome: any = localStorage.getItem("name");
   tipo: any = localStorage.getItem("tipo");
 
   ngOnInit(): void {
