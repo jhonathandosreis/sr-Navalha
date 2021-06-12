@@ -34,4 +34,9 @@ public class Endereco {
         this.cep = enderecoDTO.getCep();
         this.cidade = new Cidade(enderecoDTO.getLocalidade(), enderecoDTO.getUf());
     }
+
+    public void setCidade() {
+        this.cidade.setNome("Junit cidade");
+        this.cidade.setUf("Junit UF");
+    }
 }
