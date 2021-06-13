@@ -44,7 +44,7 @@ const routes: Routes = [
   },
   { path: 'portfolio', component: PortfolioComponent, canActivate: [AuthGuard] },
   { path: 'servico', component: ServicoComponent, canActivate: [AuthGuard] },
-  { path: 'servicoList', component: ServicoListComponent},
+  { path: 'servicoList', component: ServicoListComponent, canActivate: [AuthGuard]},
   { path: 'perfilCliente/:email', component: PerfilClienteComponent, canActivate: [AuthGuard] },
   { path: 'telaBarbeiro/:email', component: TelaBarbeiroComponent, canActivate: [AuthGuard] },
   { path: 'telaClienteAdmin', component: TelaClienteAdminComponent }
