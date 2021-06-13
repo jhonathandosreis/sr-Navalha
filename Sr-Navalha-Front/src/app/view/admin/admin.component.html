@@ -15,7 +15,7 @@
                                   <img class="img-profile rounded-circle" src="../../../assets/img/man.png" style="max-width: 50px">
                               </a>
                               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                <a class="dropdown-item" routerLink="/login" data-toggle="modal" data-target="#PerfilModalSair">
+                                <a class="dropdown-item" routerLink="/login" (click)="sair()" data-toggle="modal" data-target="#PerfilModalSair">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Sair
                                 </a>
                             </div>

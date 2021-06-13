@@ -11,6 +11,7 @@ public class User implements Serializable {
     private String firstName;
     private String lastName;
     private String password;
+    private String roles;
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
@@ -54,5 +55,13 @@ public class User implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getRoles() {
+        return roles;
+    }
+
+    public void setRoles(String roles) {
+        this.roles = roles;
     }
 }

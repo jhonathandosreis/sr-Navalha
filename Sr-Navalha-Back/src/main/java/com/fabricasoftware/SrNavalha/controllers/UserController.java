@@ -16,7 +16,23 @@ public class UserController {
     private KeycloakService keycloakService;
 
     @PostMapping("/create")
-    public ResponseEntity<ResponseMessage> create(@RequestBody User user){
+    public ResponseEntity<ResponseMessage> create(@RequestBody User user) {
+        Object[] obj = keycloakService.createUser(user);
+        int status = (int) obj[0];
+        ResponseMessage message = (ResponseMessage) obj[1];
+        return ResponseEntity.status(status).body(message);
+    }
+
+    @PostMapping("/update")
+    public ResponseEntity<ResponseMessage> update(@RequestBody User user) {
+        Object[] obj = keycloakService.createUser(user);
+        int status = (int) obj[0];
+        ResponseMessage message = (ResponseMessage) obj[1];
+        return ResponseEntity.status(status).body(message);
+    }
+
+    @PostMapping("/delete")
+    public ResponseEntity<ResponseMessage> delete(@RequestBody User user) {
         Object[] obj = keycloakService.createUser(user);
         int status = (int) obj[0];
         ResponseMessage message = (ResponseMessage) obj[1];

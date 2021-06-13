@@ -1,3 +1,4 @@
+import { LoginKeycloakService } from './../../controllers/loginKeykloac.service';
 import { Endereco } from './../../models/endereco';
 import { UsuarioBarbeiro } from './../../models/usuarioBarbeiro';
 import { UsuarioBarbeiroService } from './../../controllers/usuario-barbeiro.service';
@@ -55,7 +56,7 @@ export class TelaBarbeiroComponent implements OnInit {
   AdminNome: any;
   emailUpdate: any;
 
-  constructor(public usuarioBarbeiroService: UsuarioBarbeiroService, consultarCep: ConsultaCepService, private router: Router, private activateRouter: ActivatedRoute) { }
+  constructor(private loginKeycloak: LoginKeycloakService,public usuarioBarbeiroService: UsuarioBarbeiroService, consultarCep: ConsultaCepService, private router: Router, private activateRouter: ActivatedRoute) { }
 
   ngOnInit(): void {
 
@@ -80,6 +81,7 @@ export class TelaBarbeiroComponent implements OnInit {
   }
 
   sair() {
+    this.loginKeycloak.logout()
     localStorage.removeItem('accesstokenads04');
     this.router.navigate(["/"]);
   }

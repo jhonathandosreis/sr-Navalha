@@ -17,7 +17,7 @@
                             <button type="button" routerLink="/cadastro" class="btn btn-warning btn-sm"><i class="bi bi-person-plus"></i> CADASTRAR</button>
                         </div>
                         <div class="text-end" *ngIf="estaLogado()">
-                            <button disabled type="menu" class="btn btn-outline-light me-2 btn-sm"><i class="bi bi-person"></i>{{nome}}</button>
+                            <button disabled type="menu" class="btn btn-outline-light me-2 btn-sm"><i class="bi bi-person"></i> {{nome}}</button>
                             <button type="button" (click)="sair()" class="btn btn-warning btn-sm"><i class="bi bi-box-arrow-left"></i> SAIR</button>
                         </div>
                     </div>
