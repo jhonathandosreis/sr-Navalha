@@ -59,7 +59,7 @@ export class LoginKeycloakService {
   }
 
   redirect(tipo: any) {
-    if(tipo !== ''){
+  
       if (this.getIsLogged()) {
         if (tipo == "cliente") {
           this.route.navigate(["/telaCliente"])
@@ -69,8 +69,5 @@ export class LoginKeycloakService {
           this.route.navigate(["/admin"])
         }
       }
-    }else{
-      this.clearLocalStorage()
-    }
   }
 }

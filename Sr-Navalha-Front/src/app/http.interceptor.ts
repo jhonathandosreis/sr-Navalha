@@ -39,9 +39,7 @@ export class AuthInterceptor implements HttpInterceptor {
                         localStorage.removeItem('access_token_ads04');
                         this.router.navigate(['/']);
                     }
-                    if(!this.loginService.getIsLogged()){
-                        this.router.navigate(['/']);
-                    }
+                    
                 }
             }));
     }

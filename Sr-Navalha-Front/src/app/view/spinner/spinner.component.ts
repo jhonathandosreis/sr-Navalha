@@ -1,6 +1,6 @@
 import { LoginKeycloakService } from './../../controllers/loginKeykloac.service';
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'ads-spinner',
@@ -9,15 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SpinnerComponent implements OnInit {
 
+  @Input() logado: boolean = false;
+  @Output() deslogado: boolean = true;
+
   constructor(private route: Router, private loginService: LoginKeycloakService) { }
 
   ngOnInit(): void {
-    setTimeout(() => {
-      if(this.loginService.getIsLogged()){
+    
+  }
+
+  verificar() {
+    if (this.loginService.getIsLogged()) {
+      if (localStorage.getItem('tipo')) {
         this.loginService.redirect(localStorage.getItem('tipo'))
-      }else{
+      } else {
+        this.loginService.clearLocalStorage()
         this.route.navigate(['/'])
       }
-    }, 2000);
+    } else {
+      this.route.navigate(['/'])
+      this.loginService.clearLocalStorage()
+    }
   }
 }
