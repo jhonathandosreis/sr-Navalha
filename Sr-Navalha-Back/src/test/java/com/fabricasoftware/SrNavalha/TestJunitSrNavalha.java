@@ -49,9 +49,15 @@ public class TestJunitSrNavalha {
         usuarioBarbeiro.setCpf("Junit CPF6");
         usuarioBarbeiro.setTipo("Junit Tipo6");
 
-       //  usuarioBarbeiro.setCredencial();
+       usuarioBarbeiro.getCredencial().setEmail("email-teste");
+       usuarioBarbeiro.getCredencial().setSenha("teste-senha");
 
-       // usuarioBarbeiro.setEndereco();
+       usuarioBarbeiro.getEndereco().setBairro("teste-bairro");
+       usuarioBarbeiro.getEndereco().setCep("teste-cep");
+       usuarioBarbeiro.getEndereco().setNumero("teste-numero");
+       usuarioBarbeiro.getEndereco().setRua("teste-rua");
+       usuarioBarbeiro.getEndereco().getCidade().setNome("teste-nome-cidade");
+       usuarioBarbeiro.getEndereco().getCidade().setUf("teste-cidade-uf");
 
         UsuarioBarbeiro saveUsuarioBarbeiro = repo.save(usuarioBarbeiro);
         assertNotNull(saveUsuarioBarbeiro); //parâmetro passado não deve ser nulo": se for nulo, o teste do caso falha.

@@ -30,10 +30,4 @@ public class UsuarioBarbeiro {
 	private Endereco endereco;
 	@OneToOne(cascade = CascadeType.PERSIST)
 	private Credencial credencial;
-
-
-	 public void setCredencial() {
-		credencial.setEmail("teste email");
-		credencial.setSenha("teste senha");
-	}
 }
