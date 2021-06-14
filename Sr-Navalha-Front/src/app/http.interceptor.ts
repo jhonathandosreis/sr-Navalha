@@ -22,7 +22,7 @@ export class AuthInterceptor implements HttpInterceptor {
        
         let token = localStorage.getItem('access_token_ads04');
         
-        if (!this.naoAutenticar.includes(request.url) && token != null) {
+        if ( token != null) {
             request = request.clone({
                 setHeaders: {
                     'Content-Type': 'application/json',

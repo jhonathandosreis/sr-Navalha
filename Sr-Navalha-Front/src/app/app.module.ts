@@ -24,6 +24,7 @@ import { SpinnerComponent } from './view/spinner/spinner.component';
 import { UpdateAgendamentoComponent } from './view/agendamento/update-agendamento/update-agendamento.component';
 import { ServicoListBarbeiroComponent } from './view/servico/servico-list-barbeiro/servico-list-barbeiro.component';
 import { TelaClienteAdminComponent } from './view/tela-cliente/tela-cliente-admin/tela-cliente-admin.component';
+import { TelaBarbeiroAdminComponent } from './view/tela-barbeiro/tela-barbeiro-admin/tela-barbeiro-admin.component';
 
 
 @NgModule({
@@ -46,7 +47,7 @@ import { TelaClienteAdminComponent } from './view/tela-cliente/tela-cliente-admi
     UpdateAgendamentoComponent,
     PerfilClienteComponent,
     ServicoListBarbeiroComponent, 
-    TelaClienteAdminComponent 
+    TelaClienteAdminComponent, TelaBarbeiroAdminComponent 
   ],
   imports: [
     BrowserModule,

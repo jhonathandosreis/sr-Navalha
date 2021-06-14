@@ -2,6 +2,7 @@ import { UsuarioBarbeiro } from './../../../models/usuarioBarbeiro';
 import { ServicoService } from './../../../controllers/servico.service';
 import { Component, OnInit } from '@angular/core';
 import { UsuarioBarbeiroService } from 'src/app/controllers/usuario-barbeiro.service';
+import { Servico } from 'src/app/models/servico';
 
 @Component({
   selector: 'ads-servico-list-barbeiro',
@@ -10,6 +11,16 @@ import { UsuarioBarbeiroService } from 'src/app/controllers/usuario-barbeiro.ser
 })
 export class ServicoListBarbeiroComponent implements OnInit {
 
+  novoservico: Servico = {
+    id: '',
+    nome: '',
+    descricao: '',
+    valor: '',
+    imageUrl: '',
+    usuarioBarbeiro: '',
+    }
+    
+  url = ""
   servicos: any[] = []
   usuarioBarbeiro!: UsuarioBarbeiro
   constructor(private servicoService: ServicoService, private usuarioBarbeiroService: UsuarioBarbeiroService) { }
@@ -29,5 +40,27 @@ export class ServicoListBarbeiroComponent implements OnInit {
     this.servicoService.findServicosByBarbeiro(idBarbeiro).subscribe(result => {
       this.servicos = result
   })
+  }
+
+  update(): void {
+    this.servicoService.updateServico(this.novoservico.id).subscribe((resposta) => {
+      location.reload;
+    });
+  }
+
+  popularDadosModal(id: any){
+    this.servicoService.findAllServicosById(id).subscribe(resposta => this.novoservico = resposta)
+  }
+
+  onselectFile(e: any) {
+    if (e.target.files) {
+      var reader = new FileReader();
+      reader.readAsDataURL(e.target.files[0]);
+      reader.onload = (event: any) => {
+        this.url = event.target.result
+        this.novoservico.imageUrl = event.target.result
+        console.log(this.url)
+      }
+    }
   }
 }
