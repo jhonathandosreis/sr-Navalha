@@ -19,6 +19,8 @@ export class ServicoListBarbeiroComponent implements OnInit {
     imageUrl: '',
     usuarioBarbeiro: '',
     }
+
+    
     
   url = ""
   servicos: any[] = []
@@ -43,13 +45,17 @@ export class ServicoListBarbeiroComponent implements OnInit {
   }
 
   update(): void {
-    this.servicoService.updateServico(this.novoservico.id).subscribe((resposta) => {
-      location.reload;
+    this.servicoService.updateServico(this.novoservico).subscribe((resposta) => {
+      location.reload();
     });
   }
 
   popularDadosModal(id: any){
     this.servicoService.findAllServicosById(id).subscribe(resposta => this.novoservico = resposta)
+  }
+
+  deleteServico(id: any){
+    this.servicoService.deleteServico(id).subscribe(resposta =>{location.reload()})
   }
 
   onselectFile(e: any) {

@@ -16,10 +16,10 @@
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
                     <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                      data-bs-target="#exampleModal" (click)="popularDadosModal(5)">Alterar</button>
+                      data-bs-target="#exampleModal" (click)="popularDadosModal(servico.id)">Alterar</button>
                     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                    <button type="button" class="btn btn-secondary">Deletar</button>
+                    <button type="button" class="btn btn-secondary" (click)="deleteServico(servico.id)">Deletar</button>
                   </div>
                 </div>
               </div>
