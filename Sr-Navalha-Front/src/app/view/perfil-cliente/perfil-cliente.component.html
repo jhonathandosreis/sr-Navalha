@@ -53,7 +53,7 @@
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
                                     <label>CEP*</label>
-                                    <input [(ngModel)]="novoCliente.endereco.cep" type="text" class="form-control form-control-sm" name="cep" id="cep" placeholder="Ex: 11.111-111*" data-rule="email">
+                                    <input [(ngModel)]="novoCliente.endereco.cep" (blur)="buscarEndereco($event.target)" type="text" class="form-control form-control-sm" name="cep" id="cep" placeholder="Ex: 11.111-111*" data-rule="email">
                                 </div>
                             </div>
 
