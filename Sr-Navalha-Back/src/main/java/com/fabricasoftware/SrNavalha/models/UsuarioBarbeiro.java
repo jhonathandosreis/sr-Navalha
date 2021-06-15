@@ -13,7 +13,7 @@ import java.util.Date;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
 @Table(name = "usuario_barbeiro")
-@Data 
+@Data
 public class UsuarioBarbeiro {
 
 	@Id
@@ -30,4 +30,20 @@ public class UsuarioBarbeiro {
 	private Endereco endereco;
 	@OneToOne(cascade = CascadeType.PERSIST)
 	private Credencial credencial;
+
+
+	public UsuarioBarbeiro(Long id, String nome, String telefone, String email, Date dataNascimento, String cpf, String tipo, Endereco endereco, Credencial credencial) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.telefone = telefone;
+		this.email = email;
+		this.dataNascimento = dataNascimento;
+		this.cpf = cpf;
+		this.tipo = tipo;
+		this.endereco = endereco;
+		this.credencial = credencial;
+	}
+
+
 }
