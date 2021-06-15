@@ -18,10 +18,10 @@ export class ServicoListBarbeiroComponent implements OnInit {
     valor: '',
     imageUrl: '',
     usuarioBarbeiro: '',
-    }
+  }
 
-    
-    
+
+
   url = ""
   servicos: any[] = []
   usuarioBarbeiro!: UsuarioBarbeiro
@@ -33,29 +33,38 @@ export class ServicoListBarbeiroComponent implements OnInit {
 
   setBarbeiro() {
     this.usuarioBarbeiroService.findBarbeiroByEmail(localStorage.getItem("loginEmail")).subscribe(result => {
-    this.usuarioBarbeiro = result
-    this.getServicoBarbeiro(this.usuarioBarbeiro.id);
+      this.usuarioBarbeiro = result
+      this.getServicoBarbeiro(this.usuarioBarbeiro.id);
     })
   }
 
   getServicoBarbeiro(idBarbeiro: number) {
     this.servicoService.findServicosByBarbeiro(idBarbeiro).subscribe(result => {
       this.servicos = result
-  })
+    })
   }
 
   update(): void {
     this.servicoService.updateServico(this.novoservico).subscribe((resposta) => {
+      alert("Serviço alterado com sucesso!")
       location.reload();
     });
   }
 
-  popularDadosModal(id: any){
+  popularDadosModal(id: any) {
     this.servicoService.findAllServicosById(id).subscribe(resposta => this.novoservico = resposta)
   }
 
-  deleteServico(id: any){
-    this.servicoService.deleteServico(id).subscribe(resposta =>{location.reload()})
+  deleteServico(id: any) {
+    var retorno = confirm("Deseja deletar este serviço?");
+    if (retorno == true) {
+      alert("Serviço deletado com sucesso!")
+      this.servicoService.deleteServico(id).subscribe(resposta => { location.reload() })
+    }
+    else {
+      alert("Deleção Cancelada!")
+    }
+
   }
 
   onselectFile(e: any) {
