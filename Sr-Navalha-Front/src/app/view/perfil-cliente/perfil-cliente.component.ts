@@ -40,7 +40,7 @@ export class PerfilClienteComponent implements OnInit {
     nome: '',
     telefone: '',
     email: '',
-    dataNascimento: new Date(),
+    dataNascimento: '',
     cpf: '',
     tipo: '',
     endereco: this.endereco,
@@ -48,7 +48,7 @@ export class PerfilClienteComponent implements OnInit {
   
   }
 
-  constructor(private consulta: ConsultaCepService, private usuarioClienteService: UsuarioClienteService, private router: Router, private activateRouter: ActivatedRoute) { }
+  constructor(private consulta: ConsultaCepService, private usuarioClienteService: UsuarioClienteService, private activateRouter: ActivatedRoute) { }
 
   ngOnInit(): void {
     const email = this.activateRouter.snapshot.paramMap.get('email')
