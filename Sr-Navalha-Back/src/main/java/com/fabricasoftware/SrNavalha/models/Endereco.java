@@ -27,16 +27,4 @@ public class Endereco {
     @OneToOne(cascade = CascadeType.PERSIST)
     private Cidade cidade;
 
-    public Endereco(EnderecoDTO enderecoDTO) {
-        this.cep = enderecoDTO.getCep();
-        this.rua = enderecoDTO.getLogradouro();
-        this.bairro = enderecoDTO.getBairro();
-        this.cep = enderecoDTO.getCep();
-        this.cidade = new Cidade(enderecoDTO.getLocalidade(), enderecoDTO.getUf());
-    }
-
-    public void setCidade() {
-        this.cidade.setNome("Junit cidade");
-        this.cidade.setUf("Junit UF");
-    }
 }

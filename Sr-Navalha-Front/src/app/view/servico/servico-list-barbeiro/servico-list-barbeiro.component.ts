@@ -11,7 +11,7 @@ import { Servico } from 'src/app/models/servico';
 })
 export class ServicoListBarbeiroComponent implements OnInit {
 
-  servico: Servico = {
+  novoservico: Servico = {
     id: '',
     nome: '',
     descricao: '',
@@ -43,9 +43,13 @@ export class ServicoListBarbeiroComponent implements OnInit {
   }
 
   update(): void {
-    this.servicoService.updateServico(this.servico).subscribe((resposta) => {
+    this.servicoService.updateServico(this.novoservico.id).subscribe((resposta) => {
       location.reload;
     });
+  }
+
+  popularDadosModal(id: any){
+    this.servicoService.findAllServicosById(id).subscribe(resposta => this.novoservico = resposta)
   }
 
   onselectFile(e: any) {
@@ -54,7 +58,7 @@ export class ServicoListBarbeiroComponent implements OnInit {
       reader.readAsDataURL(e.target.files[0]);
       reader.onload = (event: any) => {
         this.url = event.target.result
-        this.servico.imageUrl = event.target.result
+        this.novoservico.imageUrl = event.target.result
         console.log(this.url)
       }
     }

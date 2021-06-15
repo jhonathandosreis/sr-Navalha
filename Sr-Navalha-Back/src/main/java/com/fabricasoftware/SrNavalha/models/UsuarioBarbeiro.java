@@ -1,10 +1,7 @@
 package com.fabricasoftware.SrNavalha.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.*;
-import org.codehaus.jackson.annotate.JsonIgnore;
-import org.hibernate.annotations.CreationTimestamp;
 
+import lombok.*;
 import javax.persistence.*;
 import java.util.Date;
 
@@ -13,7 +10,7 @@ import java.util.Date;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
 @Table(name = "usuario_barbeiro")
-@Data 
+@Data
 public class UsuarioBarbeiro {
 
 	@Id
@@ -30,10 +27,4 @@ public class UsuarioBarbeiro {
 	private Endereco endereco;
 	@OneToOne(cascade = CascadeType.PERSIST)
 	private Credencial credencial;
-
-
-	 public void setCredencial() {
-		credencial.setEmail("teste email");
-		credencial.setSenha("teste senha");
-	}
 }

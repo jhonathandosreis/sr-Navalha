@@ -35,7 +35,8 @@ public class KeycloakConfig extends KeycloakWebSecurityConfigurerAdapter {
     }
 
     @Override
-    protected void configure(HttpSecurity http) throws Exception {
+    protected void configure(HttpSecurity http) throws Exception
+    {
         super.configure(http);
         http
                 .authorizeRequests()
@@ -44,7 +45,7 @@ public class KeycloakConfig extends KeycloakWebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public KeycloakConfigResolver keycloakConfigResolver() {
+    public KeycloakConfigResolver keycloakConfigResolver(){
         return new KeycloakSpringBootConfigResolver();
     }
 }

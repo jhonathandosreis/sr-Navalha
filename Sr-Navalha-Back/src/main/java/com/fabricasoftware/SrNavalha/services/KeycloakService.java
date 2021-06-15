@@ -144,15 +144,14 @@ public class KeycloakService {
         return new Object[]{statusId, message};
     }
 
-    private RealmResource getRealmResource(){
+    public RealmResource getRealmResource(){
         Keycloak kc = KeycloakBuilder.builder().serverUrl(server_url).realm("master").username("admin")
                 .password("admin123").clientId("admin-cli").resteasyClient(new ResteasyClientBuilder().connectionPoolSize(10).build())
                 .build();
         return kc.realm(realm);
     }
 
-    private UsersResource getUsersResource(){
-        RealmResource realmResource = getRealmResource();
-        return realmResource.users();
+    public UsersResource getUsersResource(){
+        return getRealmResource().users();
     }
 }

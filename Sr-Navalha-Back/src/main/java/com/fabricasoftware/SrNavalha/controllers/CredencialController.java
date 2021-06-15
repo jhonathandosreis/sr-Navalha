@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.security.RolesAllowed;
 import java.util.List;
 
 @RestController
@@ -23,6 +24,7 @@ public class CredencialController {
     }
 
     @PostMapping
+    @RolesAllowed("cliente")
     public ResponseEntity<Credencial> create(@RequestBody Credencial credencial) {
         credencial = credencialService.create(credencial);
         return ResponseEntity.ok().body(credencial);
