@@ -44,26 +44,26 @@ public class TestJunitSrNavalha {
         java.util.Date utilDate = new java.util.Date();
         java.sql.Date data = new java.sql.Date(utilDate.getTime());
 
-        usuarioBarbeiro.setNome("Junit Nome9");
-        usuarioBarbeiro.setTelefone("Junit Telefone9");
-        usuarioBarbeiro.setEmail("Junit email9");
+        usuarioBarbeiro.setNome("Junit Nome2");
+        usuarioBarbeiro.setTelefone("Junit Telefone2");
+        usuarioBarbeiro.setEmail("Junit email2");
         usuarioBarbeiro.setDataNascimento(data);
-        usuarioBarbeiro.setCpf("Junit CPF9");
-        usuarioBarbeiro.setTipo("Junit Tipo9");
+        usuarioBarbeiro.setCpf("Junit CPF2");
+        usuarioBarbeiro.setTipo("Junit Tipo2");
 
         usuarioBarbeiro.setCredencial(credencial);
-        credencial.setEmail("Junit email9 ");
-        credencial.setSenha("Junit senha9");
+        credencial.setEmail("Junit email2");
+        credencial.setSenha("Junit senha2");
 
         usuarioBarbeiro.setEndereco(endereco);
-        endereco.setRua("Junit rua9");
-        endereco.setCep("Junit Cep9");
-        endereco.setNumero("Junit numero9");
-        endereco.setBairro("Junit Bairro9");
+        endereco.setRua("Junit rua2");
+        endereco.setCep("Junit Cep2");
+        endereco.setNumero("Junit numero2");
+        endereco.setBairro("Junit Bairro2");
 
         usuarioBarbeiro.getEndereco().setCidade(cidade);
-        cidade.setNome("Junit cidade9");
-        cidade.setUf("Junit uf9");
+        cidade.setNome("Junit cidade2");
+        cidade.setUf("Junit uf2");
 
         UsuarioBarbeiro saveUsuarioBarbeiro = repo.save(usuarioBarbeiro);
         assertNotNull(saveUsuarioBarbeiro);
@@ -85,7 +85,7 @@ public class TestJunitSrNavalha {
     @Rollback(false)
     public void testDeleteBarbeiro() {
         System.out.println("<<<<<<<<<<<<<<<<< DELETE POR ID >>>>>>>>>>>>>>>>>>>>");
-        Long id = (long) 65; // id bando de Dados
+        Long id = (long) 73; // id bando de Dados
         boolean idExiste = repo.findById(id).isPresent(); //Se um valor estiver presente, executa a ação no valor, caso contrário, não faz nada.
         repo.deleteById(id); //açao deletar
         boolean idNaoExiste = repo.findById(id).isPresent();
@@ -115,6 +115,7 @@ public class TestJunitSrNavalha {
                     "[ END CEP: " + usuarioBarbeiro.getEndereco().getCep() + " ]  "+
                     "[ END NUMERO: " + usuarioBarbeiro.getEndereco().getNumero() + " ]  "+
                     "[ END RUA: " + usuarioBarbeiro.getEndereco().getRua() + " ] "); // lista todos no console
+
         }
 
         assertThat(barbeiros).size().isGreaterThan(0);
@@ -137,7 +138,7 @@ public class TestJunitSrNavalha {
         String tipo = "Junit Tipo Alterado";
 
 
-       UsuarioBarbeiro usuarioBarbeiro = new UsuarioBarbeiro();
+        UsuarioBarbeiro usuarioBarbeiro = new UsuarioBarbeiro();
         Credencial credencial = new Credencial();
         Endereco endereco = new Endereco();
         Cidade cidade = new Cidade();
@@ -159,7 +160,7 @@ public class TestJunitSrNavalha {
 
         UsuarioBarbeiro usuarioBarbeiro2 = new UsuarioBarbeiro(null,  nome, telefone,  email, dataNascimento,  cpf,  tipo, endereco, credencial);
 
-        usuarioBarbeiro2.setId((long) 62); // id banco de dados
+        usuarioBarbeiro2.setId((long) 74); // id banco de dados
 
 
         repo.save(usuarioBarbeiro2);
@@ -169,6 +170,8 @@ public class TestJunitSrNavalha {
         assertThat(updateBarbeiro.getEmail()).isEqualTo(email);
 
     }
+
+
 
 
 
