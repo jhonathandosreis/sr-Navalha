@@ -9,7 +9,6 @@ import { Cidade } from 'src/app/models/cidade';
 import { Credencial } from 'src/app/models/credencial';
 import { Endereco } from 'src/app/models/endereco';
 import { UsuarioCliente } from 'src/app/models/usuario-cliente';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'ads-cadastro',
@@ -65,6 +64,18 @@ export class CadastroComponent implements OnInit {
 
   }
 
+  enderecoCep: any = {
+    cep: '',
+    logradouro: '',
+    complemento: '',
+    bairro: '',
+    localidade: '',
+    uf: '',
+    unidade: '',
+    ibge: '',
+    gia: ''
+  }
+
   usuarioToken: usuarioCredencial = { login: '', password: '', roles: ['admin'], tenant: '' };
 
   constructor(private consulta: ConsultaCepService, private usuarioBarbeiroService: UsuarioBarbeiroService, private usuarioClienteService: UsuarioClienteService, consultarCep: ConsultaCepService, private router: Router) { }
@@ -74,7 +85,7 @@ export class CadastroComponent implements OnInit {
 
   buscarEndereco(cepInput: any) {
     this.consulta.consultaCEP(cepInput.value).subscribe((retorno) => {
-      this.endereco = retorno
+      this.enderecoCep = retorno
     })
   }
 

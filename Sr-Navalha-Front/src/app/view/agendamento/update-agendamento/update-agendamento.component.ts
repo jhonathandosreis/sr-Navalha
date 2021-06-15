@@ -89,6 +89,7 @@ export class UpdateAgendamentoComponent implements OnInit {
     alert(this.agendamentoNew)
     this.agendamentoService.updateAgendamento(this.agendamentoNew).subscribe((result) => {
       this.agendamentoRetornado = result
+      location.reload();
     })
   }
 
