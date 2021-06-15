@@ -26,7 +26,7 @@ export class AgendamentosComponent implements OnInit {
 
   delete(id: any): void {
     this.agendamentoService.deleteAgendamento(id).subscribe((resposta) => {
-      location.reload;
+      location.reload();
     })
   }
 }
