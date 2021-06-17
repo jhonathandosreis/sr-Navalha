@@ -28,9 +28,9 @@ export class PerfilClienteComponent implements OnInit {
 
   endereco: Endereco = {
     id: '',
+    bairro: '',
     logradouro: '',
     numero: '',
-    bairro: '',
     cep: '',
     cidade: this.cidade
   }
@@ -45,7 +45,18 @@ export class PerfilClienteComponent implements OnInit {
     tipo: '',
     endereco: this.endereco,
     credencial: this.credencial
+  }
   
+  enderecoCep: any = {
+    cep: '',
+    logradouro: '',
+    complemento: '',
+    bairro: '',
+    localidade: '',
+    uf: '',
+    unidade: '',
+    ibge: '',
+    gia: ''
   }
 
   constructor(private consulta: ConsultaCepService, private usuarioClienteService: UsuarioClienteService, private activateRouter: ActivatedRoute) { }
@@ -59,18 +70,16 @@ export class PerfilClienteComponent implements OnInit {
 
   buscarEndereco(cepInput: any) {
     this.consulta.consultaCEP(cepInput.value).subscribe((retorno) => {
-      this.endereco = retorno
+      this.enderecoCep = retorno
     })
-    this.endereco.bairro
-    this.endereco.logradouro
-    this.endereco.cep
-    this.endereco.cidade.localidade
-    this.endereco.cidade.uf
   }
 
   update(): void {
     this.usuarioClienteService.update(this.novoCliente).subscribe((resposta) => {
-      location.reload();
+      alert('Perfil alterado com sucesso!');
     });
   }
+
+
 }
+
