@@ -1,24 +1,11 @@
+
+
+
 /* Inicio carrousel */
 
-.carousel {
-    margin-bottom: 3rem;
-}
-
-.carousel-caption {
-    bottom: 3rem;
-    z-index: 10;
-}
-
-.carousel-item {
-    height: 32rem;
-}
-
-.carousel-item>img {
-    position: relative;
-    top: 0;
-    left: 0;
-    min-width: 100%;
-    height: 32rem;
+.carousel-inner{
+    color: white;
+    text-shadow: black 0.1em 0.1em 0.2em
 }
 
 
@@ -28,11 +15,11 @@
 /* Inicio css cards */
 
 body {
-    background: rgb(170, 170, 170);
+    background:rgb(25, 28, 31);
+    justify-content: space-around;
     background-repeat: no-repeat;
     background-size: 100%;
     bottom: 0;
-    color: rgb(184, 184, 184);
     left: 0;
     overflow: auto;
     padding: 0em;
@@ -42,42 +29,8 @@ body {
     top: 0;
 }
 
-.social-link:hover,
-.social-link:focus {
-    background: #ddd;
-    text-decoration: none;
-    color: #555;
-}
-
 
 /* Fim cards */
-
-.btn-group-lg>.btn,
-.btn-lg {
-    padding: 0.8rem 1rem;
-    font-size: 15px;
-}
-
-.light-bg {
-    background-color: #747474;
-}
-
-.section {
-    padding: 80px 0;
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: 1.5rem;
-}
-
-.section-title small {
-    color: hsl(122, 121, 121);
-}
-
-.text-gray {
-    color: #a0a0a0 !important;
-}
 
 .delivery {
     margin: 0 auto;
@@ -85,176 +38,19 @@ body {
     border-radius: 50px;
     padding: 50px;
     text-align: center;
-    background: hsl(0, 0%, 96%);
+    background: hsla(0, 0%, 96%, 0.815);
     margin-top: 80px;
     margin-bottom: 80px;
 }
 
+/*  inicio nossa historia */
 .experience-section {
-    background: rgb(209, 209, 209);
+    background: rgb(51, 51, 51);
     padding-top: 80px;
     padding-bottom: 80px;
 }
 
-.brush-image-big {
-    background-position: center top;
-    background-repeat: no-repeat;
-    position: relative;
-}
 
-.brush-inner-big-img>img {
-    width: 100%;
-}
-
-.brush-over-text-main {
-    left: 0;
-    padding: 25px;
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-}
-
-.timing-section {
-    float: left;
-    padding-right: 5px;
-    position: relative;
-    text-align: center;
-    top: -150px;
-    width: 100%;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.timing-section-box {
-    float: left;
-    width: 100%;
-    padding: 25px 0;
-}
-
-.timing-section-icon {
-    float: left;
-    width: 100%;
-    text-align: center;
-    font-size: 22px;
-    color: #d19d64;
-    line-height: 1.5;
-}
-
-.timing-section-text {
-    float: left;
-    width: 100%;
-    text-align: center;
-    font-size: 1.2rem;
-    color: #FFFFFF;
-    font-family: 'Oswald', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: normal;
-    line-height: 1.5;
-}
-
-.border-left-right {
-    border-left: 1px solid rgba(255, 255, 255, 0.2);
-    border-right: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.brush-over-text {
-    background: rgba(0, 0, 0, 0.9) none repeat scroll 0 0;
-    padding: 55px 0 30px;
-    height: 100%;
-    width: 100%;
-}
-
-.timing-text h5 {
-    border-bottom: 1px solid #917758;
-    color: #917758;
-    display: inline-block;
-    font-size: 33px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    line-height: 36px;
-    margin-top: 4px;
-    padding-bottom: 2px;
-    text-transform: uppercase;
-    vertical-align: middle;
-}
-
-.timing-text img {
-    display: block;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.days-text span,
-.location-text span,
-.phone-text span {
-    color: #ffffff;
-    display: block;
-    font-size: 1.2rem;
-    font-weight: 500;
-    letter-spacing: 0.1px;
-    line-height: 18px;
-}
-
-.days-text .day {
-    color: #88837d;
-    margin-bottom: 8px;
-}
-
-.timing-text {
-    margin-bottom: 38px;
-}
-
-.days-text {
-    margin-bottom: 29px;
-}
-
-.saturday-text,
-.sunday-text {
-    position: relative;
-    padding-top: 28px;
-}
-
-.saturday-text:before,
-.sunday-text:before {
-    background: #88837d;
-    border-radius: 100%;
-    content: "";
-    height: 8px;
-    left: 0;
-    margin: 0 auto;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 8px;
-}
-
-.location-text span,
-.phone-text span {
-    display: block;
-    margin-top: 13px;
-}
-
-.phone-text {
-    margin-top: 38px;
-}
-
-.location-text {
-    padding-top: 69px;
-    position: relative;
-}
-
-.location-text:before {
-    content: "";
-    background: #917758;
-    width: 1px;
-    height: 30px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-}
 
 .about-left-section h6 {
     font-size: 1.2rem;
@@ -266,7 +62,7 @@ body {
 }
 
 .about-left-section h2 {
-    color: #000000;
+    color: #fdfdfdf6;
     font-size: 50px;
     font-weight: 700;
     letter-spacing: 0.1px;
@@ -298,7 +94,7 @@ body {
 .story-text-left .big-text {
     font-size: 18px;
     line-height: 27px;
-    color: #2d2d2d;
+    color: #b4b0b0;
     margin-bottom: 36px;
     text-transform: none;
     font-family: 'Oswald', sans-serif;
@@ -317,46 +113,21 @@ body {
     color: #2d2d2d;
 }
 
-.read-more-btn {
-    display: block;
-    background: #d19d64;
+/*  fim nossa historia */
+
+.section-title{
+    font-size: 1.2rem;
+    line-height: 18px;
+    color: #dddddd;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: #000000;
-    font-weight: 700;
-    text-align: center;
-    font-size: 13px;
-    line-height: 45px;
-    max-width: 153px;
-    width: 100%;
-    height: 45px;
     font-family: 'Oswald', sans-serif;
-    text-decoration: none;
-    clear: both;
 }
 
-.read-more-btn:hover {
-    background: #000000;
-    color: #d19d64;
-    text-decoration: none;
+.bg-white {
+    background-color: rgba(20, 20, 20, 0.719)!important;
+}
+.mb-0{
+    color: #ddddddc9;
 }
 
-.story-text-left .read-more-btn {
-    margin-top: 45px;
-}
-
-.story-text-left {
-    float: left;
-    width: 100%;
-}
-
-.story-text-right {
-    float: left;
-    width: 40%;
-}
-
-.about-right-section {
-    float: right;
-    width: 100%;
-    text-align: right;
-}
