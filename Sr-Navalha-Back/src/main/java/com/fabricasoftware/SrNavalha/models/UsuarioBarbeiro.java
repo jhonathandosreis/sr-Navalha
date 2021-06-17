@@ -6,6 +6,7 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 
@@ -23,7 +24,7 @@ public class UsuarioBarbeiro {
 	private String nome;
 	private String telefone;
 	private String email;
-	private Date dataNascimento;
+	private LocalDate dataNascimento;
 	private String cpf;
 	private String tipo;
 	@ManyToOne(cascade = CascadeType.PERSIST)
@@ -32,7 +33,7 @@ public class UsuarioBarbeiro {
 	private Credencial credencial;
 
 
-	public UsuarioBarbeiro(Long id, String nome, String telefone, String email, Date dataNascimento, String cpf, String tipo, Endereco endereco, Credencial credencial) {
+	public UsuarioBarbeiro(Long id, String nome, String telefone, String email, LocalDate dataNascimento, String cpf, String tipo, Endereco endereco, Credencial credencial) {
 		super();
 		this.id = id;
 		this.nome = nome;

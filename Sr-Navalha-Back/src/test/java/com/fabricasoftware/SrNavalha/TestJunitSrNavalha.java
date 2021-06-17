@@ -18,6 +18,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.sql.Connection;
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 
@@ -41,13 +42,12 @@ public class TestJunitSrNavalha {
         Endereco endereco = new Endereco();
         Cidade cidade = new Cidade();
 
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Date data = new java.sql.Date(utilDate.getTime());
+        LocalDate local = LocalDate.of(2019, 12, 17);
 
         usuarioBarbeiro.setNome("Junit Nome2");
         usuarioBarbeiro.setTelefone("Junit Telefone2");
         usuarioBarbeiro.setEmail("Junit email2");
-        usuarioBarbeiro.setDataNascimento(data);
+        usuarioBarbeiro.setDataNascimento(local);
         usuarioBarbeiro.setCpf("Junit CPF2");
         usuarioBarbeiro.setTipo("Junit Tipo2");
 
@@ -85,7 +85,7 @@ public class TestJunitSrNavalha {
     @Rollback(false)
     public void testDeleteBarbeiro() {
         System.out.println("<<<<<<<<<<<<<<<<< DELETE POR ID >>>>>>>>>>>>>>>>>>>>");
-        Long id = (long) 73; // id bando de Dados
+        Long id = (long) 3; // id bando de Dados
         boolean idExiste = repo.findById(id).isPresent(); //Se um valor estiver presente, executa a ação no valor, caso contrário, não faz nada.
         repo.deleteById(id); //açao deletar
         boolean idNaoExiste = repo.findById(id).isPresent();
@@ -127,13 +127,12 @@ public class TestJunitSrNavalha {
     @Rollback(false)
     public void testUpdateBarbeiro() {
 
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Date data = new java.sql.Date(utilDate.getTime());
+        LocalDate local = LocalDate.of(2019, 12, 17);
 
         String nome = "Junit Nome Alterado";
         String telefone = "Junit Telefone Alterado";
         String email = "Junit email Alterado";
-        Date dataNascimento = data;
+        LocalDate dataNascimento = local;
         String cpf = "Junit CPF Alterado";
         String tipo = "Junit Tipo Alterado";
 
@@ -160,7 +159,7 @@ public class TestJunitSrNavalha {
 
         UsuarioBarbeiro usuarioBarbeiro2 = new UsuarioBarbeiro(null,  nome, telefone,  email, dataNascimento,  cpf,  tipo, endereco, credencial);
 
-        usuarioBarbeiro2.setId((long) 74); // id banco de dados
+        usuarioBarbeiro2.setId((long) 4); // id banco de dados
 
 
         repo.save(usuarioBarbeiro2);
