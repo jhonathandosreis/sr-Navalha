@@ -26,47 +26,7 @@ public class KeycloakService {
     @Value("${keycloak.realm}")
     private String realm;
 
-    public Object[] createUser(User user){
-        ResponseMessage message = new ResponseMessage();
-        int statusId = 0;
-         try {
-             UsersResource usersResource = getUsersResource();
-             UserRepresentation userRepresentation = new UserRepresentation();
-             userRepresentation.setUsername(user.getUsername());
-             userRepresentation.setEmail(user.getEmail());
-             userRepresentation.setFirstName(user.getFirstName());
-             userRepresentation.setLastName(user.getLastName());
-             userRepresentation.setEnabled(true);
-
-             Response result = usersResource.create(userRepresentation);
-             statusId = result.getStatus();
-
-             if(statusId == 201){
-                 String path = result.getLocation().getPath();
-                 String userId = path.substring(path.lastIndexOf("/") + 1);
-                 CredentialRepresentation passwordCredential = new CredentialRepresentation();
-                 passwordCredential.setTemporary(false);
-                 passwordCredential.setType(CredentialRepresentation.PASSWORD);
-                 passwordCredential.setValue(user.getPassword());
-                 usersResource.get(userId).resetPassword(passwordCredential);
-
-                 RealmResource realmResource = getRealmResource();
-                 RoleRepresentation roleRepresentation = realmResource.roles().get(user.getRoles()).toRepresentation();
-                 realmResource.users().get(userId).roles().realmLevel().add(Arrays.asList(roleRepresentation));
-                 message.setMessage("usuario creado com éxito");
-             }else if(statusId == 409){
-                 message.setMessage("este usuario ja existe");
-             }else{
-                 message.setMessage("error ao criar usuario");
-             }
-         }catch (Exception e){
-             e.printStackTrace();
-         }
-
-         return new Object[]{statusId, message};
-    }
-
-    public void updateUser(User user){
+    public Object[] createUser(User user) {
         ResponseMessage message = new ResponseMessage();
         int statusId = 0;
         try {
@@ -81,7 +41,7 @@ public class KeycloakService {
             Response result = usersResource.create(userRepresentation);
             statusId = result.getStatus();
 
-            if(statusId == 201){
+            if (statusId == 201) {
                 String path = result.getLocation().getPath();
                 String userId = path.substring(path.lastIndexOf("/") + 1);
                 CredentialRepresentation passwordCredential = new CredentialRepresentation();
@@ -94,17 +54,19 @@ public class KeycloakService {
                 RoleRepresentation roleRepresentation = realmResource.roles().get(user.getRoles()).toRepresentation();
                 realmResource.users().get(userId).roles().realmLevel().add(Arrays.asList(roleRepresentation));
                 message.setMessage("usuario creado com éxito");
-            }else if(statusId == 409){
+            } else if (statusId == 409) {
                 message.setMessage("este usuario ja existe");
-            }else{
+            } else {
                 message.setMessage("error ao criar usuario");
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
+
+        return new Object[]{statusId, message};
     }
 
-    public Object[] deleteUser(User user){
+    public void updateUser(User user) {
         ResponseMessage message = new ResponseMessage();
         int statusId = 0;
         try {
@@ -116,10 +78,10 @@ public class KeycloakService {
             userRepresentation.setLastName(user.getLastName());
             userRepresentation.setEnabled(true);
 
-            Response result = usersResource.delete(userRepresentation.getId());
+            Response result = usersResource.create(userRepresentation);
             statusId = result.getStatus();
 
-            if(statusId == 201){
+            if (statusId == 201) {
                 String path = result.getLocation().getPath();
                 String userId = path.substring(path.lastIndexOf("/") + 1);
                 CredentialRepresentation passwordCredential = new CredentialRepresentation();
@@ -132,26 +94,45 @@ public class KeycloakService {
                 RoleRepresentation roleRepresentation = realmResource.roles().get(user.getRoles()).toRepresentation();
                 realmResource.users().get(userId).roles().realmLevel().add(Arrays.asList(roleRepresentation));
                 message.setMessage("usuario creado com éxito");
-            }else if(statusId == 409){
+            } else if (statusId == 409) {
                 message.setMessage("este usuario ja existe");
-            }else{
-                message.setMessage("ok");
+            } else {
+                message.setMessage("error ao criar usuario");
             }
-        }catch (Exception e){
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public Object[] deleteUser(User user) {
+        ResponseMessage message = new ResponseMessage();
+        int statusId = 0;
+        try {
+            UsersResource usersResource = getUsersResource();
+            UserRepresentation userRepresentation = new UserRepresentation();
+            userRepresentation.setUsername(user.getUsername());
+            userRepresentation.setEmail(user.getEmail());
+            userRepresentation.setFirstName(user.getFirstName());
+            userRepresentation.setLastName(user.getLastName());
+            userRepresentation.setEnabled(true);
+            usersResource.delete(user.getUsername());
+            message.setMessage("usuario creado com éxito");
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
         return new Object[]{statusId, message};
     }
 
-    public RealmResource getRealmResource(){
+    public RealmResource getRealmResource() {
         Keycloak kc = KeycloakBuilder.builder().serverUrl(server_url).realm("master").username("admin")
                 .password("admin123").clientId("admin-cli").resteasyClient(new ResteasyClientBuilder().connectionPoolSize(10).build())
                 .build();
         return kc.realm(realm);
     }
 
-    public UsersResource getUsersResource(){
+    public UsersResource getUsersResource() {
         return getRealmResource().users();
     }
 }

@@ -30,16 +30,13 @@ public class UserController {
     }
 
     @PutMapping("/update")
-    public ResponseEntity<ResponseMessage> update(@RequestBody User user) {
-        Object[] obj = keycloakService.createUser(user);
-        int status = (int) obj[0];
-        ResponseMessage message = (ResponseMessage) obj[1];
-        return ResponseEntity.status(status).body(message);
+    public void update(@RequestBody User user) {
+        keycloakService.updateUser(user);
     }
 
     @DeleteMapping("/delete")
     public ResponseEntity<ResponseMessage> delete(@RequestBody User user) {
-        Object[] obj = keycloakService.createUser(user);
+        Object[] obj = keycloakService.deleteUser(user);
         int status = (int) obj[0];
         ResponseMessage message = (ResponseMessage) obj[1];
         return ResponseEntity.status(status).body(message);

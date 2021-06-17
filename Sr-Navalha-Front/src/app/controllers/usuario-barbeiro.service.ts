@@ -1,7 +1,7 @@
 import { usuarioCredencial } from './../models/UsuarioCredencial';
 import { UsuarioBarbeiro } from './../models/usuarioBarbeiro';
 
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -19,7 +19,7 @@ export class UsuarioBarbeiroService {
     return this.http.get<UsuarioBarbeiro[]>(`${this.baseUrl}/usuarios_barbeiros`);
   }
 
-  findBarbeiroByEmail( email : any): Observable<UsuarioBarbeiro> {
+  findBarbeiroByEmail(email: any): Observable<UsuarioBarbeiro> {
     return this.http.get<UsuarioBarbeiro>(`${this.baseUrl}/usuarios_barbeiros/${email}`);
   }
 
@@ -36,7 +36,9 @@ export class UsuarioBarbeiroService {
     return this.http.delete<void>(url);
   }
   createUserToken(usuarioCredencial: usuarioCredencial): Observable<usuarioCredencial> {
-    return this.http.post<usuarioCredencial>(`${environment.urlUserCreateToken}`, usuarioCredencial);
+    let headers = new HttpHeaders();
+    headers = headers.set('content-type', 'application/json');
+    return this.http.post<usuarioCredencial>(`${environment.urlUserCreateToken}/create`, usuarioCredencial, {headers});
   }
 
 }

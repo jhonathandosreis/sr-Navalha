@@ -26,6 +26,7 @@ import { OAuthModule } from 'angular-oauth2-oidc';
 import { ServicoListBarbeiroComponent } from './view/servico/servico-list-barbeiro/servico-list-barbeiro.component';
 import { TelaClienteAdminComponent } from './view/tela-cliente/tela-cliente-admin/tela-cliente-admin.component';
 import { TelaBarbeiroAdminComponent } from './view/tela-barbeiro/tela-barbeiro-admin/tela-barbeiro-admin.component';
+import { NotFoundComponent } from './view/not-found/not-found.component';
 
 
 @NgModule({
@@ -50,7 +51,7 @@ import { TelaBarbeiroAdminComponent } from './view/tela-barbeiro/tela-barbeiro-a
     ServicoListBarbeiroComponent, 
     TelaClienteAdminComponent,
     TelaClienteAdminComponent, 
-    TelaBarbeiroAdminComponent 
+    TelaBarbeiroAdminComponent, NotFoundComponent 
 
   ],
   imports: [

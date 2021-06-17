@@ -15,7 +15,9 @@ import { Injectable } from '@angular/core';
 export class AuthInterceptor implements HttpInterceptor {
 
 
-    private naoAutenticar = ["http://localhost:8080/servicos","http://localhost:4200/cadastro"];
+    private naoAutenticar = ["http://localhost:8080/user/create",
+    "http://localhost:4200/cadastro",
+    "http://localhost:8080/cep"];
 
     constructor(private router: Router, private loginService: LoginKeycloakService) { }
 

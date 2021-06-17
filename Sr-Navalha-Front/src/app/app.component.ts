@@ -21,7 +21,6 @@ export class AppComponent {
     this.configure();
   }
 
-
   authConfig: AuthConfig = {
     issuer: 'http://localhost:8180/auth/realms/srnavalha',
     redirectUri: window.location.origin,

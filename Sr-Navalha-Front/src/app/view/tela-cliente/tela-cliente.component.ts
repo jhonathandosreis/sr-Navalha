@@ -24,6 +24,7 @@ export class TelaClienteComponent implements OnInit {
   sair(){
     localStorage.removeItem('access_token_ads04');
     this.loginKeycloak.logout()
+    this.loginKeycloak.clearLocalStorage()
     this.router.navigate(["/"]);
    }
 }

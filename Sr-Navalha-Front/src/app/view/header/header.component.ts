@@ -16,12 +16,13 @@ export class HeaderComponent implements OnInit {
   tipo: any = localStorage.getItem("tipo");
 
   ngOnInit(): void {
-    this.loginService.getIsAdmin()
-    this.getToken()
-    localStorage.setItem("access_token_ads04", this.token + "");
+    if(this.loginService.getIsLogged()){
+      this.route.navigate(["/carregando"]);
+    }
   }
 
   login() {
+    this.sair()
     this.loginService.login();
   }
 

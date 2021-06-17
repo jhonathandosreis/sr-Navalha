@@ -13,9 +13,30 @@ export class SpinnerComponent implements OnInit {
   @Output() deslogado: boolean = true;
 
   constructor(private route: Router, private loginService: LoginKeycloakService) { }
-
+  tipo: any = "";
   ngOnInit(): void {
-    
+    localStorage.setItem("access_token_ads04", sessionStorage.getItem("access_token") + "");
+    this.tipo = localStorage.getItem("tipo");
+
+
+    if (this.loginService.getIsLogged()) {
+      if (this.tipo == null) {
+        location.reload()
+      }
+      if (this.tipo == "barbeiro") {
+        this.route.navigate(["/telaBarbeiro"])
+      } else if (this.tipo == "cliente") {
+        this.route.navigate(["/telaCliente"])
+      } else if (this.tipo == "admin") {
+        this.route.navigate(["/admin"])
+      } else {
+        this.route.navigate(["/"])
+        this.loginService.logout()
+      }
+    } else {
+      this.route.navigate(["/"])
+    }
+
   }
 
   verificar() {

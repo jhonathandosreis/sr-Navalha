@@ -16,6 +16,7 @@ import javax.annotation.security.RolesAllowed;
 @RestController
 @RequestMapping("/cep")
 @CrossOrigin
+@RolesAllowed("cliente")
 public class BuscaCepResource {
 
     private final RestTemplate restTemplate = new RestTemplate();
@@ -28,8 +29,8 @@ public class BuscaCepResource {
         return quote;
     }
 
-    @GetMapping(value = "/{cep}")
     @RolesAllowed("cliente")
+    @GetMapping(value = "/{cep}")
     public ResponseEntity<EnderecoDTO> enderecoCompleto(@PathVariable String cep) {
         if (validate(cep)) {
             return ResponseEntity.ok(getEndereco(cep));
