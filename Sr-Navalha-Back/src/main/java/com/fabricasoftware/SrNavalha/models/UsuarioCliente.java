@@ -1,12 +1,11 @@
 package com.fabricasoftware.SrNavalha.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
+import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Getter
@@ -18,17 +17,13 @@ public class UsuarioCliente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @EqualsAndHashCode.Include
     private Long id;
     private String nome;
     private String telefone;
     private String email;
-    private Date dataNascimento;
+    private LocalDate dataNascimento;
     private String cpf;
     private String tipo;
-    @ManyToOne
-    @JsonIgnore
-    private Agendamento agendamento;
     @ManyToOne(cascade=CascadeType.PERSIST)
     private Endereco endereco;
     @OneToOne(cascade=CascadeType.PERSIST)

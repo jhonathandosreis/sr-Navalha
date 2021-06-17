@@ -26,7 +26,6 @@ import { ServicoListBarbeiroComponent } from './view/servico/servico-list-barbei
 import { TelaClienteAdminComponent } from './view/tela-cliente/tela-cliente-admin/tela-cliente-admin.component';
 import { TelaBarbeiroAdminComponent } from './view/tela-barbeiro/tela-barbeiro-admin/tela-barbeiro-admin.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +46,7 @@ import { TelaBarbeiroAdminComponent } from './view/tela-barbeiro/tela-barbeiro-a
     UpdateAgendamentoComponent,
     PerfilClienteComponent,
     ServicoListBarbeiroComponent, 
-    TelaClienteAdminComponent, TelaBarbeiroAdminComponent 
+    TelaClienteAdminComponent, TelaBarbeiroAdminComponent
   ],
   imports: [
     BrowserModule,

@@ -31,9 +31,9 @@ export class CadastroComponent implements OnInit {
 
   endereco: Endereco = {
     id: '',
+    bairro: '',
     logradouro: '',
     numero: '',
-    bairro: '',
     cep: '',
     cidade: this.cidade,
   }
@@ -43,12 +43,11 @@ export class CadastroComponent implements OnInit {
     nome: '',
     telefone: '',
     email: '',
-    dataNascimento: new Date(),
+    dataNascimento: '',
     cpf: '',
     tipo: '',
     endereco: this.endereco,
     credencial: this.credencial,
-
   }
 
   novoBarbeiro: UsuarioBarbeiro = {
@@ -91,9 +90,7 @@ export class CadastroComponent implements OnInit {
 
   create(): void {
     this.usuarioClienteService.create(this.novoCliente).subscribe((resposta) => {
-      location.reload;
     });
-
   }
 
   update(): void {

@@ -22,19 +22,19 @@
                             <div class="col-lg-12 col-md-12">
                                 <div class="form-group">
                                     <label for="basic-url">Nome Completo*</label>
-                                    <input [(ngModel)]="novoCliente.nome" type="text" name="nome" class="form-control form-control-sm" id="nome" placeholder="Nome Completo (Ex: José das Coves)*">
+                                    <input [(ngModel)]=" novoCliente.nome" [(ngModel)]="novoCliente.nome" type="text" name="nome" class="form-control form-control-sm" id="nome" placeholder="Nome Completo (Ex: José das Coves)*">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
                                     <label>CPF*</label>
-                                    <input [(ngModel)]="novoCliente.cpf" type="text" class="form-control form-control-sm" name="cpf" id="cpf" placeholder="Ex: (888.888.888.88)*">
+                                    <input [(ngModel)]=" novoCliente.cpf" [(ngModel)]="novoCliente.cpf" type="text" class="form-control form-control-sm" name="cpf" id="cpf" placeholder="Ex: (888.888.888.88)*">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
                                     <label>Data de Nascimento*</label>
-                                    <input [(ngModel)]="novoCliente.dataNascimento" type="date" name="dt_nasc" class="form-control form-control-sm" id="dta_nasc" placeholder="Ex: 11/11/1111*">
+                                    <input [(ngModel)]=" novoCliente.dataNascimento" [(ngModel)]="novoCliente.dataNascimento" type="date" name="dt_nasc" class="form-control form-control-sm" id="dta_nasc" placeholder="Ex: 11/11/1111*">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-12">
@@ -47,62 +47,62 @@
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
                                     <label>Telefone do Contato*</label>
-                                    <input [(ngModel)]=" novoCliente.telefone " type="tel" name="telefone" class="form-control form-control-sm" id="telefone" placeholder="Ex: (88) 88888-8888*">
+                                    <input [(ngModel)]=" novoCliente.telefone" [(ngModel)]=" novoCliente.telefone " type="tel" name="telefone" class="form-control form-control-sm" id="telefone" placeholder="Ex: (88) 88888-8888*">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
                                     <label>CEP*</label>
-                                    <input [(ngModel)]="novoCliente.endereco.cep" (blur)="buscarEndereco($event.target)" type="text" class="form-control form-control-sm" name="cep" id="cep" placeholder="Ex: 11.111-111*" data-rule="email">
+                                    <input [(ngModel)]="endereco.cep" [(ngModel)]="novoCliente.endereco.cep" (blur)="buscarEndereco($event.target)" type="text" class="form-control form-control-sm" name="cep" id="cep" placeholder="Ex: 11.111-111*" data-rule="email">
                                 </div>
                             </div>
 
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
                                     <label>Endereço*</label>
-                                    <input [(ngModel)]="novoCliente.endereco.logradouro" type="text" class="form-control form-control-sm" name="endereco" id="endereco" placeholder="Ex: Rua p1, n16 , St Oeste*" data-rule="endereco">
+                                    <input [(ngModel)]="endereco.logradouro"  [(ngModel)]="novoCliente.endereco.logradouro" type="text" class="form-control form-control-sm" name="endereco" id="endereco" placeholder="Ex: Rua p1, n16 , St Oeste*" data-rule="endereco">
                                 </div>
                             </div>
 
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
                                     <label>Estado*</label>
-                                    <input [(ngModel)]="novoCliente.endereco.cidade.uf" type="text" class="form-control form-control-sm" name="estado" id="estado" placeholder="Ex: SP*" data-rule="estado">
+                                    <input [(ngModel)]="endereco.cidade.uf" [(ngModel)]="novoCliente.endereco.cidade.uf" type="text" class="form-control form-control-sm" name="estado" id="estado" placeholder="Ex: SP*" data-rule="estado">
                                 </div>
                             </div>
 
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
                                     <label>Cidade*</label>
-                                    <input [(ngModel)]="novoCliente.endereco.cidade.localidade" type="text" name="cidade" class="form-control form-control-sm" id="telefone" placeholder="Ex: São-Paulo*">
+                                    <input [(ngModel)]="endereco.cidade.localidade" [(ngModel)]="novoCliente.endereco.cidade.localidade" type="text" name="cidade" class="form-control form-control-sm" id="telefone" placeholder="Ex: São-Paulo*">
                                 </div>
                             </div>
 
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
                                     <label>Bairro*</label>
-                                    <input [(ngModel)]="novoCliente.endereco.bairro" type="text" name="bairro" class="form-control form-control-sm" id="bairro" placeholder="Ex: Setor Leste Vila Nova*">
+                                    <input [(ngModel)]="endereco.bairro" [(ngModel)]="novoCliente.endereco.bairro" type="text" name="bairro" class="form-control form-control-sm" id="bairro" placeholder="Ex: Setor Leste Vila Nova*">
                                 </div>
                             </div>
 
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
                                     <label>Número do Endereço*</label>
-                                    <input [(ngModel)]="novoCliente.endereco.numero" type="text" name="cidade" class="form-control form-control-sm" id="telefone" placeholder="Ex: 1443*">
+                                    <input [(ngModel)]="endereco.numero" [(ngModel)]="novoCliente.endereco.numero" type="text" name="cidade" class="form-control form-control-sm" id="telefone" placeholder="Ex: 1443*">
                                 </div>
                             </div>
 
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
                                     <label>Senha <small>(Mínimo de 6 e máximo de 15 caracteres)*</small></label>
-                                    <input [(ngModel)]="novoCliente.credencial.senha" type="password" class="form-control form-control-sm" name="senha" id="senha" placeholder="Senha*">
+                                    <input [(ngModel)]="credencial.senha" [(ngModel)]="novoCliente.credencial.senha" type="password" class="form-control form-control-sm" name="senha" id="senha" placeholder="Senha*">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
                                     <label>Confirme a Senha <small>(Mínimo de 6 e máximo de 15 caracteres
                                             )*</small></label>
-                                    <input [(ngModel)]="novoCliente.credencial.senha" type="password" class="form-control form-control-sm" name="confirmaSenha" id="confirmaSenha" placeholder="Confirma a Senha*">
+                                    <input [(ngModel)]="credencial.senha" [(ngModel)]="novoCliente.credencial.senha" type="password" class="form-control form-control-sm" name="confirmaSenha" id="confirmaSenha" placeholder="Confirma a Senha*">
 
                                 </div>
                             </div>

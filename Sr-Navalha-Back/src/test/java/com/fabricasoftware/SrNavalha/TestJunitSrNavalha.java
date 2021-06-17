@@ -56,13 +56,13 @@ public class TestJunitSrNavalha {
         credencial.setSenha("Junit senha2");
 
         usuarioBarbeiro.setEndereco(endereco);
-        endereco.setRua("Junit rua2");
+        endereco.setLogradouro("Junit rua2");
         endereco.setCep("Junit Cep2");
         endereco.setNumero("Junit numero2");
         endereco.setBairro("Junit Bairro2");
 
         usuarioBarbeiro.getEndereco().setCidade(cidade);
-        cidade.setNome("Junit cidade2");
+        cidade.setLocalidade("Junit cidade2");
         cidade.setUf("Junit uf2");
 
         UsuarioBarbeiro saveUsuarioBarbeiro = repo.save(usuarioBarbeiro);
@@ -114,7 +114,7 @@ public class TestJunitSrNavalha {
                     "[ END BAIRRO: " + usuarioBarbeiro.getEndereco().getBairro() + " ]  "+
                     "[ END CEP: " + usuarioBarbeiro.getEndereco().getCep() + " ]  "+
                     "[ END NUMERO: " + usuarioBarbeiro.getEndereco().getNumero() + " ]  "+
-                    "[ END RUA: " + usuarioBarbeiro.getEndereco().getRua() + " ] "); // lista todos no console
+                    "[ END RUA: " + usuarioBarbeiro.getEndereco().getLogradouro() + " ] "); // lista todos no console
 
         }
 
@@ -149,13 +149,13 @@ public class TestJunitSrNavalha {
         credencial.setSenha("Junit senha Alterado");
 
         usuarioBarbeiro.setEndereco(endereco);
-        endereco.setRua("Junit rua Alterado");
+        endereco.setLogradouro("Junit rua Alterado");
         endereco.setCep("Junit Cep Alterado");
         endereco.setNumero("Junit numero Alterado");
         endereco.setBairro("Junit Bairro Alterado");
 
         usuarioBarbeiro.getEndereco().setCidade(cidade);
-        cidade.setNome("Junit cidade Alterado");
+        cidade.setLocalidade("Junit cidade Alterado");
         cidade.setUf("Junit uf Alterado");
 
         UsuarioBarbeiro usuarioBarbeiro2 = new UsuarioBarbeiro(null,  nome, telefone,  email, dataNascimento,  cpf,  tipo, endereco, credencial);
