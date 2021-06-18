@@ -1,0 +1,17 @@
+
+.modal-header { 
+    transition: all 0.3s ease;
+    background: -moz-linear-gradient(135deg, rgb(8, 61, 206) 0%, rgb(6, 6, 202) 100%);
+    background: -webkit-linear-gradient(135deg, rgb(13, 102, 161) 0%, rgb(6, 6, 145) 100%);
+    background: linear-gradient(135deg, rgb(1, 113, 199) 0%, rgb(5, 5, 133) 100%);
+    justify-content: space-around;
+}
+.modal-title {
+    margin: 0;
+    line-height: 1.428571429;
+    color: cornsilk;
+    
+}
+.modal-header .close {
+    margin-top: -2px;
+}

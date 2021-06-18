@@ -61,7 +61,7 @@ export class AgendamentoComponent implements OnInit {
     if (document.querySelector('input [value = "checked"]')) {
       this.novoEndereco = true
     }
-    this.formaPagamento = 'Dinheiro';
+    this.formaPagamento = '';
   }
 
   buscarEndereco(cepInput: any) {
@@ -71,28 +71,32 @@ export class AgendamentoComponent implements OnInit {
   }
 
   cidade: Cidade = {
-    id: 1,
-    nome: 'goiania',
-    uf: 'go'
+    id: '',
+    localidade: '',
+    uf: ''
   }
 
   enderecoAgendado: Endereco = {
-    id: 0,
-    bairro: 'this.endereco.bairro',
-    cep: 'this.endereco.cep',
+    id: '',
+    bairro: '',
+    cep: '',
     cidade: this.cidade,
-    numero: '12',
-    rua: 'this.endereco.logradouro'
+    numero: '',
+    logradouro: ''
   }
 
   salvarAgendamento() {
     this.agendamentoNew.endereco = this.enderecoAgendado;
     this.agendamentoNew.cliente = this.usuarioClienteAgenda
+    this.agendamentoNew.endereco.bairro = this.endereco.bairro
+    this.agendamentoNew.endereco.cep = this.endereco.cep
+    this.agendamentoNew.endereco.cidade.uf = this.endereco.uf
+    this.agendamentoNew.endereco.cidade.localidade = this.endereco.localidade
+    this.agendamentoNew.endereco.logradouro = this.endereco.logradouro
     alert(this.agendamentoNew)
-    //this.agendamentoService.createAgendamento(this.agendamentoNew).subscribe((result)=>{
-    // this.agendamentoRetornado = result
-    //})
+    this.agendamentoService.createAgendamento(this.agendamentoNew).subscribe((result) => {
+     this.agendamentoRetornado = result
+    })
+    location.reload();
   }
-
-
 }

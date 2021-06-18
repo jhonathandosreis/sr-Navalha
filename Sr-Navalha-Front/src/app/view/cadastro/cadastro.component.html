@@ -34,7 +34,7 @@
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
                                     <label>CPF*</label>
-                                    <input [(ngModel)]="novoCliente.cpf" [(ngModel)]="novoBarbeiro.cpf" type="text" class="form-control form-control-sm" name="cpf" id="cpf" placeholder="Ex: (888.888.888.88)*">
+                                    <input [(ngModel)]="novoCliente.cpf" [(ngModel)]="novoBarbeiro.cpf" type="text" class="form-control cpf-mask" placeholder="Ex.: 000.000.000-00" name="cpf" id="cpf">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-12">
@@ -59,42 +59,42 @@
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
                                     <label>CEP*</label>
-                                    <input [(ngModel)]="endereco.cep" type="text" class="form-control form-control-sm" name="cep" id="cep" placeholder="Ex: 11.111-111*" data-rule="email">
+                                    <input [(ngModel)]="endereco.cep" [(ngModel)]="enderecoCep.cep" required (blur)="buscarEndereco($event.target)" type="text" class="form-control form-control-sm" name="cep" id="cep" placeholder="Ex: 11.111-111*"W>
                                 </div>
                             </div>
 
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
                                     <label>Endereço*</label>
-                                    <input [(ngModel)]="endereco.rua" type="text" class="form-control form-control-sm" name="endereco" id="endereco" placeholder="Ex: Rua p1, n16 , St Oeste*" data-rule="email">
+                                    <input [(ngModel)]="endereco.logradouro" [(ngModel)]="enderecoCep.logradouro" type="text" class="form-control form-control-sm" name="endereco" id="endereco" placeholder="Ex: Rua p1, n16 , St Oeste*">
                                 </div>
                             </div>
 
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
                                     <label>Estado*</label>
-                                    <input [(ngModel)]="cidade.uf" type="text" class="form-control form-control-sm" name="estado" id="estado" placeholder="Ex: SP*" data-rule="estado">
+                                    <input [(ngModel)]="endereco.cidade.uf" [(ngModel)]="enderecoCep.uf" type="text" class="form-control form-control-sm" name="estado" id="estado" placeholder="Ex: SP*">
                                 </div>
                             </div>
 
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
                                     <label>Cidade*</label>
-                                    <input [(ngModel)]="cidade.nome" type="text" name="cidade" class="form-control form-control-sm" id="telefone" placeholder="Ex: São-Paulo*">
+                                    <input [(ngModel)]="endereco.cidade.localidade" [(ngModel)]="enderecoCep.localidade" type="text" name="cidade" class="form-control form-control-sm" id="cidade" placeholder="Ex: São-Paulo*">
                                 </div>
                             </div>
 
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
                                     <label>Bairro*</label>
-                                    <input [(ngModel)]="endereco.bairro" type="text" name="bairro" class="form-control form-control-sm" id="bairro" placeholder="Ex: Setor Leste Vila Nova*">
+                                    <input [(ngModel)]="endereco.bairro" [(ngModel)]="enderecoCep.bairro" type="text" name="bairro" class="form-control form-control-sm" id="bairro" placeholder="Ex: Setor Leste Vila Nova*">
                                 </div>
                             </div>
 
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
                                     <label>Número do Endereço*</label>
-                                    <input [(ngModel)]="endereco.numero" type="text" name="cidade" class="form-control form-control-sm" id="telefone" placeholder="Ex: 1443*">
+                                    <input [(ngModel)]="endereco.numero" type="text" name="numero" class="form-control form-control-sm" id="numero" placeholder="Ex: 1443*">
                                 </div>
                             </div>
 

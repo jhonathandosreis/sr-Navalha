@@ -23,7 +23,7 @@
                                         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Agendamentos
                                     </a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" routerLink="/login" data-toggle="modal" data-target="#PerfilModalSair">
+                                    <a class="dropdown-item" (click)="sair()" data-toggle="modal" data-target="#PerfilModalSair">
                                         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Sair
                                     </a>
                                 </div>
@@ -35,4 +35,5 @@
         </div>
     </div>
     <router-outlet></router-outlet>
+    <ads-servico-list></ads-servico-list>
 </body>

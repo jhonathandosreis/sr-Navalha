@@ -1,3 +1,4 @@
+import { NotFoundComponent } from './view/not-found/not-found.component';
 import { AuthGuard } from './auth.guard';
 import { UpdateAgendamentoComponent } from './view/agendamento/update-agendamento/update-agendamento.component';
 import { SpinnerComponent } from './view/spinner/spinner.component';
@@ -16,6 +17,11 @@ import { TelaClienteComponent } from './view/tela-cliente/tela-cliente.component
 import { ServicoListComponent } from './view/servico/servico-list/servico-list.component';
 import { PerfilClienteComponent } from './view/perfil-cliente/perfil-cliente.component';
 
+import { ServicoListBarbeiroComponent } from './view/servico/servico-list-barbeiro/servico-list-barbeiro.component';
+
+import { TelaClienteAdminComponent } from './view/tela-cliente/tela-cliente-admin/tela-cliente-admin.component';
+
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -30,7 +36,7 @@ const routes: Routes = [
     path: 'telaBarbeiro', component: TelaBarbeiroComponent, canActivate: [AuthGuard],
     children: [{ path: 'serv', component: ServicoComponent },
     { path: 'agend', component: AgendamentosComponent, canActivate: [AuthGuard] },
-    { path: 'servlist', component: ServicoListComponent, canActivate: [AuthGuard] }]
+    { path: 'servlist', component: ServicoListBarbeiroComponent, canActivate: [AuthGuard] }]
   },
   {
     path: 'telaCliente', component: TelaClienteComponent,
@@ -39,9 +45,11 @@ const routes: Routes = [
   },
   { path: 'portfolio', component: PortfolioComponent, canActivate: [AuthGuard] },
   { path: 'servico', component: ServicoComponent, canActivate: [AuthGuard] },
-  { path: 'servicoList', component: ServicoListComponent, canActivate: [AuthGuard] },
+  { path: 'servicoList', component: ServicoListComponent},
   { path: 'perfilCliente/:email', component: PerfilClienteComponent, canActivate: [AuthGuard] },
-  { path: 'telaBarbeiro/:email', component: TelaBarbeiroComponent, canActivate: [AuthGuard] }
+  { path: 'telaBarbeiro/:email', component: TelaBarbeiroComponent, canActivate: [AuthGuard] },
+  { path: 'telaClienteAdmin', component: TelaClienteAdminComponent },
+  { path: '**', component: NotFoundComponent }
 
 ];
 

@@ -69,7 +69,7 @@ export class UpdateAgendamentoComponent implements OnInit {
 
   cidade: Cidade = {
     id: 1,
-    nome: 'goiania',
+    localidade: 'goiania',
     uf: 'go'
   }
 
@@ -79,7 +79,7 @@ export class UpdateAgendamentoComponent implements OnInit {
     cep: 'this.endereco.cep',
     cidade: this.cidade,
     numero: '12',
-    rua: 'this.endereco.logradouro'
+    logradouro: 'this.endereco.logradouro'
   }
 
   salvarAgendamento() {
@@ -89,6 +89,7 @@ export class UpdateAgendamentoComponent implements OnInit {
     alert(this.agendamentoNew)
     this.agendamentoService.updateAgendamento(this.agendamentoNew).subscribe((result) => {
       this.agendamentoRetornado = result
+      location.reload();
     })
   }
 

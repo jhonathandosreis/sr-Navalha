@@ -1,0 +1,11 @@
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:8180/auth/realms/srnavalha/protocol/openid-connect/certs
+logging:
+    level:
+      org.springframework.web: DEBUG
+      #org.keycloak: DEBUG
+      org.springframework.security: DEBUG

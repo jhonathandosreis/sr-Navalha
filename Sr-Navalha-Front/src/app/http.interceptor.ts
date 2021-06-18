@@ -1,3 +1,4 @@
+import { LoginKeycloakService } from './controllers/loginKeykloac.service';
 import {
     HttpRequest,
     HttpHandler,
@@ -14,9 +15,11 @@ import { Injectable } from '@angular/core';
 export class AuthInterceptor implements HttpInterceptor {
 
 
-    private naoAutenticar = ["http://teste:123456@localhost:8082/auth-server/tokens"];
+    private naoAutenticar = ["http://localhost:8080/user/create",
+    "http://localhost:4200/cadastro",
+    "http://localhost:8080/cep"];
 
-    constructor(private router: Router) { }
+    constructor(private router: Router, private loginService: LoginKeycloakService) { }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
        
@@ -36,14 +39,9 @@ export class AuthInterceptor implements HttpInterceptor {
                     if (err.status === 401) {
                         alert('Erro na autenticação! Forneça usuario e senha validos!')
                         localStorage.removeItem('access_token_ads04');
-                        this.router.navigate(['/login']);
+                        this.router.navigate(['/']);
                     }
-                    if(err.status === 0 ){
-                        alert('O servidor backend esta fora do Ar!')
-                    }
-                    if(err.status === 500 ){
-                        alert('O servidor de Autenticação esta fora do Ar!')
-                    }
+                    
                 }
             }));
     }

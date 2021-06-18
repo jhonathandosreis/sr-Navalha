@@ -12,8 +12,7 @@ export class ConsultaCepService {
   constructor(private httpCliente: HttpClient) { }
 
   setHeaders = {
-    'Content-Type': 'application/json',
-    Authorization: ''
+    'Content-Type': 'application/json'
 }
 
   consultaCEP(cep: string): Observable<any> {

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ConsultaCepService } from 'src/app/controllers/consulta-cep.service';
 import { UsuarioClienteService } from 'src/app/controllers/usuario-cliente.service';
 import { Cidade } from 'src/app/models/cidade';
 import { Credencial } from 'src/app/models/credencial';
@@ -21,17 +22,17 @@ export class PerfilClienteComponent implements OnInit {
 
   cidade: Cidade = {
     id: '',
-    nome: '',
-    uf: '',
+    localidade: '',
+    uf: ''
   }
 
   endereco: Endereco = {
     id: '',
-    rua: '',
-    numero: '',
     bairro: '',
+    logradouro: '',
+    numero: '',
     cep: '',
-    cidade: this.cidade,
+    cidade: this.cidade
   }
 
   novoCliente: UsuarioCliente = {
@@ -39,28 +40,46 @@ export class PerfilClienteComponent implements OnInit {
     nome: '',
     telefone: '',
     email: '',
-    dataNascimento: new Date(),
+    dataNascimento: '',
     cpf: '',
     tipo: '',
     endereco: this.endereco,
-    credencial: this.credencial,
+    credencial: this.credencial
+  }
   
+  enderecoCep: any = {
+    cep: '',
+    logradouro: '',
+    complemento: '',
+    bairro: '',
+    localidade: '',
+    uf: '',
+    unidade: '',
+    ibge: '',
+    gia: ''
   }
 
-  constructor(private usuarioClienteService: UsuarioClienteService, private router: Router, private activateRouter: ActivatedRoute) { }
+  constructor(private consulta: ConsultaCepService, private usuarioClienteService: UsuarioClienteService, private activateRouter: ActivatedRoute) { }
 
   ngOnInit(): void {
     const email = this.activateRouter.snapshot.paramMap.get('email')
     this.usuarioClienteService.findClienteByEmail(email).subscribe((resposta) => {
       this.novoCliente = resposta;
-      console.log(this.novoCliente)
     });
+  }
+
+  buscarEndereco(cepInput: any) {
+    this.consulta.consultaCEP(cepInput.value).subscribe((retorno) => {
+      this.enderecoCep = retorno
+    })
   }
 
   update(): void {
     this.usuarioClienteService.update(this.novoCliente).subscribe((resposta) => {
+      alert('Perfil alterado com sucesso!');
     });
-    location.reload;
   }
 
+
 }
+

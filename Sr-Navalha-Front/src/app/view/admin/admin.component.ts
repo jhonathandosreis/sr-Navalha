@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { LoginKeycloakService } from './../../controllers/loginKeykloac.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,10 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
   AdminNome: any;
-  constructor() { }
+  constructor(private loginCliente: LoginKeycloakService, private router: Router) { }
 
   ngOnInit(): void {
-    this.AdminNome =localStorage.getItem("login")
+    this.AdminNome = localStorage.getItem("login")
+  }
+  sair() {
+    this.loginCliente.logout()
+    this.router.navigate(["/"]);
   }
 
 }

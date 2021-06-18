@@ -25,15 +25,15 @@ export class CadastroComponent implements OnInit {
 
   cidade: Cidade = {
     id: '',
-    nome: '',
+    localidade: '',
     uf: '',
   }
 
   endereco: Endereco = {
     id: '',
-    rua: '',
-    numero: '',
     bairro: '',
+    logradouro: '',
+    numero: '',
     cep: '',
     cidade: this.cidade,
   }
@@ -43,12 +43,11 @@ export class CadastroComponent implements OnInit {
     nome: '',
     telefone: '',
     email: '',
-    dataNascimento: new Date(),
+    dataNascimento: '',
     cpf: '',
     tipo: '',
     endereco: this.endereco,
     credencial: this.credencial,
-
   }
 
   novoBarbeiro: UsuarioBarbeiro = {
@@ -64,18 +63,42 @@ export class CadastroComponent implements OnInit {
 
   }
 
-  usuarioToken: usuarioCredencial = { login: '', password: '', roles: ['admin'], tenant: '' };
+  usuarioToken: usuarioCredencial = {
+    username: '',
+    email: '',
+    firstName: '',
+    lastName: '',
+    password: '',
+    roles: '',
+  };
 
-  constructor(private usuarioBarbeiroService: UsuarioBarbeiroService, private usuarioClienteService: UsuarioClienteService, consultarCep: ConsultaCepService, private router: Router) { }
+  enderecoCep: any = {
+    cep: '',
+    logradouro: '',
+    complemento: '',
+    bairro: '',
+    localidade: '',
+    uf: '',
+    unidade: '',
+    ibge: '',
+    gia: ''
+  }
+
+
+  constructor(private consulta: ConsultaCepService, private usuarioBarbeiroService: UsuarioBarbeiroService, private usuarioClienteService: UsuarioClienteService, consultarCep: ConsultaCepService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
+  buscarEndereco(cepInput: any) {
+    this.consulta.consultaCEP(cepInput.value).subscribe((retorno) => {
+      this.enderecoCep = retorno
+    })
+  }
+
   create(): void {
     this.usuarioClienteService.create(this.novoCliente).subscribe((resposta) => {
-      location.reload;
     });
-
   }
 
   update(): void {
@@ -112,29 +135,37 @@ export class CadastroComponent implements OnInit {
     this.novoBarbeiro.tipo = tip.value
   }
 
-
-
   public createCheck() {
 
     if (this.novoCliente.tipo == 'cliente') {
-      this.create();
-      this.createTokenUser()
-      //  this.router.navigate(["/login"])
+      //this.create();
+      this.createTokenUser(this.novoCliente)
     } else {
-      this.createBarbeiro();
-      this.createTokenUser()
-      // this.router.navigate(["/login"])
+      //this.createBarbeiro();
+      this.createTokenUserBarbeiro(this.novoBarbeiro)
     }
 
   }
-  createTokenUser() {
-    this.usuarioToken.login = this.novoCliente.email;
-    this.usuarioToken.password = this.credencial.senha;
-    this.usuarioToken.roles = ["admin"];
-    this.usuarioToken.tenant = this.novoCliente.nome;
+  createTokenUserBarbeiro(novoCliente: UsuarioBarbeiro) {
+    this.usuarioToken.email = novoCliente.email;
+    this.usuarioToken.username = novoCliente.nome;
+    this.usuarioToken.password = novoCliente.credencial.senha;
+    this.usuarioToken.firstName = novoCliente.nome;
+    this.usuarioToken.lastName = novoCliente.nome;
+    this.usuarioToken.roles = novoCliente.tipo;
     this.usuarioClienteService.createUserToken(this.usuarioToken).subscribe((result: any) => {
       console.log(result)
     })
   }
-
+  createTokenUser(novoCliente: UsuarioCliente) {
+    this.usuarioToken.email = novoCliente.email;
+    this.usuarioToken.username = novoCliente.nome;
+    this.usuarioToken.password = novoCliente.credencial.senha;
+    this.usuarioToken.firstName = novoCliente.nome;
+    this.usuarioToken.lastName = novoCliente.nome;
+    this.usuarioToken.roles = novoCliente.tipo;
+    this.usuarioClienteService.createUserToken(this.usuarioToken).subscribe((result: any) => {
+      console.log(result)
+    })
+  }
 }

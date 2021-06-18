@@ -1,6 +1,8 @@
 export class usuarioCredencial {
-    login: any;
+    username: any;
+    email: any;
+    firstName: any;
+    lastName: any;
     password: any;
-    roles: any[] = [];
-    tenant: any
+    roles: any;
 }

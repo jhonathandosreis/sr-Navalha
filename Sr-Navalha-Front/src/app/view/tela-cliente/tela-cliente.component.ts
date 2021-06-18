@@ -1,3 +1,5 @@
+import { LoginKeycloakService } from './../../controllers/loginKeykloac.service';
+import { LoginComponent } from './../login/login.component';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -12,17 +14,17 @@ export class TelaClienteComponent implements OnInit {
 
   emailUpdate: any;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private loginKeycloak: LoginKeycloakService) { }
 
   ngOnInit(): void {
-    this.emailUpdate = "jhonathandosreis@hotmail.com"
-    //this.emailUpdate = localStorage.getItem("login")
-    this.AdminNome = localStorage.getItem("login")
+    this.emailUpdate = localStorage.getItem("loginEmail")
+    this.AdminNome = localStorage.getItem("login");
   }
   
   sair(){
     localStorage.removeItem('access_token_ads04');
+    this.loginKeycloak.logout()
+    this.loginKeycloak.clearLocalStorage()
     this.router.navigate(["/"]);
    }
-
 }

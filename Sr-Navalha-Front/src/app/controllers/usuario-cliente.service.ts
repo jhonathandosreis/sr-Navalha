@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { UsuarioCliente } from '../models/usuario-cliente';
 import { usuarioCredencial } from '../models/UsuarioCredencial';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -31,10 +32,14 @@ export class UsuarioClienteService {
   }
 
   delete(id: any): Observable<void> {
-    const url = `${this.baseUrl}/usuarios_clientes${id}`
+    const url = `${this.baseUrl}/usuarios_clientes/${id}`
     return this.http.delete<void>(url);
   }
+
   createUserToken(usuarioCredencial: usuarioCredencial): Observable<usuarioCredencial> {
-    return this.http.post<usuarioCredencial>(`${environment.urlUserCreateToken}`, JSON.stringify(usuarioCredencial));
+    let headers = new HttpHeaders();
+    headers = headers.set('content-type', 'application/json');
+    return this.http.post<usuarioCredencial>(`${environment.urlUserCreateToken}/create`, JSON.stringify(usuarioCredencial), { headers });
   }
+
 }

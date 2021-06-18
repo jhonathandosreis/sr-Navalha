@@ -6,10 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.security.RolesAllowed;
 import java.util.List;
 
 @RestController
 @RequestMapping(value = "/enderecos")
+@CrossOrigin
 public class EnderecoController {
 
     @Autowired
@@ -22,6 +24,7 @@ public class EnderecoController {
     }
 
     @PostMapping
+    @RolesAllowed("cliente")
     public ResponseEntity<Endereco> create(@RequestBody Endereco endereco) {
         endereco = enderecoService.create(endereco);
         return ResponseEntity.ok().body(endereco);
