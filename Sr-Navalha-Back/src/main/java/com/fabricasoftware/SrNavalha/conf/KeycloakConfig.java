@@ -17,6 +17,7 @@ public class KeycloakConfig extends WebSecurityConfigurerAdapter {
                 .mvcMatchers("/user/**").permitAll()
                 .mvcMatchers("/servicos/**").permitAll()
                 .mvcMatchers("/cadastro/**").permitAll()
+                .antMatchers("/cadastro/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .oauth2ResourceServer()
