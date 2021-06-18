@@ -4,7 +4,6 @@ import com.fabricasoftware.SrNavalha.models.Credencial;
 import com.fabricasoftware.SrNavalha.repositories.CredencialRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service

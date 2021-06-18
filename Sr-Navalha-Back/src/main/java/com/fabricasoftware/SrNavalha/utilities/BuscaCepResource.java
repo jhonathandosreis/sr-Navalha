@@ -1,7 +1,6 @@
-package com.fabricasoftware.SrNavalha.controllers;
+package com.fabricasoftware.SrNavalha.utilities;
 
 import com.fabricasoftware.SrNavalha.dto.EnderecoDTO;
-import com.fabricasoftware.SrNavalha.models.Endereco;
 import org.springframework.web.bind.annotation.RestController;
 import java.lang.String;
 import org.springframework.http.HttpStatus;

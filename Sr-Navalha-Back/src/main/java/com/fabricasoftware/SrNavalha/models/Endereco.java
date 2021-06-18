@@ -1,12 +1,9 @@
 package com.fabricasoftware.SrNavalha.models;
 
-import com.fabricasoftware.SrNavalha.dto.EnderecoDTO;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import javax.persistence.*;
 
 @Getter

@@ -3,12 +3,10 @@ package com.fabricasoftware.SrNavalha.controllers;
 import com.fabricasoftware.SrNavalha.models.UsuarioBarbeiro;
 import com.fabricasoftware.SrNavalha.services.UsuarioBarbeiroService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-import java.util.NoSuchElementException;
+
 
 @RestController
 @RequestMapping(value = "/usuarios_barbeiros")

@@ -7,5 +7,5 @@ spring:
 logging:
     level:
       org.springframework.web: DEBUG
-      #org.keycloak: DEBUG
+      # org.keycloak: DEBUG
       org.springframework.security: DEBUG

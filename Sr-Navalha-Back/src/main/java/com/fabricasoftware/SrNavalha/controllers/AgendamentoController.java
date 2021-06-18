@@ -2,8 +2,6 @@ package com.fabricasoftware.SrNavalha.controllers;
 
 import com.fabricasoftware.SrNavalha.models.Agendamento;
 import com.fabricasoftware.SrNavalha.services.AgendamentoService;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.core.JsonFactoryBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

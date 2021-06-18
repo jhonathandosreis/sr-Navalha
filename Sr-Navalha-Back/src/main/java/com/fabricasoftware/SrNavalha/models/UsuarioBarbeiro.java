@@ -1,11 +1,8 @@
 package com.fabricasoftware.SrNavalha.models;
 
-
 import lombok.*;
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Date;
-
 
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)

@@ -1,7 +1,6 @@
 package com.fabricasoftware.SrNavalha.models;
 
 import lombok.*;
-
 import javax.persistence.*;
 
 
