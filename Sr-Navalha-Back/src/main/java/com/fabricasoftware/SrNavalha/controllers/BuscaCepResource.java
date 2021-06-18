@@ -11,8 +11,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.client.RestTemplate;
 
+import javax.annotation.security.RolesAllowed;
+
 @RestController
 @RequestMapping("/cep")
+@CrossOrigin
+@RolesAllowed("cliente")
 public class BuscaCepResource {
 
     private final RestTemplate restTemplate = new RestTemplate();
@@ -25,6 +29,7 @@ public class BuscaCepResource {
         return quote;
     }
 
+    @RolesAllowed("cliente")
     @GetMapping(value = "/{cep}")
     public ResponseEntity<EnderecoDTO> enderecoCompleto(@PathVariable String cep) {
         if (validate(cep)) {
@@ -35,6 +40,7 @@ public class BuscaCepResource {
     }
 
     @GetMapping
+    @RolesAllowed("cliente")
     public ResponseEntity<String> enderecoCompleto() {
         return ResponseEntity.ok(
                 new String(
@@ -44,7 +50,7 @@ public class BuscaCepResource {
                 )
         );
     }
-
+    @RolesAllowed("cliente")
     private boolean validate(String cep) {
         return cep.matches("\\d{5}\\d{3}");
     }

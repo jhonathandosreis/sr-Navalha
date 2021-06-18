@@ -63,6 +63,16 @@ export class CadastroComponent implements OnInit {
 
   }
 
+<<<<<<< HEAD
+  usuarioToken: usuarioCredencial = {
+    username: '',
+    email: '',
+    firstName: '',
+    lastName: '',
+    password: '',
+    roles: '',
+  };
+=======
   enderecoCep: any = {
     cep: '',
     logradouro: '',
@@ -76,6 +86,7 @@ export class CadastroComponent implements OnInit {
   }
 
   usuarioToken: usuarioCredencial = { login: '', password: '', roles: ['admin'], tenant: '' };
+>>>>>>> 46fcbf83878122ac05f96428183962528c369acb
 
   constructor(private consulta: ConsultaCepService, private usuarioBarbeiroService: UsuarioBarbeiroService, private usuarioClienteService: UsuarioClienteService, consultarCep: ConsultaCepService, private router: Router) { }
 
@@ -130,17 +141,32 @@ export class CadastroComponent implements OnInit {
   public createCheck() {
 
     if (this.novoCliente.tipo == 'cliente') {
-      this.create();
+      //this.create();
+      this.createTokenUser(this.novoCliente)
     } else {
-      this.createBarbeiro();
+      //this.createBarbeiro();
+      this.createTokenUserBarbeiro(this.novoBarbeiro)
     }
 
   }
-  createTokenUser() {
-    this.usuarioToken.login = this.novoCliente.email;
-    this.usuarioToken.password = this.credencial.senha;
-    this.usuarioToken.roles = ["admin"];
-    this.usuarioToken.tenant = this.novoCliente.nome;
+  createTokenUserBarbeiro(novoCliente: UsuarioBarbeiro) {
+    this.usuarioToken.email = novoCliente.email;
+    this.usuarioToken.username = novoCliente.nome;
+    this.usuarioToken.password = novoCliente.credencial.senha;
+    this.usuarioToken.firstName = novoCliente.nome;
+    this.usuarioToken.lastName = novoCliente.nome;
+    this.usuarioToken.roles = novoCliente.tipo;
+    this.usuarioClienteService.createUserToken(this.usuarioToken).subscribe((result: any) => {
+      console.log(result)
+    })
+  }
+  createTokenUser(novoCliente: UsuarioCliente) {
+    this.usuarioToken.email = novoCliente.email;
+    this.usuarioToken.username = novoCliente.nome;
+    this.usuarioToken.password = novoCliente.credencial.senha;
+    this.usuarioToken.firstName = novoCliente.nome;
+    this.usuarioToken.lastName = novoCliente.nome;
+    this.usuarioToken.roles = novoCliente.tipo;
     this.usuarioClienteService.createUserToken(this.usuarioToken).subscribe((result: any) => {
       console.log(result)
     })

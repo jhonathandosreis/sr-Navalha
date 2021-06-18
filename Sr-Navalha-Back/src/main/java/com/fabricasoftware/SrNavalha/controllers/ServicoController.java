@@ -7,22 +7,17 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.security.RolesAllowed;
 import java.util.List;
 import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/servicos")
-@CrossOrigin("*")
+@CrossOrigin
 public class ServicoController {
 
     @Autowired
     private ServicoService servicoService;
-
-    @GetMapping
-    public ResponseEntity<List<Servico>> findAll() {
-        List<Servico> list = servicoService.findAll();
-        return ResponseEntity.ok().body(list);
-    }
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<Servico> getServicoById(@PathVariable Long id){
@@ -32,6 +27,12 @@ public class ServicoController {
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Servico>> findAll() {
+        List<Servico> list = servicoService.findAll();
+        return ResponseEntity.ok().body(list);
     }
 
     @GetMapping("/barbeiro/{idBarbeiro}")

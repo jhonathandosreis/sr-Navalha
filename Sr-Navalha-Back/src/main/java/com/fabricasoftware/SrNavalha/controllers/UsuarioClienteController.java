@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.security.RolesAllowed;
 import java.util.List;
 
 @RestController
@@ -17,30 +18,35 @@ public class UsuarioClienteController {
     private UsuarioClienteService usuarioClienteService;
 
     @GetMapping
+    @RolesAllowed("cliente")
     public ResponseEntity<List<UsuarioCliente>> findAll() {
         List<UsuarioCliente> list = usuarioClienteService.findAll();
         return ResponseEntity.ok().body(list);
     }
 
     @GetMapping("/{email}")
+    @RolesAllowed("cliente")
     public ResponseEntity<UsuarioCliente> findClienteByEmail(@PathVariable String email) {
         UsuarioCliente clienteRetorno = usuarioClienteService.findClienteByEmail(email);
         return ResponseEntity.ok().body(clienteRetorno);
     }
 
     @PostMapping
+    @RolesAllowed("cliente")
     public ResponseEntity<UsuarioCliente> create(@RequestBody UsuarioCliente usuarioCliente) {
         usuarioCliente = usuarioClienteService.create(usuarioCliente);
         return ResponseEntity.ok().body(usuarioCliente);
     }
 
     @PutMapping
+    @RolesAllowed("cliente")
     public ResponseEntity<UsuarioCliente> update(@RequestBody UsuarioCliente usuarioCliente) {
         usuarioCliente = usuarioClienteService.create(usuarioCliente);
         return ResponseEntity.ok().body(usuarioCliente);
     }
 
     @DeleteMapping(value = "/{id}")
+    @RolesAllowed("cliente")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         usuarioClienteService.delete(id);
         return ResponseEntity.noContent().build();

@@ -22,9 +22,11 @@ import { AgendamentosComponent } from './view/agendamento/agendamentos/agendamen
 import { ServicoListComponent } from './view/servico/servico-list/servico-list.component';
 import { SpinnerComponent } from './view/spinner/spinner.component';
 import { UpdateAgendamentoComponent } from './view/agendamento/update-agendamento/update-agendamento.component';
+import { OAuthModule } from 'angular-oauth2-oidc';
 import { ServicoListBarbeiroComponent } from './view/servico/servico-list-barbeiro/servico-list-barbeiro.component';
 import { TelaClienteAdminComponent } from './view/tela-cliente/tela-cliente-admin/tela-cliente-admin.component';
 import { TelaBarbeiroAdminComponent } from './view/tela-barbeiro/tela-barbeiro-admin/tela-barbeiro-admin.component';
+import { NotFoundComponent } from './view/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -46,14 +48,26 @@ import { TelaBarbeiroAdminComponent } from './view/tela-barbeiro/tela-barbeiro-a
     UpdateAgendamentoComponent,
     PerfilClienteComponent,
     ServicoListBarbeiroComponent, 
-    TelaClienteAdminComponent, TelaBarbeiroAdminComponent
+    TelaClienteAdminComponent,
+    TelaClienteAdminComponent, 
+    TelaBarbeiroAdminComponent,
+    NotFoundComponent, 
+    TelaClienteAdminComponent, 
+    TelaBarbeiroAdminComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    OAuthModule.forRoot({
+      resourceServer: {
+        allowedUrls: ['http://localhost:8080/foo'],
+        sendAccessToken: true
+      }
+    })
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

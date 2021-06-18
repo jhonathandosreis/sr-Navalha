@@ -11,6 +11,9 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.annotation.Rollback;
 
+<<<<<<< HEAD
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+=======
 import javax.persistence.Convert;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -21,6 +24,7 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
 
+>>>>>>> 46fcbf83878122ac05f96428183962528c369acb
 
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @Rollback(false)
@@ -42,6 +46,17 @@ public class TestJunitSrNavalha {
         Endereco endereco = new Endereco();
         Cidade cidade = new Cidade();
 
+<<<<<<< HEAD
+        java.util.Date utilDate = new java.util.Date();
+        java.sql.Date data = new java.sql.Date(utilDate.getTime());
+/*
+        usuarioBarbeiro.setNome("Junit Nome611");
+        usuarioBarbeiro.setTelefone("Junit Telefone621");
+        usuarioBarbeiro.setEmail("Junit email1");
+        usuarioBarbeiro.setDataNascimento(data);
+        usuarioBarbeiro.setCpf("Junit CPF641");
+        usuarioBarbeiro.setTipo("Junit Tipo651");
+=======
         LocalDate local = LocalDate.of(2019, 12, 17);
 
         usuarioBarbeiro.setNome("Junit Nome2");
@@ -50,6 +65,7 @@ public class TestJunitSrNavalha {
         usuarioBarbeiro.setDataNascimento(local);
         usuarioBarbeiro.setCpf("Junit CPF2");
         usuarioBarbeiro.setTipo("Junit Tipo2");
+>>>>>>> 46fcbf83878122ac05f96428183962528c369acb
 
         usuarioBarbeiro.setCredencial(credencial);
         credencial.setEmail("Junit email2");
@@ -67,6 +83,9 @@ public class TestJunitSrNavalha {
 
         UsuarioBarbeiro saveUsuarioBarbeiro = repo.save(usuarioBarbeiro);
         assertNotNull(saveUsuarioBarbeiro);
+<<<<<<< HEAD
+*/
+=======
 
     }
 
@@ -168,7 +187,9 @@ public class TestJunitSrNavalha {
 
         assertThat(updateBarbeiro.getEmail()).isEqualTo(email);
 
+>>>>>>> 46fcbf83878122ac05f96428183962528c369acb
     }
+}
 
 
 

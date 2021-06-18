@@ -1,3 +1,4 @@
+import { NotFoundComponent } from './view/not-found/not-found.component';
 import { AuthGuard } from './auth.guard';
 import { UpdateAgendamentoComponent } from './view/agendamento/update-agendamento/update-agendamento.component';
 import { SpinnerComponent } from './view/spinner/spinner.component';
@@ -47,7 +48,8 @@ const routes: Routes = [
   { path: 'servicoList', component: ServicoListComponent},
   { path: 'perfilCliente/:email', component: PerfilClienteComponent, canActivate: [AuthGuard] },
   { path: 'telaBarbeiro/:email', component: TelaBarbeiroComponent, canActivate: [AuthGuard] },
-  { path: 'telaClienteAdmin', component: TelaClienteAdminComponent }
+  { path: 'telaClienteAdmin', component: TelaClienteAdminComponent },
+  { path: '**', component: NotFoundComponent }
 
 ];
 

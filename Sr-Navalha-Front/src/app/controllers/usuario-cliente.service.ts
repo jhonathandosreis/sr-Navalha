@@ -37,7 +37,9 @@ export class UsuarioClienteService {
   }
   
   createUserToken(usuarioCredencial: usuarioCredencial): Observable<usuarioCredencial> {
-    return this.http.post<usuarioCredencial>(`${environment.urlUserCreateToken}`, JSON.stringify(usuarioCredencial));
+    let headers = new HttpHeaders();
+  headers= headers.set('content-type', 'application/json');
+    return this.http.post<usuarioCredencial>(`${environment.urlUserCreateToken}/create`, JSON.stringify(usuarioCredencial),{headers});
   }
 
 }
