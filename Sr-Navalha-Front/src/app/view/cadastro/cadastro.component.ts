@@ -9,7 +9,6 @@ import { Cidade } from 'src/app/models/cidade';
 import { Credencial } from 'src/app/models/credencial';
 import { Endereco } from 'src/app/models/endereco';
 import { UsuarioCliente } from 'src/app/models/usuario-cliente';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'ads-cadastro',
@@ -32,9 +31,9 @@ export class CadastroComponent implements OnInit {
 
   endereco: Endereco = {
     id: '',
+    bairro: '',
     logradouro: '',
     numero: '',
-    bairro: '',
     cep: '',
     cidade: this.cidade,
   }
@@ -44,12 +43,11 @@ export class CadastroComponent implements OnInit {
     nome: '',
     telefone: '',
     email: '',
-    dataNascimento: new Date(),
+    dataNascimento: '',
     cpf: '',
     tipo: '',
     endereco: this.endereco,
     credencial: this.credencial,
-
   }
 
   novoBarbeiro: UsuarioBarbeiro = {
@@ -65,6 +63,7 @@ export class CadastroComponent implements OnInit {
 
   }
 
+<<<<<<< HEAD
   usuarioToken: usuarioCredencial = {
     username: '',
     email: '',
@@ -73,6 +72,21 @@ export class CadastroComponent implements OnInit {
     password: '',
     roles: '',
   };
+=======
+  enderecoCep: any = {
+    cep: '',
+    logradouro: '',
+    complemento: '',
+    bairro: '',
+    localidade: '',
+    uf: '',
+    unidade: '',
+    ibge: '',
+    gia: ''
+  }
+
+  usuarioToken: usuarioCredencial = { login: '', password: '', roles: ['admin'], tenant: '' };
+>>>>>>> 46fcbf83878122ac05f96428183962528c369acb
 
   constructor(private consulta: ConsultaCepService, private usuarioBarbeiroService: UsuarioBarbeiroService, private usuarioClienteService: UsuarioClienteService, consultarCep: ConsultaCepService, private router: Router) { }
 
@@ -81,15 +95,13 @@ export class CadastroComponent implements OnInit {
 
   buscarEndereco(cepInput: any) {
     this.consulta.consultaCEP(cepInput.value).subscribe((retorno) => {
-      this.endereco = retorno
+      this.enderecoCep = retorno
     })
   }
 
   create(): void {
     this.usuarioClienteService.create(this.novoCliente).subscribe((resposta) => {
-      location.reload;
     });
-
   }
 
   update(): void {

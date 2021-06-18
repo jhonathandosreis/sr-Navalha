@@ -28,7 +28,6 @@ import { TelaClienteAdminComponent } from './view/tela-cliente/tela-cliente-admi
 import { TelaBarbeiroAdminComponent } from './view/tela-barbeiro/tela-barbeiro-admin/tela-barbeiro-admin.component';
 import { NotFoundComponent } from './view/not-found/not-found.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +50,10 @@ import { NotFoundComponent } from './view/not-found/not-found.component';
     ServicoListBarbeiroComponent, 
     TelaClienteAdminComponent,
     TelaClienteAdminComponent, 
-    TelaBarbeiroAdminComponent, NotFoundComponent 
+    TelaBarbeiroAdminComponent,
+    NotFoundComponent, 
+    TelaClienteAdminComponent, 
+    TelaBarbeiroAdminComponent
 
   ],
   imports: [

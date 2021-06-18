@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ConsultaCepService } from 'src/app/controllers/consulta-cep.service';
 import { UsuarioClienteService } from 'src/app/controllers/usuario-cliente.service';
 import { Cidade } from 'src/app/models/cidade';
 import { Credencial } from 'src/app/models/credencial';
@@ -27,9 +28,9 @@ export class PerfilClienteComponent implements OnInit {
 
   endereco: Endereco = {
     id: '',
+    bairro: '',
     logradouro: '',
     numero: '',
-    bairro: '',
     cep: '',
     cidade: this.cidade
   }
@@ -39,15 +40,26 @@ export class PerfilClienteComponent implements OnInit {
     nome: '',
     telefone: '',
     email: '',
-    dataNascimento: new Date(),
+    dataNascimento: '',
     cpf: '',
     tipo: '',
     endereco: this.endereco,
     credencial: this.credencial
+  }
   
+  enderecoCep: any = {
+    cep: '',
+    logradouro: '',
+    complemento: '',
+    bairro: '',
+    localidade: '',
+    uf: '',
+    unidade: '',
+    ibge: '',
+    gia: ''
   }
 
-  constructor(private usuarioClienteService: UsuarioClienteService, private router: Router, private activateRouter: ActivatedRoute) { }
+  constructor(private consulta: ConsultaCepService, private usuarioClienteService: UsuarioClienteService, private activateRouter: ActivatedRoute) { }
 
   ngOnInit(): void {
     const email = this.activateRouter.snapshot.paramMap.get('email')
@@ -56,8 +68,18 @@ export class PerfilClienteComponent implements OnInit {
     });
   }
 
+  buscarEndereco(cepInput: any) {
+    this.consulta.consultaCEP(cepInput.value).subscribe((retorno) => {
+      this.enderecoCep = retorno
+    })
+  }
+
   update(): void {
     this.usuarioClienteService.update(this.novoCliente).subscribe((resposta) => {
+      alert('Perfil alterado com sucesso!');
     });
   }
+
+
 }
+

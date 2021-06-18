@@ -3,6 +3,7 @@ package com.fabricasoftware.SrNavalha.models;
 
 import lombok.*;
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 
@@ -20,11 +21,27 @@ public class UsuarioBarbeiro {
 	private String nome;
 	private String telefone;
 	private String email;
-	private Date dataNascimento;
+	private LocalDate dataNascimento;
 	private String cpf;
 	private String tipo;
 	@ManyToOne(cascade = CascadeType.PERSIST)
 	private Endereco endereco;
 	@OneToOne(cascade = CascadeType.PERSIST)
 	private Credencial credencial;
+
+
+	public UsuarioBarbeiro(Long id, String nome, String telefone, String email, LocalDate dataNascimento, String cpf, String tipo, Endereco endereco, Credencial credencial) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.telefone = telefone;
+		this.email = email;
+		this.dataNascimento = dataNascimento;
+		this.cpf = cpf;
+		this.tipo = tipo;
+		this.endereco = endereco;
+		this.credencial = credencial;
+	}
+
+
 }

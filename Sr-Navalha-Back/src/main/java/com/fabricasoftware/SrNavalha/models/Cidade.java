@@ -19,7 +19,7 @@ public class Cidade {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@EqualsAndHashCode.Include
 	private long id;
-	private String nome;
+	private String localidade;
 	private String uf;
 
 }

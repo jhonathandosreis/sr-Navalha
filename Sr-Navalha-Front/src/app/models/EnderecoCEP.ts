@@ -8,5 +8,4 @@ export class BuscaCEP {
     unidade: any;
     ibge: any;
     gia: any;
-
 }

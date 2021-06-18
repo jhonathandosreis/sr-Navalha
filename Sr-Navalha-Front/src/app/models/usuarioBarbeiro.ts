@@ -11,8 +11,8 @@ export class UsuarioBarbeiro {
     dataNascimento: Date = new Date();
     cpf: any;
     tipo: any;
-    endereco: Endereco = new Endereco;
-    credencial: Credencial = new Credencial;
+    endereco: Endereco = new Endereco();
+    credencial: Credencial = new Credencial();
   
 }
   
