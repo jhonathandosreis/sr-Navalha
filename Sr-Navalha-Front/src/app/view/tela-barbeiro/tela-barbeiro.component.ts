@@ -61,7 +61,7 @@ export class TelaBarbeiroComponent implements OnInit {
   ngOnInit(): void {
 
     
-    this.AdminNome = localStorage.getItem("login");
+    this.AdminNome = localStorage.getItem("name");
 
   }
 
