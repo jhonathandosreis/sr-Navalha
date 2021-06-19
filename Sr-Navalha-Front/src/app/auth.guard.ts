@@ -1,16 +1,25 @@
+import { LoginKeycloakService } from './controllers/loginKeykloac.service';
 import { Injectable } from "@angular/core";
-import { CanActivate, Router } from "@angular/router";
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
 
-    constructor(private route: Router) { }
+    constructor(private router: Router, private loginService: LoginKeycloakService) { }
 
-    canActivate() {
-        if (localStorage.getItem('access_token_ads04') != null) {
-            return true;
+    canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+
+        const requiredRoles = next.data.requiredRoles;
+        if (!this.loginService.getIsLogged()) {
+            this.router.navigate(['/']);
+            return false;
         }
-        this.route.navigate(['/'])
-        return false;
+        /*
+        const realRol = this.loginService.getIsAdmin() ? 'admin' : 'user';
+        if (requiredRoles.indexOf(realRol) === -1) {
+            this.router.navigate(['/']);
+            return false;
+        } */
+        return true;
     }
 }

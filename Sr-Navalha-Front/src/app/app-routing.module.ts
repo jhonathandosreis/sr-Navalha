@@ -28,7 +28,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'agendamento/novo/:id', component: AgendamentoComponent, canActivate: [AuthGuard] },
   { path: 'agendamentos', component: AgendamentosComponent, canActivate: [AuthGuard] },
-  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
+  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] , data: {requiredRoles: ['admin']}},
   { path: "agendamento/:id", component: UpdateAgendamentoComponent, canActivate: [AuthGuard] },
   { path: 'carregando', component: SpinnerComponent },
   { path: 'cadastro', component: CadastroComponent },

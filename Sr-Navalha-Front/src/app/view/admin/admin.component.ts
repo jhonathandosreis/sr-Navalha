@@ -14,7 +14,7 @@ export class AdminComponent implements OnInit {
   constructor(private loginCliente: LoginKeycloakService, private router: Router) { }
 
   ngOnInit(): void {
-    this.AdminNome = localStorage.getItem("login")
+    this.AdminNome = localStorage.getItem("name")
   }
   redef(){
     this.redefi = this.loginCliente.redeFinir();
