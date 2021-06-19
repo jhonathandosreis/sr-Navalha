@@ -27,7 +27,7 @@ public class UsuarioBarbeiro {
 	private Credencial credencial;
 
 
-	public UsuarioBarbeiro(Long id, String nome, String telefone, String email, LocalDate dataNascimento, String cpf, String tipo, Endereco endereco, Credencial credencial) {
+	public UsuarioBarbeiro(Long id, String nome, String telefone, String email, LocalDate dataNascimento, String cpf, String tipo) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -36,8 +36,7 @@ public class UsuarioBarbeiro {
 		this.dataNascimento = dataNascimento;
 		this.cpf = cpf;
 		this.tipo = tipo;
-		this.endereco = endereco;
-		this.credencial = credencial;
+
 	}
 
 

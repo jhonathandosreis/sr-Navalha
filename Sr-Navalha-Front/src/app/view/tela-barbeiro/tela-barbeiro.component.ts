@@ -76,7 +76,7 @@ export class TelaBarbeiroComponent implements OnInit {
   updateBarbeiro(): void {
     this.usuarioBarbeiroService.updateBarbeiro(this.novoBarbeiro).subscribe((resposta) => {
     });
-    confirm("Perfil atualizado com sucesso!")
+    alert("Perfil atualizado com sucesso!")
     location.reload()
   }
 
