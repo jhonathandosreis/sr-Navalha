@@ -17,12 +17,11 @@ export class SpinnerComponent implements OnInit {
   ngOnInit(): void {
     localStorage.setItem("access_token_ads04", sessionStorage.getItem("access_token") + "");
     this.tipo = localStorage.getItem("tipo");
-
-
-    if (this.loginService.getIsLogged()) {
+    setTimeout(() => {
       if (this.tipo == null) {
         location.reload()
       }
+
       if (this.tipo == "barbeiro") {
         this.route.navigate(["/telaBarbeiro"])
       } else if (this.tipo == "cliente") {
@@ -33,9 +32,7 @@ export class SpinnerComponent implements OnInit {
         this.route.navigate(["/"])
         this.loginService.logout()
       }
-    } else {
-      this.route.navigate(["/"])
-    }
+    }, 1000);
 
   }
 

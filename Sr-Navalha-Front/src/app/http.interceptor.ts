@@ -14,17 +14,16 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
-
     private naoAutenticar = ["http://localhost:8080/user/create",
-    "http://localhost:4200/cadastro",
-    "http://localhost:8080/cep"];
+        "http://localhost:4200/cadastro",
+        "http://localhost:8080/cep"];
 
     constructor(private router: Router, private loginService: LoginKeycloakService) { }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-       
+
         let token = localStorage.getItem('access_token_ads04');
-        
+
         if (!this.naoAutenticar.includes(request.url) && token != null) {
             request = request.clone({
                 setHeaders: {
@@ -41,9 +40,7 @@ export class AuthInterceptor implements HttpInterceptor {
                         localStorage.removeItem('access_token_ads04');
                         this.router.navigate(['/']);
                     }
-                    
                 }
             }));
     }
-
 }

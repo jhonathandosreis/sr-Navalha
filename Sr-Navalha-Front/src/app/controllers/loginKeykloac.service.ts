@@ -43,6 +43,10 @@ export class LoginKeycloakService {
     return payloadDecoded.realm_access.roles.indexOf('realm-admin') !== -1;
   }
 
+  public redeFinir() {
+    return "http://localhost:8180/auth/realms/srnavalha/login-actions/reset-credentials?client_id=tutorial-frontend&tab_id=M4f8KvMhGmk"
+  }
+
   public getToken(): any {
     const token = this.oauthService.getAccessToken();
     const payload = token.split('.')[1];
@@ -59,15 +63,15 @@ export class LoginKeycloakService {
   }
 
   redirect(tipo: any) {
-  
-      if (this.getIsLogged()) {
-        if (tipo == "cliente") {
-          this.route.navigate(["/telaCliente"])
-        } else if (tipo == "barbeiro") {
-          this.route.navigate(["/telaBarbeiro"])
-        } else {
-          this.route.navigate(["/admin"])
-        }
+
+    if (this.getIsLogged()) {
+      if (tipo == "cliente") {
+        this.route.navigate(["/telaCliente"])
+      } else if (tipo == "barbeiro") {
+        this.route.navigate(["/telaBarbeiro"])
+      } else {
+        this.route.navigate(["/admin"])
       }
+    }
   }
 }

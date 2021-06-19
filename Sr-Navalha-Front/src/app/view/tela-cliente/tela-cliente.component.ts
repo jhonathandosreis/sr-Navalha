@@ -1,5 +1,4 @@
 import { LoginKeycloakService } from './../../controllers/loginKeykloac.service';
-import { LoginComponent } from './../login/login.component';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -18,7 +17,7 @@ export class TelaClienteComponent implements OnInit {
 
   ngOnInit(): void {
     this.emailUpdate = localStorage.getItem("loginEmail")
-    this.AdminNome = localStorage.getItem("login");
+    this.AdminNome = localStorage.getItem("name");
   }
   
   sair(){
