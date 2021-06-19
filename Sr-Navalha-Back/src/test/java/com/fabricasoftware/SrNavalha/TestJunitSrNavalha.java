@@ -43,45 +43,32 @@ public class TestJunitSrNavalha {
         Endereco endereco = new Endereco();
         Cidade cidade = new Cidade();
 
+        LocalDate local = LocalDate.of(2003, 12, 17);
 
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Date data = new java.sql.Date(utilDate.getTime());
-/*
-        usuarioBarbeiro.setNome("Junit Nome611");
-        usuarioBarbeiro.setTelefone("Junit Telefone621");
-        usuarioBarbeiro.setEmail("Junit email1");
-        usuarioBarbeiro.setDataNascimento(data);
-        usuarioBarbeiro.setCpf("Junit CPF641");
-        usuarioBarbeiro.setTipo("Junit Tipo651");
-=======
-        LocalDate local = LocalDate.of(2019, 12, 17);
-
-        usuarioBarbeiro.setNome("Junit Nome2");
-        usuarioBarbeiro.setTelefone("Junit Telefone2");
-        usuarioBarbeiro.setEmail("Junit email2");
+        usuarioBarbeiro.setNome("Junit Nome3");
+        usuarioBarbeiro.setTelefone("Junit Telefone3");
+        usuarioBarbeiro.setEmail("Junit email3");
         usuarioBarbeiro.setDataNascimento(local);
-        usuarioBarbeiro.setCpf("Junit CPF2");
-        usuarioBarbeiro.setTipo("Junit Tipo2");
->>>>>>> 46fcbf83878122ac05f96428183962528c369acb
+        usuarioBarbeiro.setCpf("Junit CPF3");
+        usuarioBarbeiro.setTipo("Junit Tipo3");
+
 
         usuarioBarbeiro.setCredencial(credencial);
-        credencial.setEmail("Junit email2");
-        credencial.setSenha("Junit senha2");
+        credencial.setEmail("Junit email3");
+        credencial.setSenha("Junit senha3");
 
         usuarioBarbeiro.setEndereco(endereco);
-        endereco.setLogradouro("Junit rua2");
-        endereco.setCep("Junit Cep2");
-        endereco.setNumero("Junit numero2");
-        endereco.setBairro("Junit Bairro2");
+        endereco.setLogradouro("Junit rua3");
+        endereco.setCep("Junit Cep3");
+        endereco.setNumero("Junit numero3");
+        endereco.setBairro("Junit Bairro3");
 
         usuarioBarbeiro.getEndereco().setCidade(cidade);
-        cidade.setLocalidade("Junit cidade2");
-        cidade.setUf("Junit uf2");
+        cidade.setLocalidade("Junit cidade3");
+        cidade.setUf("Junit uf3");
 
         UsuarioBarbeiro saveUsuarioBarbeiro = repo.save(usuarioBarbeiro);
         assertNotNull(saveUsuarioBarbeiro);
-<<<<<<< HEAD
-*/
 
     }
 
@@ -138,52 +125,9 @@ public class TestJunitSrNavalha {
     }
 
 
-    @Test
-    @Rollback(false)
-    public void testUpdateBarbeiro() {
-
-        LocalDate local = LocalDate.of(2019, 12, 17);
-
-        String nome = "Junit Nome Alterado";
-        String telefone = "Junit Telefone Alterado";
-        String email = "Junit email Alterado";
-        LocalDate dataNascimento = local;
-        String cpf = "Junit CPF Alterado";
-        String tipo = "Junit Tipo Alterado";
 
 
-        UsuarioBarbeiro usuarioBarbeiro = new UsuarioBarbeiro();
-        Credencial credencial = new Credencial();
-        Endereco endereco = new Endereco();
-        Cidade cidade = new Cidade();
 
-
-        usuarioBarbeiro.setCredencial(credencial);
-        credencial.setEmail("Junit email Alterado ");
-        credencial.setSenha("Junit senha Alterado");
-
-        usuarioBarbeiro.setEndereco(endereco);
-        endereco.setLogradouro("Junit rua Alterado");
-        endereco.setCep("Junit Cep Alterado");
-        endereco.setNumero("Junit numero Alterado");
-        endereco.setBairro("Junit Bairro Alterado");
-
-        usuarioBarbeiro.getEndereco().setCidade(cidade);
-        cidade.setLocalidade("Junit cidade Alterado");
-        cidade.setUf("Junit uf Alterado");
-
-        UsuarioBarbeiro usuarioBarbeiro2 = new UsuarioBarbeiro(null, nome, telefone, email, dataNascimento, cpf, tipo, endereco, credencial);
-
-        usuarioBarbeiro2.setId((long) 4); // id banco de dados
-
-
-        repo.save(usuarioBarbeiro2);
-
-        UsuarioBarbeiro updateBarbeiro = repo.findBarbeiroByEmail(email);
-
-        assertThat(updateBarbeiro.getEmail()).isEqualTo(email);
-
-    }
 }
 
 
