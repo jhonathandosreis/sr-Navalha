@@ -15,10 +15,12 @@ export class HeaderComponent implements OnInit {
   nome: any = localStorage.getItem("name");
   tipo: any = localStorage.getItem("tipo");
 
-  ngOnInit(): void {
-    if(this.loginService.getIsLogged()){
-      this.route.navigate(["/carregando"]);
-    }
+  ngOnInit() {
+    setTimeout(() => {
+      if(this.loginService.getIsLogged()){
+        this.route.navigate(["/carregando"]);
+      }
+    }, 1000);
   }
 
   login() {

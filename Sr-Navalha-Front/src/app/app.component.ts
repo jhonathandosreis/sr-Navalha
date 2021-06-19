@@ -23,11 +23,11 @@ export class AppComponent {
 
   authConfig: AuthConfig = {
     issuer: 'http://localhost:8180/auth/realms/srnavalha',
-    redirectUri: window.location.origin,
     clientId: 'tutorial-frontend',
     responseType: 'code',
     scope: 'openid profile email',
     showDebugInformation: true,
+    redirectUri: window.location.origin,
   };
 
   configure(): void {

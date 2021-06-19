@@ -138,34 +138,49 @@ export class CadastroComponent implements OnInit {
   public createCheck() {
 
     if (this.novoCliente.tipo == 'cliente') {
-      //this.create();
+      this.create();
       this.createTokenUser(this.novoCliente)
     } else {
-      //this.createBarbeiro();
+      this.createBarbeiro();
       this.createTokenUserBarbeiro(this.novoBarbeiro)
     }
 
   }
   createTokenUserBarbeiro(novoCliente: UsuarioBarbeiro) {
-    this.usuarioToken.email = novoCliente.email;
-    this.usuarioToken.username = novoCliente.nome;
+    let username: any[] = novoCliente.nome.split(" ");
+
+    this.usuarioToken.username = username[0];
+    this.usuarioToken.firstName = username[0];
+    this.usuarioToken.lastName = this.returnLastName(username);
+
     this.usuarioToken.password = novoCliente.credencial.senha;
-    this.usuarioToken.firstName = novoCliente.nome;
-    this.usuarioToken.lastName = novoCliente.nome;
+    this.usuarioToken.email = novoCliente.email;
     this.usuarioToken.roles = novoCliente.tipo;
     this.usuarioClienteService.createUserToken(this.usuarioToken).subscribe((result: any) => {
       console.log(result)
     })
   }
   createTokenUser(novoCliente: UsuarioCliente) {
+
+    let username: any[] = novoCliente.nome.split(" ");
+
+    this.usuarioToken.username = username[0];
+    this.usuarioToken.firstName = username[0];
+    this.usuarioToken.lastName = this.returnLastName(username);
+
     this.usuarioToken.email = novoCliente.email;
-    this.usuarioToken.username = novoCliente.nome;
     this.usuarioToken.password = novoCliente.credencial.senha;
-    this.usuarioToken.firstName = novoCliente.nome;
-    this.usuarioToken.lastName = novoCliente.nome;
     this.usuarioToken.roles = novoCliente.tipo;
     this.usuarioClienteService.createUserToken(this.usuarioToken).subscribe((result: any) => {
       console.log(result)
     })
+  }
+
+  returnLastName(fullName: any[]) {
+    var element = ""
+    for (let index = 1; index < fullName.length; index++) {
+      element += fullName[index] + " ";
+    }
+    return element
   }
 }
