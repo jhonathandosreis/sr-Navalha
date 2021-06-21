@@ -1,24 +1,46 @@
-.body-style{
-    display: -webkit-flex;
-      display: flex;
-      -webkit-flex-wrap: wrap;
-      flex-wrap: wrap;
-      -webkit-align-content: center;
-      align-content: center;
-      margin-top:30vh;
-      font-family:Sans-serif;
-    }
-      
-      
-      .button-style{
-      color:white;
-      background-color:#00233d;
-      padding: 10px 20px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      margin: 4px 2px;
-      cursor: pointer; 
-      border: none;
-      border-radius:4px;}
+.body-style {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-content: center;
+  align-content: center;
+  margin-top: 30vh;
+  font-family: Sans-serif;
+}
+
+.button-style {
+  color: white;
+  background-color: #00233d;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+}
+body {
+  font-family: "Quicksand", sans-serif;
+  background: url(../../../assets/img/fundoBarbearia.png);
+  /* Ajuste de imagem no corpo do HTML */
+  background-repeat: no-repeat;
+  background-size: 100%;
+  bottom: 0;
+  color: black;
+  left: 0;
+  overflow: auto;
+  padding: 3em;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding: 1rem;
+}

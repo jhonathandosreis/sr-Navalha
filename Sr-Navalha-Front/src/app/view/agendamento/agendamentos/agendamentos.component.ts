@@ -1,6 +1,9 @@
+import { Router } from '@angular/router';
+import { LoginKeycloakService } from './../../../controllers/loginKeykloac.service';
 import { AgendamentoService } from './../../../controllers/agendamento.service';
 import { Component, OnInit } from '@angular/core';
 import { Agendamento } from 'src/app/models/Agendamento';
+import { Route } from '@angular/compiler/src/core';
 
 @Component({
   selector: 'ads-agendamentos',
@@ -12,12 +15,17 @@ export class AgendamentosComponent implements OnInit {
   agendamentos: any[] = []
   emailUpdate: any;
 
-  constructor(private agendamentoService: AgendamentoService) { }
+  constructor(private agendamentoService: AgendamentoService, 
+    private loginServico: LoginKeycloakService,
+    private route: Router) { }
 
   ngOnInit(): void {
-    this.emailUpdate = localStorage.getItem("loginEmail")
+    if(this.loginServico.getIsLogged()){
+      this.emailUpdate = localStorage.getItem("loginEmail")
     this.getServicoCliente(this.emailUpdate)
-
+    }else{
+      this.route.navigate(["/"])
+    }
   }
 
   getServicoCliente(emailCliente: any) {

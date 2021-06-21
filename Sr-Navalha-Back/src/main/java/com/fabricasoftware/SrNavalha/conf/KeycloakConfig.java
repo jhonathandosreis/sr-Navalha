@@ -18,7 +18,7 @@ public class KeycloakConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST,"/usuarios_barbeiros/**").permitAll()
                 .antMatchers(HttpMethod.POST,"/usuarios_clientes/**").permitAll()
                 .antMatchers(HttpMethod.POST,"/user/**").permitAll()
-                .antMatchers(HttpMethod.GET,"/servicos/**").permitAll()
+                .antMatchers(HttpMethod.GET,"/servicos").permitAll()
                 .antMatchers(HttpMethod.GET,"/cep/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
