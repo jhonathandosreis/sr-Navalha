@@ -1,0 +1,6 @@
+#FileLock
+#Mon Jun 21 19:05:21 BRT 2021
+server=192.168.56.1\:65485
+hostName=192.168.56.1
+method=file
+id=17a309b42755135af54e241f43f32c19ae825d81a2e

@@ -27,5 +27,7 @@ export class TelaClienteAdminComponent implements OnInit {
     this.usuarioClienteService.delete(id).subscribe((resposta) => {
       location.reload();
     })
+    alert('Cliente excluido com sucesso!');
+    location.reload();
   }
 }
