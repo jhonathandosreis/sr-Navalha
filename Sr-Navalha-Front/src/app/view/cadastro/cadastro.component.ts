@@ -99,18 +99,24 @@ export class CadastroComponent implements OnInit {
   create(): void {
     this.usuarioClienteService.create(this.novoCliente).subscribe((resposta) => {
     });
+    alert("Cliente cadastrado com sucesso!")
+    location.reload();
   }
 
   update(): void {
     this.usuarioClienteService.update(this.novoCliente).subscribe((resposta) => {
       location.reload;
     });
+    alert("Cliente alterado com sucesso!")
+    location.reload();
   }
 
   delete(usuarioCliente: UsuarioCliente) {
     this.usuarioClienteService.delete(usuarioCliente.id).subscribe((resposta) => {
       location.reload;
     })
+    alert("Cliente excluido com sucesso!")
+    location.reload();
   }
 
   createBarbeiro(): void {

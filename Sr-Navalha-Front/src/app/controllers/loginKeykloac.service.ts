@@ -36,7 +36,7 @@ export class LoginKeycloakService {
     const payload = token.split('.')[1];
     const payloadDecodedJson = atob(payload);
     const payloadDecoded = JSON.parse(payloadDecodedJson);
-    localStorage.setItem("tipo", (payloadDecoded.realm_access.roles[0]));
+    localStorage.setItem("tipo", (payloadDecoded.realm_access.roles[1]));
     localStorage.setItem("loginEmail", (payloadDecoded.email));
     localStorage.setItem("preferred_username", (payloadDecoded.preferred_username));
     localStorage.setItem("name", (payloadDecoded.name));

@@ -76,10 +76,9 @@ export class PerfilClienteComponent implements OnInit {
 
   update(): void {
     this.usuarioClienteService.update(this.novoCliente).subscribe((resposta) => {
-      alert('Perfil alterado com sucesso!');
     });
+    alert('Perfil alterado com sucesso!');
+    location.reload();
   }
-
-
 }
 
