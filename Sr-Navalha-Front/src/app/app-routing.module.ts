@@ -21,7 +21,7 @@ import { TelaClienteAdminComponent } from './view/tela-cliente/tela-cliente-admi
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'agendamento/novo/:id', component: AgendamentoComponent},
+  { path: 'agendamento/novo/:id', component: AgendamentoComponent },
   { path: 'agendamentos', component: AgendamentosComponent },
   { path: 'admin', component: AdminComponent, data: { requiredRoles: ['admin'] } },
   { path: "agendamento/:id", component: UpdateAgendamentoComponent },
@@ -35,8 +35,12 @@ const routes: Routes = [
   },
   {
     path: 'telaCliente', component: TelaClienteComponent,
-    children: [{ path: 'serv', component: ServicoComponent, },
-    { path: 'agendamento/novo/:id', component: AgendamentoComponent}],
+    children: [
+      { path: 'serv', component: ServicoComponent },
+      { path: 'agend', component: AgendamentosComponent },
+      { path: 'agendamento/novo/:id', component: AgendamentoComponent },
+      { path: 'servlist', component: ServicoListComponent, }
+    ],
   },
   { path: 'portfolio', component: PortfolioComponent, },
   { path: 'servico', component: ServicoComponent, },

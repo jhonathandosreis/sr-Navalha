@@ -1,3 +1,4 @@
+import { LoginKeycloakService } from './../../controllers/loginKeykloac.service';
 import { Servico } from 'src/app/models/servico';
 import { ServicoService } from './../../controllers/servico.service';
 import { ActivatedRoute } from '@angular/router';
@@ -37,31 +38,51 @@ export class AgendamentoComponent implements OnInit {
   })
 
   public novoEndereco: boolean = false;
-  endereco!: BuscaCEP
+  endereco: BuscaCEP = {
+    cep: '',
+    logradouro: '',
+    complemento: '',
+    bairro: '',
+    localidade: '',
+    uf: '',
+    unidade: '',
+    ibge: '',
+    gia: ''
+  }
   servicoNew!: Servico
-  agendamentoNew!: Agendamento
+  agendamentoNew: Agendamento = {
+    cliente: null,
+    data: null,
+    endereco!: null,
+    horario: null,
+    id: '',
+    servico: null
+  }
   formaPagamento: any
   agendamentoRetornado: any
-
+  AdminNome:any
   servicoAgenda!: any
   usuarioClienteAgenda!: any
 
   constructor(
+    private loginService: LoginKeycloakService,
     private consulta: ConsultaCepService,
     private servicoservice: ServicoService,
     private agendamentoService: AgendamentoService,
     private usuarioClienteService: UsuarioClienteService,
     private route: ActivatedRoute) { }
-
+    token: any = sessionStorage.getItem("access_token")
+    nome: any = localStorage.getItem("name");
+    tipo: any = localStorage.getItem("tipo");
   ngOnInit(): void {
+    this.AdminNome = localStorage.getItem("name");
     const id: any = this.route.snapshot.paramMap.get("id");
-    this.servicoservice.findAllServicosById(id).subscribe((result)=>{
+    this.servicoservice.findAllServicosById(id).subscribe((result) => {
       this.servicoNew = result;
     })
     if (document.querySelector('input [value = "checked"]')) {
       this.novoEndereco = true
     }
-    this.formaPagamento = '';
   }
 
   buscarEndereco(cepInput: any) {
@@ -95,8 +116,39 @@ export class AgendamentoComponent implements OnInit {
     this.agendamentoNew.endereco.logradouro = this.endereco.logradouro
     alert(this.agendamentoNew)
     this.agendamentoService.createAgendamento(this.agendamentoNew).subscribe((result) => {
-     this.agendamentoRetornado = result
+      this.agendamentoRetornado = result
     })
     location.reload();
+  }
+
+  login() {
+    this.sair()
+    this.loginService.login();
+  }
+
+  getToken() {
+    this.loginService.getToken();
+  }
+
+  sair() {
+    this.loginService.logout()
+    this.clearLocalStorage()
+    setTimeout(() => {
+      location.reload()
+    }, 3000);
+  }
+
+  estaLogado(): boolean {
+    return this.loginService.getIsLogged()
+  }
+  reloadPage() {
+    location.reload()
+  }
+  clearLocalStorage() {
+    localStorage.removeItem("preferred_username")
+    localStorage.removeItem("loginEmail")
+    localStorage.removeItem("access_token_ads04")
+    localStorage.removeItem("name")
+    localStorage.removeItem("tipo")
   }
 }
