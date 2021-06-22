@@ -12,7 +12,7 @@ import { Route } from '@angular/compiler/src/core';
 })
 export class AgendamentosComponent implements OnInit {
   
-  agendamentos: any[] = []
+  agendamentos: Agendamento[] = []
   emailUpdate: any;
 
   constructor(private agendamentoService: AgendamentoService, 

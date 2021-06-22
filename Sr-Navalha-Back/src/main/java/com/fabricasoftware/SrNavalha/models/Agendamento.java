@@ -22,7 +22,7 @@ public class Agendamento {
     private Date data;
     private String horario;
     private String status;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private Endereco endereco;
     @OneToOne
     private Servico servico;

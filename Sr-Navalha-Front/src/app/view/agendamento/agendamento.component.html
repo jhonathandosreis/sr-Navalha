@@ -86,6 +86,14 @@
                             <label for="estado">Estado</label>
                             <input type="text" class="form-control" placeholder="Estado" autocomplete="off" formControlName="estado" readonly [(ngModel)]="endereco.uf">
                         </div>
+                        <div class="form-group col-md-4 col-12" style="padding-top: 1%; padding-bottom: 1%;">
+                            <label for="dataAgendamento">Data agendamento</label>
+                            <input type="datetime-local" class="form-control" placeholder="Data agendamento" autocomplete="off" formControlName="dataAgendamento" [(ngModel)]="dataAgendamento" (ngModelChange)="dataAgendamento=$event">
+                        </div>
+                        <div class="form-group col-md-4 col-12" style="padding-top: 1%; padding-bottom: 1%;">
+                            <label for="horaAgendamento">Hora do agendamento</label>
+                            <input type="time" class="form-control" placeholder="Hora agendamento" autocomplete="off" formControlName="horaAgendamento" [(ngModel)]="horaAgendamento">
+                        </div>
                     </div>
                 </div>
                 <br />

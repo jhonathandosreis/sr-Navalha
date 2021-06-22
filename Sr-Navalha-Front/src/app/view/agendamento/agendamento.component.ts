@@ -11,8 +11,6 @@ import { ConsultaCepService } from 'src/app/controllers/consulta-cep.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Agendamento } from 'src/app/models/Agendamento';
-import { ThisReceiver } from '@angular/compiler';
-
 
 @Component({
   selector: 'ads-agendamento',
@@ -53,6 +51,7 @@ export class AgendamentoComponent implements OnInit {
   agendamentoNew: Agendamento = {
     cliente: null,
     data: null,
+    status: 'PENDENTE',
     endereco!: null,
     horario: null,
     id: '',
@@ -63,6 +62,8 @@ export class AgendamentoComponent implements OnInit {
   AdminNome:any
   servicoAgenda!: any
   usuarioClienteAgenda!: any
+  dataAgendamento: any;
+  horaAgendamento: any;
 
   constructor(
     private loginService: LoginKeycloakService,
@@ -75,6 +76,10 @@ export class AgendamentoComponent implements OnInit {
     nome: any = localStorage.getItem("name");
     tipo: any = localStorage.getItem("tipo");
   ngOnInit(): void {
+    const email = localStorage.getItem("loginEmail")
+    this.usuarioClienteService.findClienteByEmail(email).subscribe((result)=>{
+      this.usuarioClienteAgenda = result;
+    })
     this.AdminNome = localStorage.getItem("name");
     const id: any = this.route.snapshot.paramMap.get("id");
     this.servicoservice.findAllServicosById(id).subscribe((result) => {
@@ -107,18 +112,24 @@ export class AgendamentoComponent implements OnInit {
   }
 
   salvarAgendamento() {
+
+    console.log( "Hora: "+this.horaAgendamento)
+    console.log("Data: "+this.dataAgendamento)
+
+    /** 
     this.agendamentoNew.endereco = this.enderecoAgendado;
     this.agendamentoNew.cliente = this.usuarioClienteAgenda
+    this.agendamentoNew.servico = this.servicoNew;
+    this.agendamentoNew.status = 'PENDENTE';
     this.agendamentoNew.endereco.bairro = this.endereco.bairro
     this.agendamentoNew.endereco.cep = this.endereco.cep
     this.agendamentoNew.endereco.cidade.uf = this.endereco.uf
     this.agendamentoNew.endereco.cidade.localidade = this.endereco.localidade
     this.agendamentoNew.endereco.logradouro = this.endereco.logradouro
-    alert(this.agendamentoNew)
     this.agendamentoService.createAgendamento(this.agendamentoNew).subscribe((result) => {
       this.agendamentoRetornado = result
     })
-    location.reload();
+    location.reload(); */
   }
 
   login() {
