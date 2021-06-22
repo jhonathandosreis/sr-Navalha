@@ -60,3 +60,136 @@ select.ng-valid.ng-touched {
     bottom:0;
     width:100%;
   }
+
+  
+
+
+/* Inicio carrousel */
+
+.carousel-inner{
+    color: white;
+    text-shadow: black 0.1em 0.1em 0.2em
+}
+
+
+/* Fim Carrousel */
+
+
+/* Inicio css cards */
+
+body {
+    background:rgb(25, 28, 31);
+    justify-content: space-around;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    bottom: 0;
+    left: 0;
+    overflow: auto;
+    padding: 0em;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+}
+
+
+/* Fim cards */
+
+.delivery {
+    margin: 0 auto;
+    width: 70%;
+    border-radius: 50px;
+    padding: 50px;
+    text-align: center;
+    background: hsla(0, 0%, 96%, 0.815);
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+
+/*  inicio nossa historia */
+.experience-section {
+    background: rgb(51, 51, 51);
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+
+
+.about-left-section h6 {
+    font-size: 1.2rem;
+    line-height: 18px;
+    color: #917758;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Oswald', sans-serif;
+}
+
+.about-left-section h2 {
+    color: #fdfdfdf6;
+    font-size: 50px;
+    font-weight: 700;
+    letter-spacing: 0.1px;
+    line-height: 55px;
+    margin-top: 4px;
+}
+
+.line {
+    position: relative;
+    display: block;
+}
+
+.line:after {
+    content: "";
+    background: #a38f78;
+    width: 70px;
+    height: 4px;
+    position: absolute;
+    left: 0;
+    top: 28px;
+}
+
+.about-left-section {
+    float: left;
+    padding: 0 0 98px 0;
+    width: 100%;
+}
+
+.story-text-left .big-text {
+    font-size: 18px;
+    line-height: 27px;
+    color: #b4b0b0;
+    margin-bottom: 36px;
+    text-transform: none;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 1px;
+}
+
+.story-text {
+    float: left;
+    margin-top: 80px;
+    width: 100%;
+}
+
+.story-text-left p {
+    font-size: 1.2rem;
+    line-height: 26px;
+    color: #2d2d2d;
+}
+
+/*  fim nossa historia */
+
+.section-title{
+    font-size: 1.2rem;
+    line-height: 18px;
+    color: #dddddd;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Oswald', sans-serif;
+}
+
+.bg-white {
+    background-color: rgba(20, 20, 20, 0.719)!important;
+}
+.mb-0{
+    color: #ddddddc9;
+}
