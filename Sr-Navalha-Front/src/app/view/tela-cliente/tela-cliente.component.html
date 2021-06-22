@@ -5,29 +5,37 @@
                 <header class="p-3 bg-secondary text-white">
                     <div class="nav-menu fixed-top is-scrolling">
                         <div class="d-flex  align-items-center justify-content-lg-end">
-                            <img href="#" src="../../../assets/img/SR.Navalha logo escrita.png" width="8%" width="4%" height="2%" alt="">
+                            <img href="#" src="../../../assets/img/SR.Navalha logo escrita.png" width="8%" width="4%"
+                                height="2%" alt="">
                             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                                <div class="sidebar-brand-text mx-3" style="padding-top: 0%; color: white;"><b>Sr Navalha</b></div>
+                                <div class="sidebar-brand-text mx-3" style="padding-top: 0%; color: white;"><b>Sr
+                                        Navalha</b></div>
                             </ul>
                             <div class="text-end">
                                 <a class="nav-link dropdown-menu-right" role="button" data-toggle="dropdown">
                                     <span class="ml-2 d-none d-lg-inline text-white small"> {{AdminNome}}</span>
-                                    <img class="img-profile rounded-circle" src="../../../assets/img/man.png" style="max-width: 50px">
+                                    <img class="img-profile rounded-circle" src="../../../assets/img/man.png"
+                                        style="max-width: 50px">
                                 </a>
-                                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                    <a class="dropdown-item" routerLink="/perfilCliente/jhonathandosreis@hotmail.com" data-toggle="modal" data-target="#PerfilModal">
+                                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                    aria-labelledby="userDropdown">
+                                    <a class="dropdown-item" routerLink="/perfilCliente/jhonathandosreis@hotmail.com"
+                                        data-toggle="modal" data-target="#PerfilModal">
                                         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-200"></i>Perfil
                                     </a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" routerLink="agend" data-toggle="modal" data-target="#PerfilAgendamentos">
+                                    <a class="dropdown-item" routerLink="agend" data-toggle="modal"
+                                        data-target="#PerfilAgendamentos">
                                         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Agendamentos
                                     </a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" routerLink="servlist" data-toggle="modal" data-target="#PerfilAgendamentos">
+                                    <a class="dropdown-item" routerLink="servlist" data-toggle="modal"
+                                        data-target="#PerfilAgendamentos">
                                         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Servicos
                                     </a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" (click)="sair()" data-toggle="modal" data-target="#PerfilModalSair">
+                                    <a class="dropdown-item" (click)="sair()" data-toggle="modal"
+                                        data-target="#PerfilModalSair">
                                         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Sair
                                     </a>
                                 </div>
@@ -39,4 +47,20 @@
         </div>
     </div>
     <router-outlet></router-outlet>
+    <footer class="footer">
+        <div class="bg-dark text-secondary px-4 py-5 text-center" id="idContatos">
+            <div class="py-5">
+                <h1 class="display-5 fw-bold text-white"><strong>Sr Navalha</strong></h1>
+                <div class="col-lg-6 mx-auto">
+                    <p>O Sr Navalha é um sistema de gestão on-line para barbearias que permite agendamentos de horários
+                        com diversos serviços previamente cadastrados organizando a agenda e otimizando os processos do
+                        estabelecimento.</p>
+                </div>
+            </div>
+            <div class="copyright">
+                © 2021 Sr Navalha. Todos os direitos reservados.
+                <a href="#" target="_blank" title="Sr Navalha"></a>
+            </div>
+        </div>
+    </footer>
 </body>

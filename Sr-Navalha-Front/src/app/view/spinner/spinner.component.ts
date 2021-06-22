@@ -25,7 +25,7 @@ export class SpinnerComponent implements OnInit {
       if (this.tipo == "barbeiro") {
         this.route.navigate(["/telaBarbeiro"])
       } else if (this.tipo == "cliente") {
-        this.route.navigate(["/telaCliente"])
+        this.route.navigate(["/telaCliente/servlist"])
       } else if (this.tipo == "admin") {
         this.route.navigate(["/admin"])
       } else {
