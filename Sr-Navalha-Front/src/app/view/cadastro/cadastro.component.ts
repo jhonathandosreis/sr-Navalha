@@ -10,6 +10,7 @@ import { Credencial } from 'src/app/models/credencial';
 import { Endereco } from 'src/app/models/endereco';
 import { UsuarioCliente } from 'src/app/models/usuario-cliente';
 import { LoginKeycloakService } from 'src/app/controllers/loginKeykloac.service';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'ads-cadastro',
@@ -86,29 +87,23 @@ export class CadastroComponent implements OnInit {
   }
 
 
-  constructor(private consulta: ConsultaCepService, private usuarioBarbeiroService: UsuarioBarbeiroService, private usuarioClienteService: UsuarioClienteService,  private router: Router , private loginK: LoginKeycloakService) { }
+  constructor(private consulta: ConsultaCepService, private usuarioBarbeiroService: UsuarioBarbeiroService, private usuarioClienteService: UsuarioClienteService, private router: Router, private loginK: LoginKeycloakService) { }
 
   ngOnInit(): void {
   }
 
   // Busca CEP
-
   buscarEndereco(cepInput: any) {
     this.consulta.consultaCEP(cepInput.value).subscribe((retorno) => {
       this.enderecoCep = retorno
     })
   }
 
-  // Cliente 
-
-
+  // Cliente
   create(): void {
     this.usuarioClienteService.create(this.novoCliente).subscribe((resposta) => {
     });
-    if (this.novoCliente.nome == "" || this.novoCliente.nome == null) {
-      confirm("Insira o nome do cliente!")
-    }
-    alert("Cliente cadastrado com sucesso!")
+    swal({title:"Cliente cadastrado com sucesso!", icon:"success"})
     location.reload();
   }
 
@@ -116,7 +111,7 @@ export class CadastroComponent implements OnInit {
     this.usuarioClienteService.update(this.novoCliente).subscribe((resposta) => {
       location.reload;
     });
-    alert("Cliente alterado com sucesso!")
+    swal({title:"Cliente alterado com sucesso!", icon:"success"})
     location.reload();
   }
 
@@ -124,13 +119,12 @@ export class CadastroComponent implements OnInit {
     this.usuarioClienteService.delete(usuarioCliente.id).subscribe((resposta) => {
       location.reload;
     })
-    alert("Cliente excluido com sucesso!")
+    swal({title:"Cliente excluido com sucesso!", icon:"success"})
     location.reload();
   }
 
 
   // Barbeiro
-
   createBarbeiro(): void {
     this.usuarioBarbeiroService.createBarbeiro(this.novoBarbeiro).subscribe((resposta) => {
     });
@@ -152,33 +146,46 @@ export class CadastroComponent implements OnInit {
   }
 
   // Tipo 
-
   getTipo(tip: any) {
     this.novoCliente.tipo = tip.value
     this.novoBarbeiro.tipo = tip.value
   }
 
   // Button Create Barbeiro/Cliente
-
   public createCheck() {
+
+    // Validação para campo nulo
     if (this.novoBarbeiro.tipo == null || this.novoBarbeiro.tipo == "" || this.novoCliente.tipo == null || this.novoCliente.tipo == "") {
-      alert("Barbeiro ou Cliente? Selecione para continuar seu Cadastro!")
+      swal({title:"Barbeiro ou Cliente? Selecione para continuar seu Cadastro!", icon: "error"});
+    } else if (this.novoCliente.nome == "" || this.novoCliente.nome == null) {
+      swal({title:"Insira o nome!", icon: "error" })
+    } else if (this.novoCliente.cpf == "" || this.novoCliente.cpf == null) {
+      swal({title:"Insira o CPF!", icon: "error"})
+    } else if (this.novoCliente.dataNascimento == "" || this.novoCliente.dataNascimento == null) {
+      swal({title:"Insira a data de nascimento!", icon: "error"})
+    } else if (this.novoCliente.email == "" || this.novoCliente.email == null) {
+      swal({title:"Insira o E-Mail!", icon: "error"})
+    } else if (this.novoCliente.telefone == "" || this.novoCliente.telefone == null) {
+      swal({title:"Insira o seu telefone!", icon: "error"})
+    } else if (this.endereco.numero == "" || this.endereco.numero == null) {
+      swal({title:"Insira o numero do endereço!", icon: "error"})
+    } else if (this.credencial.senha == "" || this.credencial.senha == null) {
+      swal({title:"Insira a senha!", icon: "error"})
     } else {
-    if (this.novoCliente.tipo == 'cliente') {
-      this.create();
-      this.createTokenUser(this.novoCliente)
-      this.loginK.login()
-    } else {
-      this.createBarbeiro();
-      this.createTokenUserBarbeiro(this.novoBarbeiro)
-      this.loginK.login()
+      if (this.novoCliente.tipo == 'cliente') {
+        this.create();
+        this.createTokenUser(this.novoCliente)
+        this.loginK.login()
+      } else {
+        this.createBarbeiro();
+        this.createTokenUserBarbeiro(this.novoBarbeiro)
+        this.loginK.login()
+      }
     }
-  }
 
   }
 
   //Create Token Barbeiro
-
   createTokenUserBarbeiro(novoCliente: UsuarioBarbeiro) {
     let username: any[] = novoCliente.nome.split(" ");
 
@@ -195,8 +202,6 @@ export class CadastroComponent implements OnInit {
   }
 
   // Create Token Cliente
-
-
   createTokenUser(novoCliente: UsuarioCliente) {
 
     let username: any[] = novoCliente.nome.split(" ");
