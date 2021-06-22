@@ -86,7 +86,7 @@ export class CadastroComponent implements OnInit {
   }
 
 
-  constructor(private consulta: ConsultaCepService, private usuarioBarbeiroService: UsuarioBarbeiroService, private usuarioClienteService: UsuarioClienteService,  private router: Router , private loginK: LoginKeycloakService) { }
+  constructor(private consulta: ConsultaCepService, private usuarioBarbeiroService: UsuarioBarbeiroService, private usuarioClienteService: UsuarioClienteService, private router: Router, private loginK: LoginKeycloakService) { }
 
   ngOnInit(): void {
   }
@@ -105,9 +105,6 @@ export class CadastroComponent implements OnInit {
   create(): void {
     this.usuarioClienteService.create(this.novoCliente).subscribe((resposta) => {
     });
-    if (this.novoCliente.nome == "" || this.novoCliente.nome == null) {
-      confirm("Insira o nome do cliente!")
-    }
     alert("Cliente cadastrado com sucesso!")
     location.reload();
   }
@@ -163,17 +160,31 @@ export class CadastroComponent implements OnInit {
   public createCheck() {
     if (this.novoBarbeiro.tipo == null || this.novoBarbeiro.tipo == "" || this.novoCliente.tipo == null || this.novoCliente.tipo == "") {
       alert("Barbeiro ou Cliente? Selecione para continuar seu Cadastro!")
+    } else if (this.novoCliente.nome == "" || this.novoCliente.nome == null) {
+      alert("Insira o nome!")
+    } else if (this.novoCliente.cpf == "" || this.novoCliente.cpf == null) {
+      alert("Insira o CPF!")
+    } else if (this.novoCliente.dataNascimento == "" || this.novoCliente.dataNascimento == null) {
+      alert("Insira a data de nascimento!")
+    } else if (this.novoCliente.email == "" || this.novoCliente.email == null) {
+      alert("Insira o E-Mail!")
+    } else if (this.novoCliente.telefone == "" || this.novoCliente.telefone == null) {
+      alert("Insira o seu telefone!")
+    } else if (this.endereco.numero == "" || this.endereco.numero == null) {
+      alert("Insira o numero do endereço!")
+    } else if (this.credencial.senha == "" || this.credencial.senha == null) {
+      alert("Insira a senha!")
     } else {
-    if (this.novoCliente.tipo == 'cliente') {
-      this.create();
-      this.createTokenUser(this.novoCliente)
-      this.loginK.login()
-    } else {
-      this.createBarbeiro();
-      this.createTokenUserBarbeiro(this.novoBarbeiro)
-      this.loginK.login()
+      if (this.novoCliente.tipo == 'cliente') {
+        this.create();
+        this.createTokenUser(this.novoCliente)
+        this.loginK.login()
+      } else {
+        this.createBarbeiro();
+        this.createTokenUserBarbeiro(this.novoBarbeiro)
+        this.loginK.login()
+      }
     }
-  }
 
   }
 
