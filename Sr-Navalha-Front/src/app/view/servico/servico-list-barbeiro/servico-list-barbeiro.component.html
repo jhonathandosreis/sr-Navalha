@@ -6,23 +6,25 @@
           <!-- for lista de serviços -->
           <div class="col-12 col-md-3" *ngFor="let servico of servicos">
             <!-- card -->
-            <div class="card shadow-sm">
-              <h6>{{servico.nome}}</h6>
-              <img [src]="servico.imageUrl" alt="ServicoOferecido" style="margin: 5px;" width="auto" height="250px">
+            <div class="card shadow-sm text-center h-100 " id="cardservico">
+              <h6 class="card-title"> {{servico.nome}} </h6>
+              <img class="card-img-top" [src]="servico.imageUrl" alt="ServicoOferecido" style="margin: 0px;" width="auto"
+                height="250px">
               <div class="card-body">
-                <p class="card-text">{{servico.descricao}}</p>
-                <P><small class="text-muted">R$ {{servico.valor}}</small></P>
+                <p >{{servico.descricao}}</p>
+                <P>R$ {{servico.valor}}</P>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
-                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                      data-bs-target="#exampleModal" (click)="popularDadosModal(servico.id)">Alterar</button>
-                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                    <button type="button" class="btn btn-secondary" (click)="deleteServico(servico.id)">Deletar</button>
-                  </div>
+                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                          data-bs-target="#exampleModal" (click)="popularDadosModal(servico.id)">Alterar</button>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        <button type="button" class="btn btn-secondary" (click)="deleteServico(servico.id)">Deletar</button>
+                      </div>
                 </div>
               </div>
             </div>
+
             <!-- fim card -->
           </div>
           <!-- fim for lista de serviços -->

@@ -12,4 +12,7 @@ public interface ServicoRepository extends JpaRepository<Servico, Long> {
 	
     @Query("SELECT s FROM Servico s WHERE s.usuarioBarbeiro.id = :idBarbeiro")
     List<Servico> getServicoByBarbeiro(@Param("idBarbeiro") Long idBarbeiro);
+    
+    @Query("SELECT s FROM Servico s WHERE s.nome LIKE :nome")
+    List<Servico> FilterByName(@Param("nome") String nome);
 }

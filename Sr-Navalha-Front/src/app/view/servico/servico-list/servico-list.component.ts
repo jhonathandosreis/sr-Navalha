@@ -23,6 +23,7 @@ export class ServicoListComponent implements OnInit {
   getAllServicos() {
     this.servicoservice.findAllServicos().subscribe(result => this.servicos = result);
   }
+
   agendar(id: any){
     if(this.servicoLogin.getIsLogged()){
       this.route.navigate([`/agendamento/novo/${id}`])
