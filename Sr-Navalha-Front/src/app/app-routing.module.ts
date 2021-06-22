@@ -39,7 +39,7 @@ const routes: Routes = [
       { path: 'serv', component: ServicoComponent },
       { path: 'agend', component: AgendamentosComponent },
       { path: 'agendamento/novo/:id', component: AgendamentoComponent },
-      { path: 'servlist', component: ServicoListBarbeiroComponent, }
+      { path: 'servlist', component: ServicoListComponent, }
     ],
   },
   { path: 'portfolio', component: PortfolioComponent, },
