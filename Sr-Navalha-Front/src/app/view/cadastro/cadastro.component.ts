@@ -1,5 +1,5 @@
 import { usuarioCredencial } from './../../models/UsuarioCredencial';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { UsuarioBarbeiroService } from './../../controllers/usuario-barbeiro.service';
 import { UsuarioBarbeiro } from './../../models/usuarioBarbeiro';
 import { Component, OnInit } from '@angular/core';
@@ -9,6 +9,7 @@ import { Cidade } from 'src/app/models/cidade';
 import { Credencial } from 'src/app/models/credencial';
 import { Endereco } from 'src/app/models/endereco';
 import { UsuarioCliente } from 'src/app/models/usuario-cliente';
+import { LoginKeycloakService } from 'src/app/controllers/loginKeykloac.service';
 
 @Component({
   selector: 'ads-cadastro',
@@ -85,16 +86,21 @@ export class CadastroComponent implements OnInit {
   }
 
 
-  constructor(private consulta: ConsultaCepService, private usuarioBarbeiroService: UsuarioBarbeiroService, private usuarioClienteService: UsuarioClienteService, consultarCep: ConsultaCepService, private router: Router) { }
+  constructor(private consulta: ConsultaCepService, private usuarioBarbeiroService: UsuarioBarbeiroService, private usuarioClienteService: UsuarioClienteService,  private router: Router , private loginK: LoginKeycloakService) { }
 
   ngOnInit(): void {
   }
+
+  // Busca CEP
 
   buscarEndereco(cepInput: any) {
     this.consulta.consultaCEP(cepInput.value).subscribe((retorno) => {
       this.enderecoCep = retorno
     })
   }
+
+  // Cliente 
+
 
   create(): void {
     this.usuarioClienteService.create(this.novoCliente).subscribe((resposta) => {
@@ -119,39 +125,59 @@ export class CadastroComponent implements OnInit {
     location.reload();
   }
 
+
+  // Barbeiro
+
   createBarbeiro(): void {
     this.usuarioBarbeiroService.createBarbeiro(this.novoBarbeiro).subscribe((resposta) => {
-      location.reload;
     });
+    alert("Barbeiro cadastrado com sucesso!")
+    location.reload;
   }
   updateBarbeiro(): void {
     this.usuarioBarbeiroService.updateBarbeiro(this.novoBarbeiro).subscribe((resposta) => {
-      location.reload;
     });
+    alert("Barbeiro alterado com sucesso!")
+    location.reload();
   }
 
   deleteBarbeiro(usuarioBarbeiro: UsuarioBarbeiro) {
     this.usuarioBarbeiroService.deleteBarbeiro(usuarioBarbeiro.id).subscribe((resposta) => {
-      location.reload;
     })
+    alert("Barbeiro excluido com sucesso!")
+    location.reload();
   }
+
+  // Tipo 
 
   getTipo(tip: any) {
     this.novoCliente.tipo = tip.value
     this.novoBarbeiro.tipo = tip.value
   }
 
+  // Button Create Barbeiro/Cliente
+
   public createCheck() {
 
+
+    if (this.novoBarbeiro.tipo == null || this.novoBarbeiro.tipo == "" || this.novoCliente.tipo == null || this.novoCliente.tipo == "") {
+      alert("Barbeiro ou Cliente? Selecione para continuar seu Cadastro!")
+    } else {
     if (this.novoCliente.tipo == 'cliente') {
       this.create();
       this.createTokenUser(this.novoCliente)
+      this.loginK.login()
     } else {
       this.createBarbeiro();
       this.createTokenUserBarbeiro(this.novoBarbeiro)
+      this.loginK.login()
     }
+  }
 
   }
+
+  //Create Token Barbeiro
+
   createTokenUserBarbeiro(novoCliente: UsuarioBarbeiro) {
     let username: any[] = novoCliente.nome.split(" ");
 
@@ -166,6 +192,10 @@ export class CadastroComponent implements OnInit {
       console.log(result)
     })
   }
+
+  // Create Token Cliente
+
+
   createTokenUser(novoCliente: UsuarioCliente) {
 
     let username: any[] = novoCliente.nome.split(" ");
@@ -189,4 +219,6 @@ export class CadastroComponent implements OnInit {
     }
     return element
   }
+
+
 }
