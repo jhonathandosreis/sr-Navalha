@@ -34,7 +34,7 @@
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
                                     <label>CPF*</label>
-                                    <input [(ngModel)]="novoCliente.cpf" [(ngModel)]="novoBarbeiro.cpf" type="text" class="form-control cpf-mask" placeholder="Ex.: 000.000.000-00" name="cpf" id="cpf">
+                                    <input [(ngModel)]="novoCliente.cpf" [(ngModel)]="novoBarbeiro.cpf" type="text" class="form-control" placeholder="Ex.: 000.000.000-00" name="cpf" id="cpf">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-12">
@@ -123,7 +123,7 @@
 
                         <div class="text-center">
                             <button (click)="createCheck()" class="btn btn-primary" type="button">CADASTRAR</button>
-
+                            
                         </div>
                     </form>
                 </div>
@@ -131,3 +131,6 @@
         </div>
     </div>
 </body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
