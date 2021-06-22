@@ -105,6 +105,9 @@ export class CadastroComponent implements OnInit {
   create(): void {
     this.usuarioClienteService.create(this.novoCliente).subscribe((resposta) => {
     });
+    if (this.novoCliente.nome == "" || this.novoCliente.nome == null) {
+      confirm("Insira o nome do cliente!")
+    }
     alert("Cliente cadastrado com sucesso!")
     location.reload();
   }
@@ -158,8 +161,6 @@ export class CadastroComponent implements OnInit {
   // Button Create Barbeiro/Cliente
 
   public createCheck() {
-
-
     if (this.novoBarbeiro.tipo == null || this.novoBarbeiro.tipo == "" || this.novoCliente.tipo == null || this.novoCliente.tipo == "") {
       alert("Barbeiro ou Cliente? Selecione para continuar seu Cadastro!")
     } else {
