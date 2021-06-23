@@ -19,6 +19,8 @@ import swal from 'sweetalert';
 })
 export class CadastroComponent implements OnInit {
 
+  confirmSenha: String = ""
+
   credencial: Credencial = {
     id: '',
     email: '',
@@ -86,7 +88,6 @@ export class CadastroComponent implements OnInit {
     gia: ''
   }
 
-
   constructor(private consulta: ConsultaCepService, private usuarioBarbeiroService: UsuarioBarbeiroService, private usuarioClienteService: UsuarioClienteService, private router: Router, private loginK: LoginKeycloakService) { }
 
   ngOnInit(): void {
@@ -153,7 +154,6 @@ export class CadastroComponent implements OnInit {
 
   // Button Create Barbeiro/Cliente
   public createCheck() {
-
     // Validação para campo nulo
     if (this.novoBarbeiro.tipo == null || this.novoBarbeiro.tipo == "" || this.novoCliente.tipo == null || this.novoCliente.tipo == "") {
       swal({title:"Barbeiro ou Cliente? Selecione para continuar seu Cadastro!", icon: "error"});
@@ -171,7 +171,12 @@ export class CadastroComponent implements OnInit {
       swal({title:"Insira o numero do endereço!", icon: "error"})
     } else if (this.credencial.senha == "" || this.credencial.senha == null) {
       swal({title:"Insira a senha!", icon: "error"})
-    } else {
+    } else if (this.confirmSenha == "" || this.confirmSenha == null) {
+      swal({title:"Confirme a senha!", icon: "error"})
+    }  else if (this.credencial.senha != this.confirmSenha) {
+      swal({title:"Senhas não Conferem!", icon: "error"})
+    } 
+    else {
       if (this.novoCliente.tipo == 'cliente') {
         this.create();
         this.createTokenUser(this.novoCliente)
@@ -181,10 +186,8 @@ export class CadastroComponent implements OnInit {
         this.createTokenUserBarbeiro(this.novoBarbeiro)
         this.loginK.login()
       }
-    }
-
+    } 
   }
-
   //Create Token Barbeiro
   createTokenUserBarbeiro(novoCliente: UsuarioBarbeiro) {
     let username: any[] = novoCliente.nome.split(" ");
