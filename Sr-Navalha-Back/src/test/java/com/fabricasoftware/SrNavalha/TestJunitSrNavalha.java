@@ -18,8 +18,7 @@ import javax.persistence.Convert;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.sql.Connection;
-import java.sql.Date;
+
 import java.time.LocalDate;
 import java.util.List;
 
@@ -82,6 +81,18 @@ public class TestJunitSrNavalha {
         assertThat(usuarioBarbeiro.getEmail()).isEqualTo(email); //passa um objeto Matcher como parâmetro
 
     }
+
+    @Test
+    public void testFindContactByEmailNotExist() {
+       System.out.println("<<<<<<<<<<<<<<<<< TESTE E-MAIL INEXISTENTE >>>>>>>>>>>>>>>>>>>>");
+       // String email = "miguelneto.artes@gmail.com"; // e-mail existente
+        String email = "migueljunit.artes@gmail.com";
+        UsuarioBarbeiro usuarioBarbeiro = repo.findBarbeiroByEmail(email);
+        assertNull(usuarioBarbeiro); //verificar se um objeto é nulo.
+
+    }
+
+
 
     @Test
     @Rollback(false)
