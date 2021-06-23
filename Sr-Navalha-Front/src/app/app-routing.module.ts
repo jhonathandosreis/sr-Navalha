@@ -37,7 +37,7 @@ const routes: Routes = [
     path: 'telaCliente', component: TelaClienteComponent,
     children: [
       { path: 'serv', component: ServicoComponent },
-      { path: 'agend', component: AgendamentosComponent },
+      { path: 'agend', component: AgendamentosComponent, },
       { path: 'agendamento/novo/:id', component: AgendamentoComponent },
       { path: 'servlist', component: ServicoListComponent, }
     ],

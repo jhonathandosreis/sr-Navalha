@@ -19,18 +19,28 @@ public class AgendamentoService {
         return agendamentoRepository.findAll();
     }
 
-    public List<Agendamento> filterByEmailBarbeiro(String email){
+    public List<Agendamento> filterByEmailBarbeiro(String email) {
         List<Agendamento> agendamentosFiltrados = agendamentoRepository.findAll();
         return agendamentosFiltrados;
     }
 
-    public List<Agendamento> filterByEmailCliente(String emailCliente){
+    public List<Agendamento> filterByEmailCliente(String emailCliente) {
         List<Agendamento> agendamentosFiltrados = agendamentoRepository.filterByEmailCliente(emailCliente);
         return agendamentosFiltrados;
     }
 
     @Transactional
     public Agendamento create(Agendamento agendamento) {
+        List<Agendamento> agendados = finAll();
+        for (int i = 0; i < agendados.size(); i++) {
+            if (agendados.get(i).getData() == agendamento.getData() && agendados.get(i).getHorario() == agendamento.getHorario()) {
+                if (agendados.get(i).getServico().getNome() == agendamento.getServico().getNome() &&
+                        agendados.get(i).getServico().getUsuarioBarbeiro().getNome() == agendamento.getServico().getUsuarioBarbeiro().getNome() &&
+                agendados.get(i).getStatus().equalsIgnoreCase("PENDENTE")) {
+                    throw new IllegalArgumentException("Ja existe agendamento para este horario e data");
+                }
+            }
+        }
         agendamento = agendamentoRepository.save(agendamento);
         return agendamento;
     }
@@ -38,6 +48,11 @@ public class AgendamentoService {
     @Transactional
     public Optional<Agendamento> getById(Long id) {
         return agendamentoRepository.findById(id);
+    }
+
+    @Transactional
+    public Agendamento getByIdAgendamento(Long id){
+        return agendamentoRepository.findAllById(id);
     }
 
     @Transactional

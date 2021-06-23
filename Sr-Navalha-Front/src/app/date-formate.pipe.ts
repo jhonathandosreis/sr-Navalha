@@ -5,11 +5,10 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class DateFormatePipe implements PipeTransform {
 
-  transform(value: Date): String {
-    let latest_date = new Date(value).toString();
-    let part1 = latest_date.substring(0, 4);
-    let part2 = latest_date.substring(4, 6);
-    let part3 = latest_date.substring(6, 8);
-    return `(${part3})/ ${part2} /${part1}`;
+  transform(value: any): String {
+    let part1 = value.substring(0, 4);
+    let part2 = value.substring(4, 7);
+    let part3 = value.substring(8, 10);
+    return `${part3} ${part2} ${part1}`;
   }
 }

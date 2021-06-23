@@ -47,13 +47,19 @@ public class AgendamentoController {
 
     @PutMapping
     public ResponseEntity<Agendamento> update(@RequestBody Agendamento agendamento) {
-        Optional<Agendamento> updateAgendamento = agendamentoService.getById(agendamento.getId());
-        return new ResponseEntity(agendamentoService.update(updateAgendamento.get()), HttpStatus.OK);
+        Agendamento updateAgendamento = agendamentoService.getByIdAgendamento(agendamento.getId());
+        return new ResponseEntity(agendamentoService.update(updateAgendamento), HttpStatus.OK);
     }
 
     @GetMapping("/cliente/{emailCliente}")
     public List<Agendamento> filterByEmailCliente(@PathVariable String emailCliente) {
         List<Agendamento> agendamento = agendamentoService.filterByEmailCliente(emailCliente);
+        return agendamento;
+    }
+
+    @GetMapping("/barbeiro/{emailBarbeiro}")
+    public List<Agendamento> filterByEmailBarbeiro(@PathVariable String emailBarbeiro) {
+        List<Agendamento> agendamento = agendamentoService.filterByEmailBarbeiro(emailBarbeiro);
         return agendamento;
     }
 
