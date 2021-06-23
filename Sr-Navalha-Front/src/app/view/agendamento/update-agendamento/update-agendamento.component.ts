@@ -1,13 +1,10 @@
 import { ActivatedRoute } from '@angular/router';
 import { BuscaCEP } from './../../../models/EnderecoCEP';
 import { Cidade } from 'src/app/models/cidade';
-import { Endereco } from 'src/app/models/endereco';
-import { UsuarioClienteService } from 'src/app/controllers/usuario-cliente.service';
 import { ConsultaCepService } from 'src/app/controllers/consulta-cep.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Agendamento } from 'src/app/models/Agendamento';
-import { Servico } from 'src/app/models/servico';
 import { AgendamentoService } from 'src/app/controllers/agendamento.service';
 
 @Component({
@@ -16,7 +13,7 @@ import { AgendamentoService } from 'src/app/controllers/agendamento.service';
   styleUrls: ['./update-agendamento.component.css']
 })
 export class UpdateAgendamentoComponent implements OnInit {
-
+  formas: any[] = ['DINHEIRO','CARTAO']
   estados: any[] = [];
   cidades: any[] = [];
   AdminNome: any
@@ -34,25 +31,27 @@ export class UpdateAgendamentoComponent implements OnInit {
 
   public novoEndereco: boolean = false;
   endereco!: BuscaCEP
-  agendamentoNew!: any
+  agendamentoNew!: Agendamento
   valor: any
   formaPagamento: any
   agendamentoRetornado: any
 
   servicoAgenda!: any
   usuarioClienteAgenda!: any
+  horaAgendamento: any;
+  dataAgendamento: any;
 
   constructor(
     private consulta: ConsultaCepService,
     private agendamentoService: AgendamentoService,
-    private usuarioClienteService: UsuarioClienteService,
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.horaAgendamento = document.querySelector('input[type="time"]');
+    this.dataAgendamento = document.querySelector('input[type="date"]');
     const id: any = this.route.snapshot.paramMap.get("id");
     this.agendamentoService.findAllAgendamentosById(Number.parseInt(id)).subscribe((result: Agendamento) => {
       this.agendamentoNew = result
-      this.valor = this.agendamentoNew.servico.valor
     })
     this.AdminNome = localStorage.getItem("login")
     if (document.querySelector('input [value = "checked"]')) {
@@ -73,22 +72,19 @@ export class UpdateAgendamentoComponent implements OnInit {
     uf: 'go'
   }
 
-  enderecoAgendado: Endereco = {
-    id: 0,
-    bairro: 'this.endereco.bairro',
-    cep: 'this.endereco.cep',
-    cidade: this.cidade,
-    numero: '12',
-    logradouro: 'this.endereco.logradouro'
-  }
-
   salvarAgendamento() {
-    this.agendamentoNew.endereco = this.enderecoAgendado;
-    this.agendamentoNew.cliente = this.usuarioClienteAgenda
-    this.agendamentoNew.servico = this.servicoAgenda
-    alert(this.agendamentoNew)
+    this.agendamentoNew.status = 'PENDENTE';
+    this.agendamentoNew.horario = this.horaAgendamento.value;
+    this.agendamentoNew.data = this.dataAgendamento.value;
+    this.agendamentoNew.endereco.bairro = this.endereco.bairro
+    this.agendamentoNew.endereco.cep = this.endereco.cep
+    this.agendamentoNew.formaPagamento = "DINHEIRO";
+    this.agendamentoNew.endereco.cidade.uf = this.endereco.uf
+    this.agendamentoNew.endereco.cidade.localidade = this.endereco.localidade
+    this.agendamentoNew.endereco.logradouro = this.endereco.logradouro
     this.agendamentoService.updateAgendamento(this.agendamentoNew).subscribe((result) => {
       this.agendamentoRetornado = result
+      console.log(result)
       location.reload();
     })
   }

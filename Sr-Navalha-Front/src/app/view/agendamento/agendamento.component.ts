@@ -1,8 +1,9 @@
+import { Route } from '@angular/compiler/src/core';
 import { LoginKeycloakService } from './../../controllers/loginKeykloac.service';
 import { Servico } from 'src/app/models/servico';
 import { ServicoService } from './../../controllers/servico.service';
-import { ActivatedRoute } from '@angular/router';
-import { Cidade } from 'src/app/models/cidade';
+import { ActivatedRoute, Router } from '@angular/router';
+import swal from 'sweetalert';
 import { Endereco } from 'src/app/models/endereco';
 import { UsuarioClienteService } from 'src/app/controllers/usuario-cliente.service';
 import { AgendamentoService } from './../../controllers/agendamento.service';
@@ -21,6 +22,8 @@ import { Agendamento } from 'src/app/models/Agendamento';
 
 export class AgendamentoComponent implements OnInit {
 
+  selectedForma: any
+  formas = ['DINHEIRO', 'CARTAO']
   estados: any[] = [];
   cidades: any[] = [];
 
@@ -48,18 +51,20 @@ export class AgendamentoComponent implements OnInit {
     gia: ''
   }
   servicoNew!: Servico
+  numero: any;
   agendamentoNew: Agendamento = {
     cliente: null,
-    data: null,
+    data!: new Date(),
+    formaPagamento: '',
     status: 'PENDENTE',
-    endereco!: null,
+    endereco!: new Endereco,
     horario: null,
     id: '',
     servico: null
   }
   formaPagamento: any
   agendamentoRetornado: any
-  AdminNome:any
+  AdminNome: any
   servicoAgenda!: any
   usuarioClienteAgenda!: any
   dataAgendamento: any;
@@ -71,13 +76,15 @@ export class AgendamentoComponent implements OnInit {
     private servicoservice: ServicoService,
     private agendamentoService: AgendamentoService,
     private usuarioClienteService: UsuarioClienteService,
-    private route: ActivatedRoute) { }
-    token: any = sessionStorage.getItem("access_token")
-    nome: any = localStorage.getItem("name");
-    tipo: any = localStorage.getItem("tipo");
+    private route: ActivatedRoute,
+    private rou: Router) { }
+  token: any = sessionStorage.getItem("access_token")
+  nome: any = localStorage.getItem("name");
+  tipo: any = localStorage.getItem("tipo");
+
   ngOnInit(): void {
     const email = localStorage.getItem("loginEmail")
-    this.usuarioClienteService.findClienteByEmail(email).subscribe((result)=>{
+    this.usuarioClienteService.findClienteByEmail(email).subscribe((result) => {
       this.usuarioClienteAgenda = result;
     })
     this.AdminNome = localStorage.getItem("name");
@@ -88,6 +95,8 @@ export class AgendamentoComponent implements OnInit {
     if (document.querySelector('input [value = "checked"]')) {
       this.novoEndereco = true
     }
+    this.horaAgendamento = document.querySelector('input[type="time"]');
+    this.dataAgendamento = document.querySelector('input[type="date"]');
   }
 
   buscarEndereco(cepInput: any) {
@@ -96,31 +105,15 @@ export class AgendamentoComponent implements OnInit {
     })
   }
 
-  cidade: Cidade = {
-    id: '',
-    localidade: '',
-    uf: ''
-  }
-
-  enderecoAgendado: Endereco = {
-    id: '',
-    bairro: '',
-    cep: '',
-    cidade: this.cidade,
-    numero: '',
-    logradouro: ''
-  }
-
   salvarAgendamento() {
-
-    console.log( "Hora: "+this.horaAgendamento)
-    console.log("Data: "+this.dataAgendamento)
-
-    /** 
-    this.agendamentoNew.endereco = this.enderecoAgendado;
+    this.agendamentoNew.formaPagamento = this.selectedForma;
+    this.agendamentoNew.endereco.numero = this.numero
     this.agendamentoNew.cliente = this.usuarioClienteAgenda
     this.agendamentoNew.servico = this.servicoNew;
+    this.agendamentoNew.formaPagamento = 'DINHEIRO';
     this.agendamentoNew.status = 'PENDENTE';
+    this.agendamentoNew.horario = this.horaAgendamento.value;
+    this.agendamentoNew.data = this.dataAgendamento.value;
     this.agendamentoNew.endereco.bairro = this.endereco.bairro
     this.agendamentoNew.endereco.cep = this.endereco.cep
     this.agendamentoNew.endereco.cidade.uf = this.endereco.uf
@@ -129,7 +122,10 @@ export class AgendamentoComponent implements OnInit {
     this.agendamentoService.createAgendamento(this.agendamentoNew).subscribe((result) => {
       this.agendamentoRetornado = result
     })
-    location.reload(); */
+    swal({ title: "Agendamento incluido com sucesso!", icon: "success" })
+    setTimeout(() => {
+      this.rou.navigate(["/telaCliente/agend"])
+    }, 3000);
   }
 
   login() {
