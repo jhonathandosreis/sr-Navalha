@@ -63,24 +63,25 @@ export class TelaBarbeiroComponent implements OnInit {
     tipo: '',
     endereco: this.endereco,
     credencial: this.credencial,
-
   }
 
-  AdminNome: any;
   emailUpdate: any;
+  StorageNome: any
 
   constructor(private loginKeycloak: LoginKeycloakService,public usuarioBarbeiroService: UsuarioBarbeiroService, consultarCep: ConsultaCepService, private router: Router, private activateRouter: ActivatedRoute, private consulta: ConsultaCepService) { }
 
   ngOnInit(): void {
-    /* this.AdminNome = localStorage.getItem("name"); */
     this.updatePerfilBarbeiro();
+    this.StorageNome = localStorage.getItem("name")
+    
   }
 
   updatePerfilBarbeiro(): void {
     const email = localStorage.getItem("loginEmail")
     this.usuarioBarbeiroService.findBarbeiroByEmail(email).subscribe((resposta) => {
     this.novoBarbeiro = resposta;
-    });
+    localStorage.setItem("name",this.novoBarbeiro.nome)
+  });
   }
 
   buscarEndereco(cepInput: any) {
@@ -109,7 +110,7 @@ export class TelaBarbeiroComponent implements OnInit {
     this.usuarioBarbeiroService.updateBarbeiro(this.novoBarbeiro).subscribe((resposta) => {
     });
     swal({title:'Perfil alterado com sucesso!', icon:"success"})
-    location.reload();
+    this.router.navigate(["/"]);
   }
 
   sair() {
