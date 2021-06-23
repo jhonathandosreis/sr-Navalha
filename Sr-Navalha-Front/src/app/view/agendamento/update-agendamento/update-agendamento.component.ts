@@ -122,7 +122,7 @@ export class UpdateAgendamentoComponent implements OnInit {
       console.log(result)
       swal({ title: "Agendamento Alterado com sucesso!", icon: "success" })
       setTimeout(() => {
-        this.router.navigate(["/telaCliente/servlist"])
+        this.router.navigate(["/"])
       }, 2000);
     });
   }

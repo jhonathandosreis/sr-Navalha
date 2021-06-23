@@ -77,12 +77,12 @@
                         <td>R$ {{agendamento.servico.valor}}</td>
                         <td>{{agendamento.servico.descricao}}</td>
                         <td><span class="badge bg-primary">{{agendamento.status}}</span></td>
-                        <td class="text-center"><button class="btn btn-danger btn-sm"
+                        <td class="text-center"><button class="btn btn-outline-warning btn-sm"
                             routerLink="/agendamento/{{ agendamento.id }}"><span
                                     class="glyphicon glyphicon-remove"></span>
                                 Alterar</button></td>
                         <td class="text-center"><button (click)="delete(agendamento.id)"
-                                class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span>
+                                class="btn btn-outline-danger btn-sm"><span class="glyphicon glyphicon-remove"></span>
                                 Delete</button></td>
                     </tr>
                 </tbody>
