@@ -27,6 +27,7 @@ import { ServicoListBarbeiroComponent } from './view/servico/servico-list-barbei
 import { TelaClienteAdminComponent } from './view/tela-cliente/tela-cliente-admin/tela-cliente-admin.component';
 import { TelaBarbeiroAdminComponent } from './view/tela-barbeiro/tela-barbeiro-admin/tela-barbeiro-admin.component';
 import { NotFoundComponent } from './view/not-found/not-found.component';
+import { DateFormatePipe } from './date-formate.pipe';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,7 @@ import { NotFoundComponent } from './view/not-found/not-found.component';
     TelaBarbeiroAdminComponent,
     NotFoundComponent, 
     TelaClienteAdminComponent, 
-    TelaBarbeiroAdminComponent
+    TelaBarbeiroAdminComponent, DateFormatePipe
 
   ],
   imports: [

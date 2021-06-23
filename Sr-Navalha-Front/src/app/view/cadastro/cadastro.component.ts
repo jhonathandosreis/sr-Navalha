@@ -1,3 +1,4 @@
+import swal  from 'sweetalert';
 import { usuarioCredencial } from './../../models/UsuarioCredencial';
 import { Router, RouterLink } from '@angular/router';
 import { UsuarioBarbeiroService } from './../../controllers/usuario-barbeiro.service';
@@ -10,7 +11,7 @@ import { Credencial } from 'src/app/models/credencial';
 import { Endereco } from 'src/app/models/endereco';
 import { UsuarioCliente } from 'src/app/models/usuario-cliente';
 import { LoginKeycloakService } from 'src/app/controllers/loginKeykloac.service';
-import swal from 'sweetalert';
+
 
 @Component({
   selector: 'ads-cadastro',

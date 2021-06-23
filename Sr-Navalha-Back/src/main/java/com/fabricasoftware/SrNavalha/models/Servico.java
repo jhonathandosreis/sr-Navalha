@@ -22,6 +22,8 @@ public class Servico {
     private String nome;
     private String descricao;
     private Double valor;
+
+    @JoinColumn()
     private String imageUrl;
     @ManyToOne
     private UsuarioBarbeiro usuarioBarbeiro;
