@@ -38,6 +38,12 @@ public class ServicoController {
       List<Servico> servico = servicoService.getServicoByBarbeiro(idBarbeiro);
         return servico;
     }
+    
+    @GetMapping("/filterServer/{nome}")
+    public List<Servico> filterServicoByName(@PathVariable Long name) {
+      List<Servico> servico = servicoService.getServicoByBarbeiro(name);
+        return servico;
+    }
 
     @PostMapping
     public ResponseEntity<Servico> create(@RequestBody Servico servico) {

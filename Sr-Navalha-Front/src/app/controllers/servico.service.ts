@@ -34,4 +34,8 @@ export class ServicoService {
   deleteServico(id: any): Observable<void> {
     return this.httpCliente.delete<void>(`${environment.baseUrl}/servicos/${id}`);
   }
+
+  filterServiceByName(nome: any): Observable<Servico[]> {
+    return this.httpCliente.get<Servico[]>(`${environment.baseUrl}/servicos/filterServer/${nome}`)
+  }
 }

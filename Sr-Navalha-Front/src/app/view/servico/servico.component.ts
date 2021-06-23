@@ -2,6 +2,7 @@ import { UsuarioBarbeiroService } from './../../controllers/usuario-barbeiro.ser
 import { ServicoService } from '../../controllers/servico.service';
 import { Component, OnInit } from '@angular/core';
 import { Servico } from 'src/app/models/servico';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'ads-servico',
@@ -24,9 +25,24 @@ export class ServicoComponent implements OnInit {
     this.serviceServico.createServico(this.servico).subscribe(resposta => {
     this.servico = resposta
     this.setBarbeiro()
-    confirm("Serviço cadastrado com sucesso!")
-    location.reload()
+    swal({title:"Serviço cadastrado com sucesso!", icon:"success"})
+    location.reload
+    
     });
+  }
+
+  checkCreate(){
+    if( this.servico.nome == "" ) {
+      swal({title:"Insira o nome do serviço!", icon: "error" })
+    } else if( this.servico.descricao == "" ) {
+      swal({title:"Insira a descrição do serviço!", icon: "error" })
+    } else if( this.servico.imageUrl=="" ) {
+      swal({title:"Insira a imagem do serviço!", icon: "error" })
+    } else if( this.servico.valor <0 ) {
+      swal({title:"Valor do serviço não pode ser negativo!", icon: "error" })
+    } else {
+      this.createservico()
+    }
   }
 
   setBarbeiro() {
@@ -42,7 +58,6 @@ export class ServicoComponent implements OnInit {
       reader.onload = (event: any) => {
         this.url = event.target.result
         this.servico.imageUrl = event.target.result
-        console.log(this.url)
       }
     }
   }

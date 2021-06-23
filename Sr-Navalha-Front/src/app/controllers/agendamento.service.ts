@@ -23,6 +23,10 @@ export class AgendamentoService {
     return this.httpCliente.get<any[]>(`${environment.baseUrl}/agendamentos/cliente/${emailCliente}`);
   }
 
+  getServicoBarbeiro(emailCliente: any): Observable<any[]> {
+    return this.httpCliente.get<any[]>(`${environment.baseUrl}/agendamentos/barbeiro/${emailCliente}`);
+  }
+
   createAgendamento(agendamento: any): Observable<any> {
     return this.httpCliente.post<any>(`${environment.baseUrl}/agendamentos`, agendamento)
   }

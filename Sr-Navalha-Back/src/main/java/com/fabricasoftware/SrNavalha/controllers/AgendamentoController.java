@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import javax.annotation.security.RolesAllowed;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,7 +21,6 @@ public class AgendamentoController {
     private AgendamentoService agendamentoService;
 
     @GetMapping
-    @RolesAllowed("cliente")
     public ResponseEntity<List<Agendamento>> findAll() {
         List<Agendamento> agendamentoSearch = agendamentoService.finAll();
         if (agendamentoSearch.isEmpty()) {
@@ -32,7 +31,6 @@ public class AgendamentoController {
     }
 
     @GetMapping("/{id}")
-    @RolesAllowed("cliente")
     public ResponseEntity<?> getById(@PathVariable Long id) {
         Optional<Agendamento> agendamentoId = agendamentoService.getById(id);
         if (agendamentoId.isPresent()) {
@@ -43,44 +41,39 @@ public class AgendamentoController {
     }
 
     @PostMapping
-    @RolesAllowed("cliente")
     public ResponseEntity<Agendamento> create(@RequestBody Agendamento agendamento) {
         return new ResponseEntity<Agendamento>(agendamentoService.create(agendamento), HttpStatus.OK);
     }
 
     @PutMapping
-    @RolesAllowed("cliente")
-    public ResponseEntity<?> update(@RequestBody Agendamento agendamento) {
-        Optional<Agendamento> updateAgendamento = agendamentoService.getById(agendamento.getId());
-        Map<String, String> error = new HashMap<>();
-        error.put("Error","Item não encontrado");
-        error.put("Code","404");
-        if (updateAgendamento.isPresent()) {
-            return new ResponseEntity<Agendamento>(agendamentoService.update(updateAgendamento.get()), HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(error,HttpStatus.NOT_FOUND);
-        }
+    public ResponseEntity<Agendamento> update(@RequestBody Agendamento agendamento) {
+        Agendamento updateAgendamento = agendamentoService.getByIdAgendamento(agendamento.getId());
+        return new ResponseEntity(agendamentoService.update(updateAgendamento), HttpStatus.OK);
     }
 
     @GetMapping("/cliente/{emailCliente}")
-    @RolesAllowed("cliente")
     public List<Agendamento> filterByEmailCliente(@PathVariable String emailCliente) {
         List<Agendamento> agendamento = agendamentoService.filterByEmailCliente(emailCliente);
         return agendamento;
     }
 
+    @GetMapping("/barbeiro/{emailBarbeiro}")
+    public List<Agendamento> filterByEmailBarbeiro(@PathVariable String emailBarbeiro) {
+        List<Agendamento> agendamento = agendamentoService.filterByEmailBarbeiro(emailBarbeiro);
+        return agendamento;
+    }
+
     @DeleteMapping(value = "/{id}")
-    @RolesAllowed("cliente")
     public ResponseEntity<?> delete(@PathVariable Long id) {
         Optional<Agendamento> delById = agendamentoService.getById(id);
         Map<String, String> error = new HashMap<>();
-        error.put("Error","Item não encontrado");
-        error.put("Code","404");
+        error.put("Error", "Item não encontrado");
+        error.put("Code", "404");
         if (!delById.isPresent()) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             agendamentoService.delete(delById.get().getId());
-            return new ResponseEntity<>(error,HttpStatus.OK);
+            return new ResponseEntity<>(error, HttpStatus.OK);
         }
     }
 }

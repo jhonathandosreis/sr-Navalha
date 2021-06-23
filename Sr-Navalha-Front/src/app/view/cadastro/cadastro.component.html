@@ -59,7 +59,7 @@
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
                                     <label>CEP*</label>
-                                    <input [(ngModel)]="endereco.cep" [(ngModel)]="enderecoCep.cep" required (blur)="buscarEndereco($event.target)" type="text" class="form-control form-control-sm" name="cep" id="cep" placeholder="Ex: 11.111-111*"W>
+                                    <input [(ngModel)]="endereco.cep" [(ngModel)]="enderecoCep.cep" required (blur)="buscarEndereco($event.target)" type="text" class="form-control form-control-sm" name="cep" id="cep" placeholder="Ex: 11.111-111*" W>
                                 </div>
                             </div>
 
@@ -108,7 +108,7 @@
                                 <div class="form-group">
                                     <label>Confirme a Senha <small>(Mínimo de 6 e máximo de 15 caracteres
                                             )*</small></label>
-                                    <input [(ngModel)]="credencial.senha" type="password" class="form-control form-control-sm" name="confirmaSenha" id="confirmaSenha" placeholder="Confirma a Senha*">
+                                    <input [(ngModel)]="confirmSenha" type="password" class="form-control form-control-sm" name="confirmaSenha" id="confirmaSenha" placeholder="Confirma a Senha*">
 
                                 </div>
                             </div>
@@ -123,7 +123,7 @@
 
                         <div class="text-center">
                             <button (click)="createCheck()" class="btn btn-primary" type="button">CADASTRAR</button>
-                            
+
                         </div>
                     </form>
                 </div>

@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { LoginKeycloakService } from './../../controllers/loginKeykloac.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotFoundComponent implements OnInit {
 
-  constructor() { }
+  constructor(private login: LoginKeycloakService,private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  verificar(){
+    if(this.login.getIsLogged()){
+      this.router.navigate(["/carregando"])
+    }else{
+      this.router.navigate(["/"])
+    }
   }
 
 }

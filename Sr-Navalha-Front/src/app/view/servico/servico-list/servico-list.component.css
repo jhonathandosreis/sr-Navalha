@@ -1,16 +1,8 @@
-H6 {
-    text-align: center;
-    color:black;
-    }
-
-.p {
-    text-align: center;
-    color:black;
-}    
-
 .card{
     border-radius: 4px;
-    background: #fff;
+    background: -moz-linear-gradient(135deg, rgb(46, 46, 46) 0%, rgb(20, 20, 20) 100%);
+    background: -webkit-linear-gradient(135deg, rgb(5, 5, 5) 0%, rgb(70, 69, 69) 100%);
+    background: linear-gradient(135deg, rgb(26, 25, 25) 0%, rgb(41, 41, 41) 100%);
     box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
       transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
   cursor: pointer;
@@ -19,4 +11,12 @@ H6 {
 .card:hover{
      transform: scale(1.05);
   box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
+
+.album{
+  background-color: rgb(71, 70, 70)!important;
+}
+.btn-group{
+  margin: 0 auto;
+  text-align: center;
 }

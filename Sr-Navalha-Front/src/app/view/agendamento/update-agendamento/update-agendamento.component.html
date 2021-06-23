@@ -60,7 +60,7 @@
                     <div class="row">
                         <div class="form-group col-md-4 col-12">
                             <label>Endereço </label>
-                            <input type="text" class="form-control" placeholder="Logradouro" autocomplete="off" formControlName="logradouro" [(ngModel)]="agendamentoNew.endereco.rua">
+                            <input type="text" class="form-control" placeholder="Logradouro" autocomplete="off" formControlName="logradouro"  [(ngModel)]="agendamentoNew.endereco.logradouro">
                         </div>
                         <div class="form-group col-md-2 col-12">
                             <label>CEP</label>
@@ -74,7 +74,7 @@
                         <br>
                         <div class="form-group col-md-4 col-12" style="padding-bottom: 1%;">
                             <label>Cidade</label>
-                            <input type="text" class="form-control" placeholder="Cidade" autocomplete="off" formControlName="cidade" [(ngModel)]="agendamentoNew.endereco.cidade.nome">
+                            <input type="text" class="form-control" placeholder="Cidade" autocomplete="off" formControlName="cidade" [(ngModel)]="agendamentoNew.endereco.cidade.localidade">
                         </div>
                         <div class="form-group col-md-4 col-12" style="padding-top: 1%; padding-bottom: 1%;">
                             <label>Bairro</label>
@@ -83,15 +83,15 @@
 
                         <div class="form-group col-md-4 col-12" style="padding-top: 1%; padding-bottom: 1%;">
                             <label for="estado">Estado</label>
-                            <input type="text" class="form-control" placeholder="Estado" autocomplete="off" formControlName="estado" readonly [(ngModel)]="agendamentoNew.endereco.cidade.uf">
+                            <input type="text" class="form-control" placeholder="Estado" autocomplete="off" formControlName="estado" [(ngModel)]="agendamentoNew.endereco.cidade.uf">
                         </div>
                         <div class="form-group col-md-4 col-12" style="padding-top: 1%; padding-bottom: 1%;">
-                            <label for="horario">Horario</label>
-                            <input type="time" class="form-control" placeholder="Horario" autocomplete="off" formControlName="horario" [(ngModel)]="agendamentoNew.horario">
+                            <label for="dataAgendamento">Data agendamento</label>
+                            <input type="date" class="form-control" value="dataAgendamento" placeholder="Data agendamento" autocomplete="off" formControlName="dataAgendamento" [(ngModel)]="dataAgendamento" (ngModelChange)="dataAgendamento=$event">
                         </div>
                         <div class="form-group col-md-4 col-12" style="padding-top: 1%; padding-bottom: 1%;">
-                            <label for="data">Data</label>
-                            <input type="date" class="form-control" placeholder="Data" autocomplete="off" formControlName="data" [(ngModel)]="agendamentoNew.data">
+                            <label for="horaAgendamento">Hora do agendamento</label>
+                            <input type="time" class="form-control" placeholder="Hora agendamento" value="horaAgendamento" autocomplete="off" formControlName="horaAgendamento" [(ngModel)]="horaAgendamento">
                         </div>
                     </div>
                 </div>
@@ -101,17 +101,14 @@
                     <div class="row">
                         <div class="form-group col-md-3">
                             <small><label>
-                                    <h6>Forma de Pagamento</h6>
-                                </label></small>
-                            <select class="form-control" formControlName="formaPagamento">
-                                <option [selected] value="dinheiro">Dinheiro</option>
-                                <option value="cartao">Cartão</option>
-                            </select>
+                                <h6>Forma de Pagamento</h6>
+                            </label></small>
+                            <input type="text" class="form-control" value="DINHEIRO" readonly data-bs-toggle="tooltip" data-bs-placement="top" title="Breve teremos mais opções de Pagamento">
                         </div>
                     </div>
                 </div>
                 <button (click)="salvarAgendamento()" type="button" class="btn btn-primary btn-lg">Salvar</button>
-                <button routerLink="/telaCliente" type="button" class="btn btn-danger btn-lg">Cancelar</button>
+                <button routerLink="/" type="button" class="btn btn-danger btn-lg">Cancelar</button>
             </form>
         </div>
         <div class="ordem-compra">

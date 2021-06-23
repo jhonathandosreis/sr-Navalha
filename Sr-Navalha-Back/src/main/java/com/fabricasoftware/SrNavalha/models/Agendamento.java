@@ -19,10 +19,11 @@ public class Agendamento {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
     private long id;
-    private Date data;
+    private String data;
+    private String formaPagamento;
     private String horario;
     private String status;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private Endereco endereco;
     @OneToOne
     private Servico servico;

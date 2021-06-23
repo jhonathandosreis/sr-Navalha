@@ -62,14 +62,14 @@ h3 {
 }
 
 .nav-menu {
-  
-    background:rgba(0, 0, 0, 0.904);
+    background: rgba(0, 0, 0, 0.904);
     position: fixed;
     top: 0;
     padding: 10px 8%;
 }
-.ordem-compra{
-    margin-top: 50px; 
+
+.ordem-compra {
+    margin-top: 50px;
     margin-bottom: 150px;
 }
 
@@ -80,6 +80,7 @@ input.ng-invalid.ng-touched {
 select.ng-invalid.ng-touched {
     border: 1px solid red;
 }
+
 input.ng-valid.ng-touched {
     border: 1px solid green;
 }

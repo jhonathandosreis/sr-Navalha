@@ -33,6 +33,7 @@
         </div>
     </div>
 </div>
+
 <body style="padding-top: 5%;">
     <div class="container" style="padding: 3px 2% 0px 2%;">
         <div class="ordem-compra">
@@ -66,7 +67,7 @@
                         <br>
                         <div class="form-group col-md-2 col-12">
                             <label>Numero</label>
-                            <input type="number" class="form-control" placeholder="Número" autocomplete="off" formControlName="numero" [(ngModel)]="enderecoAgendado.numero">
+                            <input type="number" class="form-control" placeholder="Número" autocomplete="off" formControlName="numero" [(ngModel)]="numero">
                         </div>
                         <br>
                         <div class="form-group col-md-3 col-12">
@@ -86,6 +87,14 @@
                             <label for="estado">Estado</label>
                             <input type="text" class="form-control" placeholder="Estado" autocomplete="off" formControlName="estado" readonly [(ngModel)]="endereco.uf">
                         </div>
+                        <div class="form-group col-md-4 col-12" style="padding-top: 1%; padding-bottom: 1%;">
+                            <label for="dataAgendamento">Data agendamento</label>
+                            <input type="date" class="form-control" value="dataAgendamento" placeholder="Data agendamento" autocomplete="off" formControlName="dataAgendamento" [(ngModel)]="dataAgendamento">
+                        </div>
+                        <div class="form-group col-md-4 col-12" style="padding-top: 1%; padding-bottom: 1%;">
+                            <label for="horaAgendamento">Hora do agendamento</label>
+                            <input type="time" class="form-control" placeholder="Hora agendamento" value="horaAgendamento" autocomplete="off" formControlName="horaAgendamento" [(ngModel)]="horaAgendamento">
+                        </div>
                     </div>
                 </div>
                 <br />
@@ -94,12 +103,9 @@
                     <div class="row">
                         <div class="form-group col-md-3">
                             <small><label>
-                                    <h6>Forma de Pagamento</h6>
-                                </label></small>
-                            <select class="form-control" formControlName="formaPagamento">
-                                <option selected value="dinheiro">Dinheiro</option>
-                                <option value="cartao">Cartão</option>
-                            </select>
+                                <h6>Forma de Pagamento</h6>
+                            </label></small>
+                            <input type="text" class="form-control" value="DINHEIRO" readonly data-bs-toggle="tooltip" data-bs-placement="top" title="Breve teremos mais opções de Pagamento">
                         </div>
                         <div class="form-group col d-flex justify-content-end" style="padding-top: 2%; padding-bottom: 5%;">
                             <h6><b>Valor Total:</b> R$ {{servicoNew.valor}}</h6>

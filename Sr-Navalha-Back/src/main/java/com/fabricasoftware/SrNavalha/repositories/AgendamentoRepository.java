@@ -17,4 +17,6 @@ public interface AgendamentoRepository extends JpaRepository<Agendamento, Long> 
 
     @Query("select a from Agendamento a left join fetch a.cliente s where s.email = :email")
     List<Agendamento> filterByEmailCliente(String email);
+
+    Agendamento findAllById(Long id);
 }
