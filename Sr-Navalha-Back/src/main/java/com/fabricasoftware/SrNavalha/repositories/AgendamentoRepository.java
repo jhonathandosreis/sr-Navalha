@@ -11,8 +11,7 @@ import java.util.List;
 @Repository
 public interface AgendamentoRepository extends JpaRepository<Agendamento, Long> {
 
-    @Query("select a from Agendamento a left join fetch a.servico s left  join fetch s.usuarioBarbeiro " +
-            "u where u.email = :email")
+    @Query("select a from Agendamento a left join fetch a.servico s left  join fetch s.usuarioBarbeiro u where u.email = :email")
     List<Agendamento> filterByEmailBarbeiro(@Param("email") String email);
 
     @Query("select a from Agendamento a left join fetch a.cliente s where s.email = :email")

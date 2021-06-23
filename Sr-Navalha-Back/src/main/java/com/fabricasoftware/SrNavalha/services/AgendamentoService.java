@@ -20,7 +20,7 @@ public class AgendamentoService {
     }
 
     public List<Agendamento> filterByEmailBarbeiro(String email) {
-        List<Agendamento> agendamentosFiltrados = agendamentoRepository.findAll();
+        List<Agendamento> agendamentosFiltrados = agendamentoRepository.filterByEmailBarbeiro(email);
         return agendamentosFiltrados;
     }
 
