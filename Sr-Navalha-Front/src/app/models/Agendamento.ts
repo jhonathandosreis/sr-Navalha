@@ -4,10 +4,11 @@ import { Endereco } from './endereco';
 
 class Agendamento {
     id: any;
-    data!: any;
+    data!: Date;
+    formaPagamento: any;
     horario: any;
     status: any;
-    endereco!: any;
+    endereco!: Endereco;
     servico!: any;
     cliente!: any
 }

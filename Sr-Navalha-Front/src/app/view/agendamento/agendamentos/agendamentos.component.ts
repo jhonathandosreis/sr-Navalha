@@ -1,3 +1,4 @@
+import swal from 'sweetalert';
 import { Router } from '@angular/router';
 import { LoginKeycloakService } from './../../../controllers/loginKeykloac.service';
 import { AgendamentoService } from './../../../controllers/agendamento.service';
@@ -11,19 +12,20 @@ import { Route } from '@angular/compiler/src/core';
   styleUrls: ['./agendamentos.component.css']
 })
 export class AgendamentosComponent implements OnInit {
-  
+  tipo: any;
   agendamentos: Agendamento[] = []
   emailUpdate: any;
 
-  constructor(private agendamentoService: AgendamentoService, 
+  constructor(private agendamentoService: AgendamentoService,
     private loginServico: LoginKeycloakService,
     private route: Router) { }
 
   ngOnInit(): void {
-    if(this.loginServico.getIsLogged()){
+    this.tipo = localStorage.getItem("tipo")
+    if (this.loginServico.getIsLogged()) {
       this.emailUpdate = localStorage.getItem("loginEmail")
-    this.getServicoCliente(this.emailUpdate)
-    }else{
+      this.getServicoCliente(this.emailUpdate)
+    } else {
       this.route.navigate(["/"])
     }
   }
@@ -34,7 +36,14 @@ export class AgendamentosComponent implements OnInit {
 
   delete(id: any): void {
     this.agendamentoService.deleteAgendamento(id).subscribe((resposta) => {
-      location.reload();
+      
     })
+    swal({ title: "Agendamento Cancelado com sucesso!", icon: "success" })
+    setTimeout(() => {
+      location.reload();
+    }, 1000);
   }
+
+
+
 }

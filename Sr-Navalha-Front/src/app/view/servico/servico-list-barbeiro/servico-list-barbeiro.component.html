@@ -1,85 +1,78 @@
 <div class="container-fluid" style="padding-top: 4%;">
-  <div class="row">
-    <div class="col-12">
-      <div class="album py-5 bg-light">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-          <!-- for lista de serviços -->
-          <div class="col-12 col-md-3" *ngFor="let servico of servicos">
-            <!-- card -->
-            <div class="card shadow-sm text-center h-100 " id="cardservico">
-              <h6 class="card-title"> {{servico.nome}} </h6>
-              <img class="card-img-top" [src]="servico.imageUrl" alt="ServicoOferecido" style="margin: 0px;" width="auto"
-                height="250px">
-              <div class="card-body">
-                <p >{{servico.descricao}}</p>
-                <P>R$ {{servico.valor}}</P>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                          data-bs-target="#exampleModal" (click)="popularDadosModal(servico.id)">Alterar</button>
-                        
-                        <button type="button" class="btn btn-secondary" (click)="deleteServico(servico.id)">Deletar</button>
-                      </div>
-                </div>
-              </div>
-            </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="album py-5 bg-light">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                    <!-- for lista de serviços -->
+                    <div class="col-12 col-md-3" *ngFor="let servico of servicos">
+                        <!-- card -->
+                        <div class="card shadow-sm text-center h-100 " id="cardservico">
+                            <h6 class="card-title"> {{servico.nome}} </h6>
+                            <img class="card-img-top" [src]="servico.imageUrl" alt="ServicoOferecido" style="margin: 0px;" width="auto" height="250px">
+                            <div class="card-body">
+                                <p>{{servico.descricao}}</p>
+                                <P>R$ {{servico.valor}}</P>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="popularDadosModal(servico.id)">Alterar</button>
 
-            <!-- fim card -->
-          </div>
-          <!-- fim for lista de serviços -->
-          <!-- modal atualizar -->
-          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Alterar Dados</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  <form id="formServico" class="contactForm">
-                    <div class="row">
-                      <div class="col-lg-12 col-md-12">
-                        <div class="form-group">
-                          <label for="basic-url">Nome do Serviço*</label>
-                          <input [(ngModel)]="novoservico.nome" type="text" name="nome"
-                            class="form-control form-control-sm" id="nome" placeholder="Nome do Serviço (Ex: Barba)*">
+                                        <button type="button" class="btn btn-secondary" (click)="deleteServico(servico.id)">Deletar</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                      </div>
-                      <div class="col-lg-6 col-md-12">
-                        <div class="form-group">
-                          <label>Descrição do Serviço*</label>
-                          <input [(ngModel)]="novoservico.descricao" type="text" class="form-control form-control-sm"
-                            name="descricao" id="descricao"
-                            placeholder="Ex: (Abrange somente o corte e modelagem da barba)*">
-                        </div>
-                      </div>
-                      <div class="col-lg-6 col-md-12">
-                        <div class="form-group">
-                          <label>Valor do Serviço*</label>
-                          <input [(ngModel)]="novoservico.valor" type="number" name="valor"
-                            class="form-control form-control-sm" id="valor" placeholder="Ex: 25.00">
-                        </div>
-                      </div>
+
+                        <!-- fim card -->
                     </div>
-                    <div id="divfoto">
-                      <p>Foto do Serviço</p>
-                     
-                      <input type="file" (change)="onselectFile($event)" class="form-control" id="inputGroupFile01" accept="image/png, image/jpeg">
-                      <img [src]="novoservico.imageUrl" alt="ServicoOferecido" style="margin: 5px;" width="auto" height="250px">
+                    <!-- fim for lista de serviços -->
+                    <!-- modal atualizar -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Alterar Dados</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="formServico" class="contactForm">
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-12">
+                                                <div class="form-group">
+                                                    <label for="basic-url">Nome do Serviço*</label>
+                                                    <input [(ngModel)]="novoservico.nome" type="text" name="nome" class="form-control form-control-sm" id="nome" placeholder="Barba*">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-12">
+                                                <div class="form-group">
+                                                    <label>Descrição do Serviço*</label>
+                                                    <input [(ngModel)]="novoservico.descricao" type="text" class="form-control form-control-sm" name="descricao" id="descricao" placeholder="Abrange somente o corte e modelagem da barba">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-12">
+                                                <div class="form-group">
+                                                    <label>Valor do Serviço*</label>
+                                                    <input [(ngModel)]="novoservico.valor" type="number" name="valor" class="form-control form-control-sm" id="valor" placeholder="25.00">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="divfoto">
+                                            <p>Foto do Serviço</p>
+
+                                            <input type="file" (change)="onselectFile($event)" class="form-control" id="inputGroupFile01" accept="image/png, image/jpeg">
+                                            <img [src]="novoservico.imageUrl" alt="ServicoOferecido" style="margin: 5px;" width="auto" height="250px">
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Sair</button>
+                                    <button type="button" class="btn btn-primary" (click)="update()">Alterar</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </form>
+                    <!-- fim modal atualizar -->
                 </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Sair</button>
-                  <button type="button" class="btn btn-primary" (click)="update()">Alterar</button>
-                </div>
-              </div>
             </div>
-          </div>
-          <!-- fim modal atualizar -->
         </div>
-      </div>
     </div>
-  </div>
 </div>
