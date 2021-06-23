@@ -161,8 +161,6 @@ export class CadastroComponent implements OnInit {
       swal({title:"Insira o nome!", icon: "error" })
     } else if (this.novoCliente.cpf == "" || this.novoCliente.cpf == null) {
       swal({title:"Insira o CPF!", icon: "error"})
-    } else if (this.novoCliente.dataNascimento == "" || this.novoCliente.dataNascimento == null) {
-      swal({title:"Insira a data de nascimento!", icon: "error"})
     } else if (this.novoCliente.email == "" || this.novoCliente.email == null) {
       swal({title:"Insira o E-Mail!", icon: "error"})
     } else if (this.novoCliente.telefone == "" || this.novoCliente.telefone == null) {
