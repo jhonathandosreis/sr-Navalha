@@ -131,3 +131,7 @@ body {
     color: #ddddddc9;
 }
 
+.shadow{
+    background-color: rgba(20, 20, 20, 0.719)!important;
+    color: #d6d6d5;
+}
