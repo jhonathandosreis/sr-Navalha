@@ -49,7 +49,7 @@
                     </tr>
                 </thead>
                 <tbody *ngIf="tipo == 'barbeiro'">
-                    <tr *ngFor="let agendamento of agendamentos">
+                    <tr *ngFor="let agendamento of agendamentos"  data-bs-toggle="tooltip" data-bs-placement="left" title="{{'Bairro: '+ agendamento.endereco.bairro + ' - logradouro: '+ agendamento.endereco.logradouro + ' - Cidade: '+ agendamento.endereco.cidade.localidade + ' - Numero: ' + agendamento.endereco.numero}}">
                         <td>{{agendamento.cliente.nome}}</td>
                         <td>{{agendamento.servico.usuarioBarbeiro.nome}}</td>
                         <td>{{agendamento.data | dateFormate}}</td>
