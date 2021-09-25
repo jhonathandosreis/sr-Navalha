@@ -1,3 +1,6 @@
+import { NavMaterialComponent } from './view/material/nav/nav.component';
+import { FooterMaterialComponent } from './view/material/footer/footer.component';
+import { MaterialModule } from './../assets/material/material.module';
 import { AuthGuard } from './auth.guard';
 import { PerfilClienteComponent } from './view/perfil-cliente/perfil-cliente.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
@@ -28,6 +31,7 @@ import { TelaClienteAdminComponent } from './view/tela-cliente/tela-cliente-admi
 import { TelaBarbeiroAdminComponent } from './view/tela-barbeiro/tela-barbeiro-admin/tela-barbeiro-admin.component';
 import { NotFoundComponent } from './view/not-found/not-found.component';
 import { DateFormatePipe } from './date-formate.pipe';
+import { HeaderMaterialComponent } from './view/material/header/header.component';
 
 @NgModule({
   declarations: [
@@ -48,12 +52,15 @@ import { DateFormatePipe } from './date-formate.pipe';
     SpinnerComponent,
     UpdateAgendamentoComponent,
     PerfilClienteComponent,
-    ServicoListBarbeiroComponent, 
+    ServicoListBarbeiroComponent,
     TelaClienteAdminComponent,
-    TelaClienteAdminComponent, 
+    TelaClienteAdminComponent,
     TelaBarbeiroAdminComponent,
-    NotFoundComponent, 
-    TelaClienteAdminComponent, 
+    NotFoundComponent,
+    TelaClienteAdminComponent,
+    FooterMaterialComponent,
+    HeaderMaterialComponent,
+    NavMaterialComponent,
     TelaBarbeiroAdminComponent, DateFormatePipe
 
   ],
@@ -63,6 +70,7 @@ import { DateFormatePipe } from './date-formate.pipe';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MaterialModule,
     OAuthModule.forRoot({
       resourceServer: {
         allowedUrls: ['http://localhost:8080/foo'],
