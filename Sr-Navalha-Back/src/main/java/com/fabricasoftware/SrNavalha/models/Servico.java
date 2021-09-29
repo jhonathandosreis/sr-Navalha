@@ -1,11 +1,13 @@
 package com.fabricasoftware.SrNavalha.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
@@ -22,7 +24,9 @@ public class Servico {
     private String nome;
     private String descricao;
     private Double valor;
-    private Integer score;
+
+    @OneToMany(mappedBy = "servico", fetch = FetchType.EAGER)
+    private List<Avaliacao> avaliacoes;
     @JoinColumn()
     private String imageUrl;
     @ManyToOne
