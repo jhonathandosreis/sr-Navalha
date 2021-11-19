@@ -38,7 +38,7 @@ public class Swagger {
         return new ApiInfoBuilder()
                 .title(nome)
                 .description("Sistema criado apra o gerenciamento dos Serviços oferecidos por barbeiros autônomos.")
-                .termsOfServiceUrl("http://localhost:8080")
+                .termsOfServiceUrl("http://localhost:8080/swagger")
                 .license("MIT")
                 .licenseUrl("https://github.com/jhonathandosreis/Sr-Navalha/blob/main/LICENSE")
                 .version("2.0")

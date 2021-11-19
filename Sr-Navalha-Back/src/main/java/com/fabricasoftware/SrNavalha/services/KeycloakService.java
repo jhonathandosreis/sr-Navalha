@@ -286,11 +286,6 @@ public class KeycloakService {
         }
     }
 
-    /**
-     * Method makes an instance of keycloakADMIN.
-     *
-     * @return instance of keycloakADMIN.
-     */
     private Keycloak getInstanceKeycloak() {
         return KeycloakBuilder.builder().serverUrl(authServerUrl)
                 .grantType(OAuth2Constants.PASSWORD).realm("master").clientId("admin-cli")
@@ -298,11 +293,6 @@ public class KeycloakService {
                 .resteasyClient(new ResteasyClientBuilder().connectionPoolSize(10).build()).build();
     }
 
-    /**
-     * Method makes userResource ADMIN keycloak.
-     *
-     * @return ADMIN userResource keycloak.
-     */
     public UsersResource getUsersResource() {
         Keycloak keycloak = this.getInstanceKeycloak();
         keycloak.tokenManager().getAccessToken();
@@ -310,11 +300,6 @@ public class KeycloakService {
         return realmResource.users();
     }
 
-    /**
-     * Method makes RealmResource ADMIN keycloak.
-     *
-     * @return ADMIN RealmResource keycloak.
-     */
     private RealmResource getRealmResource() {
         Keycloak keycloak = this.getInstanceKeycloak();
         keycloak.tokenManager().getAccessToken();
