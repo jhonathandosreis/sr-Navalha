@@ -9,3 +9,18 @@ logging:
       org.springframework.web: DEBUG
       # org.keycloak: DEBUG
       org.springframework.security: DEBUG
+
+keycloak:
+  auth-server-url: "http://localhost:8180/auth"
+  bearer-only: true
+  credentials:
+    secret: "123456"
+  principal-attribute: "preferred_username"
+  realm: "srnavalha"
+  resource: "tutorial-backend"
+  ssl-required: "none"
+  use-resource-role-mappings: true
+
+#  user you log in without keycloak admin
+user-admin: "admin"
+password-admin: "admin123"
