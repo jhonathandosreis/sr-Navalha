@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.fabricasoftware</groupId>
     <artifactId>SrNavalha</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <name>SrNavalha</name>
     <description>Desenvolver um software para atender os requisitos da fábrica de software</description>
     <properties>

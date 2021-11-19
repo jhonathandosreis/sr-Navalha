@@ -1,21 +1,56 @@
 <div class="album py-5 bg-light" id="album">
     <div class="container">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id="row1">
-            <div class="col-12 col-md-3" id="row2" *ngFor="let servico of servicos">
+            <div class="col-2 col-md-3" id="row2" *ngFor="let servico of servicos">
                 <div class="card shadow-sm h-100" id="cardservico">
                     <h5 class="card-title"> {{servico.nome}} </h5>
                     <h6 class="card-subtitle mb-2 text-muted">Barbeiro: {{servico.usuarioBarbeiro.nome}} <br> </h6>
-                    <img class="card-img-top" [src]="servico.imageUrl" alt="ServicoOferecido" style="margin: 0px;" width="auto" height="250px">
+                    <img class="card-img-top" [src]="servico.imageUrl" alt="ServicoOferecido" style="margin: 0px;"
+                    width="auto" height="250px">
                     <div class="card-body">
                         <p>{{servico.descricao}}</p>
-                        <P>R$ {{servico.valor}}</P>
+                        <P>R$ {{servico.valor }}</P>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                                <button id="botaoAgend" (click)="agendar(servico.id)" type="button" class="btn btn-sm btn-outline-secondary">Agendar</button>
+                                <button id="botaoAgend" (click)="agendar(servico.id)" type="button"
+                                class="btn btn-sm btn-outline-secondary">Agendar</button>
+                            </div>
+                            <div class="btn-group">
+                                <button id="avaliacaoButton" data-bs-toggle="modal" data-bs-target="#avaliacao"
+                                data-bs-whatever="@mdo" type="button" (click)="getAvaliacoes()"
+                                class="btn btn-sm btn-outline-secondary">Avaliações</button>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <div class="modal fade" id="avaliacao" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="avaliacao">Avaliações</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body" >
+                               <div class="card-avaliacoes" *ngFor="let avaliacao of avaliacoes">
+                                   <div class="card">
+                                       <div class="card-body">
+                                           <h4 class="card-title">{{avaliacao}}</h4>
+                                           <p class="card-text">{{avaliacao}}</p>
+                                       </div>
+                                   </div>
+                               </div>                                
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Send message</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
