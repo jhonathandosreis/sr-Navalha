@@ -50,6 +50,7 @@ public class KeycloakService {
         try {
             UsersResource usersResource = getUsersResource();
             UserRepresentation user = new UserRepresentation();
+
             user.setEnabled(true);
             user.setUsername(userDTO.getEmail());
             user.setFirstName(userDTO.getFirstname());
@@ -248,7 +249,6 @@ public class KeycloakService {
     public UserDTO getUser(String userEmail) throws Exception {
         try {
             RealmResource realmResource = getRealmResource();
-
             List<UserRepresentation> listUsers = realmResource.users().list();
             UserDTO userLocated = new UserDTO();
 
@@ -257,7 +257,14 @@ public class KeycloakService {
                     userLocated.setId(user.getId());
                     userLocated.setFirstname(user.getFirstName());
                     userLocated.setLastname(user.getLastName());
-                    userLocated.setEmail(user.getEmail());
+                    userLocated.setEmail(user.getEmail()); /*
+                    System.out.println("User details: " + user.getRealmRoles().size());
+                    System.out.println("------------------");
+                    System.out.println("User details: " + user.getAccess().get("manageGroupMembership"));
+                    System.out.println("User details: " + user.getAccess().get("view"));
+                    System.out.println("User details: " + user.getAccess().get("mapRoles"));
+                    System.out.println("User details: " + user.getAccess().get("impersonate"));
+                    System.out.println("User details: " + user.getAccess().get("manage")); */
                 }
             }
             return userLocated;

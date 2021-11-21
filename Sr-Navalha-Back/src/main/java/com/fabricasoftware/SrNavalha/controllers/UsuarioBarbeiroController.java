@@ -1,6 +1,8 @@
 package com.fabricasoftware.SrNavalha.controllers;
 
+import com.fabricasoftware.SrNavalha.dto.UserDTO;
 import com.fabricasoftware.SrNavalha.models.UsuarioBarbeiro;
+import com.fabricasoftware.SrNavalha.services.KeycloakService;
 import com.fabricasoftware.SrNavalha.services.UsuarioBarbeiroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +17,9 @@ public class UsuarioBarbeiroController {
 
     @Autowired
     private UsuarioBarbeiroService usuarioBarbeiroService;
+    
+    @Autowired
+    private KeycloakService keycloakService;
 
     @GetMapping
     public ResponseEntity<List<UsuarioBarbeiro>> findAll() {
@@ -27,11 +32,21 @@ public class UsuarioBarbeiroController {
         UsuarioBarbeiro barbeiroRetorno = usuarioBarbeiroService.findBarbeiroByEmail(email);
         return ResponseEntity.ok().body(barbeiroRetorno);
     }
-    
 
     @PostMapping
     public ResponseEntity<UsuarioBarbeiro> create(@RequestBody UsuarioBarbeiro usuarioBarbeiro) {
-        usuarioBarbeiro = usuarioBarbeiroService.create(usuarioBarbeiro);
+        try {
+            UserDTO userNovoCreate = new UserDTO();
+            userNovoCreate.setFirstname(usuarioBarbeiro.getNome().split(" ")[0]);
+            userNovoCreate.setLastname(usuarioBarbeiro.getNome().split(" ")[-1]);
+            userNovoCreate.setEmail(usuarioBarbeiro.getEmail());
+            userNovoCreate.setPassword(usuarioBarbeiro.getCredencial().getSenha());
+            userNovoCreate.setStatus("ativo");
+            UserDTO userAndVerifyEmail = keycloakService.createUserAndVerifyEmail(userNovoCreate);
+            usuarioBarbeiro = usuarioBarbeiroService.create(usuarioBarbeiro);
+        }catch (Exception error){
+            error.printStackTrace();
+        }
         return ResponseEntity.ok().body(usuarioBarbeiro);
     }
 

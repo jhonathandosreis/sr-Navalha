@@ -13,6 +13,10 @@ public class KeycloakConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        http.csrf().disable().authorizeRequests()
+                .anyRequest()
+                .permitAll();
+        /*
         http.cors().and()
                 .authorizeRequests()
                 .antMatchers(HttpMethod.POST,"/usuarios_barbeiros/**").permitAll()
@@ -30,7 +34,7 @@ public class KeycloakConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .csrf().disable()
                 .oauth2ResourceServer()
-                .jwt();
+                .jwt(); */
     }
 
 }
