@@ -42,7 +42,7 @@ public class UsuarioBarbeiroController {
             userNovoCreate.setEmail(usuarioBarbeiro.getEmail());
             userNovoCreate.setPassword(usuarioBarbeiro.getCredencial().getSenha());
             userNovoCreate.setStatus("ativo");
-            UserDTO userAndVerifyEmail = keycloakService.createUserAndVerifyEmail(userNovoCreate);
+            keycloakService.createUser(userNovoCreate);
             usuarioBarbeiro = usuarioBarbeiroService.create(usuarioBarbeiro);
         }catch (Exception error){
             error.printStackTrace();

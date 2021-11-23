@@ -5,6 +5,9 @@ import com.fabricasoftware.SrNavalha.dto.RealmRoleDTO;
 import com.fabricasoftware.SrNavalha.dto.ResponseMessage;
 import com.fabricasoftware.SrNavalha.dto.UserDTO;
 import com.fabricasoftware.SrNavalha.models.User;
+import com.fabricasoftware.SrNavalha.models.UsuarioCliente;
+import com.fabricasoftware.SrNavalha.repositories.UsuarioBarbeiroRepository;
+import com.fabricasoftware.SrNavalha.repositories.UsuarioClienteRepository;
 import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
 import org.keycloak.OAuth2Constants;
 import org.keycloak.admin.client.CreatedResponseUtil;
@@ -17,15 +20,13 @@ import org.keycloak.representations.idm.CredentialRepresentation;
 import org.keycloak.representations.idm.MappingsRepresentation;
 import org.keycloak.representations.idm.RoleRepresentation;
 import org.keycloak.representations.idm.UserRepresentation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import javax.ws.rs.NotFoundException;
 import javax.ws.rs.core.Response;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -33,6 +34,12 @@ public class KeycloakService {
 
     @Value("${keycloak.auth-server-url}")
     private String server_url;
+
+    @Autowired
+    private UsuarioBarbeiroService usuarioBarbeiroService;
+
+    @Autowired
+    private UsuarioClienteService usuarioClienteService;
 
     @Value("${keycloak.realm}")
     private String realm;
@@ -232,14 +239,35 @@ public class KeycloakService {
         try {
             RealmResource realmResource = getRealmResource();
             List<UserRepresentation> listUsers = realmResource.users().list();
-            return listUsers.stream().map(user -> {
+            List<UserDTO> listaBack = new ArrayList<>();
+
+            for (UserRepresentation user : listUsers) {
                 UserDTO userDto = new UserDTO();
+                UsuarioCliente userByEmail = usuarioClienteService.findClienteByEmail(user.getEmail());
+
                 userDto.setId(user.getId());
                 userDto.setFirstname(user.getFirstName());
                 userDto.setLastname(user.getLastName());
                 userDto.setEmail(user.getEmail());
-                return userDto;
-            }).collect(Collectors.toList());
+
+                if (userByEmail == null) {
+                    userDto.setTipo("barbeiro");
+                } else {
+//                    userDto.setPassword(userByEmail.getCredencial().getSenha());
+                    userDto.setTipo("cliente");
+                }
+                listaBack.add(userDto);
+            }
+            return listaBack;
+
+//            return listUsers.stream().map(user -> {
+//                UserDTO userDto = new UserDTO();
+//                userDto.setId(user.getId());
+//                userDto.setFirstname(user.getFirstName());
+//                userDto.setLastname(user.getLastName());
+//                userDto.setEmail(user.getEmail());
+//                return userDto;
+//            }).collect(Collectors.toList());
         } catch (Exception e) {
             throw new Exception("error list users keycloak" + e.getMessage());
 
@@ -248,23 +276,15 @@ public class KeycloakService {
 
     public UserDTO getUser(String userEmail) throws Exception {
         try {
-            RealmResource realmResource = getRealmResource();
-            List<UserRepresentation> listUsers = realmResource.users().list();
+            List<UserDTO> listUsers = getAllUsers();
             UserDTO userLocated = new UserDTO();
-
-            for (UserRepresentation user : listUsers) {
+            for (UserDTO user : listUsers) {
                 if (userEmail.equalsIgnoreCase(user.getEmail())) {
                     userLocated.setId(user.getId());
-                    userLocated.setFirstname(user.getFirstName());
-                    userLocated.setLastname(user.getLastName());
-                    userLocated.setEmail(user.getEmail()); /*
-                    System.out.println("User details: " + user.getRealmRoles().size());
-                    System.out.println("------------------");
-                    System.out.println("User details: " + user.getAccess().get("manageGroupMembership"));
-                    System.out.println("User details: " + user.getAccess().get("view"));
-                    System.out.println("User details: " + user.getAccess().get("mapRoles"));
-                    System.out.println("User details: " + user.getAccess().get("impersonate"));
-                    System.out.println("User details: " + user.getAccess().get("manage")); */
+                    userLocated.setFirstname(user.getFirstname());
+                    userLocated.setLastname(user.getLastname());
+                    userLocated.setTipo(user.getTipo());
+                    userLocated.setEmail(user.getEmail());
                 }
             }
             return userLocated;

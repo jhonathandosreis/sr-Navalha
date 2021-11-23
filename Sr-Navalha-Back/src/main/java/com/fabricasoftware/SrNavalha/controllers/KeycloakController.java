@@ -71,9 +71,13 @@ public class KeycloakController {
 
     @GetMapping("/userByEmail/{userEmail}")
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<UserDTO> getUser(@PathVariable String userEmail){
+    public ResponseEntity<UserDTO> getUser(@PathVariable String userEmail) {
         try {
-            return ResponseEntity.ok().body(keycloakService.getUser(userEmail));
+            UserDTO userDTO = keycloakService.getUser(userEmail);
+            if (userDTO.getId() != null) {
+                return ResponseEntity.ok().body(userDTO);
+            }
+            return ResponseEntity.notFound().build();
         } catch (Exception e) {
             e.printStackTrace();
         }

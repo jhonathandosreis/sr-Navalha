@@ -3,6 +3,8 @@ package com.fabricasoftware.SrNavalha.models;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -12,6 +14,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Entity
 @Table(name = "usuario_cliente")
+@ToString
 public class UsuarioCliente {
 
     @Id
