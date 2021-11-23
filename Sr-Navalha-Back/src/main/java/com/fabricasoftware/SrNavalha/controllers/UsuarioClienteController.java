@@ -1,6 +1,8 @@
 package com.fabricasoftware.SrNavalha.controllers;
 
+import com.fabricasoftware.SrNavalha.dto.UserDTO;
 import com.fabricasoftware.SrNavalha.models.UsuarioCliente;
+import com.fabricasoftware.SrNavalha.services.KeycloakService;
 import com.fabricasoftware.SrNavalha.services.UsuarioClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +19,9 @@ public class UsuarioClienteController {
     @Autowired
     private UsuarioClienteService usuarioClienteService;
 
+    @Autowired
+    private KeycloakService keycloakService;
+
     @GetMapping
     public ResponseEntity<List<UsuarioCliente>> findAll() {
         List<UsuarioCliente> list = usuarioClienteService.findAll();
@@ -32,6 +37,19 @@ public class UsuarioClienteController {
     @PostMapping
     @Transactional
     public ResponseEntity<UsuarioCliente> create(@RequestBody UsuarioCliente usuarioCliente) {
+
+        try{
+            UserDTO userNovoCreate = new UserDTO();
+            userNovoCreate.setFirstname(usuarioCliente.getNome().split(" ")[0]);
+            userNovoCreate.setLastname(usuarioCliente.getNome().split(" ")[-1]);
+            userNovoCreate.setEmail(usuarioCliente.getEmail());
+            userNovoCreate.setPassword(usuarioCliente.getCredencial().getSenha());
+            userNovoCreate.setStatus("ativo");
+            usuarioCliente = usuarioClienteService.create(usuarioCliente);
+            keycloakService.createUser(userNovoCreate);
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
         usuarioCliente = usuarioClienteService.create(usuarioCliente);
         return ResponseEntity.ok().body(usuarioCliente);
     }

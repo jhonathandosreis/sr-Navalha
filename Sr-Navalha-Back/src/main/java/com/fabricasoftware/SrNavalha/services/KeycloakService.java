@@ -63,7 +63,7 @@ public class KeycloakService {
             user.setFirstName(userDTO.getFirstname());
             user.setLastName(userDTO.getLastname());
             user.setEmail(userDTO.getEmail());
-            user.setEmailVerified(true); //set mail verified, optional.
+            user.setEmailVerified(true);
             Response response = usersResource.create(user);
             userDTO.setStatusCode(response.getStatus());
 
