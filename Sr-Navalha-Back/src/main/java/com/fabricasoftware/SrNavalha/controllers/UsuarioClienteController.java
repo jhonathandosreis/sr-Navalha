@@ -41,7 +41,7 @@ public class UsuarioClienteController {
         try{
             UserDTO userNovoCreate = new UserDTO();
             userNovoCreate.setFirstname(usuarioCliente.getNome().split(" ")[0]);
-            userNovoCreate.setLastname(usuarioCliente.getNome().split(" ")[-1]);
+            userNovoCreate.setLastname(usuarioCliente.getNome().split(" ")[0]);
             userNovoCreate.setEmail(usuarioCliente.getEmail());
             userNovoCreate.setPassword(usuarioCliente.getCredencial().getSenha());
             userNovoCreate.setStatus("ativo");
