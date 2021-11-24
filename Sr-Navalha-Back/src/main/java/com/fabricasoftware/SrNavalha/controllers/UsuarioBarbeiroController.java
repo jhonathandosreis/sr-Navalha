@@ -38,7 +38,7 @@ public class UsuarioBarbeiroController {
         try {
             UserDTO userNovoCreate = new UserDTO();
             userNovoCreate.setFirstname(usuarioBarbeiro.getNome().split(" ")[0]);
-            userNovoCreate.setLastname(usuarioBarbeiro.getNome().split(" ")[-1]);
+            userNovoCreate.setLastname(usuarioBarbeiro.getNome().split(" ")[0]);
             userNovoCreate.setEmail(usuarioBarbeiro.getEmail());
             userNovoCreate.setPassword(usuarioBarbeiro.getCredencial().getSenha());
             userNovoCreate.setStatus("ativo");
