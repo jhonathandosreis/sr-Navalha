@@ -43,7 +43,7 @@ public class UsuarioClienteController {
             userNovoCreate.setFirstname(usuarioCliente.getNome().split(" ")[0]);
             userNovoCreate.setLastname(usuarioCliente.getNome().split(" ")[0]);
             userNovoCreate.setEmail(usuarioCliente.getEmail());
-            userNovoCreate.setPassword(usuarioCliente.getCredencial().getSenha());
+            userNovoCreate.setPassword("1234");
             userNovoCreate.setStatus("ativo");
             usuarioCliente = usuarioClienteService.create(usuarioCliente);
             keycloakService.createUser(userNovoCreate);

@@ -40,7 +40,7 @@ public class UsuarioBarbeiroController {
             userNovoCreate.setFirstname(usuarioBarbeiro.getNome().split(" ")[0]);
             userNovoCreate.setLastname(usuarioBarbeiro.getNome().split(" ")[0]);
             userNovoCreate.setEmail(usuarioBarbeiro.getEmail());
-            userNovoCreate.setPassword(usuarioBarbeiro.getCredencial().getSenha());
+            userNovoCreate.setPassword("1234");
             userNovoCreate.setStatus("ativo");
             keycloakService.createUser(userNovoCreate);
             usuarioBarbeiro = usuarioBarbeiroService.create(usuarioBarbeiro);
