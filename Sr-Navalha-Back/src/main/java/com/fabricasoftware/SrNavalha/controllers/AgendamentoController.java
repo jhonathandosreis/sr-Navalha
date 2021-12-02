@@ -52,15 +52,23 @@ public class AgendamentoController {
     }
 
     @GetMapping("/cliente/{emailCliente}")
-    public List<Agendamento> filterByEmailCliente(@PathVariable String emailCliente) {
-        List<Agendamento> agendamento = agendamentoService.filterByEmailCliente(emailCliente);
-        return agendamento;
+    public ResponseEntity<List<Agendamento>> filterByEmailCliente(@PathVariable String emailCliente) {
+        try {
+            List<Agendamento> agendamento = agendamentoService.filterByEmailCliente(emailCliente);
+            return ResponseEntity.ok().body(agendamento);
+        } catch (Exception erro) {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @GetMapping("/barbeiro/{emailBarbeiro}")
-    public List<Agendamento> filterByEmailBarbeiro(@PathVariable String emailBarbeiro) {
-        List<Agendamento> agendamento = agendamentoService.filterByEmailBarbeiro(emailBarbeiro);
-        return agendamento;
+    public ResponseEntity<List<Agendamento>> filterByEmailBarbeiro(@PathVariable String emailBarbeiro) {
+        try {
+            List<Agendamento> agendamento = agendamentoService.filterByEmailBarbeiro(emailBarbeiro);
+            return ResponseEntity.ok().body(agendamento);
+        } catch (Exception erro) {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @DeleteMapping(value = "/{id}")

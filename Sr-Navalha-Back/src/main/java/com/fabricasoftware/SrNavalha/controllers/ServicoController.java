@@ -23,6 +23,7 @@ public class ServicoController {
     @GetMapping(value = "/{id}")
     public ResponseEntity<Servico> getServicoById(@PathVariable Long id) {
         Optional<Servico> servicoId = servicoService.getServicoById(id);
+
         if (servicoId.isPresent()) {
             return new ResponseEntity<Servico>(servicoId.get(), HttpStatus.OK);
         } else {
@@ -49,8 +50,12 @@ public class ServicoController {
     }
 
     @GetMapping("/barbeiro/email/{emailBarbeiro}")
-    public List<Servico> filterServicoByEmail(@PathVariable String emailBarbeiro) {
-        return servicoService.filterServicoByEmail(emailBarbeiro);
+    public ResponseEntity<List<Servico>> filterServicoByEmail(@PathVariable String emailBarbeiro) {
+        try {
+            return ResponseEntity.ok().body(servicoService.filterServicoByEmail(emailBarbeiro));
+        } catch (Exception erro) {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @PostMapping
