@@ -51,20 +51,26 @@ public class AgendamentoController {
         return new ResponseEntity(agendamentoService.update(updateAgendamento), HttpStatus.OK);
     }
 
-    @GetMapping("/cliente/{emailCliente}")
-    public ResponseEntity<List<Agendamento>> filterByEmailCliente(@PathVariable String emailCliente) {
+    @GetMapping("/cliente")
+    public ResponseEntity<List<Agendamento>> filterByEmailCliente(@RequestParam String email) {
         try {
-            List<Agendamento> agendamento = agendamentoService.filterByEmailCliente(emailCliente);
+            List<Agendamento> agendamento = agendamentoService.filterByEmailCliente(email);
+            if (agendamento.size() == 0) {
+                return ResponseEntity.notFound().build();
+            }
             return ResponseEntity.ok().body(agendamento);
         } catch (Exception erro) {
             return ResponseEntity.notFound().build();
         }
     }
 
-    @GetMapping("/barbeiro/{emailBarbeiro}")
-    public ResponseEntity<List<Agendamento>> filterByEmailBarbeiro(@PathVariable String emailBarbeiro) {
+    @GetMapping("/barbeiro")
+    public ResponseEntity<List<Agendamento>> filterByEmailBarbeiro(@RequestParam String email) {
         try {
-            List<Agendamento> agendamento = agendamentoService.filterByEmailBarbeiro(emailBarbeiro);
+            List<Agendamento> agendamento = agendamentoService.filterByEmailBarbeiro(email);
+            if (agendamento.size() == 0) {
+                return ResponseEntity.notFound().build();
+            }
             return ResponseEntity.ok().body(agendamento);
         } catch (Exception erro) {
             return ResponseEntity.notFound().build();

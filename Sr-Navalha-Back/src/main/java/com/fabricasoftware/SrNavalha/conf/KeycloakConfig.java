@@ -1,12 +1,8 @@
 package com.fabricasoftware.SrNavalha.conf;
 
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-
-import java.lang.invoke.MethodHandle;
-import java.lang.reflect.Method;
 
 @EnableWebSecurity
 public class KeycloakConfig extends WebSecurityConfigurerAdapter {

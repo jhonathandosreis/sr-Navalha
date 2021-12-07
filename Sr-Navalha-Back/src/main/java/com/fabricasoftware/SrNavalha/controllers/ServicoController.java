@@ -1,9 +1,7 @@
 package com.fabricasoftware.SrNavalha.controllers;
 
 import com.fabricasoftware.SrNavalha.models.Servico;
-import com.fabricasoftware.SrNavalha.models.UsuarioBarbeiro;
 import com.fabricasoftware.SrNavalha.services.ServicoService;
-import com.fabricasoftware.SrNavalha.services.UsuarioBarbeiroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -49,10 +47,13 @@ public class ServicoController {
         return servico;
     }
 
-    @GetMapping("/barbeiro/email/{emailBarbeiro}")
-    public ResponseEntity<List<Servico>> filterServicoByEmail(@PathVariable String emailBarbeiro) {
+    @GetMapping("/barbeiro")
+    public ResponseEntity<List<Servico>> filterServicoByEmail(@RequestParam String email) {
         try {
-            return ResponseEntity.ok().body(servicoService.filterServicoByEmail(emailBarbeiro));
+            if (servicoService.filterServicoByEmail(email).size() == 0) {
+                return ResponseEntity.notFound().build();
+            }
+            return ResponseEntity.ok().body(servicoService.filterServicoByEmail(email));
         } catch (Exception erro) {
             return ResponseEntity.notFound().build();
         }
