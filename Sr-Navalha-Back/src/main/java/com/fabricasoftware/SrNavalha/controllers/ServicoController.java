@@ -47,8 +47,8 @@ public class ServicoController {
         return servico;
     }
 
-    @GetMapping("/barbeiro")
-    public ResponseEntity<List<Servico>> filterServicoByEmail(@RequestParam String email) {
+    @GetMapping("/barbeiro/email/{email}")
+    public ResponseEntity<List<Servico>> filterServicoByEmail(@PathVariable String email) {
         try {
             if (servicoService.filterServicoByEmail(email).size() == 0) {
                 return ResponseEntity.notFound().build();

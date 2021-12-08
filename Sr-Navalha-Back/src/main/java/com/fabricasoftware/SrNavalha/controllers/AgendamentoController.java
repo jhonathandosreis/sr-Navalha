@@ -51,8 +51,8 @@ public class AgendamentoController {
         return new ResponseEntity(agendamentoService.update(updateAgendamento), HttpStatus.OK);
     }
 
-    @GetMapping("/cliente")
-    public ResponseEntity<List<Agendamento>> filterByEmailCliente(@RequestParam String email) {
+    @GetMapping("/cliente/email/{email}")
+    public ResponseEntity<List<Agendamento>> filterByEmailCliente(@PathVariable String email) {
         try {
             List<Agendamento> agendamento = agendamentoService.filterByEmailCliente(email);
             if (agendamento.size() == 0) {
@@ -64,8 +64,8 @@ public class AgendamentoController {
         }
     }
 
-    @GetMapping("/barbeiro")
-    public ResponseEntity<List<Agendamento>> filterByEmailBarbeiro(@RequestParam String email) {
+    @GetMapping("/barbeiro/email/{email}")
+    public ResponseEntity<List<Agendamento>> filterByEmailBarbeiro(@PathVariable String email) {
         try {
             List<Agendamento> agendamento = agendamentoService.filterByEmailBarbeiro(email);
             if (agendamento.size() == 0) {
